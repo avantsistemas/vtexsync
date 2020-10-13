@@ -1,0 +1,55 @@
+require:
+  - rubocop-rails
+  - rubocop-rspec
+  - rubocop-performance
+
+# Ruby (https://github.com/rubocop-hq/ruby-style-guide)
+# Rails (https://github.com/rubocop-hq/rails-style-guide)
+# RSpec (https://github.com/rubocop-hq/rspec-style-guide)
+
+AllCops:
+  NewCops: enable
+
+  Exclude:
+    - bin/*
+    - db/schema.rb
+
+Style/AsciiComments:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Layout/LineLength:
+  Max: 120 # default: 80
+
+Metrics/AbcSize:
+  Exclude:
+    - /**/*_spec.rb
+    - config/**/*.rb
+    - db/migrate/*.rb
+
+Metrics/MethodLength:
+  Max: 15 # default 10
+  Exclude:
+    - /**/*.rake
+    - /**/*_spec.rb
+    - config/**/*.rb
+    - db/migrate/*.rb
+
+Metrics/BlockLength:
+  Exclude:
+    - /**/*.rake
+    - /**/*_spec.rb
+    - config/**/*.rb
+    - db/migrate/*.rb
+    - spec/factories/*.rb
+
+RSpec/ImplicitExpect:
+  EnforcedStyle: should
+
+RSpec/ExampleLength:
+  Enabled: false
