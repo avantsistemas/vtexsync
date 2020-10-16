@@ -10,14 +10,14 @@ module Vtex
 
       # https://developers.vtex.com/reference/orders#getorder
       def get_order(order_id)
-        http.get("/api/oms/pvt/orders/#{order_id}")
+        parse_response http.get("/api/oms/pvt/orders/#{order_id}")
       end
 
       def list_orders(creation_date_range:, params: {})
-        creation_date_begin = creation_date_range.begin.as_json
-        creation_date_end = creation_date_range.end.as_json
+        creation_date_begin = creation_date_range.begin.utc.as_json
+        creation_date_end = creation_date_range.end.utc.as_json
         params[:f_creationDate] = "creationDate:[#{creation_date_begin} TO #{creation_date_end}]"
-        http.get('/api/oms/pvt/orders', params: params)
+        parse_response http.get('/api/oms/pvt/orders', params: params)
       end
 
       private
@@ -32,6 +32,28 @@ module Vtex
 
       def vtex_api_base_url
         "https://#{@account_name}.#{@environment}.com.br"
+      end
+
+      def parse_response(response)
+        raise_http_request_error(response) unless response.status.ok?
+        log_response(response)
+        response.parse
+      end
+
+      def log_response(response)
+        Rails.logger.debug { "#{response.uri} => #{response.status} #{response.body}" }
+      end
+
+      def raise_http_request_error(response)
+        raise HTTP::RequestError, "#{response.uri} => #{response.status} #{response.body} (#{response.headers.to_h})"
+      end
+    end
+
+    class Pagination
+      def initialize(http, path, params)
+        @http = http
+        @path = path
+        @params = params
       end
     end
   end

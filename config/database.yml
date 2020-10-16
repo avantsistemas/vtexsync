@@ -19,14 +19,14 @@ default: &default
 
 development:
   <<: *default
-  database: bioextratus_vtexsync_development
+  database: vtexsync_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: bioextratus_vtexsync_test
+  database: vtexsync_test
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -49,6 +49,6 @@ test:
 #
 production:
   <<: *default
-  database: bioextratus_vtexsync_production
-  username: bioextratus_vtexsync
-  password: <%= ENV['BIOEXTRATUS_VTEXSYNC_DATABASE_PASSWORD'] %>
+  database: vtexsync_production
+  username: vtexsync
+  password: <%= ENV['VTEXSYNC_DATABASE_PASSWORD'] %>
