@@ -3,6 +3,7 @@ class CreateVtexOrders < ActiveRecord::Migration[6.0]
     create_table :vtex_orders do |t|
       t.string :vtex_code
       t.integer :sequence
+      t.string :origin
       t.string :status
       t.string :status_description
       t.decimal :value, precision: 8, scale: 2

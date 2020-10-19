@@ -19,6 +19,8 @@ module Synchronizable
     remap_attributes!(attributes)
     underscore_attributes!(attributes)
     assign_attributes(attributes)
+    # TODO: definir callback do ActiveSupport?
+    after_sync_attributes
   end
 
   private
@@ -36,4 +38,6 @@ module Synchronizable
   def underscore_attributes!(attributes)
     attributes.transform_keys!(&:underscore)
   end
+
+  def after_sync_attributes; end
 end
