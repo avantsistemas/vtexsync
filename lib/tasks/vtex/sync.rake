@@ -24,9 +24,10 @@ namespace :vtex do
 
     while page.next?
       result = page.next
-      result['list'].each do |order_attributes|
-        order_id = order_attributes['orderId']
-        Vtex::Sync::Order.new(api_client).sync(order_id)
+      result['list'].each do |list_order_attributes|
+        order_id = list_order_attributes['orderId']
+        order_attributes = api_client.get_order(order_id)
+        Vtex::Sync::Order.new(order_attributes).sync
         processed_orders_count += 1
       end
     end

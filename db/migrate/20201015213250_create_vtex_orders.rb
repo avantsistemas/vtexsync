@@ -10,6 +10,8 @@ class CreateVtexOrders < ActiveRecord::Migration[6.0]
       t.datetime :last_change
 
       t.timestamps
+
+      t.index :vtex_code, unique: true
     end
   end
 end

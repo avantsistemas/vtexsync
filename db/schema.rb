@@ -10,9 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_15_213250) do
+ActiveRecord::Schema.define(version: 2020_10_19_120024) do
+
+  create_table "vtex_clients", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "vtex_code"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "document_type"
+    t.string "document"
+    t.string "email"
+    t.string "phone"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["vtex_code"], name: "index_vtex_clients_on_vtex_code", unique: true
+  end
 
   create_table "vtex_orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.bigint "client_id", null: false
     t.string "vtex_code"
     t.integer "sequence"
     t.string "status"
@@ -22,6 +36,9 @@ ActiveRecord::Schema.define(version: 2020_10_15_213250) do
     t.datetime "last_change"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["client_id"], name: "index_vtex_orders_on_client_id"
+    t.index ["vtex_code"], name: "index_vtex_orders_on_vtex_code", unique: true
   end
 
+  add_foreign_key "vtex_orders", "vtex_clients", column: "client_id"
 end

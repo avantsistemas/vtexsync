@@ -3,36 +3,47 @@ module Vtex
     class Order
       delegate :logger, to: Rails
 
-      def initialize(api_client)
-        @api_client = api_client
+      def initialize(order_attributes)
+        @order_attributes = order_attributes
       end
 
-      def sync(vtex_order_id)
+      def sync
         logger.tagged(vtex_order_id) do
-          vtex_order = get_order_attributes_and_sync(vtex_order_id)
-          log_what_will_be_done(vtex_order)
+          find_or_initialize_vtex_order.tap do |vtex_order|
+            vtex_order.sync_attributes(order_attributes)
+            log_what_will_be_done(vtex_order)
 
-          if vtex_order.changed?
-            # sync_dependencies(vtex_order)
-            vtex_order.save!
+            if vtex_order.changed?
+              sync_dependencies(vtex_order)
+              vtex_order.save!
+            end
           end
         end
       end
 
       private
 
-      def get_order_attributes_and_sync(vtex_order_id)
-        order_attributes = get_order_attributes(vtex_order_id)
-        vtex_order = find_or_initialize_vtex_order(vtex_order_id)
-        vtex_order.tap { vtex_order.sync_attributes(order_attributes) }
+      attr_reader :order_attributes
+
+      def vtex_order_id
+        order_attributes['orderId']
       end
 
-      def get_order_attributes(vtex_order_id)
-        @api_client.get_order(vtex_order_id)
+      def client_attributes
+        order_attributes['clientProfileData']
       end
 
-      def find_or_initialize_vtex_order(vtex_order_id)
+      def find_or_initialize_vtex_order
         Vtex::Order.find_or_initialize_by vtex_code: vtex_order_id
+      end
+
+      def sync_dependencies(vtex_order)
+        sync_client(vtex_order)
+      end
+
+      def sync_client(vtex_order)
+        client = Vtex::Sync::Client.new(client_attributes).sync
+        vtex_order.client = client
       end
 
       def log_what_will_be_done(vtex_order)

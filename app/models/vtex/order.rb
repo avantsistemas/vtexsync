@@ -2,6 +2,8 @@ module Vtex
   class Order < ApplicationRecord
     include Synchronizable
 
+    belongs_to :client
+
     sync_attributes :orderId, :sequence, :status, :statusDescription, :value, :creationDate, :lastChange
     remap_attributes orderId: :vtex_code, value: :value_in_cents
 
