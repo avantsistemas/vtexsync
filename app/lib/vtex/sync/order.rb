@@ -2,7 +2,7 @@ module Vtex
   module Sync
     class Order
       include Dependencies
-      # include Dependents
+      include Dependents
       include Logger
 
       def initialize(order_attributes)
@@ -14,7 +14,7 @@ module Vtex
           vtex_order = find_or_initialize_vtex_order
 
           sync_dependencies(vtex_order)
-          # sync_dependents(vtex_order)
+          sync_dependents(vtex_order)
           sync_attributes(vtex_order)
 
           log_what_will_be_synced(vtex_order)

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_19_173253) do
+ActiveRecord::Schema.define(version: 2020_10_19_210537) do
 
   create_table "vtex_addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "city_id", null: false
@@ -76,6 +76,19 @@ ActiveRecord::Schema.define(version: 2020_10_19_173253) do
     t.index ["client_id"], name: "index_vtex_orders_on_client_id"
     t.index ["shipping_address_id"], name: "index_vtex_orders_on_shipping_address_id"
     t.index ["vtex_code"], name: "index_vtex_orders_on_vtex_code", unique: true
+  end
+
+  create_table "vtex_products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "vtex_code"
+    t.string "name"
+    t.string "sku_name"
+    t.string "ref_code"
+    t.string "ean"
+    t.string "image_url"
+    t.string "detail_url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["vtex_code"], name: "index_vtex_products_on_vtex_code", unique: true
   end
 
   create_table "vtex_states", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
