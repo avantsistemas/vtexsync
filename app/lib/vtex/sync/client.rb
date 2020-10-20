@@ -7,13 +7,13 @@ module Vtex
         @client_attributes = client_attributes
       end
 
-      def sync
+      def sync(save: true)
         client = find_or_initialize_vtex_client
         client.sync_attributes(client_attributes)
 
         log_what_will_be_synced(client)
 
-        client.save! if client.changed?
+        client.save! if save && client.changed?
         client
       end
 
@@ -21,12 +21,12 @@ module Vtex
 
       attr_reader :client_attributes
 
-      def vtex_user_profile_id
-        client_attributes['userProfileId']
-      end
-
       def find_or_initialize_vtex_client
         Vtex::Client.find_or_initialize_by vtex_code: vtex_user_profile_id
+      end
+
+      def vtex_user_profile_id
+        client_attributes['userProfileId']
       end
     end
   end

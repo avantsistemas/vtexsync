@@ -7,13 +7,13 @@ module Vtex
         @address_attributes = addresss_attributes
       end
 
-      def sync
+      def sync(save: true)
         address = find_or_initialize_vtex_address
         address.sync_attributes(address_attributes)
 
         log_what_will_be_synced(address)
 
-        address.save! if address.changed?
+        address.save! if save && address.changed?
         address
       end
 
@@ -21,12 +21,12 @@ module Vtex
 
       attr_reader :address_attributes
 
-      def vtex_address_id
-        address_attributes['addressId']
-      end
-
       def find_or_initialize_vtex_address
         Vtex::Address.find_or_initialize_by vtex_code: vtex_address_id
+      end
+
+      def vtex_address_id
+        address_attributes['addressId']
       end
     end
   end

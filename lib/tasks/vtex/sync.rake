@@ -9,10 +9,14 @@ namespace :vtex do
     api_client = Vtex::Api::Client.new(account_name: account_name, environment: environment,
                                        app_token: app_token, app_key: app_key)
 
-    creation_date_range = 1.hour.ago..Time.current
+    # creation_date_from = Vtex::Order.maximum(:creation_date) || Time.current.at_beginning_of_year
+    # creation_date_from = 1.day.ago if creation_date_from > 1.month.ago
+    creation_date_from = 1.hour.ago
+
+    creation_date_range = creation_date_from..Time.current
 
     http_client_method_arguments = { creation_date_range: creation_date_range,
-                                     params: { orderBy: 'creationDate,asc' } }
+                                     params: { orderBy: 'creationDate,asc', per_page: 100 } }
 
     Rails.logger.info "Listando pedidos cadastrados no período #{creation_date_range}"
     processed_orders_count = 0

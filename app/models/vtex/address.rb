@@ -6,7 +6,10 @@ module Vtex
 
     sync_attributes :addressId, :addressType, :receiverName, :postalCode, :city, :state, :country,
                     :street, :number, :neighborhood, :complement, :reference, :geoCoordinates
-    remap_attributes addressId: :vtex_code, city: :city_name, state: :state_acronym,
+
+    remap_attributes addressId: :vtex_code,
+                     city: :city_name,
+                     state: :state_acronym,
                      country: :country_acronym
 
     attr_accessor :country_acronym, :state_acronym, :city_name

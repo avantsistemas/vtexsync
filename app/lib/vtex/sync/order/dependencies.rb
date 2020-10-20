@@ -4,17 +4,17 @@ module Vtex
       module Dependencies
         private
 
-        def sync_dependencies(vtex_order)
-          sync_client(vtex_order)
-          sync_shipping_address(vtex_order)
+        def sync_dependencies
+          sync_client
+          sync_shipping_address
         end
 
-        def sync_client(vtex_order)
+        def sync_client
           vtex_client = Vtex::Sync::Client.new(client_attributes).sync
           vtex_order.client = vtex_client
         end
 
-        def sync_shipping_address(vtex_order)
+        def sync_shipping_address
           vtex_address = Vtex::Sync::Address.new(shipping_address_attributes).sync
           vtex_order.shipping_address = vtex_address
         end

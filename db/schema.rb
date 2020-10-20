@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_19_210537) do
+ActiveRecord::Schema.define(version: 2020_10_20_203006) do
 
   create_table "vtex_addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "city_id", null: false
@@ -60,6 +60,19 @@ ActiveRecord::Schema.define(version: 2020_10_19_210537) do
     t.index ["acronym"], name: "index_vtex_countries_on_acronym", unique: true
   end
 
+  create_table "vtex_order_items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.bigint "order_id", null: false
+    t.bigint "product_id", null: false
+    t.string "vtex_code"
+    t.integer "quantity"
+    t.decimal "price", precision: 8, scale: 2
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["order_id"], name: "index_vtex_order_items_on_order_id"
+    t.index ["product_id"], name: "index_vtex_order_items_on_product_id"
+    t.index ["vtex_code"], name: "index_vtex_order_items_on_vtex_code", unique: true
+  end
+
   create_table "vtex_orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "client_id", null: false
     t.bigint "shipping_address_id", null: false
@@ -102,6 +115,8 @@ ActiveRecord::Schema.define(version: 2020_10_19_210537) do
 
   add_foreign_key "vtex_addresses", "vtex_cities", column: "city_id"
   add_foreign_key "vtex_cities", "vtex_states", column: "state_id"
+  add_foreign_key "vtex_order_items", "vtex_orders", column: "order_id"
+  add_foreign_key "vtex_order_items", "vtex_products", column: "product_id"
   add_foreign_key "vtex_orders", "vtex_addresses", column: "shipping_address_id"
   add_foreign_key "vtex_orders", "vtex_clients", column: "client_id"
   add_foreign_key "vtex_states", "vtex_countries", column: "country_id"
