@@ -16,12 +16,14 @@ module Vtex
       def log_model_will_be_created(model)
         model_name = model.model_name.human.downcase
         attributes = model.attributes.except('id', 'created_at', 'updated_at')
-        logger.info "#{model_name} será cadastrado(a) #{attributes.as_json}"
+        message = ActiveSupport::LogSubscriber.new.send(:color, "#{model_name} será cadastrado(a)", :green)
+        logger.info "#{message} #{attributes.as_json}"
       end
 
       def log_model_will_be_updated(model)
         model_name = model.model_name.human.downcase
-        logger.info "#{model_name} será atualizado(a) #{model.changes.as_json}"
+        message = ActiveSupport::LogSubscriber.new.send(:color, "#{model_name} será atualizado(a)", :yellow)
+        logger.info "#{message} #{model.changes.as_json}"
       end
 
       def log_model_already_synced(model)
