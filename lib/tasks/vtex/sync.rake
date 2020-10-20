@@ -3,10 +3,8 @@ namespace :vtex do
     account_name = 'bioextratusvirtual'
     environment = 'vtexcommercestable'
 
-    app_token = 'WEWDEGDSXYFMEJPUPLIKWGMGVXAJKEWPIBUIPIVBNMLCSQPJFHIFOFLPSPHHFUHT' \
-                'BPDDPHFGPGWJVJOFIQDDVRBDPEPAAOWSESACMLUYBBPHIBUIACYPREXKOANKRFFB'
-
-    app_key = 'vtexappkey-bioextratusvirtual-EBQXOV'
+    app_token = Rails.application.credentials.vtex[:bioextratus][:app_token]
+    app_key = Rails.application.credentials.vtex[:bioextratus][:app_key]
 
     api_client = Vtex::Api::Client.new(account_name: account_name, environment: environment,
                                        app_token: app_token, app_key: app_key)
