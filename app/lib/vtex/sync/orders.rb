@@ -28,20 +28,22 @@ module Vtex
 
       private
 
-      attr_reader :api_client
+      attr_reader :api_client, :last_vtex_order
 
       def navigate_through_pages_and_sync_orders(api_page)
-        while api_page.next?
+        while api_page.next? && !api_page.limit_reached?
           page_result = api_page.next
           log_page_info(page_result)
           sync_orders(page_result['list'])
         end
+
+        log_limit_reached and start_a_new_sync if api_page.limit_reached?
       end
 
       def sync_orders(orders_attributes)
         orders_attributes.each do |order_attributes|
           logger.tagged(order_attributes['orderId']) do
-            sync_order_if_needed(order_attributes)
+            @last_vtex_order = sync_order_if_needed(order_attributes)
             @processed_orders += 1
           end
         end
@@ -58,11 +60,19 @@ module Vtex
         else
           Logger.log_model_already_synced(vtex_order)
         end
+
+        vtex_order
       end
 
       def full_order_sync(vtex_order_id)
         complete_order_attributes = api_client.get_order(vtex_order_id)
         Vtex::Sync::Models::Order.new(complete_order_attributes).sync
+      end
+
+      def start_a_new_sync
+        since = last_vtex_order.creation_date + 1.second
+        orders_sync = Orders.new(api_client).sync(since: since)
+        @processed_orders += orders_sync.processed_orders
       end
 
       def last_synced_order_creation_date
@@ -77,6 +87,12 @@ module Vtex
         message = Logger.colorful_message "Página atual: #{current_page}; Total de páginas: #{pages_count}; " \
                                           "Total de pedidos: #{orders_count}", :blue
 
+        logger.info message
+      end
+
+      def log_limit_reached
+        message = Logger.colorful_message("Limite de #{Vtex::Api::Page::VTEX_PAGINATION_LIMIT} páginas " \
+                                          'atingido. Uma nova sincronização será iniciada', :cyan)
         logger.info message
       end
     end

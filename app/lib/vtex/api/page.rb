@@ -1,6 +1,8 @@
 module Vtex
   module Api
     class Page
+      VTEX_PAGINATION_LIMIT = 30
+
       def self.paginate(api_client:, client_method:, method_args:)
         new(api_client: api_client,
             client_method: client_method,
@@ -17,6 +19,15 @@ module Vtex
         next_page if client_method_called?
 
         @result = call_client_method
+      end
+
+      def limit_reached?
+        return false unless @result
+
+        current_page = @result['paging']['currentPage']
+        pages_count = @result['paging']['pages']
+
+        current_page == VTEX_PAGINATION_LIMIT && current_page < pages_count
       end
 
       private
