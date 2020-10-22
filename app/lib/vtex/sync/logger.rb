@@ -14,8 +14,6 @@ module Vtex
           end
         end
 
-        private
-
         def log_model_will_be_created(model)
           attributes = model.attributes.except('id', 'created_at', 'updated_at')
           message = colorful_message("#{model.model_name.singular} será cadastrado(a)", :green, true)
@@ -30,6 +28,8 @@ module Vtex
         def log_model_already_synced(model)
           logger.debug { colorful_message("#{model.inspectid} já está atualizado(a)", :black, true) }
         end
+
+        private
 
         def colorful_message(message, color, bold = false)
           ActiveSupport::LogSubscriber.new.send(:color, message, color, bold)
