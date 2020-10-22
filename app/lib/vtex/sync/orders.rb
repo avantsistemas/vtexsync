@@ -9,9 +9,11 @@ module Vtex
         @processed_orders = 0
       end
 
-      def sync(since: nil)
-        sync_orders_since = since || last_synced_order_creation_date
-        sync_orders_period = sync_orders_since..Time.current
+      def sync(from: nil, to: Time.current)
+        @to = to
+
+        sync_orders_from = from || last_synced_order_creation_date
+        sync_orders_period = sync_orders_from..to
 
         api_client_method_arguments = { creation_date_range: sync_orders_period,
                                         params: { orderBy: 'creationDate,asc',
@@ -70,8 +72,8 @@ module Vtex
       end
 
       def start_a_new_sync
-        since = last_vtex_order.creation_date + 1.second
-        orders_sync = Orders.new(api_client).sync(since: since)
+        from = last_vtex_order.creation_date + 1.second
+        orders_sync = Orders.new(api_client).sync(from: from, to: @to)
         @processed_orders += orders_sync.processed_orders
       end
 
