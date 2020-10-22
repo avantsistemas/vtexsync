@@ -16,7 +16,8 @@ namespace :vtex do
     creation_date_range = creation_date_from..Time.current
 
     http_client_method_arguments = { creation_date_range: creation_date_range,
-                                     params: { orderBy: 'creationDate,asc', per_page: 100 } }
+                                     params: { orderBy: 'creationDate,asc',
+                                               per_page: 100_000 } }
 
     Rails.logger.info "Listando pedidos cadastrados no período #{creation_date_range}"
     processed_orders_count = 0
@@ -28,9 +29,19 @@ namespace :vtex do
       result = page.next
       result['list'].each do |list_order_attributes|
         order_id = list_order_attributes['orderId']
-        order_attributes = api_client.get_order(order_id)
-        Vtex::Sync::Order.new(order_attributes).sync
-        processed_orders_count += 1
+        Rails.logger.tagged(order_id) do
+          vtex_order = Vtex::Order.find_or_initialize_by vtex_code: order_id
+          vtex_order.sync_attributes(list_order_attributes)
+
+          if vtex_order.new_record? || vtex_order.changed?
+            order_attributes = api_client.get_order(order_id)
+            Vtex::Sync::Order.new(order_attributes).sync
+          else
+            Rails.logger.debug { "#{vtex_order.inspectid} não precisa ser sincronizado(a)" }
+          end
+
+          processed_orders_count += 1
+        end
       end
     end
 

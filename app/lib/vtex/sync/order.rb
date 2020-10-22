@@ -10,18 +10,16 @@ module Vtex
       end
 
       def sync(save: true)
-        logger.tagged(vtex_order_id) do
-          load_vtex_order
+        load_vtex_order
 
-          sync_dependencies
-          sync_dependents
-          sync_attributes
+        sync_dependencies
+        sync_dependents
+        sync_attributes
 
-          log_what_will_be_synced(vtex_order)
+        log_what_will_be_synced(vtex_order)
 
-          vtex_order.save! if save && vtex_order.changed?
-          vtex_order
-        end
+        vtex_order.save! if save && vtex_order.changed?
+        vtex_order
       end
 
       private
