@@ -58,3 +58,7 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 # Biblioteca HTTP
 # https://github.com/httprb/http
 gem 'http'
+
+# Versionamento dos models
+# https://github.com/paper-trail-gem/paper_trail
+gem 'paper_trail'

@@ -1,6 +1,7 @@
 module Vtex
   class Address < ApplicationRecord
     include Synchronizable
+    has_paper_trail
 
     belongs_to :city
 

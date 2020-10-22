@@ -1,6 +1,7 @@
 module Vtex
   class Product < ApplicationRecord
     include Synchronizable
+    has_paper_trail
 
     sync_attributes :ProductId, :Name, :SkuName, :RefId, :Ean, :ImageUrl, :DetailUrl
 

@@ -1,6 +1,7 @@
 module Vtex
   class OrderItem < ApplicationRecord
     include Synchronizable
+    has_paper_trail
 
     belongs_to :order
     belongs_to :product

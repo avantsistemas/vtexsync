@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_20_203006) do
+ActiveRecord::Schema.define(version: 2020_10_22_193957) do
+
+  create_table "versions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "item_type", null: false
+    t.bigint "item_id", null: false
+    t.string "event", null: false
+    t.string "whodunnit"
+    t.json "object"
+    t.json "object_changes"
+    t.datetime "created_at", precision: 6, null: false
+    t.index ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
+  end
 
   create_table "vtex_addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "city_id", null: false

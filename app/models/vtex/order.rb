@@ -1,6 +1,7 @@
 module Vtex
   class Order < ApplicationRecord
     include Synchronizable
+    has_paper_trail
 
     belongs_to :client
     belongs_to :shipping_address, class_name: 'Vtex::Address'
