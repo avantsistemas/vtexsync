@@ -35,7 +35,7 @@ namespace :vtex do
 
           if vtex_order.new_record? || vtex_order.changed?
             order_attributes = api_client.get_order(order_id)
-            Vtex::Sync::Order.new(order_attributes).sync
+            Vtex::Sync::Models::Order.new(order_attributes).sync
           else
             Rails.logger.debug { "#{vtex_order.inspectid} não precisa ser sincronizado(a)" }
           end
