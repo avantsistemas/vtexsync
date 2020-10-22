@@ -1,6 +1,8 @@
 module Vtex
   module Sync
     module Logger
+      private
+
       delegate :logger, to: Rails
 
       def log_what_will_be_synced(model)
@@ -14,21 +16,22 @@ module Vtex
       end
 
       def log_model_will_be_created(model)
-        model_name = model.model_name.human.downcase
         attributes = model.attributes.except('id', 'created_at', 'updated_at')
-        message = ActiveSupport::LogSubscriber.new.send(:color, "#{model_name} será cadastrado(a)", :green)
+        message = colorful_message("#{model.model_name.singular} será cadastrado(a)", :green, true)
         logger.info "#{message} #{attributes.as_json}"
       end
 
       def log_model_will_be_updated(model)
-        model_name = model.model_name.human.downcase
-        message = ActiveSupport::LogSubscriber.new.send(:color, "#{model_name} será atualizado(a)", :yellow)
+        message = colorful_message("#{model.inspectid} será atualizado(a)", :yellow, true)
         logger.info "#{message} #{model.changes.as_json}"
       end
 
       def log_model_already_synced(model)
-        model_name = model.model_name.human.downcase
-        logger.debug "#{model_name} já está atualizado(a)"
+        logger.debug { colorful_message("#{model.inspectid} já está atualizado(a)", :black, true) }
+      end
+
+      def colorful_message(message, color, bold = false)
+        ActiveSupport::LogSubscriber.new.send(:color, message, color, bold)
       end
     end
   end
