@@ -2,9 +2,11 @@ module Vtex
   module Sync
     class Orders
       delegate :logger, to: Rails
+      attr_reader :processed_orders
 
       def initialize(api_client)
         @api_client = api_client
+        @processed_orders = 0
       end
 
       def sync(since: nil)
@@ -20,6 +22,8 @@ module Vtex
                                         method_args: api_client_method_arguments)
 
         navigate_through_pages_and_sync_orders(page)
+
+        self
       end
 
       private
@@ -29,6 +33,7 @@ module Vtex
       def navigate_through_pages_and_sync_orders(api_page)
         while api_page.next?
           page_result = api_page.next
+          log_page_info(page_result)
           sync_orders(page_result['list'])
         end
       end
@@ -37,6 +42,7 @@ module Vtex
         orders_attributes.each do |order_attributes|
           logger.tagged(order_attributes['orderId']) do
             sync_order_if_needed(order_attributes)
+            @processed_orders += 1
           end
         end
       end
@@ -61,6 +67,17 @@ module Vtex
 
       def last_synced_order_creation_date
         Vtex::Order.maximum(:creation_date)
+      end
+
+      def log_page_info(page_result)
+        current_page = page_result['paging']['currentPage']
+        pages_count = page_result['paging']['pages']
+        orders_count = page_result['paging']['total']
+
+        message = Logger.colorful_message "Página atual: #{current_page}; Total de páginas: #{pages_count}; " \
+                                          "Total de pedidos: #{orders_count}", :blue
+
+        logger.info message
       end
     end
   end

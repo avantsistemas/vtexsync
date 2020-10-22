@@ -29,8 +29,6 @@ module Vtex
           logger.debug { colorful_message("#{model.inspectid} já está atualizado(a)", :black, true) }
         end
 
-        private
-
         def colorful_message(message, color, bold = false)
           ActiveSupport::LogSubscriber.new.send(:color, message, color, bold)
         end
