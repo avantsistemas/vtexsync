@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 2020_10_20_203006) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["order_id"], name: "index_vtex_order_items_on_order_id"
     t.index ["product_id"], name: "index_vtex_order_items_on_product_id"
-    t.index ["vtex_code"], name: "index_vtex_order_items_on_vtex_code", unique: true
+    t.index ["vtex_code", "quantity"], name: "index_vtex_order_items_on_vtex_code_and_quantity", unique: true
   end
 
   create_table "vtex_orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|

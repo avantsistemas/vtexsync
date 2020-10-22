@@ -9,7 +9,9 @@ class CreateVtexOrderItems < ActiveRecord::Migration[6.0]
 
       t.timestamps
 
-      t.index :vtex_code, unique: true
+      # Adicionamos `quantity` como parte da chave única dos itens dos pedidos por conta das repetições de
+      # uniqueId que acontece em alguns pedidos. Ex: 1064230768540-01, 1065732673793-01 e 1066163355534-01.
+      t.index %i[vtex_code quantity], unique: true
     end
   end
 end
