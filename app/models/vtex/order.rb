@@ -6,6 +6,7 @@ module Vtex
     belongs_to :client
     belongs_to :shipping_address, class_name: 'Vtex::Address'
 
+    has_many :totals, class_name: 'Vtex::OrderTotal', dependent: :restrict_with_exception
     has_many :items, class_name: 'Vtex::OrderItem', dependent: :restrict_with_exception
 
     sync_attributes :orderId, :sequence, :origin, :status, :statusDescription,

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_22_193957) do
+ActiveRecord::Schema.define(version: 2020_10_23_162644) do
 
   create_table "versions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "item_type", null: false
@@ -84,6 +84,17 @@ ActiveRecord::Schema.define(version: 2020_10_22_193957) do
     t.index ["product_id"], name: "index_vtex_order_items_on_product_id"
   end
 
+  create_table "vtex_order_totals", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.bigint "order_id", null: false
+    t.bigint "total_id", null: false
+    t.decimal "value", precision: 8, scale: 2
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["order_id", "total_id"], name: "index_vtex_order_totals_on_order_id_and_total_id"
+    t.index ["order_id"], name: "index_vtex_order_totals_on_order_id"
+    t.index ["total_id"], name: "index_vtex_order_totals_on_total_id"
+  end
+
   create_table "vtex_orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "client_id", null: false
     t.bigint "shipping_address_id", null: false
@@ -123,10 +134,20 @@ ActiveRecord::Schema.define(version: 2020_10_22_193957) do
     t.index ["country_id"], name: "index_vtex_states_on_country_id"
   end
 
+  create_table "vtex_totals", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "identifier"
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["identifier"], name: "index_vtex_totals_on_identifier", unique: true
+  end
+
   add_foreign_key "vtex_addresses", "vtex_cities", column: "city_id"
   add_foreign_key "vtex_cities", "vtex_states", column: "state_id"
   add_foreign_key "vtex_order_items", "vtex_orders", column: "order_id"
   add_foreign_key "vtex_order_items", "vtex_products", column: "product_id"
+  add_foreign_key "vtex_order_totals", "vtex_orders", column: "order_id"
+  add_foreign_key "vtex_order_totals", "vtex_totals", column: "total_id"
   add_foreign_key "vtex_orders", "vtex_addresses", column: "shipping_address_id"
   add_foreign_key "vtex_orders", "vtex_clients", column: "client_id"
   add_foreign_key "vtex_states", "vtex_countries", column: "country_id"

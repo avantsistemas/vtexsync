@@ -6,8 +6,21 @@ module Vtex
           private
 
           def sync_dependents
+            sync_totals
+            sync_order_totals
+
             sync_products
             sync_order_items
+          end
+
+          def sync_totals
+            Total.sync_all(order_totals_attributes)
+          end
+
+          def sync_order_totals
+            order_totals = OrderTotal.sync_all(order_totals_attributes,
+                                               vtex_order: vtex_order)
+            destroy_not_synced(order_totals, scope: vtex_order.totals)
           end
 
           def sync_products
@@ -17,26 +30,30 @@ module Vtex
           def sync_order_items
             order_items = OrderItem.sync_all(order_items_attributes,
                                              vtex_order: vtex_order)
-            destroy_not_synced_order_items(order_items)
+            destroy_not_synced(order_items, scope: vtex_order.items)
           end
 
-          def destroy_not_synced_order_items(synced_order_items)
+          def destroy_not_synced(synced_models, scope:)
             return if vtex_order.new_record?
 
-            not_synced_order_items = vtex_order.items.where.not(id: synced_order_items)
+            not_synced_models = scope.where.not(id: synced_models)
 
-            not_synced_order_items.each do |not_synced_order_item|
-              Logger.log_model_will_be_destroyed(not_synced_order_item)
-              not_synced_order_item.destroy!
+            not_synced_models.each do |not_synced_model|
+              Logger.log_model_will_be_destroyed(not_synced_model)
+              not_synced_model.destroy!
             end
           end
 
-          def products_attributes
-            order_attributes['itemMetadata']['Items']
+          def order_totals_attributes
+            order_attributes['totals']
           end
 
           def order_items_attributes
             order_attributes['items']
+          end
+
+          def products_attributes
+            order_attributes['itemMetadata']['Items']
           end
         end
       end
