@@ -6,13 +6,13 @@ module Vtex
           @client_attributes = client_attributes
         end
 
-        def sync(save: true)
+        def sync
           client = find_or_initialize_vtex_client
           client.sync_attributes(client_attributes)
 
           Logger.log_what_will_be_synced(client)
 
-          client.save! if save && client.changed?
+          client.save! if client.changed?
           client
         end
 

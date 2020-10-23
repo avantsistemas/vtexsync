@@ -9,7 +9,7 @@ module Vtex
           @order_attributes = order_attributes
         end
 
-        def sync(save: true)
+        def sync
           load_vtex_order
 
           sync_dependencies
@@ -18,7 +18,7 @@ module Vtex
 
           Logger.log_what_will_be_synced(vtex_order)
 
-          vtex_order.save! if save && vtex_order.changed?
+          vtex_order.save! if vtex_order.changed?
           vtex_order
         end
 

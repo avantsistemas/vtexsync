@@ -6,13 +6,13 @@ module Vtex
           @address_attributes = addresss_attributes
         end
 
-        def sync(save: true)
+        def sync
           address = find_or_initialize_vtex_address
           address.sync_attributes(address_attributes)
 
           Logger.log_what_will_be_synced(address)
 
-          address.save! if save && address.changed?
+          address.save! if address.changed?
           address
         end
 

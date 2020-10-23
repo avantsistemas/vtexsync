@@ -6,19 +6,19 @@ module Vtex
           @product_attributes = product_attributes
         end
 
-        def sync(save: true)
+        def sync
           product = find_or_initialize_vtex_product
           product.sync_attributes(product_attributes)
 
           Logger.log_what_will_be_synced(product)
 
-          product.save! if save && product.changed?
+          product.save! if product.changed?
           product
         end
 
-        def self.sync_all(products_attributes, save: true)
-          products_attributes.map do |product_attributes|
-            new(product_attributes).sync(save: save)
+        def self.sync_all(products_attributes)
+          products_attributes.each do |product_attributes|
+            new(product_attributes).sync
           end
         end
 

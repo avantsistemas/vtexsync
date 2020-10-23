@@ -15,8 +15,8 @@ module Vtex
           end
 
           def sync_order_items
-            order_items = OrderItem.sync_all(order_items_attributes, save: false)
-            vtex_order.items << order_items
+            OrderItem.sync_all(order_items_attributes,
+                               vtex_order: vtex_order)
           end
 
           def products_attributes
