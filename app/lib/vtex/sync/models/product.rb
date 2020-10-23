@@ -27,11 +27,11 @@ module Vtex
         attr_reader :product_attributes
 
         def find_or_initialize_vtex_product
-          Vtex::Product.find_or_initialize_by vtex_code: vtex_product_id
+          Vtex::Product.find_or_initialize_by identifier: attribute_ref_id
         end
 
-        def vtex_product_id
-          product_attributes['ProductId']
+        def attribute_ref_id
+          product_attributes['RefId']
         end
       end
     end

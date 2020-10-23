@@ -3,9 +3,8 @@ module Vtex
     include Synchronizable
     has_paper_trail
 
-    sync_attributes :ProductId, :Name, :SkuName, :RefId, :Ean, :ImageUrl, :DetailUrl
+    sync_attributes :Name, :SkuName, :RefId, :Ean, :ImageUrl, :DetailUrl
 
-    remap_attributes ProductId: :vtex_code,
-                     RefId: :ref_code
+    remap_attributes RefId: :identifier
   end
 end

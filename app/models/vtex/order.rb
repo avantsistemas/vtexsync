@@ -11,7 +11,7 @@ module Vtex
     sync_attributes :orderId, :sequence, :origin, :status, :statusDescription,
                     :value, :totalValue, :creationDate, :lastChange
 
-    remap_attributes orderId: :vtex_code,
+    remap_attributes orderId: :identifier,
                      value: :value_in_cents,
                      totalValue: :value_in_cents
 

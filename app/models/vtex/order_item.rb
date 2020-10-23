@@ -6,14 +6,14 @@ module Vtex
     belongs_to :order
     belongs_to :product
 
-    sync_attributes :uniqueId, :productId, :quantity, :price
+    sync_attributes :uniqueId, :refId, :quantity, :price
 
-    remap_attributes uniqueId: :vtex_code,
-                     productId: :product_vtex_code,
+    remap_attributes uniqueId: :identifier,
+                     refId: :product_identifier,
                      price: :price_in_cents
 
-    def product_vtex_code=(product_vtex_code)
-      self.product = Product.find_by! vtex_code: product_vtex_code
+    def product_identifier=(product_identifier)
+      self.product = Product.find_by! identifier: product_identifier
     end
 
     def price_in_cents=(price_in_cents)

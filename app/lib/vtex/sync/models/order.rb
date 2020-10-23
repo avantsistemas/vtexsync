@@ -27,10 +27,10 @@ module Vtex
         attr_reader :order_attributes, :vtex_order
 
         def load_vtex_order
-          @vtex_order = Vtex::Order.find_or_initialize_by vtex_code: vtex_order_id
+          @vtex_order = Vtex::Order.find_or_initialize_by identifier: attribute_order_id
         end
 
-        def vtex_order_id
+        def attribute_order_id
           order_attributes['orderId']
         end
 

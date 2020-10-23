@@ -29,14 +29,14 @@ module Vtex
         def find_or_initialize_vtex_order_item
           # Existem pedidos onde a propriedade uniqueId se repete entre os itens. Ex: 1064230768540-01,
           # 1065732673793-01 e 1066163355534-01. Por isso `quantity` foi adicionada para garantir a unicidade.
-          Vtex::OrderItem.find_or_initialize_by vtex_code: vtex_unique_id, quantity: vtex_quantity
+          Vtex::OrderItem.find_or_initialize_by identifier: attribute_unique_id, quantity: attribute_quantity
         end
 
-        def vtex_unique_id
+        def attribute_unique_id
           order_item_attributes['uniqueId']
         end
 
-        def vtex_quantity
+        def attribute_quantity
           order_item_attributes['quantity']
         end
       end

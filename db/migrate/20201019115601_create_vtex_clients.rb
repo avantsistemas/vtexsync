@@ -1,7 +1,7 @@
 class CreateVtexClients < ActiveRecord::Migration[6.0]
   def change
     create_table :vtex_clients do |t|
-      t.string :vtex_code
+      t.string :identifier
       t.string :first_name
       t.string :last_name
       t.string :document_type
@@ -11,7 +11,7 @@ class CreateVtexClients < ActiveRecord::Migration[6.0]
 
       t.timestamps
 
-      t.index :vtex_code, unique: true
+      t.index :identifier, unique: true
     end
   end
 end

@@ -4,6 +4,6 @@ module Vtex
     has_paper_trail
 
     sync_attributes :userProfileId, :firstName, :lastName, :email, :documentType, :document, :phone
-    remap_attributes userProfileId: :vtex_code
+    remap_attributes userProfileId: :identifier
   end
 end

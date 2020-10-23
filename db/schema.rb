@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2020_10_22_193957) do
 
   create_table "vtex_addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "city_id", null: false
-    t.string "vtex_code"
+    t.string "identifier"
     t.string "address_type"
     t.string "receiver_name"
     t.string "postal_code"
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2020_10_22_193957) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["city_id"], name: "index_vtex_addresses_on_city_id"
-    t.index ["vtex_code"], name: "index_vtex_addresses_on_vtex_code", unique: true
+    t.index ["identifier"], name: "index_vtex_addresses_on_identifier", unique: true
   end
 
   create_table "vtex_cities", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 2020_10_22_193957) do
   end
 
   create_table "vtex_clients", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.string "vtex_code"
+    t.string "identifier"
     t.string "first_name"
     t.string "last_name"
     t.string "document_type"
@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 2020_10_22_193957) do
     t.string "phone"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["vtex_code"], name: "index_vtex_clients_on_vtex_code", unique: true
+    t.index ["identifier"], name: "index_vtex_clients_on_identifier", unique: true
   end
 
   create_table "vtex_countries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -74,20 +74,20 @@ ActiveRecord::Schema.define(version: 2020_10_22_193957) do
   create_table "vtex_order_items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "order_id", null: false
     t.bigint "product_id", null: false
-    t.string "vtex_code"
+    t.string "identifier"
     t.integer "quantity"
     t.decimal "price", precision: 8, scale: 2
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["identifier", "quantity"], name: "index_vtex_order_items_on_identifier_and_quantity", unique: true
     t.index ["order_id"], name: "index_vtex_order_items_on_order_id"
     t.index ["product_id"], name: "index_vtex_order_items_on_product_id"
-    t.index ["vtex_code", "quantity"], name: "index_vtex_order_items_on_vtex_code_and_quantity", unique: true
   end
 
   create_table "vtex_orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "client_id", null: false
     t.bigint "shipping_address_id", null: false
-    t.string "vtex_code"
+    t.string "identifier"
     t.integer "sequence"
     t.string "origin"
     t.string "status"
@@ -98,21 +98,20 @@ ActiveRecord::Schema.define(version: 2020_10_22_193957) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["client_id"], name: "index_vtex_orders_on_client_id"
+    t.index ["identifier"], name: "index_vtex_orders_on_identifier", unique: true
     t.index ["shipping_address_id"], name: "index_vtex_orders_on_shipping_address_id"
-    t.index ["vtex_code"], name: "index_vtex_orders_on_vtex_code", unique: true
   end
 
   create_table "vtex_products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.string "vtex_code"
     t.string "name"
     t.string "sku_name"
-    t.string "ref_code"
+    t.string "identifier"
     t.string "ean"
     t.string "image_url"
     t.string "detail_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["vtex_code"], name: "index_vtex_products_on_vtex_code", unique: true
+    t.index ["identifier"], name: "index_vtex_products_on_identifier", unique: true
   end
 
   create_table "vtex_states", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|

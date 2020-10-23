@@ -1,7 +1,7 @@
 class CreateVtexOrders < ActiveRecord::Migration[6.0]
   def change
     create_table :vtex_orders do |t|
-      t.string :vtex_code
+      t.string :identifier
       t.integer :sequence
       t.string :origin
       t.string :status
@@ -12,7 +12,7 @@ class CreateVtexOrders < ActiveRecord::Migration[6.0]
 
       t.timestamps
 
-      t.index :vtex_code, unique: true
+      t.index :identifier, unique: true
     end
   end
 end

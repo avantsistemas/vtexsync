@@ -2,7 +2,7 @@ class CreateVtexAddresses < ActiveRecord::Migration[6.0]
   def change
     create_table :vtex_addresses do |t|
       t.references :city, null: false, foreign_key: { to_table: :vtex_cities }
-      t.string :vtex_code
+      t.string :identifier
       t.string :address_type
       t.string :receiver_name
       t.string :postal_code
@@ -17,7 +17,7 @@ class CreateVtexAddresses < ActiveRecord::Migration[6.0]
 
       t.timestamps
 
-      t.index :vtex_code, unique: true
+      t.index :identifier, unique: true
     end
   end
 end
