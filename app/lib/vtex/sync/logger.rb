@@ -25,6 +25,12 @@ module Vtex
           logger.info "#{message} #{model.changes.as_json}"
         end
 
+        def log_model_will_be_destroyed(model)
+          attributes = model.attributes.except('id', 'created_at', 'updated_at')
+          message = colorful_message("#{model.inspectid} será excluído(a)", :red, true)
+          logger.info "#{message} #{attributes.as_json}"
+        end
+
         def log_model_already_synced(model)
           logger.debug { colorful_message("#{model.inspectid} já está atualizado(a)", :black, true) }
         end

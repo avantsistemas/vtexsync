@@ -17,7 +17,7 @@ module Vtex
         end
 
         def self.sync_all(products_attributes)
-          products_attributes.each do |product_attributes|
+          products_attributes.map do |product_attributes|
             new(product_attributes).sync
           end
         end

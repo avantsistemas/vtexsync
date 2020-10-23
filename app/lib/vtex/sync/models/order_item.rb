@@ -18,7 +18,7 @@ module Vtex
         end
 
         def self.sync_all(order_items_attributes, vtex_order:)
-          order_items_attributes.each do |order_item_attributes|
+          order_items_attributes.map do |order_item_attributes|
             new(order_item_attributes, vtex_order: vtex_order).sync
           end
         end
