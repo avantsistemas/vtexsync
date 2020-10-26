@@ -116,7 +116,6 @@ ActiveRecord::Schema.define(version: 2020_10_23_162644) do
 
   create_table "vtex_products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name"
-    t.string "sku_name"
     t.string "sku_code"
     t.string "identifier"
     t.string "ean"

@@ -24,7 +24,7 @@ module Vtex
           end
 
           def sync_products
-            Product.sync_all(products_attributes)
+            Product.sync_all(order_items_attributes)
           end
 
           def sync_order_items
@@ -50,10 +50,6 @@ module Vtex
 
           def order_items_attributes
             order_attributes['items']
-          end
-
-          def products_attributes
-            order_attributes['itemMetadata']['Items']
           end
         end
       end
