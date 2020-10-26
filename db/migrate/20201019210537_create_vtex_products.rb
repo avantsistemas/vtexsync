@@ -3,6 +3,7 @@ class CreateVtexProducts < ActiveRecord::Migration[6.0]
     create_table :vtex_products do |t|
       t.string :name
       t.string :sku_name
+      t.string :sku_code
       t.string :identifier
       t.string :ean
       t.string :image_url
