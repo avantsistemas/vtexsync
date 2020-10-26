@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_23_162644) do
+ActiveRecord::Schema.define(version: 2020_10_26_212814) do
 
   create_table "versions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "item_type", null: false
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 2020_10_23_162644) do
   create_table "vtex_order_items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "order_id", null: false
     t.bigint "product_id", null: false
+    t.bigint "seller_id", null: false
     t.string "identifier"
     t.integer "quantity"
     t.decimal "price", precision: 8, scale: 2
@@ -83,6 +84,7 @@ ActiveRecord::Schema.define(version: 2020_10_23_162644) do
     t.index ["identifier", "quantity"], name: "index_vtex_order_items_on_identifier_and_quantity", unique: true
     t.index ["order_id"], name: "index_vtex_order_items_on_order_id"
     t.index ["product_id"], name: "index_vtex_order_items_on_product_id"
+    t.index ["seller_id"], name: "index_vtex_order_items_on_seller_id"
   end
 
   create_table "vtex_order_totals", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -126,6 +128,15 @@ ActiveRecord::Schema.define(version: 2020_10_23_162644) do
     t.index ["identifier"], name: "index_vtex_products_on_identifier", unique: true
   end
 
+  create_table "vtex_sellers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "identifier"
+    t.string "name"
+    t.string "logo"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["identifier"], name: "index_vtex_sellers_on_identifier", unique: true
+  end
+
   create_table "vtex_states", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "country_id", null: false
     t.string "acronym"
@@ -147,6 +158,7 @@ ActiveRecord::Schema.define(version: 2020_10_23_162644) do
   add_foreign_key "vtex_cities", "vtex_states", column: "state_id"
   add_foreign_key "vtex_order_items", "vtex_orders", column: "order_id"
   add_foreign_key "vtex_order_items", "vtex_products", column: "product_id"
+  add_foreign_key "vtex_order_items", "vtex_sellers", column: "seller_id"
   add_foreign_key "vtex_order_totals", "vtex_orders", column: "order_id"
   add_foreign_key "vtex_order_totals", "vtex_totals", column: "total_id"
   add_foreign_key "vtex_orders", "vtex_addresses", column: "shipping_address_id"

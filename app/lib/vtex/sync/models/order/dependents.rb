@@ -8,7 +8,7 @@ module Vtex
           def sync_dependents
             sync_totals
             sync_order_totals
-
+            sync_sellers
             sync_products
             sync_order_items
           end
@@ -21,6 +21,10 @@ module Vtex
             order_totals = OrderTotal.sync_all(order_totals_attributes,
                                                vtex_order: vtex_order)
             destroy_not_synced(order_totals, scope: vtex_order.totals)
+          end
+
+          def sync_sellers
+            Seller.sync_all(sellers_attributes)
           end
 
           def sync_products
@@ -46,6 +50,10 @@ module Vtex
 
           def order_totals_attributes
             order_attributes['totals']
+          end
+
+          def sellers_attributes
+            order_attributes['sellers']
           end
 
           def order_items_attributes
