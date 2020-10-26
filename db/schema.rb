@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(version: 2020_10_23_162644) do
     t.string "identifier"
     t.integer "quantity"
     t.decimal "price", precision: 8, scale: 2
+    t.decimal "selling_price", precision: 8, scale: 2
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["identifier", "quantity"], name: "index_vtex_order_items_on_identifier_and_quantity", unique: true
