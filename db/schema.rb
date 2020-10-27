@@ -81,7 +81,7 @@ ActiveRecord::Schema.define(version: 2020_10_26_212814) do
     t.decimal "selling_price", precision: 8, scale: 2
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["identifier", "order_id", "selling_price"], name: "vtex_order_items_unique_index", unique: true
+    t.index ["identifier", "order_id", "quantity", "selling_price"], name: "vtex_order_items_unique_index", unique: true
     t.index ["order_id"], name: "index_vtex_order_items_on_order_id"
     t.index ["product_id"], name: "index_vtex_order_items_on_product_id"
     t.index ["seller_id"], name: "index_vtex_order_items_on_seller_id"

@@ -10,11 +10,12 @@ class CreateVtexOrderItems < ActiveRecord::Migration[6.0]
 
       t.timestamps
 
-      # Adicionamos `order_id` e `selling_price` como parte da chave única dos itens dos pedidos por conta das
-      # repetições de uniqueId que acontece em alguns pedidos. Ex: 1064230768540-01, 1065732673793-01,
-      # 1066163355534-01, 1068432854087-01 e 1068192373206-01 (esses dois últimos tendo o uniqueId
-      # se repetindo entre dois pedidos diferentes).
-      t.index %i[identifier order_id selling_price], unique: true, name: 'vtex_order_items_unique_index'
+      # Adicionamos `order_id`, `quantity` e `selling_price` como parte da chave única dos itens dos pedidos por
+      # conta das repetições de uniqueId que acontece em alguns pedidos. Ex: 1064230768540-01, 1065732673793-01,
+      # 1066163355534-01, 1068432854087-01 e 1068192373206-01 (esses dois últimos tendo o uniqueId se repetindo
+      # entre dois pedidos diferentes). Há também o caso do pedido 1065732673793-01 onde concluímos que a
+      # quantidade precisa fazer parte da composição do índice.
+      t.index %i[identifier order_id quantity selling_price], unique: true, name: 'vtex_order_items_unique_index'
     end
   end
 end

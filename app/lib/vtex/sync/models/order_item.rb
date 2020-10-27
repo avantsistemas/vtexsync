@@ -33,11 +33,16 @@ module Vtex
           # repetido. Ex: 1068192373206-01 e 1068192373206-01. Por isso, `order_id` e `selling_price` foram
           # adicionadas para tentar garantir a unicidade.
           vtex_order.items.find_or_initialize_by identifier: attribute_unique_id,
+                                                 quantity: attribute_quantity,
                                                  selling_price: attribute_selling_price
         end
 
         def attribute_unique_id
           order_item_attributes['uniqueId']
+        end
+
+        def attribute_quantity
+          order_item_attributes['quantity']
         end
 
         def attribute_selling_price
