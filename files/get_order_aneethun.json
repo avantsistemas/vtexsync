@@ -1,0 +1,1116 @@
+{
+  "orderId": "1069851195759-01",
+  "sequence": "639715",
+  "marketplaceOrderId": "",
+  "marketplaceServicesEndpoint": "http://oms.vtexinternal.com.br/api/oms?an=aneethun",
+  "sellerOrderId": "00-1069851195759-01",
+  "origin": "Marketplace",
+  "affiliateId": "",
+  "salesChannel": "2",
+  "merchantName": null,
+  "status": "invoiced",
+  "statusDescription": "Faturado",
+  "value": 27120,
+  "creationDate": "2020-10-18T01:19:49.7702646+00:00",
+  "lastChange": "2020-10-19T17:32:19.8833693+00:00",
+  "orderGroup": "1069851195759",
+  "totals": [
+      {
+          "id": "Items",
+          "name": "Total dos Itens",
+          "value": 27120
+      },
+      {
+          "id": "Discounts",
+          "name": "Total dos Descontos",
+          "value": 0
+      },
+      {
+          "id": "Shipping",
+          "name": "Total do Frete",
+          "value": 0
+      },
+      {
+          "id": "Tax",
+          "name": "Total da Taxa",
+          "value": 0
+      }
+  ],
+  "items": [
+      {
+          "uniqueId": "A3922B820ACE4C4AB8AC629804FBB06F",
+          "id": "415",
+          "productId": "416",
+          "ean": "07898126403774",
+          "lockId": "00-1069851195759-01",
+          "itemAttachment": {
+              "content": {},
+              "name": null
+          },
+          "attachments": [],
+          "quantity": 1,
+          "seller": "1",
+          "name": "Finalizador Termoativado Blond System 250 g",
+          "refId": "7AFN250BLON",
+          "price": 5360,
+          "listPrice": 5360,
+          "manualPrice": null,
+          "priceTags": [
+              {
+                  "name": "discount@shipping-9cc3ae83-9b01-4027-8ab3-375659979ddf#8956c437-583d-47ad-83e3-83e45ac65a18",
+                  "value": -911,
+                  "isPercentual": false,
+                  "identifier": "9cc3ae83-9b01-4027-8ab3-375659979ddf",
+                  "rawValue": -9.110,
+                  "rate": null,
+                  "jurisCode": null,
+                  "jurisType": null,
+                  "jurisName": null
+              }
+          ],
+          "imageUrl": "https://bioextratusvirtual.vteximg.com.br/arquivos/ids/158218-544-544/Aneethun-Blond-finalizador-250g-frente.png?v=637115099423770000",
+          "detailUrl": "/finalizador-termoativado-blond-system-250g/p",
+          "components": [],
+          "bundleItems": [],
+          "params": [],
+          "offerings": [],
+          "sellerSku": "415",
+          "priceValidUntil": null,
+          "commission": 0,
+          "tax": 0,
+          "preSaleDate": null,
+          "additionalInfo": {
+              "brandName": "Aneethun",
+              "brandId": "2000002",
+              "categoriesIds": "/48/49/",
+              "categories": [
+                  {
+                      "id": 49,
+                      "name": "Blond System"
+                  },
+                  {
+                      "id": 48,
+                      "name": "Produtos"
+                  },
+                  {
+                      "id": 59,
+                      "name": "Tratamento"
+                  },
+                  {
+                      "id": 52,
+                      "name": "Categorias"
+                  },
+                  {
+                      "id": 83,
+                      "name": "Matização / Neutralização"
+                  },
+                  {
+                      "id": 55,
+                      "name": "Resultados esperados"
+                  },
+                  {
+                      "id": 90,
+                      "name": "Loiros e grisalhos"
+                  },
+                  {
+                      "id": 53,
+                      "name": "Tipos de cabelo"
+                  }
+              ],
+              "productClusterId": "149",
+              "commercialConditionId": "1",
+              "dimension": {
+                  "cubicweight": 1.0000,
+                  "height": 20.4100,
+                  "length": 7.6000,
+                  "weight": 310.0000,
+                  "width": 4.3500
+              },
+              "offeringInfo": null,
+              "offeringType": null,
+              "offeringTypeId": null
+          },
+          "measurementUnit": "un",
+          "unitMultiplier": 1.0000,
+          "sellingPrice": 5360,
+          "isGift": false,
+          "shippingPrice": null,
+          "rewardValue": 0,
+          "freightCommission": 0,
+          "priceDefinitions": null,
+          "taxCode": "33059000",
+          "parentItemIndex": null,
+          "parentAssemblyBinding": null,
+          "callCenterOperator": null,
+          "serialNumbers": null,
+          "assemblies": [],
+          "costPrice": 5360
+      },
+      {
+          "uniqueId": "7804F8CAA46C483FAD19C2921B43F935",
+          "id": "392",
+          "productId": "393",
+          "ean": "07898126403767",
+          "lockId": "00-1069851195759-01",
+          "itemAttachment": {
+              "content": {},
+              "name": null
+          },
+          "attachments": [],
+          "quantity": 1,
+          "seller": "1",
+          "name": "Máscara Iluminadora Blond System 250 g",
+          "refId": "7ABC250BLON",
+          "price": 5520,
+          "listPrice": 5520,
+          "manualPrice": null,
+          "priceTags": [
+              {
+                  "name": "discount@shipping-9cc3ae83-9b01-4027-8ab3-375659979ddf#8956c437-583d-47ad-83e3-83e45ac65a18",
+                  "value": -940,
+                  "isPercentual": false,
+                  "identifier": "9cc3ae83-9b01-4027-8ab3-375659979ddf",
+                  "rawValue": -9.40,
+                  "rate": null,
+                  "jurisCode": null,
+                  "jurisType": null,
+                  "jurisName": null
+              }
+          ],
+          "imageUrl": "https://bioextratusvirtual.vteximg.com.br/arquivos/ids/158211-544-544/Aneethun-Blond-mascara-iluminadora-250g-frente.png?v=637115096451630000",
+          "detailUrl": "/mascara-iluminadora-blond-system-250g/p",
+          "components": [],
+          "bundleItems": [],
+          "params": [],
+          "offerings": [],
+          "sellerSku": "392",
+          "priceValidUntil": null,
+          "commission": 0,
+          "tax": 0,
+          "preSaleDate": null,
+          "additionalInfo": {
+              "brandName": "Aneethun",
+              "brandId": "2000002",
+              "categoriesIds": "/48/49/",
+              "categories": [
+                  {
+                      "id": 49,
+                      "name": "Blond System"
+                  },
+                  {
+                      "id": 48,
+                      "name": "Produtos"
+                  },
+                  {
+                      "id": 59,
+                      "name": "Tratamento"
+                  },
+                  {
+                      "id": 52,
+                      "name": "Categorias"
+                  },
+                  {
+                      "id": 83,
+                      "name": "Matização / Neutralização"
+                  },
+                  {
+                      "id": 55,
+                      "name": "Resultados esperados"
+                  },
+                  {
+                      "id": 90,
+                      "name": "Loiros e grisalhos"
+                  },
+                  {
+                      "id": 53,
+                      "name": "Tipos de cabelo"
+                  }
+              ],
+              "productClusterId": "149",
+              "commercialConditionId": "1",
+              "dimension": {
+                  "cubicweight": 1.0000,
+                  "height": 20.2000,
+                  "length": 7.3000,
+                  "weight": 320.0000,
+                  "width": 3.9000
+              },
+              "offeringInfo": null,
+              "offeringType": null,
+              "offeringTypeId": null
+          },
+          "measurementUnit": "un",
+          "unitMultiplier": 1.0000,
+          "sellingPrice": 5520,
+          "isGift": false,
+          "shippingPrice": null,
+          "rewardValue": 0,
+          "freightCommission": 0,
+          "priceDefinitions": null,
+          "taxCode": "33059000",
+          "parentItemIndex": null,
+          "parentAssemblyBinding": null,
+          "callCenterOperator": null,
+          "serialNumbers": null,
+          "assemblies": [],
+          "costPrice": 5520
+      },
+      {
+          "uniqueId": "E9596D1ACD0346588FDA353200EF851D",
+          "id": "434",
+          "productId": "435",
+          "ean": "07898126404634",
+          "lockId": "00-1069851195759-01",
+          "itemAttachment": {
+              "content": {},
+              "name": null
+          },
+          "attachments": [],
+          "quantity": 1,
+          "seller": "1",
+          "name": "Oil Treatment Queen 72 mL",
+          "refId": "7ARP072QUEE",
+          "price": 11120,
+          "listPrice": 11120,
+          "manualPrice": null,
+          "priceTags": [
+              {
+                  "name": "discount@shipping-9cc3ae83-9b01-4027-8ab3-375659979ddf#8956c437-583d-47ad-83e3-83e45ac65a18",
+                  "value": -324,
+                  "isPercentual": false,
+                  "identifier": "9cc3ae83-9b01-4027-8ab3-375659979ddf",
+                  "rawValue": -3.240,
+                  "rate": null,
+                  "jurisCode": null,
+                  "jurisType": null,
+                  "jurisName": null
+              }
+          ],
+          "imageUrl": "https://bioextratusvirtual.vteximg.com.br/arquivos/ids/158150-544-544/Aneethun-Queen-oil-72ml-frente.png?v=637114971331430000",
+          "detailUrl": "/oil-treatment-queen-72ml/p",
+          "components": [],
+          "bundleItems": [],
+          "params": [],
+          "offerings": [],
+          "sellerSku": "434",
+          "priceValidUntil": null,
+          "commission": 0,
+          "tax": 0,
+          "preSaleDate": null,
+          "additionalInfo": {
+              "brandName": "Aneethun",
+              "brandId": "2000002",
+              "categoriesIds": "/48/68/",
+              "categories": [
+                  {
+                      "id": 68,
+                      "name": "Queen"
+                  },
+                  {
+                      "id": 48,
+                      "name": "Produtos"
+                  },
+                  {
+                      "id": 59,
+                      "name": "Tratamento"
+                  },
+                  {
+                      "id": 52,
+                      "name": "Categorias"
+                  },
+                  {
+                      "id": 60,
+                      "name": "Hidratação"
+                  },
+                  {
+                      "id": 55,
+                      "name": "Resultados esperados"
+                  },
+                  {
+                      "id": 65,
+                      "name": "Reconstrução"
+                  },
+                  {
+                      "id": 73,
+                      "name": "Nutrição"
+                  },
+                  {
+                      "id": 88,
+                      "name": "Brilho intenso"
+                  },
+                  {
+                      "id": 93,
+                      "name": "Danificados"
+                  },
+                  {
+                      "id": 53,
+                      "name": "Tipos de cabelo"
+                  }
+              ],
+              "productClusterId": "149",
+              "commercialConditionId": "1",
+              "dimension": {
+                  "cubicweight": 1.0000,
+                  "height": 15.6000,
+                  "length": 3.7000,
+                  "weight": 110.0000,
+                  "width": 3.7000
+              },
+              "offeringInfo": null,
+              "offeringType": null,
+              "offeringTypeId": null
+          },
+          "measurementUnit": "un",
+          "unitMultiplier": 1.0000,
+          "sellingPrice": 11120,
+          "isGift": false,
+          "shippingPrice": null,
+          "rewardValue": 0,
+          "freightCommission": 0,
+          "priceDefinitions": null,
+          "taxCode": "33059000",
+          "parentItemIndex": null,
+          "parentAssemblyBinding": null,
+          "callCenterOperator": null,
+          "serialNumbers": null,
+          "assemblies": [],
+          "costPrice": 11120
+      },
+      {
+          "uniqueId": "E844E71828E74AC7ABA734348FC02204",
+          "id": "442",
+          "productId": "443",
+          "ean": "07898126405983",
+          "lockId": "00-1069851195759-01",
+          "itemAttachment": {
+              "content": {},
+              "name": null
+          },
+          "attachments": [],
+          "quantity": 1,
+          "seller": "1",
+          "name": "Silver Shampoo Blond System 300 mL",
+          "refId": "7ASH300BLON",
+          "price": 5120,
+          "listPrice": 5120,
+          "manualPrice": null,
+          "priceTags": [
+              {
+                  "name": "discount@shipping-9cc3ae83-9b01-4027-8ab3-375659979ddf#8956c437-583d-47ad-83e3-83e45ac65a18",
+                  "value": -1087,
+                  "isPercentual": false,
+                  "identifier": "9cc3ae83-9b01-4027-8ab3-375659979ddf",
+                  "rawValue": -10.870,
+                  "rate": null,
+                  "jurisCode": null,
+                  "jurisType": null,
+                  "jurisName": null
+              }
+          ],
+          "imageUrl": "https://bioextratusvirtual.vteximg.com.br/arquivos/ids/158221-544-544/Aneethun-Blond-shampoo-silver-300ml-frente.png?v=637115105496000000",
+          "detailUrl": "/silver-shampoo-blond-system-300ml/p",
+          "components": [],
+          "bundleItems": [],
+          "params": [],
+          "offerings": [],
+          "sellerSku": "442",
+          "priceValidUntil": null,
+          "commission": 0,
+          "tax": 0,
+          "preSaleDate": null,
+          "additionalInfo": {
+              "brandName": "Aneethun",
+              "brandId": "2000002",
+              "categoriesIds": "/48/49/",
+              "categories": [
+                  {
+                      "id": 49,
+                      "name": "Blond System"
+                  },
+                  {
+                      "id": 48,
+                      "name": "Produtos"
+                  },
+                  {
+                      "id": 59,
+                      "name": "Tratamento"
+                  },
+                  {
+                      "id": 52,
+                      "name": "Categorias"
+                  },
+                  {
+                      "id": 83,
+                      "name": "Matização / Neutralização"
+                  },
+                  {
+                      "id": 55,
+                      "name": "Resultados esperados"
+                  },
+                  {
+                      "id": 90,
+                      "name": "Loiros e grisalhos"
+                  },
+                  {
+                      "id": 53,
+                      "name": "Tipos de cabelo"
+                  }
+              ],
+              "productClusterId": "149",
+              "commercialConditionId": "1",
+              "dimension": {
+                  "cubicweight": 1.0000,
+                  "height": 21.9000,
+                  "length": 5.7000,
+                  "weight": 370.0000,
+                  "width": 5.7000
+              },
+              "offeringInfo": null,
+              "offeringType": null,
+              "offeringTypeId": null
+          },
+          "measurementUnit": "un",
+          "unitMultiplier": 1.0000,
+          "sellingPrice": 5120,
+          "isGift": false,
+          "shippingPrice": null,
+          "rewardValue": 0,
+          "freightCommission": 0,
+          "priceDefinitions": null,
+          "taxCode": "33051000",
+          "parentItemIndex": null,
+          "parentAssemblyBinding": null,
+          "callCenterOperator": null,
+          "serialNumbers": null,
+          "assemblies": [],
+          "costPrice": 5120
+      }
+  ],
+  "marketplaceItems": [],
+  "clientProfileData": {
+      "id": "clientProfileData",
+      "email": "6a3c731f57174518bd5d64553b46ff3f@ct.vtex.com.br",
+      "firstName": "valdirene",
+      "lastName": "teodoro",
+      "documentType": "cpf",
+      "document": "02571987682",
+      "phone": "+5535984156703",
+      "corporateName": null,
+      "tradeName": null,
+      "corporateDocument": null,
+      "stateInscription": null,
+      "corporatePhone": null,
+      "isCorporate": false,
+      "userProfileId": "66a8559a-1240-4d2f-99ad-f69197c10fa5",
+      "customerClass": null
+  },
+  "giftRegistryData": null,
+  "marketingData": {
+      "id": "marketingData",
+      "utmSource": "",
+      "utmPartner": null,
+      "utmMedium": "",
+      "utmCampaign": "",
+      "coupon": null,
+      "utmiCampaign": "",
+      "utmipage": "",
+      "utmiPart": "",
+      "marketingTags": [
+          "Frete Grátis R$ 250,00",
+          "Frete Grátis R$ 200,00",
+          "Frete Grátis R$ 79,90"
+      ]
+  },
+  "ratesAndBenefitsData": {
+      "id": "ratesAndBenefitsData",
+      "rateAndBenefitsIdentifiers": [
+          {
+              "description": null,
+              "featured": false,
+              "id": "9cc3ae83-9b01-4027-8ab3-375659979ddf",
+              "name": "Aneethun | Frete Grátis | R$ 250,00",
+              "matchedParameters": {},
+              "additionalInfo": null
+          }
+      ]
+  },
+  "shippingData": {
+      "id": "shippingData",
+      "address": {
+          "addressType": "residential",
+          "receiverName": "valdirene ou mauro",
+          "addressId": "4774459872288",
+          "postalCode": "37660-000",
+          "city": "Paraisópolis",
+          "state": "MG",
+          "country": "BRA",
+          "street": "rua santa barbara",
+          "number": "99",
+          "neighborhood": "alto dos fernandes 2",
+          "complement": "mercadinho eldorado segunda esquina a esquerda",
+          "reference": null,
+          "geoCoordinates": [
+              -45.775066375732422,
+              -22.548793792724609
+          ]
+      },
+      "logisticsInfo": [
+          {
+              "itemIndex": 0,
+              "selectedSla": "Fábrica / Correios (PAC)",
+              "lockTTL": "10d",
+              "price": 0,
+              "listPrice": 911,
+              "sellingPrice": 0,
+              "deliveryWindow": null,
+              "deliveryCompany": "PAC",
+              "shippingEstimate": "15bd",
+              "shippingEstimateDate": "2020-11-10T02:59:59.0000000+00:00",
+              "slas": [
+                  {
+                      "id": "Fábrica / Correios (PAC)",
+                      "name": "Fábrica / Correios (PAC)",
+                      "shippingEstimate": "15bd",
+                      "deliveryWindow": null,
+                      "price": 0,
+                      "deliveryChannel": "delivery",
+                      "pickupStoreInfo": {
+                          "additionalInfo": null,
+                          "address": null,
+                          "dockId": null,
+                          "friendlyName": null,
+                          "isPickupStore": false
+                      },
+                      "polygonName": null,
+                      "lockTTL": "10d",
+                      "pickupPointId": null,
+                      "transitTime": "8bd"
+                  },
+                  {
+                      "id": "Fábrica / Correios (SEDEX)",
+                      "name": "Fábrica / Correios (SEDEX)",
+                      "shippingEstimate": "11bd",
+                      "deliveryWindow": null,
+                      "price": 1046,
+                      "deliveryChannel": "delivery",
+                      "pickupStoreInfo": {
+                          "additionalInfo": null,
+                          "address": null,
+                          "dockId": null,
+                          "friendlyName": null,
+                          "isPickupStore": false
+                      },
+                      "polygonName": null,
+                      "lockTTL": "10d",
+                      "pickupPointId": null,
+                      "transitTime": "4bd"
+                  }
+              ],
+              "shipsTo": [
+                  "BRA"
+              ],
+              "deliveryIds": [
+                  {
+                      "courierId": "41068",
+                      "courierName": "PAC",
+                      "dockId": "1",
+                      "quantity": 1,
+                      "warehouseId": "1_1",
+                      "accountCarrierName": "bioextratusvirtual"
+                  }
+              ],
+              "deliveryChannel": "delivery",
+              "pickupStoreInfo": {
+                  "additionalInfo": null,
+                  "address": null,
+                  "dockId": null,
+                  "friendlyName": null,
+                  "isPickupStore": false
+              },
+              "addressId": "4774459872288",
+              "polygonName": null,
+              "pickupPointId": null,
+              "transitTime": "8bd"
+          },
+          {
+              "itemIndex": 1,
+              "selectedSla": "Fábrica / Correios (PAC)",
+              "lockTTL": "10d",
+              "price": 0,
+              "listPrice": 940,
+              "sellingPrice": 0,
+              "deliveryWindow": null,
+              "deliveryCompany": "PAC",
+              "shippingEstimate": "15bd",
+              "shippingEstimateDate": "2020-11-10T02:59:59.0000000+00:00",
+              "slas": [
+                  {
+                      "id": "Fábrica / Correios (PAC)",
+                      "name": "Fábrica / Correios (PAC)",
+                      "shippingEstimate": "15bd",
+                      "deliveryWindow": null,
+                      "price": 0,
+                      "deliveryChannel": "delivery",
+                      "pickupStoreInfo": {
+                          "additionalInfo": null,
+                          "address": null,
+                          "dockId": null,
+                          "friendlyName": null,
+                          "isPickupStore": false
+                      },
+                      "polygonName": null,
+                      "lockTTL": "10d",
+                      "pickupPointId": null,
+                      "transitTime": "8bd"
+                  },
+                  {
+                      "id": "Fábrica / Correios (SEDEX)",
+                      "name": "Fábrica / Correios (SEDEX)",
+                      "shippingEstimate": "11bd",
+                      "deliveryWindow": null,
+                      "price": 1079,
+                      "deliveryChannel": "delivery",
+                      "pickupStoreInfo": {
+                          "additionalInfo": null,
+                          "address": null,
+                          "dockId": null,
+                          "friendlyName": null,
+                          "isPickupStore": false
+                      },
+                      "polygonName": null,
+                      "lockTTL": "10d",
+                      "pickupPointId": null,
+                      "transitTime": "4bd"
+                  }
+              ],
+              "shipsTo": [
+                  "BRA"
+              ],
+              "deliveryIds": [
+                  {
+                      "courierId": "41068",
+                      "courierName": "PAC",
+                      "dockId": "1",
+                      "quantity": 1,
+                      "warehouseId": "1_1",
+                      "accountCarrierName": "bioextratusvirtual"
+                  }
+              ],
+              "deliveryChannel": "delivery",
+              "pickupStoreInfo": {
+                  "additionalInfo": null,
+                  "address": null,
+                  "dockId": null,
+                  "friendlyName": null,
+                  "isPickupStore": false
+              },
+              "addressId": "4774459872288",
+              "polygonName": null,
+              "pickupPointId": null,
+              "transitTime": "8bd"
+          },
+          {
+              "itemIndex": 2,
+              "selectedSla": "Fábrica / Correios (PAC)",
+              "lockTTL": "10d",
+              "price": 0,
+              "listPrice": 324,
+              "sellingPrice": 0,
+              "deliveryWindow": null,
+              "deliveryCompany": "PAC",
+              "shippingEstimate": "15bd",
+              "shippingEstimateDate": "2020-11-10T02:59:59.0000000+00:00",
+              "slas": [
+                  {
+                      "id": "Fábrica / Correios (PAC)",
+                      "name": "Fábrica / Correios (PAC)",
+                      "shippingEstimate": "15bd",
+                      "deliveryWindow": null,
+                      "price": 0,
+                      "deliveryChannel": "delivery",
+                      "pickupStoreInfo": {
+                          "additionalInfo": null,
+                          "address": null,
+                          "dockId": null,
+                          "friendlyName": null,
+                          "isPickupStore": false
+                      },
+                      "polygonName": null,
+                      "lockTTL": "10d",
+                      "pickupPointId": null,
+                      "transitTime": "8bd"
+                  },
+                  {
+                      "id": "Fábrica / Correios (SEDEX)",
+                      "name": "Fábrica / Correios (SEDEX)",
+                      "shippingEstimate": "11bd",
+                      "deliveryWindow": null,
+                      "price": 371,
+                      "deliveryChannel": "delivery",
+                      "pickupStoreInfo": {
+                          "additionalInfo": null,
+                          "address": null,
+                          "dockId": null,
+                          "friendlyName": null,
+                          "isPickupStore": false
+                      },
+                      "polygonName": null,
+                      "lockTTL": "10d",
+                      "pickupPointId": null,
+                      "transitTime": "4bd"
+                  }
+              ],
+              "shipsTo": [
+                  "BRA"
+              ],
+              "deliveryIds": [
+                  {
+                      "courierId": "41068",
+                      "courierName": "PAC",
+                      "dockId": "1",
+                      "quantity": 1,
+                      "warehouseId": "1_1",
+                      "accountCarrierName": "bioextratusvirtual"
+                  }
+              ],
+              "deliveryChannel": "delivery",
+              "pickupStoreInfo": {
+                  "additionalInfo": null,
+                  "address": null,
+                  "dockId": null,
+                  "friendlyName": null,
+                  "isPickupStore": false
+              },
+              "addressId": "4774459872288",
+              "polygonName": null,
+              "pickupPointId": null,
+              "transitTime": "8bd"
+          },
+          {
+              "itemIndex": 3,
+              "selectedSla": "Fábrica / Correios (PAC)",
+              "lockTTL": "10d",
+              "price": 0,
+              "listPrice": 1087,
+              "sellingPrice": 0,
+              "deliveryWindow": null,
+              "deliveryCompany": "PAC",
+              "shippingEstimate": "15bd",
+              "shippingEstimateDate": "2020-11-10T02:59:59.0000000+00:00",
+              "slas": [
+                  {
+                      "id": "Fábrica / Correios (PAC)",
+                      "name": "Fábrica / Correios (PAC)",
+                      "shippingEstimate": "15bd",
+                      "deliveryWindow": null,
+                      "price": 0,
+                      "deliveryChannel": "delivery",
+                      "pickupStoreInfo": {
+                          "additionalInfo": null,
+                          "address": null,
+                          "dockId": null,
+                          "friendlyName": null,
+                          "isPickupStore": false
+                      },
+                      "polygonName": null,
+                      "lockTTL": "10d",
+                      "pickupPointId": null,
+                      "transitTime": "8bd"
+                  },
+                  {
+                      "id": "Fábrica / Correios (SEDEX)",
+                      "name": "Fábrica / Correios (SEDEX)",
+                      "shippingEstimate": "11bd",
+                      "deliveryWindow": null,
+                      "price": 1248,
+                      "deliveryChannel": "delivery",
+                      "pickupStoreInfo": {
+                          "additionalInfo": null,
+                          "address": null,
+                          "dockId": null,
+                          "friendlyName": null,
+                          "isPickupStore": false
+                      },
+                      "polygonName": null,
+                      "lockTTL": "10d",
+                      "pickupPointId": null,
+                      "transitTime": "4bd"
+                  }
+              ],
+              "shipsTo": [
+                  "BRA"
+              ],
+              "deliveryIds": [
+                  {
+                      "courierId": "41068",
+                      "courierName": "PAC",
+                      "dockId": "1",
+                      "quantity": 1,
+                      "warehouseId": "1_1",
+                      "accountCarrierName": "bioextratusvirtual"
+                  }
+              ],
+              "deliveryChannel": "delivery",
+              "pickupStoreInfo": {
+                  "additionalInfo": null,
+                  "address": null,
+                  "dockId": null,
+                  "friendlyName": null,
+                  "isPickupStore": false
+              },
+              "addressId": "4774459872288",
+              "polygonName": null,
+              "pickupPointId": null,
+              "transitTime": "8bd"
+          }
+      ],
+      "trackingHints": null,
+      "selectedAddresses": [
+          {
+              "addressId": "4774459872288",
+              "addressType": "residential",
+              "receiverName": "valdirene ou mauro",
+              "street": "rua santa barbara",
+              "number": "99",
+              "complement": "mercadinho eldorado segunda esquina a esquerda",
+              "neighborhood": "alto dos fernandes 2",
+              "postalCode": "37660-000",
+              "city": "Paraisópolis",
+              "state": "MG",
+              "country": "BRA",
+              "reference": null,
+              "geoCoordinates": [
+                  -45.775066375732422,
+                  -22.548793792724609
+              ]
+          }
+      ]
+  },
+  "paymentData": {
+      "giftCards": [],
+      "transactions": [
+          {
+              "isActive": true,
+              "transactionId": "90D2A80292C34B84A8677F864AC7338F",
+              "merchantName": "ANEETHUN",
+              "payments": [
+                  {
+                      "id": "33B4CAB45A9C4030B2C70E3EB669369C",
+                      "paymentSystem": "4",
+                      "paymentSystemName": "Mastercard",
+                      "value": 27120,
+                      "installments": 3,
+                      "referenceValue": 27120,
+                      "cardHolder": null,
+                      "cardNumber": null,
+                      "firstDigits": "523421",
+                      "lastDigits": "7229",
+                      "cvv2": null,
+                      "expireMonth": null,
+                      "expireYear": null,
+                      "url": null,
+                      "giftCardId": null,
+                      "giftCardName": null,
+                      "giftCardCaption": null,
+                      "redemptionCode": null,
+                      "group": "creditCard",
+                      "tid": "11072010172219340309",
+                      "dueDate": null,
+                      "connectorResponses": {
+                          "message": "Success.",
+                          "returnCode": "00",
+                          "tid": "11072010172219340309",
+                          "authId": "532084",
+                          "nsu": "130471581",
+                          "network": "Mastercard",
+                          "firstDigits": "523421",
+                          "lastDigits": "7229"
+                      },
+                      "giftCardProvider": null,
+                      "giftCardAsDiscount": null,
+                      "koinUrl": null,
+                      "accountId": "81C3938AF99646BCABA473C7315A4125",
+                      "parentAccountId": "81C3938AF99646BCABA473C7315A4125",
+                      "bankIssuedInvoiceIdentificationNumber": null,
+                      "bankIssuedInvoiceIdentificationNumberFormatted": null,
+                      "bankIssuedInvoiceBarCodeNumber": null,
+                      "bankIssuedInvoiceBarCodeType": null,
+                      "billingAddress": {
+                          "postalCode": "37660-000",
+                          "city": "Paraisópolis",
+                          "state": "MG",
+                          "country": "BRA",
+                          "street": "rua santa barbara",
+                          "number": "99",
+                          "neighborhood": "alto dos fernandes 2",
+                          "complement": "mercadinho eldorado segunda esquina a esquerda",
+                          "reference": null,
+                          "geoCoordinates": [
+                              -45.775066375732422,
+                              -22.548793792724609
+                          ]
+                      }
+                  }
+              ]
+          }
+      ]
+  },
+  "packageAttachment": {
+      "packages": [
+          {
+              "items": [
+                  {
+                      "itemIndex": 0,
+                      "quantity": 1,
+                      "price": 5360,
+                      "description": null,
+                      "unitMultiplier": 0.0
+                  },
+                  {
+                      "itemIndex": 1,
+                      "quantity": 1,
+                      "price": 5520,
+                      "description": null,
+                      "unitMultiplier": 0.0
+                  },
+                  {
+                      "itemIndex": 2,
+                      "quantity": 1,
+                      "price": 11120,
+                      "description": null,
+                      "unitMultiplier": 0.0
+                  },
+                  {
+                      "itemIndex": 3,
+                      "quantity": 1,
+                      "price": 5120,
+                      "description": null,
+                      "unitMultiplier": 0.0
+                  }
+              ],
+              "courier": "PAC",
+              "invoiceNumber": "000035818",
+              "invoiceValue": 27120,
+              "invoiceUrl": null,
+              "issuanceDate": "2020-10-19T14:19:00.0000000+00:00",
+              "trackingNumber": "PZ997639527BR",
+              "invoiceKey": "31201002176615000441550010000358181100049369",
+              "trackingUrl": "http://www.mdlivre.com.br/tracking/view/PZ997639527BR",
+              "embeddedInvoice": "",
+              "type": "Output",
+              "courierStatus": {
+                  "status": "unknown",
+                  "finished": false,
+                  "deliveredDate": null,
+                  "data": []
+              },
+              "cfop": null,
+              "restitutions": {},
+              "volumes": 0
+          }
+      ]
+  },
+  "sellers": [
+      {
+          "id": "1",
+          "name": "Aneethun",
+          "logo": "",
+          "fulfillmentEndpoint": "http://fulfillment.vtexcommerce.com.br/api/fulfillment?sc=2&an=aneethun"
+      }
+  ],
+  "callCenterOperatorData": null,
+  "followUpEmail": "2fd80517c5b643d991842432937159ea@ct.vtex.com.br",
+  "lastMessage": null,
+  "hostname": "aneethun",
+  "invoiceData": {
+      "address": null
+  },
+  "changesAttachment": null,
+  "openTextField": null,
+  "roundingError": 0,
+  "orderFormId": "721df82f5e0b469198e21b866506b481",
+  "commercialConditionData": null,
+  "isCompleted": true,
+  "customData": null,
+  "storePreferencesData": {
+      "countryCode": "BRA",
+      "currencyCode": "BRL",
+      "currencyFormatInfo": {
+          "CurrencyDecimalDigits": 2,
+          "CurrencyDecimalSeparator": ",",
+          "CurrencyGroupSeparator": ".",
+          "CurrencyGroupSize": 3,
+          "StartsWithCurrencySymbol": true
+      },
+      "currencyLocale": 1046,
+      "currencySymbol": "R$",
+      "timeZone": "E. South America Standard Time"
+  },
+  "allowCancellation": false,
+  "allowEdition": false,
+  "isCheckedIn": false,
+  "marketplace": {
+      "baseURL": "http://oms.vtexinternal.com.br/api/oms?an=aneethun",
+      "isCertified": null,
+      "name": "aneethun"
+  },
+  "authorizedDate": "2020-10-18T01:20:00.7845785+00:00",
+  "invoicedDate": "2020-10-19T17:30:36.6500877+00:00",
+  "cancelReason": null,
+  "itemMetadata": {
+      "Items": [
+          {
+              "Id": "415",
+              "Seller": "1",
+              "Name": "Finalizador Termoativado Blond System 250 g",
+              "SkuName": "Finalizador Termoativado Blond System 250 g",
+              "ProductId": "416",
+              "RefId": "7AFN250BLON",
+              "Ean": "07898126403774",
+              "ImageUrl": "http://bioextratusvirtual.vteximg.com.br/arquivos/ids/158218-544-544/Aneethun-Blond-finalizador-250g-frente.png?v=637115099423770000",
+              "DetailUrl": "/finalizador-termoativado-blond-system-250g/p",
+              "AssemblyOptions": []
+          },
+          {
+              "Id": "392",
+              "Seller": "1",
+              "Name": "Máscara Iluminadora Blond System 250 g",
+              "SkuName": "Máscara Iluminadora Blond System 250 g",
+              "ProductId": "393",
+              "RefId": "7ABC250BLON",
+              "Ean": "07898126403767",
+              "ImageUrl": "http://bioextratusvirtual.vteximg.com.br/arquivos/ids/158211-544-544/Aneethun-Blond-mascara-iluminadora-250g-frente.png?v=637115096451630000",
+              "DetailUrl": "/mascara-iluminadora-blond-system-250g/p",
+              "AssemblyOptions": []
+          },
+          {
+              "Id": "434",
+              "Seller": "1",
+              "Name": "Oil Treatment Queen 72 mL",
+              "SkuName": "Oil Treatment Queen 72 mL",
+              "ProductId": "435",
+              "RefId": "7ARP072QUEE",
+              "Ean": "07898126404634",
+              "ImageUrl": "http://bioextratusvirtual.vteximg.com.br/arquivos/ids/158150-544-544/Aneethun-Queen-oil-72ml-frente.png?v=637114971331430000",
+              "DetailUrl": "/oil-treatment-queen-72ml/p",
+              "AssemblyOptions": []
+          },
+          {
+              "Id": "442",
+              "Seller": "1",
+              "Name": "Silver Shampoo Blond System 300 mL",
+              "SkuName": "Silver Shampoo Blond System 300 mL",
+              "ProductId": "443",
+              "RefId": "7ASH300BLON",
+              "Ean": "07898126405983",
+              "ImageUrl": "http://bioextratusvirtual.vteximg.com.br/arquivos/ids/158221-544-544/Aneethun-Blond-shampoo-silver-300ml-frente.png?v=637115105496000000",
+              "DetailUrl": "/silver-shampoo-blond-system-300ml/p",
+              "AssemblyOptions": []
+          }
+      ]
+  },
+  "subscriptionData": null,
+  "taxData": null,
+  "checkedInPickupPointId": null,
+  "cancellationData": null
+}

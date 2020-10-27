@@ -1,0 +1,458 @@
+{
+  "orderId": "1069101046090-01",
+  "sequence": "638547",
+  "marketplaceOrderId": "",
+  "marketplaceServicesEndpoint": null,
+  "sellerOrderId": "sjr-1069101046090-01",
+  "origin": "Marketplace",
+  "affiliateId": "",
+  "salesChannel": "2",
+  "merchantName": "BIOEXTRATUSVIRTUAL503",
+  "status": "invoiced",
+  "statusDescription": "Faturado",
+  "value": 8530,
+  "creationDate": "2020-10-14T22:17:16.5418570+00:00",
+  "lastChange": "2020-10-15T17:15:54.1174109+00:00",
+  "orderGroup": "1069101046090",
+  "totals": [
+      {
+          "id": "Items",
+          "name": "Total dos Itens",
+          "value": 7040
+      },
+      {
+          "id": "Discounts",
+          "name": "Total dos Descontos",
+          "value": 0
+      },
+      {
+          "id": "Shipping",
+          "name": "Total do Frete",
+          "value": 1490
+      },
+      {
+          "id": "Tax",
+          "name": "Total da Taxa",
+          "value": 0
+      }
+  ],
+  "items": [
+      {
+          "uniqueId": "D77B0435F98C40CD89D4F6354A269F82",
+          "id": "429",
+          "productId": "430",
+          "ean": "07898126406768",
+          "lockId": null,
+          "itemAttachment": {
+              "content": {},
+              "name": null
+          },
+          "attachments": [],
+          "quantity": 1,
+          "seller": "bioextratusvirtual503",
+          "name": "Pomada Fiber Style 65 g",
+          "refId": "7APC065STFB",
+          "price": 7040,
+          "listPrice": 7040,
+          "manualPrice": null,
+          "priceTags": [],
+          "imageUrl": "https://bioextratusvirtual.vteximg.com.br/arquivos/ids/158253-544-544/Aneethun-Style-pomada-fiber-65g-frente.png?v=637116876312870000",
+          "detailUrl": "/pomada-fiber-style-65g/p",
+          "components": [],
+          "bundleItems": [],
+          "params": [],
+          "offerings": [],
+          "sellerSku": "429",
+          "priceValidUntil": "2021-10-14T22:15:59.0000000+00:00",
+          "commission": 0,
+          "tax": 0,
+          "preSaleDate": null,
+          "additionalInfo": {
+              "brandName": "Aneethun",
+              "brandId": "2000002",
+              "categoriesIds": "/48/109/",
+              "categories": [
+                  {
+                      "id": 109,
+                      "name": "Style Professional"
+                  },
+                  {
+                      "id": 48,
+                      "name": "Produtos"
+                  },
+                  {
+                      "id": 71,
+                      "name": "Finalização"
+                  },
+                  {
+                      "id": 52,
+                      "name": "Categorias"
+                  },
+                  {
+                      "id": 84,
+                      "name": "Penteados elaborados"
+                  },
+                  {
+                      "id": 55,
+                      "name": "Resultados esperados"
+                  },
+                  {
+                      "id": 100,
+                      "name": "Estilização de penteado"
+                  },
+                  {
+                      "id": 53,
+                      "name": "Tipos de cabelo"
+                  }
+              ],
+              "productClusterId": "149",
+              "commercialConditionId": "1",
+              "dimension": {
+                  "cubicweight": 1.0000,
+                  "height": 3.3000,
+                  "length": 7.2000,
+                  "weight": 100.0000,
+                  "width": 7.2000
+              },
+              "offeringInfo": null,
+              "offeringType": null,
+              "offeringTypeId": null
+          },
+          "measurementUnit": "un",
+          "unitMultiplier": 1.0000,
+          "sellingPrice": 7040,
+          "isGift": false,
+          "shippingPrice": null,
+          "rewardValue": 0,
+          "freightCommission": 0,
+          "priceDefinitions": null,
+          "taxCode": "33059000",
+          "parentItemIndex": null,
+          "parentAssemblyBinding": null,
+          "callCenterOperator": null,
+          "serialNumbers": null,
+          "assemblies": [],
+          "costPrice": null
+      }
+  ],
+  "marketplaceItems": [],
+  "clientProfileData": {
+      "id": "clientProfileData",
+      "email": "951c8a39efa44b4588dab00734082027@ct.vtex.com.br",
+      "firstName": "Higor Henrique",
+      "lastName": "Pói da Silva",
+      "documentType": "cpf",
+      "document": "40616483813",
+      "phone": "+5518997546564",
+      "corporateName": null,
+      "tradeName": null,
+      "corporateDocument": null,
+      "stateInscription": "",
+      "corporatePhone": null,
+      "isCorporate": false,
+      "userProfileId": "0d5ec79b-f7cd-47ad-b6e8-7c8d8b13070d",
+      "customerClass": null
+  },
+  "giftRegistryData": null,
+  "marketingData": null,
+  "ratesAndBenefitsData": {
+      "id": "ratesAndBenefitsData",
+      "rateAndBenefitsIdentifiers": []
+  },
+  "shippingData": {
+      "id": "shippingData",
+      "address": {
+          "addressType": "residential",
+          "receiverName": "Higor Henrique Pói da Silva",
+          "addressId": "aa84c37fff1f4e318e81bab80f126d13",
+          "postalCode": "16201-340",
+          "city": "Birigüi",
+          "state": "SP",
+          "country": "BRA",
+          "street": "Rua Waldomiro Rotondaro",
+          "number": "591",
+          "neighborhood": "Residencial Jardim Santa Luzia",
+          "complement": null,
+          "reference": null,
+          "geoCoordinates": [
+              -50.319847106933594,
+              -21.271265029907227
+          ]
+      },
+      "logisticsInfo": [
+          {
+              "itemIndex": 0,
+              "selectedSla": "Franquia Local",
+              "lockTTL": "12d",
+              "price": 1490,
+              "listPrice": 1490,
+              "sellingPrice": 1490,
+              "deliveryWindow": null,
+              "deliveryCompany": "Transportadora",
+              "shippingEstimate": "9bd",
+              "shippingEstimateDate": "2020-10-27T22:17:42.7205614+00:00",
+              "slas": [
+                  {
+                      "id": "Fábrica / Correios (PAC)",
+                      "name": "Fábrica / Correios (PAC)",
+                      "shippingEstimate": "16bd",
+                      "deliveryWindow": null,
+                      "price": 2638,
+                      "deliveryChannel": "delivery",
+                      "pickupStoreInfo": {
+                          "additionalInfo": null,
+                          "address": null,
+                          "dockId": null,
+                          "friendlyName": null,
+                          "isPickupStore": false
+                      },
+                      "polygonName": null,
+                      "lockTTL": "12d",
+                      "pickupPointId": null,
+                      "transitTime": "9bd"
+                  },
+                  {
+                      "id": "Fábrica / Correios (SEDEX)",
+                      "name": "Fábrica / Correios (SEDEX)",
+                      "shippingEstimate": "14bd",
+                      "deliveryWindow": null,
+                      "price": 4768,
+                      "deliveryChannel": "delivery",
+                      "pickupStoreInfo": {
+                          "additionalInfo": null,
+                          "address": null,
+                          "dockId": null,
+                          "friendlyName": null,
+                          "isPickupStore": false
+                      },
+                      "polygonName": null,
+                      "lockTTL": "12d",
+                      "pickupPointId": null,
+                      "transitTime": "7bd"
+                  },
+                  {
+                      "id": "Franquia Local",
+                      "name": "Franquia Local",
+                      "shippingEstimate": "9bd",
+                      "deliveryWindow": null,
+                      "price": 1490,
+                      "deliveryChannel": "delivery",
+                      "pickupStoreInfo": {
+                          "additionalInfo": null,
+                          "address": null,
+                          "dockId": null,
+                          "friendlyName": null,
+                          "isPickupStore": false
+                      },
+                      "polygonName": null,
+                      "lockTTL": "12d",
+                      "pickupPointId": null,
+                      "transitTime": "7bd"
+                  }
+              ],
+              "shipsTo": [
+                  "BRA"
+              ],
+              "deliveryIds": [
+                  {
+                      "courierId": "1",
+                      "courierName": "Transportadora",
+                      "dockId": "1",
+                      "quantity": 1,
+                      "warehouseId": "1_1",
+                      "accountCarrierName": null
+                  }
+              ],
+              "deliveryChannel": "delivery",
+              "pickupStoreInfo": {
+                  "additionalInfo": null,
+                  "address": null,
+                  "dockId": null,
+                  "friendlyName": null,
+                  "isPickupStore": false
+              },
+              "addressId": "aa84c37fff1f4e318e81bab80f126d13",
+              "polygonName": null,
+              "pickupPointId": null,
+              "transitTime": "7bd"
+          }
+      ],
+      "trackingHints": null,
+      "selectedAddresses": [
+          {
+              "addressId": "aa84c37fff1f4e318e81bab80f126d13",
+              "addressType": "residential",
+              "receiverName": "Higor Henrique Pói da Silva",
+              "street": "Rua Waldomiro Rotondaro",
+              "number": "591",
+              "complement": null,
+              "neighborhood": "Residencial Jardim Santa Luzia",
+              "postalCode": "16201-340",
+              "city": "Birigüi",
+              "state": "SP",
+              "country": "BRA",
+              "reference": null,
+              "geoCoordinates": [
+                  -50.319847106933594,
+                  -21.271265029907227
+              ]
+          }
+      ]
+  },
+  "paymentData": {
+      "giftCards": [],
+      "transactions": [
+          {
+              "isActive": true,
+              "transactionId": "6FBAFBE9962E489F9954A13C81D4A555",
+              "merchantName": "BIOEXTRATUSVIRTUAL503",
+              "payments": [
+                  {
+                      "id": "7AF6CA092AEB40D8B0EB17F3A3438C7F",
+                      "paymentSystem": "2",
+                      "paymentSystemName": "Visa",
+                      "value": 8530,
+                      "installments": 2,
+                      "referenceValue": 8530,
+                      "cardHolder": null,
+                      "cardNumber": null,
+                      "firstDigits": "439021",
+                      "lastDigits": "2048",
+                      "cvv2": null,
+                      "expireMonth": null,
+                      "expireYear": null,
+                      "url": null,
+                      "giftCardId": null,
+                      "giftCardName": null,
+                      "giftCardCaption": null,
+                      "redemptionCode": null,
+                      "group": "creditCard",
+                      "tid": "74985196-00B1-4280-9887-ACBDAA05FBFE",
+                      "dueDate": null,
+                      "connectorResponses": {
+                          "Tid": "74985196-00B1-4280-9887-ACBDAA05FBFE",
+                          "ReturnCode": null,
+                          "Message": null,
+                          "authId": "0",
+                          "nsu": "028822179634",
+                          "acquirer": "pagseguro"
+                      },
+                      "giftCardProvider": null,
+                      "giftCardAsDiscount": null,
+                      "koinUrl": null,
+                      "accountId": "5B7B6D298A88493F8FAE41DDA74D2D18",
+                      "parentAccountId": "653931BA09314A6C85D6D517415FE140",
+                      "bankIssuedInvoiceIdentificationNumber": null,
+                      "bankIssuedInvoiceIdentificationNumberFormatted": null,
+                      "bankIssuedInvoiceBarCodeNumber": null,
+                      "bankIssuedInvoiceBarCodeType": null,
+                      "billingAddress": {
+                          "postalCode": "16201115",
+                          "city": "Birigüi",
+                          "state": "SP",
+                          "country": "BRA",
+                          "street": "Rua Antônio Augusto Tozzoni",
+                          "number": "667",
+                          "neighborhood": "Jardim São Conrado",
+                          "complement": "",
+                          "reference": null,
+                          "geoCoordinates": []
+                      }
+                  }
+              ]
+          }
+      ]
+  },
+  "packageAttachment": {
+      "packages": [
+          {
+              "items": [
+                  {
+                      "itemIndex": 0,
+                      "quantity": 1,
+                      "price": 7040,
+                      "description": null,
+                      "unitMultiplier": 0.0
+                  }
+              ],
+              "courier": null,
+              "invoiceNumber": "000.174.415",
+              "invoiceValue": 8530,
+              "invoiceUrl": "https://www.nfe.fazenda.gov.br/portal/consultaResumo.aspx?tipoConteudo=d09fwabTnLk=",
+              "issuanceDate": "2020-10-15T03:00:00.0000000+00:00",
+              "trackingNumber": null,
+              "invoiceKey": "1004625041000124550010001744151017441504",
+              "trackingUrl": null,
+              "embeddedInvoice": "",
+              "type": "Output",
+              "courierStatus": null,
+              "cfop": null,
+              "restitutions": {},
+              "volumes": 0
+          }
+      ]
+  },
+  "sellers": [
+      {
+          "id": "bioextratusvirtual503",
+          "name": "Franquia SJRP/SP",
+          "logo": null,
+          "fulfillmentEndpoint": "http://fulfillment.vtexcommerce.com.br/api/fulfillment?affiliateid=sjr&sc=2&an=bioextratusvirtual503"
+      }
+  ],
+  "callCenterOperatorData": null,
+  "followUpEmail": "b89e187eec7e4d9eb1e6a8d9e7928cb6@ct.vtex.com.br",
+  "lastMessage": null,
+  "hostname": "aneethun",
+  "invoiceData": {
+      "address": null
+  },
+  "changesAttachment": null,
+  "openTextField": null,
+  "roundingError": 0,
+  "orderFormId": "841ccc33c8e745c4930e67b3576d7798",
+  "commercialConditionData": null,
+  "isCompleted": true,
+  "customData": null,
+  "storePreferencesData": {
+      "countryCode": "BRA",
+      "currencyCode": "BRL",
+      "currencyFormatInfo": {
+          "CurrencyDecimalDigits": 2,
+          "CurrencyDecimalSeparator": ",",
+          "CurrencyGroupSeparator": ".",
+          "CurrencyGroupSize": 3,
+          "StartsWithCurrencySymbol": true
+      },
+      "currencyLocale": 1046,
+      "currencySymbol": "R$",
+      "timeZone": "E. South America Standard Time"
+  },
+  "allowCancellation": false,
+  "allowEdition": false,
+  "isCheckedIn": false,
+  "marketplace": null,
+  "authorizedDate": "2020-10-14T22:17:33.1017158+00:00",
+  "invoicedDate": "2020-10-15T17:14:13.2196437+00:00",
+  "cancelReason": null,
+  "itemMetadata": {
+      "Items": [
+          {
+              "Id": "429",
+              "Seller": "1",
+              "Name": "Pomada Fiber Style 65 g",
+              "SkuName": "Pomada Fiber Style 65 g",
+              "ProductId": "430",
+              "RefId": "7APC065STFB",
+              "Ean": "07898126406768",
+              "ImageUrl": "http://bioextratusvirtual.vteximg.com.br/arquivos/ids/158253-544-544/Aneethun-Style-pomada-fiber-65g-frente.png?v=637116876312870000",
+              "DetailUrl": "/pomada-fiber-style-65g/p",
+              "AssemblyOptions": []
+          }
+      ]
+  },
+  "subscriptionData": null,
+  "taxData": null,
+  "checkedInPickupPointId": null,
+  "cancellationData": null
+}

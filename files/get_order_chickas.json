@@ -1,0 +1,1182 @@
+{
+  "orderId": "1069493577671-01",
+  "sequence": "639080",
+  "marketplaceOrderId": "",
+  "marketplaceServicesEndpoint": "http://oms.vtexinternal.com.br/api/oms?an=chikas",
+  "sellerOrderId": "00-1069493577671-01",
+  "origin": "Marketplace",
+  "affiliateId": "",
+  "salesChannel": "3",
+  "merchantName": null,
+  "status": "invoiced",
+  "statusDescription": "Faturado",
+  "value": 8250,
+  "creationDate": "2020-10-16T12:59:30.6092337+00:00",
+  "lastChange": "2020-10-16T17:32:00.0622408+00:00",
+  "orderGroup": "1069493577671",
+  "totals": [
+      {
+          "id": "Items",
+          "name": "Total dos Itens",
+          "value": 8250
+      },
+      {
+          "id": "Discounts",
+          "name": "Total dos Descontos",
+          "value": 0
+      },
+      {
+          "id": "Shipping",
+          "name": "Total do Frete",
+          "value": 0
+      },
+      {
+          "id": "Tax",
+          "name": "Total da Taxa",
+          "value": 0
+      }
+  ],
+  "items": [
+      {
+          "uniqueId": "73B17F5F394E4E5E9F5FD1C3F1DCB439",
+          "id": "475",
+          "productId": "476",
+          "ean": "07898132981266",
+          "lockId": "00-1069493577671-01",
+          "itemAttachment": {
+              "content": {},
+              "name": null
+          },
+          "attachments": [],
+          "quantity": 1,
+          "seller": "1",
+          "name": "Finalizador Acorda Cachos - Cacheados 300 ml",
+          "refId": "7CBRFN300CKACCA",
+          "price": 1990,
+          "listPrice": 1990,
+          "manualPrice": null,
+          "priceTags": [
+              {
+                  "name": "discount@shipping-2675b2d1-25a4-43b3-9dc4-d30066bb3254#6d610848-907e-4bc4-9fc1-c4606c098981",
+                  "value": -738,
+                  "isPercentual": false,
+                  "identifier": "2675b2d1-25a4-43b3-9dc4-d30066bb3254",
+                  "rawValue": -7.380,
+                  "rate": null,
+                  "jurisCode": null,
+                  "jurisType": null,
+                  "jurisName": null
+              }
+          ],
+          "imageUrl": "https://bioextratusvirtual.vteximg.com.br/arquivos/ids/158583-544-544/04.png?v=637172188889500000",
+          "detailUrl": "/chikas-finalizador-acorda-cachos-cacheados-300ml/p",
+          "components": [],
+          "bundleItems": [],
+          "params": [],
+          "offerings": [],
+          "sellerSku": "475",
+          "priceValidUntil": null,
+          "commission": 0,
+          "tax": 0,
+          "preSaleDate": null,
+          "additionalInfo": {
+              "brandName": "Chikas",
+              "brandId": "2000004",
+              "categoriesIds": "/124/114/",
+              "categories": [
+                  {
+                      "id": 114,
+                      "name": "Acorda Cachos Chikas"
+                  },
+                  {
+                      "id": 124,
+                      "name": "Linha de Produtos"
+                  }
+              ],
+              "productClusterId": "138,153,154,157",
+              "commercialConditionId": "1",
+              "dimension": {
+                  "cubicweight": 1.0000,
+                  "height": 20.0000,
+                  "length": 5.2000,
+                  "weight": 0.3600,
+                  "width": 5.2000
+              },
+              "offeringInfo": null,
+              "offeringType": null,
+              "offeringTypeId": null
+          },
+          "measurementUnit": "un",
+          "unitMultiplier": 1.0000,
+          "sellingPrice": 1990,
+          "isGift": false,
+          "shippingPrice": null,
+          "rewardValue": 0,
+          "freightCommission": 0,
+          "priceDefinitions": null,
+          "taxCode": "33059000",
+          "parentItemIndex": null,
+          "parentAssemblyBinding": null,
+          "callCenterOperator": null,
+          "serialNumbers": null,
+          "assemblies": [],
+          "costPrice": 1989
+      },
+      {
+          "uniqueId": "08036C8DBB6245DD8C57C24542359733",
+          "id": "483",
+          "productId": "484",
+          "ean": "07898132981389",
+          "lockId": "00-1069493577671-01",
+          "itemAttachment": {
+              "content": {},
+              "name": null
+          },
+          "attachments": [],
+          "quantity": 1,
+          "seller": "1",
+          "name": "Shampoo Acorda Cachos 300 ml",
+          "refId": "7CBRSH300CKACCA",
+          "price": 1490,
+          "listPrice": 1490,
+          "manualPrice": null,
+          "priceTags": [
+              {
+                  "name": "discount@shipping-2675b2d1-25a4-43b3-9dc4-d30066bb3254#6d610848-907e-4bc4-9fc1-c4606c098981",
+                  "value": -758,
+                  "isPercentual": false,
+                  "identifier": "2675b2d1-25a4-43b3-9dc4-d30066bb3254",
+                  "rawValue": -7.580,
+                  "rate": null,
+                  "jurisCode": null,
+                  "jurisType": null,
+                  "jurisName": null
+              }
+          ],
+          "imageUrl": "https://bioextratusvirtual.vteximg.com.br/arquivos/ids/158586-544-544/06.png?v=637172190500700000",
+          "detailUrl": "/chikas-shampoo-acorda-cachos-300ml/p",
+          "components": [],
+          "bundleItems": [],
+          "params": [],
+          "offerings": [],
+          "sellerSku": "483",
+          "priceValidUntil": null,
+          "commission": 0,
+          "tax": 0,
+          "preSaleDate": null,
+          "additionalInfo": {
+              "brandName": "Chikas",
+              "brandId": "2000004",
+              "categoriesIds": "/124/114/",
+              "categories": [
+                  {
+                      "id": 114,
+                      "name": "Acorda Cachos Chikas"
+                  },
+                  {
+                      "id": 124,
+                      "name": "Linha de Produtos"
+                  }
+              ],
+              "productClusterId": "138,153,154,157",
+              "commercialConditionId": "1",
+              "dimension": {
+                  "cubicweight": 1.0000,
+                  "height": 20.0000,
+                  "length": 5.2000,
+                  "weight": 0.3700,
+                  "width": 5.2000
+              },
+              "offeringInfo": null,
+              "offeringType": null,
+              "offeringTypeId": null
+          },
+          "measurementUnit": "un",
+          "unitMultiplier": 1.0000,
+          "sellingPrice": 1490,
+          "isGift": false,
+          "shippingPrice": null,
+          "rewardValue": 0,
+          "freightCommission": 0,
+          "priceDefinitions": null,
+          "taxCode": "33051000",
+          "parentItemIndex": null,
+          "parentAssemblyBinding": null,
+          "callCenterOperator": null,
+          "serialNumbers": null,
+          "assemblies": [],
+          "costPrice": 1490
+      },
+      {
+          "uniqueId": "5F913801AD0C41EF92277A2C3BB1CA5A",
+          "id": "482",
+          "productId": "483",
+          "ean": "07898132981419",
+          "lockId": "00-1069493577671-01",
+          "itemAttachment": {
+              "content": {},
+              "name": null
+          },
+          "attachments": [],
+          "quantity": 1,
+          "seller": "1",
+          "name": "Loção Cresce & Aparece 55 ml",
+          "refId": "7CBRLO055CKCRAP",
+          "price": 1790,
+          "listPrice": 1790,
+          "manualPrice": null,
+          "priceTags": [
+              {
+                  "name": "discount@shipping-2675b2d1-25a4-43b3-9dc4-d30066bb3254#6d610848-907e-4bc4-9fc1-c4606c098981",
+                  "value": -186,
+                  "isPercentual": false,
+                  "identifier": "2675b2d1-25a4-43b3-9dc4-d30066bb3254",
+                  "rawValue": -1.860,
+                  "rate": null,
+                  "jurisCode": null,
+                  "jurisType": null,
+                  "jurisName": null
+              }
+          ],
+          "imageUrl": "https://bioextratusvirtual.vteximg.com.br/arquivos/ids/158558-544-544/06.png?v=637172171155900000",
+          "detailUrl": "/chikas-locao-cresce-e-aparece-55ml/p",
+          "components": [],
+          "bundleItems": [],
+          "params": [],
+          "offerings": [],
+          "sellerSku": "482",
+          "priceValidUntil": null,
+          "commission": 0,
+          "tax": 0,
+          "preSaleDate": null,
+          "additionalInfo": {
+              "brandName": "Chikas",
+              "brandId": "2000004",
+              "categoriesIds": "/124/116/",
+              "categories": [
+                  {
+                      "id": 116,
+                      "name": "Cresce & Aparece Chikas"
+                  },
+                  {
+                      "id": 124,
+                      "name": "Linha de Produtos"
+                  }
+              ],
+              "productClusterId": "138,153,154,157",
+              "commercialConditionId": "1",
+              "dimension": {
+                  "cubicweight": 1.0000,
+                  "height": 13.3000,
+                  "length": 3.2000,
+                  "weight": 0.0900,
+                  "width": 3.2000
+              },
+              "offeringInfo": null,
+              "offeringType": null,
+              "offeringTypeId": null
+          },
+          "measurementUnit": "un",
+          "unitMultiplier": 1.0000,
+          "sellingPrice": 1790,
+          "isGift": false,
+          "shippingPrice": null,
+          "rewardValue": 0,
+          "freightCommission": 0,
+          "priceDefinitions": null,
+          "taxCode": "33059000",
+          "parentItemIndex": null,
+          "parentAssemblyBinding": null,
+          "callCenterOperator": null,
+          "serialNumbers": null,
+          "assemblies": [],
+          "costPrice": 1789
+      },
+      {
+          "uniqueId": "C3EC1399D6F84D7DAF0D6F0997A5FB13",
+          "id": "484",
+          "productId": "485",
+          "ean": "07898132981396",
+          "lockId": "00-1069493577671-01",
+          "itemAttachment": {
+              "content": {},
+              "name": null
+          },
+          "attachments": [],
+          "quantity": 1,
+          "seller": "1",
+          "name": "Shampoo Cresce & Aparece 300 ml",
+          "refId": "7CBRSH300CKCRAP",
+          "price": 1490,
+          "listPrice": 1490,
+          "manualPrice": null,
+          "priceTags": [
+              {
+                  "name": "discount@shipping-2675b2d1-25a4-43b3-9dc4-d30066bb3254#6d610848-907e-4bc4-9fc1-c4606c098981",
+                  "value": -758,
+                  "isPercentual": false,
+                  "identifier": "2675b2d1-25a4-43b3-9dc4-d30066bb3254",
+                  "rawValue": -7.580,
+                  "rate": null,
+                  "jurisCode": null,
+                  "jurisType": null,
+                  "jurisName": null
+              }
+          ],
+          "imageUrl": "https://bioextratusvirtual.vteximg.com.br/arquivos/ids/158559-544-544/04.png?v=637172171828800000",
+          "detailUrl": "/chikas-shampoo-cresce-e-aparece-300ml/p",
+          "components": [],
+          "bundleItems": [],
+          "params": [],
+          "offerings": [],
+          "sellerSku": "484",
+          "priceValidUntil": null,
+          "commission": 0,
+          "tax": 0,
+          "preSaleDate": null,
+          "additionalInfo": {
+              "brandName": "Chikas",
+              "brandId": "2000004",
+              "categoriesIds": "/124/116/",
+              "categories": [
+                  {
+                      "id": 116,
+                      "name": "Cresce & Aparece Chikas"
+                  },
+                  {
+                      "id": 124,
+                      "name": "Linha de Produtos"
+                  }
+              ],
+              "productClusterId": "138,153,154,157",
+              "commercialConditionId": "1",
+              "dimension": {
+                  "cubicweight": 1.0000,
+                  "height": 20.0000,
+                  "length": 5.2000,
+                  "weight": 0.3700,
+                  "width": 5.2000
+              },
+              "offeringInfo": null,
+              "offeringType": null,
+              "offeringTypeId": null
+          },
+          "measurementUnit": "un",
+          "unitMultiplier": 1.0000,
+          "sellingPrice": 1490,
+          "isGift": false,
+          "shippingPrice": null,
+          "rewardValue": 0,
+          "freightCommission": 0,
+          "priceDefinitions": null,
+          "taxCode": "33051000",
+          "parentItemIndex": null,
+          "parentAssemblyBinding": null,
+          "callCenterOperator": null,
+          "serialNumbers": null,
+          "assemblies": [],
+          "costPrice": 1490
+      },
+      {
+          "uniqueId": "6F481F6AB0E74F438AC9972C6DEBDDDA",
+          "id": "470",
+          "productId": "471",
+          "ean": "07898132981365",
+          "lockId": "00-1069493577671-01",
+          "itemAttachment": {
+              "content": {},
+              "name": null
+          },
+          "attachments": [],
+          "quantity": 1,
+          "seller": "1",
+          "name": "Condicionador Cresce & Aparece 300 ml",
+          "refId": "7CBRCD300CKCRAP",
+          "price": 1490,
+          "listPrice": 1490,
+          "manualPrice": null,
+          "priceTags": [
+              {
+                  "name": "discount@shipping-2675b2d1-25a4-43b3-9dc4-d30066bb3254#6d610848-907e-4bc4-9fc1-c4606c098981",
+                  "value": -738,
+                  "isPercentual": false,
+                  "identifier": "2675b2d1-25a4-43b3-9dc4-d30066bb3254",
+                  "rawValue": -7.380,
+                  "rate": null,
+                  "jurisCode": null,
+                  "jurisType": null,
+                  "jurisName": null
+              }
+          ],
+          "imageUrl": "https://bioextratusvirtual.vteximg.com.br/arquivos/ids/158556-544-544/03.png?v=637172170043700000",
+          "detailUrl": "/condicionador-chikas-cresce-e-aparece-300ml/p",
+          "components": [],
+          "bundleItems": [],
+          "params": [],
+          "offerings": [],
+          "sellerSku": "470",
+          "priceValidUntil": null,
+          "commission": 0,
+          "tax": 0,
+          "preSaleDate": null,
+          "additionalInfo": {
+              "brandName": "Chikas",
+              "brandId": "2000004",
+              "categoriesIds": "/124/116/",
+              "categories": [
+                  {
+                      "id": 116,
+                      "name": "Cresce & Aparece Chikas"
+                  },
+                  {
+                      "id": 124,
+                      "name": "Linha de Produtos"
+                  }
+              ],
+              "productClusterId": "138,153,154,157",
+              "commercialConditionId": "1",
+              "dimension": {
+                  "cubicweight": 1.0000,
+                  "height": 20.0000,
+                  "length": 5.2000,
+                  "weight": 0.3600,
+                  "width": 5.2000
+              },
+              "offeringInfo": null,
+              "offeringType": null,
+              "offeringTypeId": null
+          },
+          "measurementUnit": "un",
+          "unitMultiplier": 1.0000,
+          "sellingPrice": 1490,
+          "isGift": false,
+          "shippingPrice": null,
+          "rewardValue": 0,
+          "freightCommission": 0,
+          "priceDefinitions": null,
+          "taxCode": "33059000",
+          "parentItemIndex": null,
+          "parentAssemblyBinding": null,
+          "callCenterOperator": null,
+          "serialNumbers": null,
+          "assemblies": [],
+          "costPrice": 1490
+      }
+  ],
+  "marketplaceItems": [],
+  "clientProfileData": {
+      "id": "clientProfileData",
+      "email": "30427242753542d48f116848beaffad9@ct.vtex.com.br",
+      "firstName": "Marta Mendes",
+      "lastName": "Rosa",
+      "documentType": "cpf",
+      "document": "37454404120",
+      "phone": "+5562981336282",
+      "corporateName": null,
+      "tradeName": null,
+      "corporateDocument": null,
+      "stateInscription": "",
+      "corporatePhone": null,
+      "isCorporate": false,
+      "userProfileId": "5d773f18-44e6-4f6d-8cbb-c3f64b3af415",
+      "customerClass": null
+  },
+  "giftRegistryData": null,
+  "marketingData": {
+      "id": "marketingData",
+      "utmSource": "Google",
+      "utmPartner": null,
+      "utmMedium": null,
+      "utmCampaign": null,
+      "coupon": null,
+      "utmiCampaign": "",
+      "utmipage": "",
+      "utmiPart": "",
+      "marketingTags": [
+          "Frete Grátis R$ 79,90"
+      ]
+  },
+  "ratesAndBenefitsData": {
+      "id": "ratesAndBenefitsData",
+      "rateAndBenefitsIdentifiers": [
+          {
+              "description": null,
+              "featured": false,
+              "id": "2675b2d1-25a4-43b3-9dc4-d30066bb3254",
+              "name": "Chikas | Frete Grátis | R$ 79,90",
+              "matchedParameters": {},
+              "additionalInfo": null
+          }
+      ]
+  },
+  "shippingData": {
+      "id": "shippingData",
+      "address": {
+          "addressType": "residential",
+          "receiverName": "Marta Mendes Rosa",
+          "addressId": "39482997c1a24cd78ae61a269390ddd1",
+          "postalCode": "74933-213",
+          "city": "Aparecida de Goiânia",
+          "state": "GO",
+          "country": "BRA",
+          "street": "Rua Jassyendy",
+          "number": "0000",
+          "neighborhood": "Cardoso",
+          "complement": "Quadra 04 lote 14",
+          "reference": null,
+          "geoCoordinates": [
+              -49.314140319824219,
+              -16.751131057739258
+          ]
+      },
+      "logisticsInfo": [
+          {
+              "itemIndex": 0,
+              "selectedSla": "Fábrica / Correios (PAC)",
+              "lockTTL": "12d",
+              "price": 0,
+              "listPrice": 738,
+              "sellingPrice": 0,
+              "deliveryWindow": null,
+              "deliveryCompany": "PAC",
+              "shippingEstimate": "18bd",
+              "shippingEstimateDate": "2020-11-12T13:19:57.9010516+00:00",
+              "slas": [
+                  {
+                      "id": "Fábrica / Correios (PAC)",
+                      "name": "Fábrica / Correios (PAC)",
+                      "shippingEstimate": "18bd",
+                      "deliveryWindow": null,
+                      "price": 0,
+                      "deliveryChannel": "delivery",
+                      "pickupStoreInfo": {
+                          "additionalInfo": null,
+                          "address": null,
+                          "dockId": null,
+                          "friendlyName": null,
+                          "isPickupStore": false
+                      },
+                      "polygonName": null,
+                      "lockTTL": "12d",
+                      "pickupPointId": null,
+                      "transitTime": "11bd"
+                  },
+                  {
+                      "id": "Fábrica / Correios (SEDEX)",
+                      "name": "Fábrica / Correios (SEDEX)",
+                      "shippingEstimate": "12bd",
+                      "deliveryWindow": null,
+                      "price": 1406,
+                      "deliveryChannel": "delivery",
+                      "pickupStoreInfo": {
+                          "additionalInfo": null,
+                          "address": null,
+                          "dockId": null,
+                          "friendlyName": null,
+                          "isPickupStore": false
+                      },
+                      "polygonName": null,
+                      "lockTTL": "12d",
+                      "pickupPointId": null,
+                      "transitTime": "5bd"
+                  }
+              ],
+              "shipsTo": [
+                  "BRA"
+              ],
+              "deliveryIds": [
+                  {
+                      "courierId": "41068",
+                      "courierName": "PAC",
+                      "dockId": "1",
+                      "quantity": 1,
+                      "warehouseId": "1_1",
+                      "accountCarrierName": "bioextratusvirtual"
+                  }
+              ],
+              "deliveryChannel": "delivery",
+              "pickupStoreInfo": {
+                  "additionalInfo": null,
+                  "address": null,
+                  "dockId": null,
+                  "friendlyName": null,
+                  "isPickupStore": false
+              },
+              "addressId": "39482997c1a24cd78ae61a269390ddd1",
+              "polygonName": null,
+              "pickupPointId": null,
+              "transitTime": "11bd"
+          },
+          {
+              "itemIndex": 1,
+              "selectedSla": "Fábrica / Correios (PAC)",
+              "lockTTL": "12d",
+              "price": 0,
+              "listPrice": 758,
+              "sellingPrice": 0,
+              "deliveryWindow": null,
+              "deliveryCompany": "PAC",
+              "shippingEstimate": "18bd",
+              "shippingEstimateDate": "2020-11-12T13:19:57.9010516+00:00",
+              "slas": [
+                  {
+                      "id": "Fábrica / Correios (PAC)",
+                      "name": "Fábrica / Correios (PAC)",
+                      "shippingEstimate": "18bd",
+                      "deliveryWindow": null,
+                      "price": 0,
+                      "deliveryChannel": "delivery",
+                      "pickupStoreInfo": {
+                          "additionalInfo": null,
+                          "address": null,
+                          "dockId": null,
+                          "friendlyName": null,
+                          "isPickupStore": false
+                      },
+                      "polygonName": null,
+                      "lockTTL": "12d",
+                      "pickupPointId": null,
+                      "transitTime": "11bd"
+                  },
+                  {
+                      "id": "Fábrica / Correios (SEDEX)",
+                      "name": "Fábrica / Correios (SEDEX)",
+                      "shippingEstimate": "12bd",
+                      "deliveryWindow": null,
+                      "price": 1444,
+                      "deliveryChannel": "delivery",
+                      "pickupStoreInfo": {
+                          "additionalInfo": null,
+                          "address": null,
+                          "dockId": null,
+                          "friendlyName": null,
+                          "isPickupStore": false
+                      },
+                      "polygonName": null,
+                      "lockTTL": "12d",
+                      "pickupPointId": null,
+                      "transitTime": "5bd"
+                  }
+              ],
+              "shipsTo": [
+                  "BRA"
+              ],
+              "deliveryIds": [
+                  {
+                      "courierId": "41068",
+                      "courierName": "PAC",
+                      "dockId": "1",
+                      "quantity": 1,
+                      "warehouseId": "1_1",
+                      "accountCarrierName": "bioextratusvirtual"
+                  }
+              ],
+              "deliveryChannel": "delivery",
+              "pickupStoreInfo": {
+                  "additionalInfo": null,
+                  "address": null,
+                  "dockId": null,
+                  "friendlyName": null,
+                  "isPickupStore": false
+              },
+              "addressId": "39482997c1a24cd78ae61a269390ddd1",
+              "polygonName": null,
+              "pickupPointId": null,
+              "transitTime": "11bd"
+          },
+          {
+              "itemIndex": 2,
+              "selectedSla": "Fábrica / Correios (PAC)",
+              "lockTTL": "12d",
+              "price": 0,
+              "listPrice": 186,
+              "sellingPrice": 0,
+              "deliveryWindow": null,
+              "deliveryCompany": "PAC",
+              "shippingEstimate": "18bd",
+              "shippingEstimateDate": "2020-11-12T13:19:57.9010516+00:00",
+              "slas": [
+                  {
+                      "id": "Fábrica / Correios (PAC)",
+                      "name": "Fábrica / Correios (PAC)",
+                      "shippingEstimate": "18bd",
+                      "deliveryWindow": null,
+                      "price": 0,
+                      "deliveryChannel": "delivery",
+                      "pickupStoreInfo": {
+                          "additionalInfo": null,
+                          "address": null,
+                          "dockId": null,
+                          "friendlyName": null,
+                          "isPickupStore": false
+                      },
+                      "polygonName": null,
+                      "lockTTL": "12d",
+                      "pickupPointId": null,
+                      "transitTime": "11bd"
+                  },
+                  {
+                      "id": "Fábrica / Correios (SEDEX)",
+                      "name": "Fábrica / Correios (SEDEX)",
+                      "shippingEstimate": "12bd",
+                      "deliveryWindow": null,
+                      "price": 351,
+                      "deliveryChannel": "delivery",
+                      "pickupStoreInfo": {
+                          "additionalInfo": null,
+                          "address": null,
+                          "dockId": null,
+                          "friendlyName": null,
+                          "isPickupStore": false
+                      },
+                      "polygonName": null,
+                      "lockTTL": "12d",
+                      "pickupPointId": null,
+                      "transitTime": "5bd"
+                  }
+              ],
+              "shipsTo": [
+                  "BRA"
+              ],
+              "deliveryIds": [
+                  {
+                      "courierId": "41068",
+                      "courierName": "PAC",
+                      "dockId": "1",
+                      "quantity": 1,
+                      "warehouseId": "1_1",
+                      "accountCarrierName": "bioextratusvirtual"
+                  }
+              ],
+              "deliveryChannel": "delivery",
+              "pickupStoreInfo": {
+                  "additionalInfo": null,
+                  "address": null,
+                  "dockId": null,
+                  "friendlyName": null,
+                  "isPickupStore": false
+              },
+              "addressId": "39482997c1a24cd78ae61a269390ddd1",
+              "polygonName": null,
+              "pickupPointId": null,
+              "transitTime": "11bd"
+          },
+          {
+              "itemIndex": 3,
+              "selectedSla": "Fábrica / Correios (PAC)",
+              "lockTTL": "12d",
+              "price": 0,
+              "listPrice": 758,
+              "sellingPrice": 0,
+              "deliveryWindow": null,
+              "deliveryCompany": "PAC",
+              "shippingEstimate": "18bd",
+              "shippingEstimateDate": "2020-11-12T13:19:57.9010516+00:00",
+              "slas": [
+                  {
+                      "id": "Fábrica / Correios (PAC)",
+                      "name": "Fábrica / Correios (PAC)",
+                      "shippingEstimate": "18bd",
+                      "deliveryWindow": null,
+                      "price": 0,
+                      "deliveryChannel": "delivery",
+                      "pickupStoreInfo": {
+                          "additionalInfo": null,
+                          "address": null,
+                          "dockId": null,
+                          "friendlyName": null,
+                          "isPickupStore": false
+                      },
+                      "polygonName": null,
+                      "lockTTL": "12d",
+                      "pickupPointId": null,
+                      "transitTime": "11bd"
+                  },
+                  {
+                      "id": "Fábrica / Correios (SEDEX)",
+                      "name": "Fábrica / Correios (SEDEX)",
+                      "shippingEstimate": "12bd",
+                      "deliveryWindow": null,
+                      "price": 1445,
+                      "deliveryChannel": "delivery",
+                      "pickupStoreInfo": {
+                          "additionalInfo": null,
+                          "address": null,
+                          "dockId": null,
+                          "friendlyName": null,
+                          "isPickupStore": false
+                      },
+                      "polygonName": null,
+                      "lockTTL": "12d",
+                      "pickupPointId": null,
+                      "transitTime": "5bd"
+                  }
+              ],
+              "shipsTo": [
+                  "BRA"
+              ],
+              "deliveryIds": [
+                  {
+                      "courierId": "41068",
+                      "courierName": "PAC",
+                      "dockId": "1",
+                      "quantity": 1,
+                      "warehouseId": "1_1",
+                      "accountCarrierName": "bioextratusvirtual"
+                  }
+              ],
+              "deliveryChannel": "delivery",
+              "pickupStoreInfo": {
+                  "additionalInfo": null,
+                  "address": null,
+                  "dockId": null,
+                  "friendlyName": null,
+                  "isPickupStore": false
+              },
+              "addressId": "39482997c1a24cd78ae61a269390ddd1",
+              "polygonName": null,
+              "pickupPointId": null,
+              "transitTime": "11bd"
+          },
+          {
+              "itemIndex": 4,
+              "selectedSla": "Fábrica / Correios (PAC)",
+              "lockTTL": "12d",
+              "price": 0,
+              "listPrice": 738,
+              "sellingPrice": 0,
+              "deliveryWindow": null,
+              "deliveryCompany": "PAC",
+              "shippingEstimate": "18bd",
+              "shippingEstimateDate": "2020-11-12T13:19:57.9010516+00:00",
+              "slas": [
+                  {
+                      "id": "Fábrica / Correios (PAC)",
+                      "name": "Fábrica / Correios (PAC)",
+                      "shippingEstimate": "18bd",
+                      "deliveryWindow": null,
+                      "price": 0,
+                      "deliveryChannel": "delivery",
+                      "pickupStoreInfo": {
+                          "additionalInfo": null,
+                          "address": null,
+                          "dockId": null,
+                          "friendlyName": null,
+                          "isPickupStore": false
+                      },
+                      "polygonName": null,
+                      "lockTTL": "12d",
+                      "pickupPointId": null,
+                      "transitTime": "11bd"
+                  },
+                  {
+                      "id": "Fábrica / Correios (SEDEX)",
+                      "name": "Fábrica / Correios (SEDEX)",
+                      "shippingEstimate": "12bd",
+                      "deliveryWindow": null,
+                      "price": 1406,
+                      "deliveryChannel": "delivery",
+                      "pickupStoreInfo": {
+                          "additionalInfo": null,
+                          "address": null,
+                          "dockId": null,
+                          "friendlyName": null,
+                          "isPickupStore": false
+                      },
+                      "polygonName": null,
+                      "lockTTL": "12d",
+                      "pickupPointId": null,
+                      "transitTime": "5bd"
+                  }
+              ],
+              "shipsTo": [
+                  "BRA"
+              ],
+              "deliveryIds": [
+                  {
+                      "courierId": "41068",
+                      "courierName": "PAC",
+                      "dockId": "1",
+                      "quantity": 1,
+                      "warehouseId": "1_1",
+                      "accountCarrierName": "bioextratusvirtual"
+                  }
+              ],
+              "deliveryChannel": "delivery",
+              "pickupStoreInfo": {
+                  "additionalInfo": null,
+                  "address": null,
+                  "dockId": null,
+                  "friendlyName": null,
+                  "isPickupStore": false
+              },
+              "addressId": "39482997c1a24cd78ae61a269390ddd1",
+              "polygonName": null,
+              "pickupPointId": null,
+              "transitTime": "11bd"
+          }
+      ],
+      "trackingHints": null,
+      "selectedAddresses": [
+          {
+              "addressId": "39482997c1a24cd78ae61a269390ddd1",
+              "addressType": "residential",
+              "receiverName": "Marta Mendes Rosa",
+              "street": "Rua Jassyendy",
+              "number": "0000",
+              "complement": "Quadra 04 lote 14",
+              "neighborhood": "Cardoso",
+              "postalCode": "74933-213",
+              "city": "Aparecida de Goiânia",
+              "state": "GO",
+              "country": "BRA",
+              "reference": null,
+              "geoCoordinates": [
+                  -49.314140319824219,
+                  -16.751131057739258
+              ]
+          }
+      ]
+  },
+  "paymentData": {
+      "giftCards": [],
+      "transactions": [
+          {
+              "isActive": true,
+              "transactionId": "7C6FF4EF82244A0D99244341B8712557",
+              "merchantName": "CHIKAS",
+              "payments": [
+                  {
+                      "id": "8C97EDB3EB394544891BCD3CB9C71981",
+                      "paymentSystem": "4",
+                      "paymentSystemName": "Mastercard",
+                      "value": 8250,
+                      "installments": 2,
+                      "referenceValue": 8250,
+                      "cardHolder": null,
+                      "cardNumber": null,
+                      "firstDigits": "530034",
+                      "lastDigits": "9244",
+                      "cvv2": null,
+                      "expireMonth": null,
+                      "expireYear": null,
+                      "url": null,
+                      "giftCardId": null,
+                      "giftCardName": null,
+                      "giftCardCaption": null,
+                      "redemptionCode": null,
+                      "group": "creditCard",
+                      "tid": "10022010160950225187",
+                      "dueDate": null,
+                      "connectorResponses": {
+                          "message": "Success.",
+                          "returnCode": "00",
+                          "tid": "10022010160950225187",
+                          "authId": "066714",
+                          "nsu": "501160231",
+                          "network": "Mastercard",
+                          "firstDigits": "530034",
+                          "lastDigits": "9244"
+                      },
+                      "giftCardProvider": null,
+                      "giftCardAsDiscount": null,
+                      "koinUrl": null,
+                      "accountId": "4DFD0D934C8240479C955A61CBB58CF7",
+                      "parentAccountId": null,
+                      "bankIssuedInvoiceIdentificationNumber": null,
+                      "bankIssuedInvoiceIdentificationNumberFormatted": null,
+                      "bankIssuedInvoiceBarCodeNumber": null,
+                      "bankIssuedInvoiceBarCodeType": null,
+                      "billingAddress": {
+                          "postalCode": "74933-213",
+                          "city": "Aparecida de Goiânia",
+                          "state": "GO",
+                          "country": "BRA",
+                          "street": "Rua Jassyendy",
+                          "number": "0000",
+                          "neighborhood": "Cardoso",
+                          "complement": "Quadra 04 lote 14",
+                          "reference": null,
+                          "geoCoordinates": [
+                              -49.314140319824219,
+                              -16.751131057739258
+                          ]
+                      }
+                  }
+              ]
+          }
+      ]
+  },
+  "packageAttachment": {
+      "packages": [
+          {
+              "items": [
+                  {
+                      "itemIndex": 0,
+                      "quantity": 1,
+                      "price": 1990,
+                      "description": null,
+                      "unitMultiplier": 0.0
+                  },
+                  {
+                      "itemIndex": 1,
+                      "quantity": 1,
+                      "price": 1490,
+                      "description": null,
+                      "unitMultiplier": 0.0
+                  },
+                  {
+                      "itemIndex": 2,
+                      "quantity": 1,
+                      "price": 1790,
+                      "description": null,
+                      "unitMultiplier": 0.0
+                  },
+                  {
+                      "itemIndex": 3,
+                      "quantity": 1,
+                      "price": 1490,
+                      "description": null,
+                      "unitMultiplier": 0.0
+                  },
+                  {
+                      "itemIndex": 4,
+                      "quantity": 1,
+                      "price": 1490,
+                      "description": null,
+                      "unitMultiplier": 0.0
+                  }
+              ],
+              "courier": "PAC",
+              "invoiceNumber": "000035646",
+              "invoiceValue": 8250,
+              "invoiceUrl": null,
+              "issuanceDate": "2020-10-16T14:27:00.0000000+00:00",
+              "trackingNumber": "PZ997638075BR",
+              "invoiceKey": "31201002176615000441550010000356461100239960",
+              "trackingUrl": "http://www.mdlivre.com.br/tracking/view/PZ997638075BR",
+              "embeddedInvoice": "",
+              "type": "Output",
+              "courierStatus": null,
+              "cfop": null,
+              "restitutions": {},
+              "volumes": 0
+          }
+      ]
+  },
+  "sellers": [
+      {
+          "id": "1",
+          "name": "Chikas",
+          "logo": "",
+          "fulfillmentEndpoint": "http://fulfillment.vtexcommerce.com.br/api/fulfillment?sc=3&an=chikas"
+      }
+  ],
+  "callCenterOperatorData": null,
+  "followUpEmail": "d4e12e65b5e6451991ad6400dae14e75@ct.vtex.com.br",
+  "lastMessage": null,
+  "hostname": "chikas",
+  "invoiceData": {
+      "address": null
+  },
+  "changesAttachment": null,
+  "openTextField": null,
+  "roundingError": 0,
+  "orderFormId": "e2be4df4760a46d5900050816143142a",
+  "commercialConditionData": null,
+  "isCompleted": true,
+  "customData": null,
+  "storePreferencesData": {
+      "countryCode": "BRA",
+      "currencyCode": "BRL",
+      "currencyFormatInfo": {
+          "CurrencyDecimalDigits": 2,
+          "CurrencyDecimalSeparator": ",",
+          "CurrencyGroupSeparator": ".",
+          "CurrencyGroupSize": 3,
+          "StartsWithCurrencySymbol": true
+      },
+      "currencyLocale": 1046,
+      "currencySymbol": "R$",
+      "timeZone": "E. South America Standard Time"
+  },
+  "allowCancellation": false,
+  "allowEdition": false,
+  "isCheckedIn": false,
+  "marketplace": {
+      "baseURL": "http://oms.vtexinternal.com.br/api/oms?an=chikas",
+      "isCertified": null,
+      "name": "chikas"
+  },
+  "authorizedDate": "2020-10-16T12:59:39.9463522+00:00",
+  "invoicedDate": "2020-10-16T17:30:16.7728817+00:00",
+  "cancelReason": null,
+  "itemMetadata": {
+      "Items": [
+          {
+              "Id": "475",
+              "Seller": "1",
+              "Name": "Finalizador Acorda Cachos - Cacheados 300 ml",
+              "SkuName": "Finalizador Acorda Cachos - Cacheados 300 ml",
+              "ProductId": "476",
+              "RefId": "7CBRFN300CKACCA",
+              "Ean": "07898132981266",
+              "ImageUrl": "http://bioextratusvirtual.vteximg.com.br/arquivos/ids/158583-544-544/04.png?v=637172188889500000",
+              "DetailUrl": "/chikas-finalizador-acorda-cachos-cacheados-300ml/p",
+              "AssemblyOptions": []
+          },
+          {
+              "Id": "483",
+              "Seller": "1",
+              "Name": "Shampoo Acorda Cachos 300 ml",
+              "SkuName": "Shampoo Acorda Cachos 300 ml",
+              "ProductId": "484",
+              "RefId": "7CBRSH300CKACCA",
+              "Ean": "07898132981389",
+              "ImageUrl": "http://bioextratusvirtual.vteximg.com.br/arquivos/ids/158586-544-544/06.png?v=637172190500700000",
+              "DetailUrl": "/chikas-shampoo-acorda-cachos-300ml/p",
+              "AssemblyOptions": []
+          },
+          {
+              "Id": "482",
+              "Seller": "1",
+              "Name": "Loção Cresce & Aparece 55 ml",
+              "SkuName": "Loção Cresce & Aparece 55 ml",
+              "ProductId": "483",
+              "RefId": "7CBRLO055CKCRAP",
+              "Ean": "07898132981419",
+              "ImageUrl": "http://bioextratusvirtual.vteximg.com.br/arquivos/ids/158558-544-544/06.png?v=637172171155900000",
+              "DetailUrl": "/chikas-locao-cresce-e-aparece-55ml/p",
+              "AssemblyOptions": []
+          },
+          {
+              "Id": "484",
+              "Seller": "1",
+              "Name": "Shampoo Cresce & Aparece 300 ml",
+              "SkuName": "Shampoo Cresce & Aparece 300 ml",
+              "ProductId": "485",
+              "RefId": "7CBRSH300CKCRAP",
+              "Ean": "07898132981396",
+              "ImageUrl": "http://bioextratusvirtual.vteximg.com.br/arquivos/ids/158559-544-544/04.png?v=637172171828800000",
+              "DetailUrl": "/chikas-shampoo-cresce-e-aparece-300ml/p",
+              "AssemblyOptions": []
+          },
+          {
+              "Id": "470",
+              "Seller": "1",
+              "Name": "Condicionador Cresce & Aparece 300 ml",
+              "SkuName": "Condicionador Cresce & Aparece 300 ml",
+              "ProductId": "471",
+              "RefId": "7CBRCD300CKCRAP",
+              "Ean": "07898132981365",
+              "ImageUrl": "http://bioextratusvirtual.vteximg.com.br/arquivos/ids/158556-544-544/03.png?v=637172170043700000",
+              "DetailUrl": "/condicionador-chikas-cresce-e-aparece-300ml/p",
+              "AssemblyOptions": []
+          }
+      ]
+  },
+  "subscriptionData": null,
+  "taxData": null,
+  "checkedInPickupPointId": null,
+  "cancellationData": null
+}

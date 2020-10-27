@@ -1,0 +1,914 @@
+{
+  "orderId": "1070353078230-01",
+  "sequence": "640442",
+  "marketplaceOrderId": "",
+  "marketplaceServicesEndpoint": null,
+  "sellerOrderId": "ldd-1070353078230-01",
+  "origin": "Marketplace",
+  "affiliateId": "",
+  "salesChannel": "1",
+  "merchantName": "BIOEXTRATUSVIRTUAL004",
+  "status": "invoiced",
+  "statusDescription": "Faturado",
+  "value": 13570,
+  "creationDate": "2020-10-20T02:51:13.4503726+00:00",
+  "lastChange": "2020-10-20T20:11:54.1530989+00:00",
+  "orderGroup": "1070353078230",
+  "totals": [
+      {
+          "id": "Items",
+          "name": "Total dos Itens",
+          "value": 18160
+      },
+      {
+          "id": "Discounts",
+          "name": "Total dos Descontos",
+          "value": -4590
+      },
+      {
+          "id": "Shipping",
+          "name": "Total do Frete",
+          "value": 0
+      },
+      {
+          "id": "Tax",
+          "name": "Total da Taxa",
+          "value": 0
+      }
+  ],
+  "items": [
+      {
+          "uniqueId": "772807F5825041A9AFEBB18625F6209B",
+          "id": "224",
+          "productId": "225",
+          "ean": "7898132980832",
+          "lockId": null,
+          "itemAttachment": {
+              "content": {},
+              "name": null
+          },
+          "attachments": [],
+          "quantity": 1,
+          "seller": "bioextratusvirtual004",
+          "name": "Banho de Creme Umectante 500g",
+          "refId": "7BBRBC500OCUMEC",
+          "price": 4290,
+          "listPrice": 4290,
+          "manualPrice": null,
+          "priceTags": [
+              {
+                  "name": "discount@price-22fbd1de-36e9-43a9-b3af-030f1a17f629#899d61b4-23ab-4d92-8074-b4554dfec1fe",
+                  "value": -429,
+                  "isPercentual": false,
+                  "identifier": "22fbd1de-36e9-43a9-b3af-030f1a17f629",
+                  "rawValue": -4.29,
+                  "rate": null,
+                  "jurisCode": null,
+                  "jurisType": null,
+                  "jurisName": null
+              },
+              {
+                  "name": "discount@shipping-21af2c5d-abc8-4a22-a32a-bbaa698f5752#c30a64cc-ba1e-4953-80e6-311114badf8b",
+                  "value": -243,
+                  "isPercentual": false,
+                  "identifier": "21af2c5d-abc8-4a22-a32a-bbaa698f5752",
+                  "rawValue": -2.430,
+                  "rate": null,
+                  "jurisCode": null,
+                  "jurisType": null,
+                  "jurisName": null
+              }
+          ],
+          "imageUrl": "https://bioextratusvirtual.vteximg.com.br/arquivos/ids/157647-544-544/Bio-Extratus_Banho-de-Creme-500g.jpg?v=637000043680530000",
+          "detailUrl": "/banho-de-creme-umectante-500g/p",
+          "components": [],
+          "bundleItems": [],
+          "params": [],
+          "offerings": [],
+          "sellerSku": "224",
+          "priceValidUntil": "2021-10-20T02:48:25.0000000+00:00",
+          "commission": 0,
+          "tax": 0,
+          "preSaleDate": null,
+          "additionalInfo": {
+              "brandName": "Bio Extratus",
+              "brandId": "2000003",
+              "categoriesIds": "/8/22/46/",
+              "categories": [
+                  {
+                      "id": 46,
+                      "name": "Umectante"
+                  },
+                  {
+                      "id": 22,
+                      "name": "Tradicional"
+                  },
+                  {
+                      "id": 8,
+                      "name": "Cabelo"
+                  }
+              ],
+              "productClusterId": "135,139,143,147,161,163",
+              "commercialConditionId": "1",
+              "dimension": {
+                  "cubicweight": 1.0000,
+                  "height": 12.0000,
+                  "length": 8.9000,
+                  "weight": 570.0000,
+                  "width": 8.9000
+              },
+              "offeringInfo": null,
+              "offeringType": null,
+              "offeringTypeId": null
+          },
+          "measurementUnit": "un",
+          "unitMultiplier": 1.0000,
+          "sellingPrice": 3861,
+          "isGift": false,
+          "shippingPrice": null,
+          "rewardValue": 0,
+          "freightCommission": 0,
+          "priceDefinitions": null,
+          "taxCode": "33059000",
+          "parentItemIndex": null,
+          "parentAssemblyBinding": null,
+          "callCenterOperator": null,
+          "serialNumbers": null,
+          "assemblies": [],
+          "costPrice": null
+      },
+      {
+          "uniqueId": "A95327E2C5E04B3BA21982F5FDB669EB",
+          "id": "501",
+          "productId": "502",
+          "ean": "0000000061",
+          "lockId": null,
+          "itemAttachment": {
+              "content": {},
+              "name": null
+          },
+          "attachments": [],
+          "quantity": 1,
+          "seller": "bioextratusvirtual004",
+          "name": "Cronograma Cabelos Cacheados e Crespos",
+          "refId": "0000000061",
+          "price": 13870,
+          "listPrice": 13870,
+          "manualPrice": null,
+          "priceTags": [
+              {
+                  "name": "discount@price-c69bf63e-c261-41fd-b30a-a09c6a19add0#01906933-cf46-47ed-9f25-8050525a368d",
+                  "value": -4161,
+                  "isPercentual": false,
+                  "identifier": "c69bf63e-c261-41fd-b30a-a09c6a19add0",
+                  "rawValue": -41.61,
+                  "rate": null,
+                  "jurisCode": null,
+                  "jurisType": null,
+                  "jurisName": null
+              },
+              {
+                  "name": "discount@shipping-21af2c5d-abc8-4a22-a32a-bbaa698f5752#c30a64cc-ba1e-4953-80e6-311114badf8b",
+                  "value": -747,
+                  "isPercentual": false,
+                  "identifier": "21af2c5d-abc8-4a22-a32a-bbaa698f5752",
+                  "rawValue": -7.470,
+                  "rate": null,
+                  "jurisCode": null,
+                  "jurisType": null,
+                  "jurisName": null
+              }
+          ],
+          "imageUrl": "https://bioextratusvirtual.vteximg.com.br/arquivos/ids/159357-544-544/Cabelos-Cacheados-e-Crespos.jpg?v=637330913753970000",
+          "detailUrl": "/cronograma-cabelos-cacheados-e-crespos/p",
+          "components": [
+              {
+                  "uniqueId": "83473159FA2B4DEBA578F1A0C5DB6CFF",
+                  "id": "293",
+                  "productId": null,
+                  "ean": "7898126404085",
+                  "lockId": null,
+                  "itemAttachment": {
+                      "content": {},
+                      "name": null
+                  },
+                  "attachments": [],
+                  "quantity": 1,
+                  "seller": null,
+                  "name": "Máscara Nutri Cachos 500g",
+                  "refId": "7BBC500NUTR",
+                  "price": 4790,
+                  "listPrice": null,
+                  "manualPrice": null,
+                  "priceTags": [
+                      {
+                          "name": "discount@price-c69bf63e-c261-41fd-b30a-a09c6a19add0#01906933-cf46-47ed-9f25-8050525a368d",
+                          "value": -1437,
+                          "isPercentual": false,
+                          "identifier": "c69bf63e-c261-41fd-b30a-a09c6a19add0",
+                          "rawValue": -14.37,
+                          "rate": null,
+                          "jurisCode": null,
+                          "jurisType": null,
+                          "jurisName": null
+                      }
+                  ],
+                  "imageUrl": null,
+                  "detailUrl": null,
+                  "components": [],
+                  "bundleItems": [],
+                  "params": [],
+                  "offerings": [],
+                  "sellerSku": "293",
+                  "priceValidUntil": null,
+                  "commission": 0,
+                  "tax": 0,
+                  "preSaleDate": null,
+                  "additionalInfo": {
+                      "brandName": null,
+                      "brandId": null,
+                      "categoriesIds": null,
+                      "categories": null,
+                      "productClusterId": null,
+                      "commercialConditionId": null,
+                      "dimension": {
+                          "cubicweight": 1.0000,
+                          "height": 12.0000,
+                          "length": 8.9000,
+                          "weight": 590.0000,
+                          "width": 8.9000
+                      },
+                      "offeringInfo": null,
+                      "offeringType": null,
+                      "offeringTypeId": null
+                  },
+                  "measurementUnit": "un",
+                  "unitMultiplier": 1.0,
+                  "sellingPrice": 3353,
+                  "isGift": false,
+                  "shippingPrice": null,
+                  "rewardValue": 0,
+                  "freightCommission": 0,
+                  "priceDefinitions": null,
+                  "taxCode": null,
+                  "parentItemIndex": null,
+                  "parentAssemblyBinding": null,
+                  "callCenterOperator": null,
+                  "serialNumbers": null,
+                  "assemblies": [],
+                  "costPrice": null
+              },
+              {
+                  "uniqueId": "CC9994816248454CB70414C76F6C488F",
+                  "id": "298",
+                  "productId": null,
+                  "ean": "07898132981860",
+                  "lockId": null,
+                  "itemAttachment": {
+                      "content": {},
+                      "name": null
+                  },
+                  "attachments": [],
+                  "quantity": 1,
+                  "seller": null,
+                  "name": "Banho de Creme Cachos & Crespos 500g",
+                  "refId": "7BBRBC500CACCRE",
+                  "price": 4290,
+                  "listPrice": null,
+                  "manualPrice": null,
+                  "priceTags": [
+                      {
+                          "name": "discount@price-c69bf63e-c261-41fd-b30a-a09c6a19add0#01906933-cf46-47ed-9f25-8050525a368d",
+                          "value": -1287,
+                          "isPercentual": false,
+                          "identifier": "c69bf63e-c261-41fd-b30a-a09c6a19add0",
+                          "rawValue": -12.87,
+                          "rate": null,
+                          "jurisCode": null,
+                          "jurisType": null,
+                          "jurisName": null
+                      }
+                  ],
+                  "imageUrl": null,
+                  "detailUrl": null,
+                  "components": [],
+                  "bundleItems": [],
+                  "params": [],
+                  "offerings": [],
+                  "sellerSku": "298",
+                  "priceValidUntil": null,
+                  "commission": 0,
+                  "tax": 0,
+                  "preSaleDate": null,
+                  "additionalInfo": {
+                      "brandName": null,
+                      "brandId": null,
+                      "categoriesIds": null,
+                      "categories": null,
+                      "productClusterId": null,
+                      "commercialConditionId": null,
+                      "dimension": {
+                          "cubicweight": 1.0000,
+                          "height": 12.0000,
+                          "length": 8.9000,
+                          "weight": 570.0000,
+                          "width": 8.9000
+                      },
+                      "offeringInfo": null,
+                      "offeringType": null,
+                      "offeringTypeId": null
+                  },
+                  "measurementUnit": "un",
+                  "unitMultiplier": 1.0,
+                  "sellingPrice": 3003,
+                  "isGift": false,
+                  "shippingPrice": null,
+                  "rewardValue": 0,
+                  "freightCommission": 0,
+                  "priceDefinitions": null,
+                  "taxCode": null,
+                  "parentItemIndex": null,
+                  "parentAssemblyBinding": null,
+                  "callCenterOperator": null,
+                  "serialNumbers": null,
+                  "assemblies": [],
+                  "costPrice": null
+              },
+              {
+                  "uniqueId": "E642A3FF83D54F7F9E1D822ACE6804DE",
+                  "id": "252",
+                  "productId": null,
+                  "ean": "7898126403507",
+                  "lockId": null,
+                  "itemAttachment": {
+                      "content": {},
+                      "name": null
+                  },
+                  "attachments": [],
+                  "quantity": 1,
+                  "seller": null,
+                  "name": "Máscara Shitake Plus 500g",
+                  "refId": "7BBC500SHIT",
+                  "price": 4790,
+                  "listPrice": null,
+                  "manualPrice": null,
+                  "priceTags": [
+                      {
+                          "name": "discount@price-c69bf63e-c261-41fd-b30a-a09c6a19add0#01906933-cf46-47ed-9f25-8050525a368d",
+                          "value": -1437,
+                          "isPercentual": false,
+                          "identifier": "c69bf63e-c261-41fd-b30a-a09c6a19add0",
+                          "rawValue": -14.37,
+                          "rate": null,
+                          "jurisCode": null,
+                          "jurisType": null,
+                          "jurisName": null
+                      }
+                  ],
+                  "imageUrl": null,
+                  "detailUrl": null,
+                  "components": [],
+                  "bundleItems": [],
+                  "params": [],
+                  "offerings": [],
+                  "sellerSku": "252",
+                  "priceValidUntil": null,
+                  "commission": 0,
+                  "tax": 0,
+                  "preSaleDate": null,
+                  "additionalInfo": {
+                      "brandName": null,
+                      "brandId": null,
+                      "categoriesIds": null,
+                      "categories": null,
+                      "productClusterId": null,
+                      "commercialConditionId": null,
+                      "dimension": {
+                          "cubicweight": 1.0000,
+                          "height": 12.0000,
+                          "length": 8.9000,
+                          "weight": 590.0000,
+                          "width": 8.9000
+                      },
+                      "offeringInfo": null,
+                      "offeringType": null,
+                      "offeringTypeId": null
+                  },
+                  "measurementUnit": "un",
+                  "unitMultiplier": 1.0,
+                  "sellingPrice": 3353,
+                  "isGift": false,
+                  "shippingPrice": null,
+                  "rewardValue": 0,
+                  "freightCommission": 0,
+                  "priceDefinitions": null,
+                  "taxCode": null,
+                  "parentItemIndex": null,
+                  "parentAssemblyBinding": null,
+                  "callCenterOperator": null,
+                  "serialNumbers": null,
+                  "assemblies": [],
+                  "costPrice": null
+              }
+          ],
+          "bundleItems": [],
+          "params": [],
+          "offerings": [],
+          "sellerSku": "501",
+          "priceValidUntil": "2020-11-01T03:30:00.0000000+00:00",
+          "commission": 0,
+          "tax": 0,
+          "preSaleDate": null,
+          "additionalInfo": {
+              "brandName": "Bio Extratus",
+              "brandId": "2000003",
+              "categoriesIds": "/113/",
+              "categories": [
+                  {
+                      "id": 113,
+                      "name": "Kits"
+                  }
+              ],
+              "productClusterId": "135,139,155",
+              "commercialConditionId": "1",
+              "dimension": {
+                  "cubicweight": 1.0000,
+                  "height": 32.0000,
+                  "length": 30.0000,
+                  "weight": 1750.0000,
+                  "width": 21.0000
+              },
+              "offeringInfo": null,
+              "offeringType": null,
+              "offeringTypeId": null
+          },
+          "measurementUnit": "un",
+          "unitMultiplier": 1.0000,
+          "sellingPrice": 9709,
+          "isGift": false,
+          "shippingPrice": null,
+          "rewardValue": 0,
+          "freightCommission": 0,
+          "priceDefinitions": null,
+          "taxCode": "",
+          "parentItemIndex": null,
+          "parentAssemblyBinding": null,
+          "callCenterOperator": null,
+          "serialNumbers": null,
+          "assemblies": [],
+          "costPrice": null
+      }
+  ],
+  "marketplaceItems": [],
+  "clientProfileData": {
+      "id": "clientProfileData",
+      "email": "535bec053065416cb15f94115f586175@ct.vtex.com.br",
+      "firstName": "Elias ",
+      "lastName": "Guerra",
+      "documentType": "cpf",
+      "document": "05658613604",
+      "phone": "+5531992047700",
+      "corporateName": null,
+      "tradeName": null,
+      "corporateDocument": null,
+      "stateInscription": "",
+      "corporatePhone": null,
+      "isCorporate": false,
+      "userProfileId": "e74c9e48-e019-4827-972d-02efbde41dc2",
+      "customerClass": null
+  },
+  "giftRegistryData": null,
+  "marketingData": {
+      "id": "marketingData",
+      "utmSource": "venda-valida",
+      "utmPartner": null,
+      "utmMedium": "sms",
+      "utmCampaign": "abandono-checkout-sms",
+      "coupon": "BIODESCONTO10",
+      "utmiCampaign": "",
+      "utmipage": "",
+      "utmiPart": "",
+      "marketingTags": [
+          "Frete Grátis R$ 99,90",
+          "Frete Grátis R$ 79,90"
+      ]
+  },
+  "ratesAndBenefitsData": {
+      "id": "ratesAndBenefitsData",
+      "rateAndBenefitsIdentifiers": [
+          {
+              "description": null,
+              "featured": false,
+              "id": "22fbd1de-36e9-43a9-b3af-030f1a17f629",
+              "name": "Bio Extratus | Desconto 10% | Todos Clientes",
+              "matchedParameters": {
+                  "category@CatalogSystem": "113,34|exclusive",
+                  "product@CatalogSystem": "450,319,238,7,295,332,374,362,363,364,367,382,1|exclusive",
+                  "couponCode@Marketing": "BIODESCONTO10"
+              },
+              "additionalInfo": null
+          },
+          {
+              "description": null,
+              "featured": false,
+              "id": "21af2c5d-abc8-4a22-a32a-bbaa698f5752",
+              "name": "LD Distribuidora/MG | Frete Grátis | R$ 99,90",
+              "matchedParameters": {
+                  "zipCode@Shipping": "32675-500"
+              },
+              "additionalInfo": null
+          },
+          {
+              "description": null,
+              "featured": false,
+              "id": "c69bf63e-c261-41fd-b30a-a09c6a19add0",
+              "name": "Bio Extratus | Desconto 30% | Cronograma",
+              "matchedParameters": {
+                  "product@CatalogSystem": "95,96,114,146,148,500,502,565,566,567,568|inclusive"
+              },
+              "additionalInfo": null
+          }
+      ]
+  },
+  "shippingData": {
+      "id": "shippingData",
+      "address": {
+          "addressType": "residential",
+          "receiverName": "Elias  Guerra",
+          "addressId": "51bfc1d06e9141cb9b6e43fa47ea0f2f",
+          "postalCode": "32675-500",
+          "city": "Betim",
+          "state": "MG",
+          "country": "BRA",
+          "street": "Rua Pará de Minas",
+          "number": "283",
+          "neighborhood": "Vila Cristina",
+          "complement": null,
+          "reference": null,
+          "geoCoordinates": [
+              -44.137153625488281,
+              -19.93321418762207
+          ]
+      },
+      "logisticsInfo": [
+          {
+              "itemIndex": 0,
+              "selectedSla": "Distribuidora Local",
+              "lockTTL": "10d",
+              "price": 0,
+              "listPrice": 243,
+              "sellingPrice": 0,
+              "deliveryWindow": null,
+              "deliveryCompany": "Transportadora",
+              "shippingEstimate": "5bd",
+              "shippingEstimateDate": "2020-10-27T02:51:36.7436765+00:00",
+              "slas": [
+                  {
+                      "id": "Fábrica / Correios (SEDEX)",
+                      "name": "Fábrica / Correios (SEDEX)",
+                      "shippingEstimate": "12bd",
+                      "deliveryWindow": null,
+                      "price": 637,
+                      "deliveryChannel": "delivery",
+                      "pickupStoreInfo": {
+                          "additionalInfo": null,
+                          "address": null,
+                          "dockId": null,
+                          "friendlyName": null,
+                          "isPickupStore": false
+                      },
+                      "polygonName": null,
+                      "lockTTL": "10d",
+                      "pickupPointId": null,
+                      "transitTime": "5bd"
+                  },
+                  {
+                      "id": "Distribuidora Local",
+                      "name": "Distribuidora Local",
+                      "shippingEstimate": "5bd",
+                      "deliveryWindow": null,
+                      "price": 0,
+                      "deliveryChannel": "delivery",
+                      "pickupStoreInfo": {
+                          "additionalInfo": null,
+                          "address": null,
+                          "dockId": null,
+                          "friendlyName": null,
+                          "isPickupStore": false
+                      },
+                      "polygonName": null,
+                      "lockTTL": "10d",
+                      "pickupPointId": null,
+                      "transitTime": "3bd"
+                  }
+              ],
+              "shipsTo": [
+                  "BRA"
+              ],
+              "deliveryIds": [
+                  {
+                      "courierId": "1",
+                      "courierName": "Transportadora",
+                      "dockId": "1",
+                      "quantity": 1,
+                      "warehouseId": "1_1",
+                      "accountCarrierName": null
+                  }
+              ],
+              "deliveryChannel": "delivery",
+              "pickupStoreInfo": {
+                  "additionalInfo": null,
+                  "address": null,
+                  "dockId": null,
+                  "friendlyName": null,
+                  "isPickupStore": false
+              },
+              "addressId": "51bfc1d06e9141cb9b6e43fa47ea0f2f",
+              "polygonName": null,
+              "pickupPointId": null,
+              "transitTime": "3bd"
+          },
+          {
+              "itemIndex": 1,
+              "selectedSla": "Distribuidora Local",
+              "lockTTL": "10d",
+              "price": 0,
+              "listPrice": 747,
+              "sellingPrice": 0,
+              "deliveryWindow": null,
+              "deliveryCompany": "Transportadora",
+              "shippingEstimate": "5bd",
+              "shippingEstimateDate": "2020-10-27T02:51:36.7436765+00:00",
+              "slas": [
+                  {
+                      "id": "Fábrica / Correios (SEDEX)",
+                      "name": "Fábrica / Correios (SEDEX)",
+                      "shippingEstimate": "12bd",
+                      "deliveryWindow": null,
+                      "price": 1955,
+                      "deliveryChannel": "delivery",
+                      "pickupStoreInfo": {
+                          "additionalInfo": null,
+                          "address": null,
+                          "dockId": null,
+                          "friendlyName": null,
+                          "isPickupStore": false
+                      },
+                      "polygonName": null,
+                      "lockTTL": "10d",
+                      "pickupPointId": null,
+                      "transitTime": "5bd"
+                  },
+                  {
+                      "id": "Distribuidora Local",
+                      "name": "Distribuidora Local",
+                      "shippingEstimate": "5bd",
+                      "deliveryWindow": null,
+                      "price": 0,
+                      "deliveryChannel": "delivery",
+                      "pickupStoreInfo": {
+                          "additionalInfo": null,
+                          "address": null,
+                          "dockId": null,
+                          "friendlyName": null,
+                          "isPickupStore": false
+                      },
+                      "polygonName": null,
+                      "lockTTL": "10d",
+                      "pickupPointId": null,
+                      "transitTime": "3bd"
+                  }
+              ],
+              "shipsTo": [
+                  "BRA"
+              ],
+              "deliveryIds": [
+                  {
+                      "courierId": "1",
+                      "courierName": "Transportadora",
+                      "dockId": "1",
+                      "quantity": 1,
+                      "warehouseId": "1_1",
+                      "accountCarrierName": null
+                  }
+              ],
+              "deliveryChannel": "delivery",
+              "pickupStoreInfo": {
+                  "additionalInfo": null,
+                  "address": null,
+                  "dockId": null,
+                  "friendlyName": null,
+                  "isPickupStore": false
+              },
+              "addressId": "51bfc1d06e9141cb9b6e43fa47ea0f2f",
+              "polygonName": null,
+              "pickupPointId": null,
+              "transitTime": "3bd"
+          }
+      ],
+      "trackingHints": null,
+      "selectedAddresses": [
+          {
+              "addressId": "51bfc1d06e9141cb9b6e43fa47ea0f2f",
+              "addressType": "residential",
+              "receiverName": "Elias  Guerra",
+              "street": "Rua Pará de Minas",
+              "number": "283",
+              "complement": null,
+              "neighborhood": "Vila Cristina",
+              "postalCode": "32675-500",
+              "city": "Betim",
+              "state": "MG",
+              "country": "BRA",
+              "reference": null,
+              "geoCoordinates": [
+                  -44.137153625488281,
+                  -19.93321418762207
+              ]
+          }
+      ]
+  },
+  "paymentData": {
+      "giftCards": [],
+      "transactions": [
+          {
+              "isActive": true,
+              "transactionId": "80F557E100B64CE48EAE64B3C3AFE548",
+              "merchantName": "BIOEXTRATUSVIRTUAL004",
+              "payments": [
+                  {
+                      "id": "87F9B7EC086C404FBBE9E2BEE241EB56",
+                      "paymentSystem": "2",
+                      "paymentSystemName": "Visa",
+                      "value": 13570,
+                      "installments": 3,
+                      "referenceValue": 13570,
+                      "cardHolder": null,
+                      "cardNumber": null,
+                      "firstDigits": "483151",
+                      "lastDigits": "2673",
+                      "cvv2": null,
+                      "expireMonth": null,
+                      "expireYear": null,
+                      "url": null,
+                      "giftCardId": null,
+                      "giftCardName": null,
+                      "giftCardCaption": null,
+                      "redemptionCode": null,
+                      "group": "creditCard",
+                      "tid": "A181335D-3E20-4CCE-AC71-440B2B107F1A",
+                      "dueDate": null,
+                      "connectorResponses": {
+                          "Tid": "A181335D-3E20-4CCE-AC71-440B2B107F1A",
+                          "ReturnCode": null,
+                          "Message": null,
+                          "authId": "0",
+                          "nsu": "0",
+                          "acquirer": "pagseguro"
+                      },
+                      "giftCardProvider": null,
+                      "giftCardAsDiscount": null,
+                      "koinUrl": null,
+                      "accountId": "8E7190704D39474B8DD49121CF1DD84F",
+                      "parentAccountId": "B332E1C742AE48A380B16AE3DE90980B",
+                      "bankIssuedInvoiceIdentificationNumber": null,
+                      "bankIssuedInvoiceIdentificationNumberFormatted": null,
+                      "bankIssuedInvoiceBarCodeNumber": null,
+                      "bankIssuedInvoiceBarCodeType": null,
+                      "billingAddress": {
+                          "postalCode": "32675-500",
+                          "city": "Betim",
+                          "state": "MG",
+                          "country": "BRA",
+                          "street": "Rua Pará de Minas",
+                          "number": "283",
+                          "neighborhood": "Vila Cristina",
+                          "complement": null,
+                          "reference": null,
+                          "geoCoordinates": [
+                              -44.137153625488281,
+                              -19.93321418762207
+                          ]
+                      }
+                  }
+              ]
+          }
+      ]
+  },
+  "packageAttachment": {
+      "packages": [
+          {
+              "items": [
+                  {
+                      "itemIndex": 0,
+                      "quantity": 1,
+                      "price": 3861,
+                      "description": null,
+                      "unitMultiplier": 0.0
+                  },
+                  {
+                      "itemIndex": 1,
+                      "quantity": 1,
+                      "price": 9709,
+                      "description": null,
+                      "unitMultiplier": 0.0
+                  }
+              ],
+              "courier": null,
+              "invoiceNumber": "68414",
+              "invoiceValue": 13570,
+              "invoiceUrl": null,
+              "issuanceDate": "2020-10-20T03:00:00.0000000+00:00",
+              "trackingNumber": null,
+              "invoiceKey": "3120 1004 4485 4500 0116 5500 1000 0684 1416 8754 5998",
+              "trackingUrl": null,
+              "embeddedInvoice": "",
+              "type": "Output",
+              "courierStatus": {
+                  "status": "unknown",
+                  "finished": false,
+                  "deliveredDate": null,
+                  "data": []
+              },
+              "cfop": null,
+              "restitutions": {},
+              "volumes": 0
+          }
+      ]
+  },
+  "sellers": [
+      {
+          "id": "bioextratusvirtual004",
+          "name": "LD Distribuidora/MG",
+          "logo": null,
+          "fulfillmentEndpoint": "http://fulfillment.vtexcommerce.com.br/api/fulfillment?affiliateid=ldd&sc=1&an=bioextratusvirtual004"
+      }
+  ],
+  "callCenterOperatorData": null,
+  "followUpEmail": "9b18ce36da5f4d21a7d74774cfac8a1f@ct.vtex.com.br",
+  "lastMessage": null,
+  "hostname": "bioextratusvirtual",
+  "invoiceData": {
+      "address": null
+  },
+  "changesAttachment": null,
+  "openTextField": null,
+  "roundingError": 0,
+  "orderFormId": "a4cd7581feed449ebff3338b81283688",
+  "commercialConditionData": null,
+  "isCompleted": true,
+  "customData": null,
+  "storePreferencesData": {
+      "countryCode": "BRA",
+      "currencyCode": "BRL",
+      "currencyFormatInfo": {
+          "CurrencyDecimalDigits": 2,
+          "CurrencyDecimalSeparator": ",",
+          "CurrencyGroupSeparator": ".",
+          "CurrencyGroupSize": 3,
+          "StartsWithCurrencySymbol": true
+      },
+      "currencyLocale": 1046,
+      "currencySymbol": "R$",
+      "timeZone": "E. South America Standard Time"
+  },
+  "allowCancellation": false,
+  "allowEdition": false,
+  "isCheckedIn": false,
+  "marketplace": null,
+  "authorizedDate": "2020-10-20T02:51:27.2710886+00:00",
+  "invoicedDate": "2020-10-20T20:10:15.9497277+00:00",
+  "cancelReason": null,
+  "itemMetadata": {
+      "Items": [
+          {
+              "Id": "224",
+              "Seller": "1",
+              "Name": "Banho de Creme Umectante 500g",
+              "SkuName": "Banho de Creme Umectante 500g",
+              "ProductId": "225",
+              "RefId": "7BBRBC500OCUMEC",
+              "Ean": "7898132980832",
+              "ImageUrl": "http://bioextratusvirtual.vteximg.com.br/arquivos/ids/157647-544-544/Bio-Extratus_Banho-de-Creme-500g.jpg?v=637000043680530000",
+              "DetailUrl": "/banho-de-creme-umectante-500g/p",
+              "AssemblyOptions": []
+          },
+          {
+              "Id": "501",
+              "Seller": "1",
+              "Name": "Cronograma Cabelos Cacheados e Crespos",
+              "SkuName": "Cronograma Cabelos Cacheados e Crespos",
+              "ProductId": "502",
+              "RefId": "0000000061",
+              "Ean": "0000000061",
+              "ImageUrl": "http://bioextratusvirtual.vteximg.com.br/arquivos/ids/159357-544-544/Cabelos-Cacheados-e-Crespos.jpg?v=637330913753970000",
+              "DetailUrl": "/cronograma-cabelos-cacheados-e-crespos/p",
+              "AssemblyOptions": []
+          }
+      ]
+  },
+  "subscriptionData": null,
+  "taxData": null,
+  "checkedInPickupPointId": null,
+  "cancellationData": null
+}
