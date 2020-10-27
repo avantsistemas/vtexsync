@@ -21,11 +21,8 @@ module Vtex
         attr_reader :client_attributes
 
         def find_or_initialize_vtex_client
+          attribute_user_profile_id = client_attributes['userProfileId']
           Vtex::Client.find_or_initialize_by identifier: attribute_user_profile_id
-        end
-
-        def attribute_user_profile_id
-          client_attributes['userProfileId']
         end
       end
     end

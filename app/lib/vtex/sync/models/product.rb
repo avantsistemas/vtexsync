@@ -16,22 +16,13 @@ module Vtex
           product
         end
 
-        def self.sync_all(order_items_attributes)
-          order_items_attributes.map do |order_item_attributes|
-            new(order_item_attributes).sync
-          end
-        end
-
         private
 
         attr_reader :order_item_attributes
 
         def find_or_initialize_vtex_product
+          attribute_ref_id = order_item_attributes['refId']
           Vtex::Product.find_or_initialize_by identifier: attribute_ref_id
-        end
-
-        def attribute_ref_id
-          order_item_attributes['refId']
         end
       end
     end

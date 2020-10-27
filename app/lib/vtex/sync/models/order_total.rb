@@ -28,12 +28,8 @@ module Vtex
         attr_reader :order_total_attributes, :vtex_order
 
         def find_or_initialize_vtex_order_total
-          total = Vtex::Total.find_by! identifier: attribute_total_identifier
+          total = Total.new(order_total_attributes).sync
           vtex_order.totals.find_or_initialize_by total: total
-        end
-
-        def attribute_total_identifier
-          order_total_attributes['id']
         end
       end
     end

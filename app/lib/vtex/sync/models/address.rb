@@ -21,11 +21,8 @@ module Vtex
         attr_reader :address_attributes
 
         def find_or_initialize_vtex_address
+          attribute_address_id = address_attributes['addressId']
           Vtex::Address.find_or_initialize_by identifier: attribute_address_id
-        end
-
-        def attribute_address_id
-          address_attributes['addressId']
         end
       end
     end

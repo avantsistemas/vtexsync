@@ -27,11 +27,8 @@ module Vtex
         attr_reader :order_attributes, :vtex_order
 
         def load_vtex_order
+          attribute_order_id = order_attributes['orderId']
           @vtex_order = Vtex::Order.find_or_initialize_by identifier: attribute_order_id
-        end
-
-        def attribute_order_id
-          order_attributes['orderId']
         end
 
         def sync_attributes

@@ -27,11 +27,8 @@ module Vtex
         attr_reader :seller_attributes
 
         def find_or_initialize_vtex_seller
+          attribute_id = seller_attributes['id']
           Vtex::Seller.find_or_initialize_by identifier: attribute_id
-        end
-
-        def attribute_id
-          seller_attributes['id']
         end
       end
     end

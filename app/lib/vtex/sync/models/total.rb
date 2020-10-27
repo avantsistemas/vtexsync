@@ -16,22 +16,13 @@ module Vtex
           total
         end
 
-        def self.sync_all(totals_attributes)
-          totals_attributes.map do |total_attributes|
-            new(total_attributes).sync
-          end
-        end
-
         private
 
         attr_reader :total_attributes
 
         def find_or_initialize_vtex_total
+          attribute_id = total_attributes['id']
           Vtex::Total.find_or_initialize_by identifier: attribute_id
-        end
-
-        def attribute_id
-          total_attributes['id']
         end
       end
     end
