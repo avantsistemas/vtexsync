@@ -2,27 +2,35 @@ module Vtex
   module Sync
     module Models
       class Product
+        include Dependencies
+
         def initialize(order_item_attributes)
           @order_item_attributes = order_item_attributes
         end
 
         def sync
-          product = find_or_initialize_vtex_product
-          product.sync_attributes(order_item_attributes)
+          load_vtex_product
 
-          Logger.log_what_will_be_synced(product)
+          sync_dependencies
+          sync_attributes
 
-          product.save! if product.changed?
-          product
+          Logger.log_what_will_be_synced(vtex_product)
+
+          vtex_product.save! if vtex_product.changed?
+          vtex_product
         end
 
         private
 
-        attr_reader :order_item_attributes
+        attr_reader :order_item_attributes, :vtex_product
 
-        def find_or_initialize_vtex_product
+        def load_vtex_product
           attribute_ref_id = order_item_attributes['refId']
-          Vtex::Product.find_or_initialize_by identifier: attribute_ref_id
+          @vtex_product = Vtex::Product.find_or_initialize_by identifier: attribute_ref_id
+        end
+
+        def sync_attributes
+          vtex_product.sync_attributes(order_item_attributes)
         end
       end
     end
