@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_27_220317) do
+ActiveRecord::Schema.define(version: 2020_11_09_190728) do
 
   create_table "versions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "item_type", null: false
@@ -48,6 +48,14 @@ ActiveRecord::Schema.define(version: 2020_10_27_220317) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["identifier"], name: "index_vtex_brands_on_identifier", unique: true
+  end
+
+  create_table "vtex_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "identifier"
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["identifier"], name: "index_vtex_categories_on_identifier", unique: true
   end
 
   create_table "vtex_cities", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -124,7 +132,18 @@ ActiveRecord::Schema.define(version: 2020_10_27_220317) do
     t.index ["shipping_address_id"], name: "index_vtex_orders_on_shipping_address_id"
   end
 
+  create_table "vtex_product_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.bigint "product_id", null: false
+    t.bigint "category_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_vtex_product_categories_on_category_id"
+    t.index ["product_id", "category_id"], name: "index_vtex_product_categories_on_product_id_and_category_id", unique: true
+    t.index ["product_id"], name: "index_vtex_product_categories_on_product_id"
+  end
+
   create_table "vtex_products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.bigint "brand_id", null: false
     t.string "name"
     t.string "sku_code"
     t.string "identifier"
@@ -133,7 +152,6 @@ ActiveRecord::Schema.define(version: 2020_10_27_220317) do
     t.string "detail_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "brand_id", null: false
     t.index ["brand_id"], name: "index_vtex_products_on_brand_id"
     t.index ["identifier"], name: "index_vtex_products_on_identifier", unique: true
   end
@@ -173,6 +191,8 @@ ActiveRecord::Schema.define(version: 2020_10_27_220317) do
   add_foreign_key "vtex_order_totals", "vtex_totals", column: "total_id"
   add_foreign_key "vtex_orders", "vtex_addresses", column: "shipping_address_id"
   add_foreign_key "vtex_orders", "vtex_clients", column: "client_id"
+  add_foreign_key "vtex_product_categories", "vtex_categories", column: "category_id"
+  add_foreign_key "vtex_product_categories", "vtex_products", column: "product_id"
   add_foreign_key "vtex_products", "vtex_brands", column: "brand_id"
   add_foreign_key "vtex_states", "vtex_countries", column: "country_id"
 end

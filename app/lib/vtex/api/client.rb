@@ -49,13 +49,5 @@ module Vtex
         raise HTTP::RequestError, "#{response.uri} => #{response.status} #{response.body} (#{response.headers.to_h})"
       end
     end
-
-    class Pagination
-      def initialize(http, path, params)
-        @http = http
-        @path = path
-        @params = params
-      end
-    end
   end
 end

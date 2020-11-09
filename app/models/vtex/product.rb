@@ -5,6 +5,9 @@ module Vtex
 
     belongs_to :brand
 
+    has_many :product_categories, dependent: :destroy
+    has_many :categories, through: :product_categories
+
     sync_attributes :id, :name, :refId, :ean, :imageUrl, :detailUrl
 
     remap_attributes id: :sku_code,

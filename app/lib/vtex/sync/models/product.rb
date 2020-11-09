@@ -3,6 +3,7 @@ module Vtex
     module Models
       class Product
         include Dependencies
+        include Dependents
 
         def initialize(order_item_attributes)
           @order_item_attributes = order_item_attributes
@@ -12,6 +13,7 @@ module Vtex
           load_vtex_product
 
           sync_dependencies
+          sync_dependents
           sync_attributes
 
           Logger.log_what_will_be_synced(vtex_product)
