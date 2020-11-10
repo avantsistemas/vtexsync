@@ -10,6 +10,7 @@ module Vtex
             sync_order_totals
             sync_marketing_data
             sync_order_items
+            sync_order_benefits
           end
 
           def sync_sellers
@@ -39,6 +40,16 @@ module Vtex
                                              vtex_order: vtex_order)
 
             destroy_not_synced(order_items, scope: vtex_order.items)
+          end
+
+          def sync_order_benefits
+            rates_and_benefits_data_attributes = order_attributes['ratesAndBenefitsData']
+            rate_and_benefits_identifiers_attributes = rates_and_benefits_data_attributes['rateAndBenefitsIdentifiers']
+
+            order_benefits = OrderBenefit.sync_all(rate_and_benefits_identifiers_attributes,
+                                                   vtex_order: vtex_order)
+
+            destroy_not_synced(order_benefits, scope: vtex_order.order_benefits)
           end
 
           def destroy_not_synced(synced_models, scope:)

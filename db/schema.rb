@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_10_115919) do
+ActiveRecord::Schema.define(version: 2020_11_10_211614) do
 
   create_table "versions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "item_type", null: false
@@ -40,6 +40,16 @@ ActiveRecord::Schema.define(version: 2020_11_10_115919) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["city_id"], name: "index_vtex_addresses_on_city_id"
     t.index ["identifier"], name: "index_vtex_addresses_on_identifier", unique: true
+  end
+
+  create_table "vtex_benefits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "identifier"
+    t.string "name"
+    t.string "description"
+    t.boolean "featured"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["identifier"], name: "index_vtex_benefits_on_identifier", unique: true
   end
 
   create_table "vtex_brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -97,6 +107,16 @@ ActiveRecord::Schema.define(version: 2020_11_10_115919) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["order_id"], name: "index_vtex_marketing_data_on_order_id", unique: true
+  end
+
+  create_table "vtex_order_benefits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.bigint "order_id", null: false
+    t.bigint "benefit_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["benefit_id"], name: "index_vtex_order_benefits_on_benefit_id"
+    t.index ["order_id", "benefit_id"], name: "index_vtex_order_benefits_on_order_id_and_benefit_id", unique: true
+    t.index ["order_id"], name: "index_vtex_order_benefits_on_order_id"
   end
 
   create_table "vtex_order_items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -197,6 +217,8 @@ ActiveRecord::Schema.define(version: 2020_11_10_115919) do
   add_foreign_key "vtex_addresses", "vtex_cities", column: "city_id"
   add_foreign_key "vtex_cities", "vtex_states", column: "state_id"
   add_foreign_key "vtex_marketing_data", "vtex_orders", column: "order_id"
+  add_foreign_key "vtex_order_benefits", "vtex_benefits", column: "benefit_id"
+  add_foreign_key "vtex_order_benefits", "vtex_orders", column: "order_id"
   add_foreign_key "vtex_order_items", "vtex_orders", column: "order_id"
   add_foreign_key "vtex_order_items", "vtex_products", column: "product_id"
   add_foreign_key "vtex_order_items", "vtex_sellers", column: "seller_id"
