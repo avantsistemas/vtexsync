@@ -1,4 +1,6 @@
-class Vtex::ProductCategory < ApplicationRecord
-  belongs_to :product
-  belongs_to :category
+module Vtex
+  class ProductCategory < ApplicationRecord
+    belongs_to :product
+    belongs_to :category
+  end
 end

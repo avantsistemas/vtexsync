@@ -30,6 +30,8 @@ module Synchronizable
   end
 
   def remap_attributes!(attributes)
+    return unless self.class.remaped_attributes
+
     self.class.remaped_attributes.each do |old_name, new_name|
       attributes[new_name] = attributes.delete(old_name) if attributes.key?(old_name)
     end
