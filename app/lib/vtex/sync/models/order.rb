@@ -28,7 +28,7 @@ module Vtex
 
         def load_vtex_order
           attribute_order_id = order_attributes['orderId']
-          @vtex_order = Vtex::Order.find_or_initialize_by identifier: attribute_order_id
+          @vtex_order = Vtex::Order.find_or_initialize_by order_code: attribute_order_id
         end
 
         def sync_attributes

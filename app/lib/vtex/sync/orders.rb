@@ -54,7 +54,7 @@ module Vtex
       def sync_order_if_needed(minimal_order_attributes)
         attribute_order_id = minimal_order_attributes['orderId']
 
-        vtex_order = Vtex::Order.find_or_initialize_by identifier: attribute_order_id
+        vtex_order = Vtex::Order.find_or_initialize_by order_code: attribute_order_id
         vtex_order.sync_attributes(minimal_order_attributes)
 
         if vtex_order.new_record? || vtex_order.changed?

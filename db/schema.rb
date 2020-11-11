@@ -168,7 +168,8 @@ ActiveRecord::Schema.define(version: 2020_11_11_165318) do
   create_table "vtex_orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "client_id", null: false
     t.bigint "shipping_address_id", null: false
-    t.string "identifier"
+    t.string "order_code"
+    t.string "seller_order_code"
     t.integer "sequence"
     t.string "origin"
     t.string "status"
@@ -181,7 +182,7 @@ ActiveRecord::Schema.define(version: 2020_11_11_165318) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["client_id"], name: "index_vtex_orders_on_client_id"
-    t.index ["identifier"], name: "index_vtex_orders_on_identifier", unique: true
+    t.index ["order_code"], name: "index_vtex_orders_on_order_code", unique: true
     t.index ["shipping_address_id"], name: "index_vtex_orders_on_shipping_address_id"
   end
 

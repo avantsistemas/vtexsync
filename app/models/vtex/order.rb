@@ -15,11 +15,11 @@ module Vtex
     has_many :order_benefits, dependent: :destroy
     has_many :benefits, through: :order_benefits
 
-    sync_attributes :orderId, :sequence, :origin, :status, :statusDescription,
-                    :value, :totalValue, :creationDate, :authorizedDate,
-                    :invoicedDate, :lastChange
+    sync_attributes :orderId, :sellerOrderId, :sequence, :origin, :status, :statusDescription,
+                    :value, :totalValue, :creationDate, :authorizedDate, :invoicedDate, :lastChange
 
-    remap_attributes orderId: :identifier,
+    remap_attributes orderId: :order_code,
+                     sellerOrderId: :seller_order_code,
                      value: :value_in_cents,
                      totalValue: :value_in_cents
 
