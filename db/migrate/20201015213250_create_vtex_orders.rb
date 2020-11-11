@@ -8,6 +8,8 @@ class CreateVtexOrders < ActiveRecord::Migration[6.0]
       t.string :status_description
       t.decimal :value, precision: 8, scale: 2
       t.datetime :creation_date
+      t.datetime :authorized_date
+      t.datetime :invoiced_date
       t.datetime :last_change
 
       t.timestamps

@@ -156,6 +156,8 @@ ActiveRecord::Schema.define(version: 2020_11_10_211614) do
     t.string "status_description"
     t.decimal "value", precision: 8, scale: 2
     t.datetime "creation_date"
+    t.datetime "authorized_date"
+    t.datetime "invoiced_date"
     t.datetime "last_change"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

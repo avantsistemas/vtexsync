@@ -15,7 +15,8 @@ module Vtex
     has_many :benefits, through: :order_benefits
 
     sync_attributes :orderId, :sequence, :origin, :status, :statusDescription,
-                    :value, :totalValue, :creationDate, :lastChange
+                    :value, :totalValue, :creationDate, :authorizedDate,
+                    :invoicedDate, :lastChange
 
     remap_attributes orderId: :identifier,
                      value: :value_in_cents,
