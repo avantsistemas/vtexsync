@@ -6,6 +6,9 @@ class CreateVtexCampaigns < ActiveRecord::Migration[6.0]
       t.string :utm_partner
       t.string :utm_medium
       t.string :utm_campaign
+      t.string :utmi_campaign
+      t.string :utmi_page
+      t.string :utmi_part
       t.string :coupon
 
       t.timestamps

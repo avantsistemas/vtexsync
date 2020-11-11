@@ -66,6 +66,9 @@ ActiveRecord::Schema.define(version: 2020_11_11_165318) do
     t.string "utm_partner"
     t.string "utm_medium"
     t.string "utm_campaign"
+    t.string "utmi_campaign"
+    t.string "utmi_page"
+    t.string "utmi_part"
     t.string "coupon"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

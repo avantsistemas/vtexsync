@@ -5,6 +5,9 @@ module Vtex
 
     belongs_to :order
 
-    sync_attributes :utmSource, :utmPartner, :utmMedium, :utmCampaign, :coupon
+    sync_attributes :utmSource, :utmPartner, :utmMedium, :utmCampaign,
+                    :utmiCampaign, :utmipage, :utmiPart, :coupon
+
+    remap_attributes utmipage: :utmi_page
   end
 end
