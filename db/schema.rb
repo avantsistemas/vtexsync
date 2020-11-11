@@ -60,6 +60,18 @@ ActiveRecord::Schema.define(version: 2020_11_10_211614) do
     t.index ["identifier"], name: "index_vtex_brands_on_identifier", unique: true
   end
 
+  create_table "vtex_campaigns", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.bigint "order_id", null: false
+    t.string "utm_source"
+    t.string "utm_partner"
+    t.string "utm_medium"
+    t.string "utm_campaign"
+    t.string "coupon"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["order_id"], name: "index_vtex_campaigns_on_order_id", unique: true
+  end
+
   create_table "vtex_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "identifier"
     t.string "name"
@@ -95,18 +107,6 @@ ActiveRecord::Schema.define(version: 2020_11_10_211614) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["acronym"], name: "index_vtex_countries_on_acronym", unique: true
-  end
-
-  create_table "vtex_marketing_data", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.bigint "order_id", null: false
-    t.string "utm_source"
-    t.string "utm_partner"
-    t.string "utm_medium"
-    t.string "utm_campaign"
-    t.string "coupon"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["order_id"], name: "index_vtex_marketing_data_on_order_id", unique: true
   end
 
   create_table "vtex_order_benefits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -217,8 +217,8 @@ ActiveRecord::Schema.define(version: 2020_11_10_211614) do
   end
 
   add_foreign_key "vtex_addresses", "vtex_cities", column: "city_id"
+  add_foreign_key "vtex_campaigns", "vtex_orders", column: "order_id"
   add_foreign_key "vtex_cities", "vtex_states", column: "state_id"
-  add_foreign_key "vtex_marketing_data", "vtex_orders", column: "order_id"
   add_foreign_key "vtex_order_benefits", "vtex_benefits", column: "benefit_id"
   add_foreign_key "vtex_order_benefits", "vtex_orders", column: "order_id"
   add_foreign_key "vtex_order_items", "vtex_orders", column: "order_id"

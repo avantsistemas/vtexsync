@@ -8,7 +8,7 @@ module Vtex
           def sync_dependents
             sync_sellers
             sync_order_totals
-            sync_marketing_data
+            sync_campaigns
             sync_order_items
             sync_order_benefits
           end
@@ -27,10 +27,10 @@ module Vtex
             destroy_not_synced(order_totals, scope: vtex_order.totals)
           end
 
-          def sync_marketing_data
-            marketing_datum_attributes = order_attributes['marketingData']
+          def sync_campaigns
+            campaign_attributes = order_attributes['marketingData']
             # existem pedidos sem atributos de marketing. Ex: 1075252714422-01.
-            MarketingDatum.new(marketing_datum_attributes, vtex_order: vtex_order).sync if marketing_datum_attributes
+            Campaign.new(campaign_attributes, vtex_order: vtex_order).sync if campaign_attributes
           end
 
           def sync_order_items

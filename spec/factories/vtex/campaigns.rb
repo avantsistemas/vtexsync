@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :vtex_marketing_datum, class: 'Vtex::MarketingDatum' do
+  factory :vtex_campaign, class: 'Vtex::Campaign' do
     order { nil }
     utm_source { "MyString" }
     utm_partner { "MyString" }

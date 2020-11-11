@@ -1,5 +1,5 @@
 module Vtex
-  class MarketingDatum < ApplicationRecord
+  class Campaign < ApplicationRecord
     include Synchronizable
     has_paper_trail
 
