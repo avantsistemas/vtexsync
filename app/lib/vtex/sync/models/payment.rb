@@ -3,6 +3,7 @@ module Vtex
     module Models
       class Payment
         include Dependencies
+        include Dependents
 
         def initialize(payment_attributes, vtex_transaction:)
           @payment_attributes = payment_attributes
@@ -13,6 +14,7 @@ module Vtex
           load_vtex_payment
 
           sync_dependencies
+          sync_dependents
           sync_attributes
 
           Logger.log_what_will_be_synced(vtex_payment)

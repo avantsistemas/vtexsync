@@ -10,6 +10,7 @@ module Vtex
     # um novo pedido (order <- transactions <- payments)
 
     belongs_to :payment_system
+    has_one :connector_response, dependent: :destroy
 
     sync_attributes :id, :value, :installments
 
