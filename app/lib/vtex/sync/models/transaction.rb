@@ -2,7 +2,7 @@ module Vtex
   module Sync
     module Models
       class Transaction
-        # include Dependencies
+        include Dependents
 
         def initialize(transaction_attributes, vtex_order:)
           @transaction_attributes = transaction_attributes
@@ -12,7 +12,7 @@ module Vtex
         def sync
           load_vtex_transaction
 
-          # sync_dependencies
+          sync_dependents
           sync_attributes
 
           Logger.log_what_will_be_synced(vtex_transaction)

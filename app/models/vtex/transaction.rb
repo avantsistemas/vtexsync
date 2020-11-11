@@ -5,6 +5,8 @@ module Vtex
 
     belongs_to :order
 
+    has_many :payments, dependent: :restrict_with_exception
+
     sync_attributes :transactionId, :merchantName, :isActive
 
     remap_attributes transactionId: :identifier,

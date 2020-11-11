@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_11_112206) do
+ActiveRecord::Schema.define(version: 2020_11_11_140911) do
 
   create_table "versions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "item_type", null: false
@@ -166,6 +166,28 @@ ActiveRecord::Schema.define(version: 2020_11_11_112206) do
     t.index ["shipping_address_id"], name: "index_vtex_orders_on_shipping_address_id"
   end
 
+  create_table "vtex_payment_systems", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "identifier"
+    t.string "name"
+    t.string "group"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["identifier"], name: "index_vtex_payment_systems_on_identifier", unique: true
+  end
+
+  create_table "vtex_payments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.bigint "transaction_id", null: false
+    t.bigint "payment_system_id", null: false
+    t.string "identifier"
+    t.decimal "value", precision: 8, scale: 2
+    t.integer "installments"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["identifier"], name: "index_vtex_payments_on_identifier", unique: true
+    t.index ["payment_system_id"], name: "index_vtex_payments_on_payment_system_id"
+    t.index ["transaction_id"], name: "index_vtex_payments_on_transaction_id"
+  end
+
   create_table "vtex_product_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "product_id", null: false
     t.bigint "category_id", null: false
@@ -239,6 +261,8 @@ ActiveRecord::Schema.define(version: 2020_11_11_112206) do
   add_foreign_key "vtex_order_totals", "vtex_totals", column: "total_id"
   add_foreign_key "vtex_orders", "vtex_addresses", column: "shipping_address_id"
   add_foreign_key "vtex_orders", "vtex_clients", column: "client_id"
+  add_foreign_key "vtex_payments", "vtex_payment_systems", column: "payment_system_id"
+  add_foreign_key "vtex_payments", "vtex_transactions", column: "transaction_id"
   add_foreign_key "vtex_product_categories", "vtex_categories", column: "category_id"
   add_foreign_key "vtex_product_categories", "vtex_products", column: "product_id"
   add_foreign_key "vtex_products", "vtex_brands", column: "brand_id"
