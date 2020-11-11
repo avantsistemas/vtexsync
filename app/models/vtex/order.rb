@@ -10,6 +10,7 @@ module Vtex
 
     has_many :totals, class_name: 'Vtex::OrderTotal', dependent: :restrict_with_exception
     has_many :items, class_name: 'Vtex::OrderItem', dependent: :restrict_with_exception
+    has_many :transactions, dependent: :restrict_with_exception
 
     has_many :order_benefits, dependent: :destroy
     has_many :benefits, through: :order_benefits

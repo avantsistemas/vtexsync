@@ -11,6 +11,7 @@ module Vtex
             sync_campaigns
             sync_order_items
             sync_order_benefits
+            sync_transactions
           end
 
           def sync_sellers
@@ -50,6 +51,15 @@ module Vtex
                                                    vtex_order: vtex_order)
 
             destroy_not_synced(order_benefits, scope: vtex_order.order_benefits)
+          end
+
+          def sync_transactions
+            transactions_attributes = order_attributes['paymentData']['transactions']
+
+            transactions = Transaction.sync_all(transactions_attributes,
+                                                vtex_order: vtex_order)
+
+            destroy_not_synced(transactions, scope: vtex_order.transactions)
           end
 
           def destroy_not_synced(synced_models, scope:)

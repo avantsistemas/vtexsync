@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_10_211614) do
+ActiveRecord::Schema.define(version: 2020_11_11_112206) do
 
   create_table "versions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "item_type", null: false
@@ -216,6 +216,17 @@ ActiveRecord::Schema.define(version: 2020_11_10_211614) do
     t.index ["identifier"], name: "index_vtex_totals_on_identifier", unique: true
   end
 
+  create_table "vtex_transactions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.bigint "order_id", null: false
+    t.string "identifier"
+    t.string "merchant_name"
+    t.boolean "active"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["identifier"], name: "index_vtex_transactions_on_identifier", unique: true
+    t.index ["order_id"], name: "index_vtex_transactions_on_order_id"
+  end
+
   add_foreign_key "vtex_addresses", "vtex_cities", column: "city_id"
   add_foreign_key "vtex_campaigns", "vtex_orders", column: "order_id"
   add_foreign_key "vtex_cities", "vtex_states", column: "state_id"
@@ -232,4 +243,5 @@ ActiveRecord::Schema.define(version: 2020_11_10_211614) do
   add_foreign_key "vtex_product_categories", "vtex_products", column: "product_id"
   add_foreign_key "vtex_products", "vtex_brands", column: "brand_id"
   add_foreign_key "vtex_states", "vtex_countries", column: "country_id"
+  add_foreign_key "vtex_transactions", "vtex_orders", column: "order_id"
 end
