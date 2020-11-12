@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_11_165318) do
+ActiveRecord::Schema.define(version: 2020_11_12_161219) do
 
   create_table "versions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "item_type", null: false
@@ -58,6 +58,16 @@ ActiveRecord::Schema.define(version: 2020_11_11_165318) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["identifier"], name: "index_vtex_brands_on_identifier", unique: true
+  end
+
+  create_table "vtex_campaign_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.bigint "campaign_id", null: false
+    t.bigint "marketing_tag_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["campaign_id", "marketing_tag_id"], name: "index_vtex_campaign_tags_on_campaign_id_and_marketing_tag_id", unique: true
+    t.index ["campaign_id"], name: "index_vtex_campaign_tags_on_campaign_id"
+    t.index ["marketing_tag_id"], name: "index_vtex_campaign_tags_on_marketing_tag_id"
   end
 
   create_table "vtex_campaigns", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -126,6 +136,13 @@ ActiveRecord::Schema.define(version: 2020_11_11_165318) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["acronym"], name: "index_vtex_countries_on_acronym", unique: true
+  end
+
+  create_table "vtex_marketing_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_vtex_marketing_tags_on_name", unique: true
   end
 
   create_table "vtex_order_benefits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -270,6 +287,8 @@ ActiveRecord::Schema.define(version: 2020_11_11_165318) do
   end
 
   add_foreign_key "vtex_addresses", "vtex_cities", column: "city_id"
+  add_foreign_key "vtex_campaign_tags", "vtex_campaigns", column: "campaign_id"
+  add_foreign_key "vtex_campaign_tags", "vtex_marketing_tags", column: "marketing_tag_id"
   add_foreign_key "vtex_campaigns", "vtex_orders", column: "order_id"
   add_foreign_key "vtex_cities", "vtex_states", column: "state_id"
   add_foreign_key "vtex_connector_responses", "vtex_payments", column: "payment_id"

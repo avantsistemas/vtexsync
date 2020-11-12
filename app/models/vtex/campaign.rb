@@ -5,6 +5,9 @@ module Vtex
 
     belongs_to :order
 
+    has_many :campaign_tags, dependent: :destroy
+    has_many :marketing_tags, through: :campaign_tags
+
     sync_attributes :utmSource, :utmPartner, :utmMedium, :utmCampaign,
                     :utmiCampaign, :utmipage, :utmiPart, :coupon
 
