@@ -3,7 +3,7 @@ module Vtex
     include Synchronizable
     has_paper_trail
 
-    belongs_to :brand
+    belongs_to :brand, optional: true
 
     has_many :product_categories, dependent: :destroy
     has_many :categories, through: :product_categories

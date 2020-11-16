@@ -11,6 +11,9 @@ module Vtex
 
           def sync_brand
             additional_info_attributes = order_item_attributes['additionalInfo']
+
+            return unless additional_info_attributes['brandId']
+
             vtex_brand = Brand.new(additional_info_attributes).sync
             vtex_product.brand = vtex_brand
           end

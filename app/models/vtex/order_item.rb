@@ -7,6 +7,8 @@ module Vtex
     belongs_to :product
     belongs_to :seller
 
+    has_many :components, dependent: :destroy
+
     sync_attributes :uniqueId, :refId, :seller, :quantity, :price, :sellingPrice
 
     remap_attributes uniqueId: :identifier,

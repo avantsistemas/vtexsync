@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_12_161219) do
+ActiveRecord::Schema.define(version: 2020_11_16_210027) do
 
   create_table "versions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "item_type", null: false
@@ -113,6 +113,20 @@ ActiveRecord::Schema.define(version: 2020_11_12_161219) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["identifier"], name: "index_vtex_clients_on_identifier", unique: true
+  end
+
+  create_table "vtex_components", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.bigint "order_item_id", null: false
+    t.bigint "product_id", null: false
+    t.string "identifier"
+    t.integer "quantity"
+    t.decimal "price", precision: 8, scale: 2
+    t.decimal "selling_price", precision: 8, scale: 2
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["identifier", "order_item_id", "quantity", "selling_price"], name: "vtex_components_unique_index", unique: true
+    t.index ["order_item_id"], name: "index_vtex_components_on_order_item_id"
+    t.index ["product_id"], name: "index_vtex_components_on_product_id"
   end
 
   create_table "vtex_connector_responses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -236,7 +250,7 @@ ActiveRecord::Schema.define(version: 2020_11_12_161219) do
   end
 
   create_table "vtex_products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.bigint "brand_id", null: false
+    t.bigint "brand_id"
     t.string "name"
     t.string "sku_code"
     t.string "identifier"
@@ -291,6 +305,8 @@ ActiveRecord::Schema.define(version: 2020_11_12_161219) do
   add_foreign_key "vtex_campaign_tags", "vtex_marketing_tags", column: "marketing_tag_id"
   add_foreign_key "vtex_campaigns", "vtex_orders", column: "order_id"
   add_foreign_key "vtex_cities", "vtex_states", column: "state_id"
+  add_foreign_key "vtex_components", "vtex_order_items", column: "order_item_id"
+  add_foreign_key "vtex_components", "vtex_products", column: "product_id"
   add_foreign_key "vtex_connector_responses", "vtex_payments", column: "payment_id"
   add_foreign_key "vtex_order_benefits", "vtex_benefits", column: "benefit_id"
   add_foreign_key "vtex_order_benefits", "vtex_orders", column: "order_id"

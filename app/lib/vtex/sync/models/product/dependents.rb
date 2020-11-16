@@ -12,6 +12,8 @@ module Vtex
           def sync_products_categories
             product_categories_attributes = order_item_attributes['additionalInfo']['categories']
 
+            return unless product_categories_attributes
+
             product_categories = ProductCategory.sync_all(product_categories_attributes,
                                                           vtex_product: vtex_product)
 
