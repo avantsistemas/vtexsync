@@ -49,6 +49,7 @@ test:
 #
 production:
   <<: *default
-  database: vtexsync_production
-  username: vtexsync
-  password: <%= ENV['VTEXSYNC_DATABASE_PASSWORD'] %>
+  host: <%= Rails.application.credentials.database[:host] %>
+  database: <%= Rails.application.credentials.database[:name] %>
+  username: <%= Rails.application.credentials.database[:user] %>
+  password: <%= Rails.application.credentials.database[:password] %>
