@@ -68,3 +68,7 @@ gem 'http'
 # Versionamento dos models
 # https://github.com/paper-trail-gem/paper_trail
 gem 'paper_trail'
+
+# Facilita o agendamento de rotinas no cron
+# https://github.com/javan/whenever
+gem 'whenever', require: false
