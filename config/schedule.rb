@@ -19,16 +19,16 @@
 
 # Learn more: http://github.com/javan/whenever
 
-set :output, 'log/cron.log'
+# set :output, 'log/cron.log'
 
 every 1.hour do
-  rake 'info vtex:sync_1_day_ago'
+  rake 'vtex:sync_1_day_ago'
 end
 
 every 1.week, at: '2:05 am' do
-  rake 'info vtex:sync_2_weeks_ago'
+  rake 'vtex:sync_2_weeks_ago'
 end
 
 every 1.month, at: '3:05 am' do
-  rake 'info vtex:sync_1_month_ago'
+  rake 'vtex:sync_1_month_ago'
 end
