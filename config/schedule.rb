@@ -19,6 +19,8 @@
 
 # Learn more: http://github.com/javan/whenever
 
+set :bundle_command, "#{ENV['HOME']}/.rbenv/shims/bundle exec"
+set :path, "#{ENV['HOME']}/vtexsync"
 # set :output, 'log/cron.log'
 
 every 1.hour do
@@ -29,6 +31,6 @@ every 1.week, at: '2:05 am' do
   rake 'vtex:sync_2_weeks_ago'
 end
 
-every 1.month, at: '3:05 am' do
+every 1.month, at: '4:05 am' do
   rake 'vtex:sync_1_month_ago'
 end
