@@ -10,6 +10,8 @@ module Vtex
         end
 
         def sync
+          return if no_transaction?
+
           load_vtex_transaction
 
           sync_dependents
@@ -38,6 +40,17 @@ module Vtex
 
         def sync_attributes
           vtex_transaction.sync_attributes(transaction_attributes)
+        end
+
+        def no_transaction?
+          # Por algum motivo, quando não há transação para um determinado pedido, a API da VTEX está retornando
+          # uma transação com transactionId == NO-PAYMENT em vez de retornar uma lista vazia em `transactions`.
+          # Para não precisar alterar a chave única da nossa tabela `vtex_transactions`, não iremos salvar
+          # nenhum registro de transação para esses casos de pedidos sem pagamento.
+          return if transaction_attributes['transactionId'] != 'NO-PAYMENT'
+
+          Rails.logger.warn 'pedido sem transação/pagamento'
+          true
         end
       end
     end
