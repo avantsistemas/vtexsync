@@ -10,8 +10,9 @@ namespace :vtex do
                                        app_token: app_token, app_key: app_key)
 
     from = ENV['from'] ? ENV['from'].in_time_zone : 1.day.ago
+    to = ENV['to'] ? ENV['to'].in_time_zone : Time.current
 
-    sync_orders = Vtex::Sync::Orders.new(api_client).sync(from: from)
+    sync_orders = Vtex::Sync::Orders.new(api_client).sync(from: from, to: to)
     Rails.logger.info "Total de pedidos processados: #{sync_orders.processed_orders}"
   end
 
