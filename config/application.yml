@@ -1,0 +1,5 @@
+shared:
+  vtex:
+    bioextratus:
+      account_name: "bioextratusvirtual"
+      environment: "vtexcommercestable"

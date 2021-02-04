@@ -1,7 +1,7 @@
 namespace :vtex do
   task sync: :environment do
-    account_name = 'bioextratusvirtual'
-    environment = 'vtexcommercestable'
+    account_name = Rails.configuration.application.vtex[:bioextratus][:account_name]
+    environment = Rails.configuration.application.vtex[:bioextratus][:environment]
 
     app_token = Rails.application.credentials.vtex[:bioextratus][:app_token]
     app_key = Rails.application.credentials.vtex[:bioextratus][:app_key]

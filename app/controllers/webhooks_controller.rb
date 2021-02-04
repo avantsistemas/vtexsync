@@ -1,7 +1,10 @@
 class WebhooksController < ActionController::API
   def orders
-    payload = params.to_unsafe_h
-    logger.info "Webhook de pedidos acionado com o payload #{payload}"
-    # SyncOrderJob.set(priority: 0).perform_later(payload)
+    if params[:hookConfig] == 'ping'
+      logger.info "Ping da VTEX no webhook de pedidos: #{params}"
+    else
+      logger.info "Webhook de pedidos acionado com o payload #{params}"
+      Vtex::Order::SyncJob.set(priority: 0).perform_later(params['OrderId'])
+    end
   end
 end
