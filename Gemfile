@@ -72,3 +72,7 @@ gem 'paper_trail'
 # Facilita o agendamento de rotinas no cron
 # https://github.com/javan/whenever
 gem 'whenever', require: false
+
+# Execução de jobs
+# https://github.com/collectiveidea/delayed_job
+gem 'delayed_job_active_record'
