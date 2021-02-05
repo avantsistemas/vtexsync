@@ -1,0 +1,7 @@
+---
+api_key: 'b948bc7f'
+exceptions:
+  # Configura o Honeybadger para não ignorar os erros ignorados por padrão.
+  # https://docs.honeybadger.io/lib/ruby/getting-started/ignoring-errors.html
+  ignore_only:
+    - 'ActionController::RoutingError'

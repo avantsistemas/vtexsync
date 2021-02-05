@@ -80,3 +80,7 @@ gem 'delayed_job_active_record'
 # Log menos verboso e mais funcional
 # https://github.com/roidrage/lograge
 gem 'lograge'
+
+# Monitoramento de erros do sistema
+# https://github.com/honeybadger-io/honeybadger-ruby
+gem 'honeybadger', '~> 4.0'
