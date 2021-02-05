@@ -102,4 +102,14 @@ Rails.application.configure do
   # config.active_record.database_selector = { delay: 2.seconds }
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
+
+  # Configura o lograge para registro dos logs das requisições
+  config.lograge.enabled = true
+
+  config.lograge.base_controller_class = %w[ActionController::API]
+
+  config.lograge.custom_options = lambda do |event|
+    exceptions = %w[controller action format id]
+    { params: event.payload[:params].except(*exceptions) }
+  end
 end

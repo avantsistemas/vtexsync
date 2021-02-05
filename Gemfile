@@ -76,3 +76,7 @@ gem 'whenever', require: false
 # Execução de jobs
 # https://github.com/collectiveidea/delayed_job
 gem 'delayed_job_active_record'
+
+# Log menos verboso e mais funcional
+# https://github.com/roidrage/lograge
+gem 'lograge'

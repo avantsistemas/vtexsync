@@ -1,4 +1,4 @@
-class WebhooksController < ActionController::API
+class WebhooksController < ApplicationController
   def orders
     if params[:hookConfig] == 'ping'
       logger.info "Ping da VTEX no webhook de pedidos: #{params}"
