@@ -5,9 +5,10 @@ module Vtex
         include Dependencies
         include Dependents
 
-        def initialize(order_item_attributes, vtex_order:)
+        def initialize(order_item_attributes, vtex_order:, index:)
           @order_item_attributes = order_item_attributes
           @vtex_order = vtex_order
+          @index = index
         end
 
         def sync
@@ -24,8 +25,8 @@ module Vtex
         end
 
         def self.sync_all(order_items_attributes, vtex_order:)
-          order_items_attributes.map do |order_item_attributes|
-            new(order_item_attributes, vtex_order: vtex_order).sync
+          order_items_attributes.each_with_index.map do |order_item_attributes, index|
+            new(order_item_attributes, vtex_order: vtex_order, index: index).sync
           end
         end
 
@@ -35,16 +36,12 @@ module Vtex
 
         def load_vtex_order_item
           attribute_unique_id = order_item_attributes['uniqueId']
-          attribute_quantity = order_item_attributes['quantity']
-          attribute_selling_price = order_item_attributes['sellingPrice'].to_d / 100
 
-          # Existem pedidos onde a propriedade uniqueId se repete entre os itens. Ex: 1064230768540-01,
-          # 1065732673793-01 e 1066163355534-01. E também existem pedidos diferentes com itens com uniqueId
-          # repetido. Ex: 1068192373206-01 e 1068192373206-01. Por isso, `order_id` e `selling_price` foram
-          # adicionadas para tentar garantir a unicidade.
-          @vtex_order_item = vtex_order.items.find_or_initialize_by identifier: attribute_unique_id,
-                                                                    quantity: attribute_quantity,
-                                                                    selling_price: attribute_selling_price
+          # Como "uniqueId" se repete entre itens de um mesmo pedido (ex: 1064230768540-01, 1065732673793-01,
+          # 1066163355534-01) e também entre pedidos diferentes (ex: 1068192373206-01, 1068192373206-01), para
+          # identificar unicamente o item, usamos, além do "uniqueId", o código do pedido e o índice do item
+          # dentro do pedido.
+          @vtex_order_item = vtex_order.items.find_or_initialize_by identifier: attribute_unique_id, index: @index
         end
 
         def sync_attributes

@@ -4,18 +4,16 @@ class CreateVtexOrderItems < ActiveRecord::Migration[6.0]
       t.references :order, null: false, foreign_key: { to_table: :vtex_orders }
       t.references :product, null: false, foreign_key: { to_table: :vtex_products }
       t.string :identifier
+      t.integer :index
       t.integer :quantity
       t.decimal :price, precision: 8, scale: 2
       t.decimal :selling_price, precision: 8, scale: 2
 
       t.timestamps
 
-      # Adicionamos `order_id`, `quantity` e `selling_price` como parte da chave única dos itens dos pedidos por
-      # conta das repetições de uniqueId que acontece em alguns pedidos. Ex: 1064230768540-01, 1065732673793-01,
-      # 1066163355534-01, 1068432854087-01 e 1068192373206-01 (esses dois últimos tendo o uniqueId se repetindo
-      # entre dois pedidos diferentes). Há também o caso do pedido 1065732673793-01 onde concluímos que a
-      # quantidade precisa fazer parte da composição do índice.
-      t.index %i[identifier order_id quantity selling_price], unique: true, name: 'vtex_order_items_unique_index'
+      # Por conta da repetição de "uniqueId" nos itens do JSON de pedidos da VTEX, incluímos a propriedade "index" que
+      # nada mais é que o índice do item dentro da lista de itens do JSON. Usamos esse índice como parte da chave-única.
+      t.index %i[identifier index order_id], unique: true
     end
   end
 end

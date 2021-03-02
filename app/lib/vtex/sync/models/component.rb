@@ -4,9 +4,10 @@ module Vtex
       class Component
         include Dependencies
 
-        def initialize(component_attributes, vtex_order_item:)
+        def initialize(component_attributes, vtex_order_item:, index:)
           @component_attributes = component_attributes
           @vtex_order_item = vtex_order_item
+          @index = index
         end
 
         def sync
@@ -22,8 +23,8 @@ module Vtex
         end
 
         def self.sync_all(components_attributes, vtex_order_item:)
-          components_attributes.map do |component_attributes|
-            new(component_attributes, vtex_order_item: vtex_order_item).sync
+          components_attributes.each_with_index.map do |component_attributes, index|
+            new(component_attributes, vtex_order_item: vtex_order_item, index: index).sync
           end
         end
 
@@ -33,14 +34,12 @@ module Vtex
 
         def load_vtex_component
           attribute_unique_id = component_attributes['uniqueId']
-          attribute_quantity = component_attributes['quantity']
-          attribute_selling_price = component_attributes['sellingPrice'].to_d / 100
 
-          # Existem componentes onde a propriedade uniqueId se repete entre os itens. Ex: 1075461974756-01,
-          # Por isso, `order_item_id` e `selling_price` foram adicionadas para tentar garantir a unicidade.
+          # Como "uniqueId" se repete entre componentes de um mesmo item (ex: 1075461974756-01), para
+          # identificar unicamente o componente, usamos, além do "uniqueId", o código do item e o índice
+          # do componente dentro do item.
           @vtex_component = vtex_order_item.components.find_or_initialize_by identifier: attribute_unique_id,
-                                                                             quantity: attribute_quantity,
-                                                                             selling_price: attribute_selling_price
+                                                                             index: @index
         end
 
         def sync_attributes

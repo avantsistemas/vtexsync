@@ -134,12 +134,13 @@ ActiveRecord::Schema.define(version: 2021_02_04_185511) do
     t.bigint "order_item_id", null: false
     t.bigint "product_id", null: false
     t.string "identifier"
+    t.integer "index"
     t.integer "quantity"
     t.decimal "price", precision: 8, scale: 2
     t.decimal "selling_price", precision: 8, scale: 2
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["identifier", "order_item_id", "quantity", "selling_price"], name: "vtex_components_unique_index", unique: true
+    t.index ["identifier", "index", "order_item_id"], name: "index_vtex_components_on_identifier_and_index_and_order_item_id", unique: true
     t.index ["order_item_id"], name: "index_vtex_components_on_order_item_id"
     t.index ["product_id"], name: "index_vtex_components_on_product_id"
   end
@@ -189,12 +190,13 @@ ActiveRecord::Schema.define(version: 2021_02_04_185511) do
     t.bigint "product_id", null: false
     t.bigint "seller_id", null: false
     t.string "identifier"
+    t.integer "index"
     t.integer "quantity"
     t.decimal "price", precision: 8, scale: 2
     t.decimal "selling_price", precision: 8, scale: 2
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["identifier", "order_id", "quantity", "selling_price"], name: "vtex_order_items_unique_index", unique: true
+    t.index ["identifier", "index", "order_id"], name: "index_vtex_order_items_on_identifier_and_index_and_order_id", unique: true
     t.index ["order_id"], name: "index_vtex_order_items_on_order_id"
     t.index ["product_id"], name: "index_vtex_order_items_on_product_id"
     t.index ["seller_id"], name: "index_vtex_order_items_on_seller_id"
