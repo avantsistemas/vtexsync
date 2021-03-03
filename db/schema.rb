@@ -177,6 +177,7 @@ ActiveRecord::Schema.define(version: 2021_03_02_201915) do
     t.decimal "price", precision: 8, scale: 2
     t.decimal "list_price", precision: 8, scale: 2
     t.decimal "selling_price", precision: 8, scale: 2
+    t.string "transit_time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["order_item_id"], name: "index_vtex_logistics_on_order_item_id", unique: true
@@ -209,6 +210,7 @@ ActiveRecord::Schema.define(version: 2021_03_02_201915) do
     t.integer "quantity"
     t.decimal "price", precision: 8, scale: 2
     t.decimal "selling_price", precision: 8, scale: 2
+    t.boolean "kit", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["identifier", "index", "order_id"], name: "index_vtex_order_items_on_identifier_and_index_and_order_id", unique: true

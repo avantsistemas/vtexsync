@@ -46,6 +46,9 @@ module Vtex
 
         def sync_attributes
           vtex_order_item.sync_attributes(order_item_attributes)
+          # Para facilitar algumas pesquisa e análises, adicionamos o atributo `kit`
+          # ao modelo `Vtex::OrderItem` para indicar se aquele item é ou não um kit.
+          vtex_order_item.kit = order_item_attributes['components'].any?
         end
       end
     end

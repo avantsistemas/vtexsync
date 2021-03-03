@@ -11,18 +11,15 @@ module Vtex
 
     has_many :components, dependent: :destroy
 
-    sync_attributes :uniqueId, :refId, :seller, :quantity, :price, :sellingPrice
+    sync_attributes :uniqueId, :seller, :quantity, :price, :sellingPrice
 
     remap_attributes uniqueId: :identifier,
-                     refId: :product_identifier,
                      seller: :seller_identifier,
                      price: :price_in_cents,
                      sellingPrice: :selling_price_in_cents
 
-    def product_identifier=(product_identifier)
-      self.product = Product.find_by! identifier: product_identifier
-    end
-
+    # O `seller` já deverá ter sido criado pela sincronização de `order`
+    # Vtex::Sync::Models::Order::Dependents#sync_sellers
     def seller_identifier=(seller_identifier)
       self.seller = Seller.find_by! identifier: seller_identifier
     end

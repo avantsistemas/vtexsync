@@ -8,6 +8,7 @@ class CreateVtexOrderItems < ActiveRecord::Migration[6.0]
       t.integer :quantity
       t.decimal :price, precision: 8, scale: 2
       t.decimal :selling_price, precision: 8, scale: 2
+      t.boolean :kit, default: false
 
       t.timestamps
 
