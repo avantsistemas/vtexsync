@@ -232,7 +232,7 @@ ActiveRecord::Schema.define(version: 2021_03_02_201915) do
 
   create_table "vtex_orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "client_id", null: false
-    t.bigint "shipping_address_id", null: false
+    t.bigint "address_id", null: false
     t.string "order_code"
     t.string "seller_order_code"
     t.integer "sequence"
@@ -246,9 +246,9 @@ ActiveRecord::Schema.define(version: 2021_03_02_201915) do
     t.datetime "last_change"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["address_id"], name: "index_vtex_orders_on_address_id"
     t.index ["client_id"], name: "index_vtex_orders_on_client_id"
     t.index ["order_code"], name: "index_vtex_orders_on_order_code", unique: true
-    t.index ["shipping_address_id"], name: "index_vtex_orders_on_shipping_address_id"
   end
 
   create_table "vtex_payment_systems", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -359,7 +359,7 @@ ActiveRecord::Schema.define(version: 2021_03_02_201915) do
   add_foreign_key "vtex_order_items", "vtex_sellers", column: "seller_id"
   add_foreign_key "vtex_order_totals", "vtex_orders", column: "order_id"
   add_foreign_key "vtex_order_totals", "vtex_totals", column: "total_id"
-  add_foreign_key "vtex_orders", "vtex_addresses", column: "shipping_address_id"
+  add_foreign_key "vtex_orders", "vtex_addresses", column: "address_id"
   add_foreign_key "vtex_orders", "vtex_clients", column: "client_id"
   add_foreign_key "vtex_payments", "vtex_payment_systems", column: "payment_system_id"
   add_foreign_key "vtex_payments", "vtex_transactions", column: "transaction_id"

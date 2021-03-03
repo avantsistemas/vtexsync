@@ -7,7 +7,7 @@ module Vtex
 
           def sync_dependencies
             sync_client
-            sync_shipping_address
+            sync_address
           end
 
           def sync_client
@@ -16,10 +16,10 @@ module Vtex
             vtex_order.client = vtex_client
           end
 
-          def sync_shipping_address
-            shipping_address_attributes = order_attributes['shippingData']['address']
-            vtex_address = Address.new(shipping_address_attributes).sync
-            vtex_order.shipping_address = vtex_address
+          def sync_address
+            address_attributes = order_attributes['shippingData']['address']
+            vtex_address = Address.new(address_attributes).sync
+            vtex_order.address = vtex_address
           end
         end
       end

@@ -4,7 +4,7 @@ module Vtex
     has_paper_trail
 
     belongs_to :client
-    belongs_to :shipping_address, class_name: 'Vtex::Address'
+    belongs_to :address
 
     has_one :campaign, dependent: :destroy
 
