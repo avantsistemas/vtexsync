@@ -133,8 +133,10 @@ ActiveRecord::Schema.define(version: 2021_03_03_155657) do
   create_table "vtex_cities", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "state_id", null: false
     t.string "name"
+    t.integer "ibge_code"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["ibge_code"], name: "index_vtex_cities_on_ibge_code"
     t.index ["name", "state_id"], name: "index_vtex_cities_on_name_and_state_id", unique: true
     t.index ["state_id"], name: "index_vtex_cities_on_state_id"
   end
