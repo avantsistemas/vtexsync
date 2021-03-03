@@ -1,5 +1,10 @@
 module Synchronizable
   extend ActiveSupport::Concern
+  extend ActiveModel::Callbacks
+
+  included do
+    define_model_callbacks :sync_attributes
+  end
 
   class_methods do
     def sync_attributes(*attributes)
@@ -14,13 +19,13 @@ module Synchronizable
   end
 
   def sync_attributes(attributes)
-    attributes = attributes.with_indifferent_access
-    slice_attributes!(attributes)
-    remap_attributes!(attributes)
-    underscore_attributes!(attributes)
-    assign_attributes(attributes)
-    # TODO: definir callback do ActiveSupport?
-    after_sync_attributes
+    run_callbacks(:sync_attributes) do
+      attributes = attributes.with_indifferent_access
+      slice_attributes!(attributes)
+      remap_attributes!(attributes)
+      underscore_attributes!(attributes)
+      assign_attributes(attributes)
+    end
   end
 
   private
@@ -40,6 +45,4 @@ module Synchronizable
   def underscore_attributes!(attributes)
     attributes.transform_keys!(&:underscore)
   end
-
-  def after_sync_attributes; end
 end

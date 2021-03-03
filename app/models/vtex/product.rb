@@ -13,9 +13,7 @@ module Vtex
     remap_attributes id: :sku_code,
                      refId: :identifier
 
-    def after_sync_attributes
-      remove_parameters_from_image_url
-    end
+    after_sync_attributes :remove_parameters_from_image_url
 
     private
 
