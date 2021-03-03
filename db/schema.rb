@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_02_201915) do
+ActiveRecord::Schema.define(version: 2021_03_03_155657) do
 
   create_table "delayed_jobs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.integer "priority", default: 0, null: false
@@ -25,6 +25,28 @@ ActiveRecord::Schema.define(version: 2021_03_02_201915) do
     t.datetime "created_at", precision: 6
     t.datetime "updated_at", precision: 6
     t.index ["priority", "run_at"], name: "delayed_jobs_priority"
+  end
+
+  create_table "ibge_cities", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.bigint "state_id", null: false
+    t.integer "code"
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["code"], name: "index_ibge_cities_on_code", unique: true
+    t.index ["name", "state_id"], name: "index_ibge_cities_on_name_and_state_id", unique: true
+    t.index ["state_id"], name: "index_ibge_cities_on_state_id"
+  end
+
+  create_table "ibge_states", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.integer "code"
+    t.string "name"
+    t.string "acronym"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["acronym"], name: "index_ibge_states_on_acronym", unique: true
+    t.index ["code"], name: "index_ibge_states_on_code", unique: true
+    t.index ["name"], name: "index_ibge_states_on_name", unique: true
   end
 
   create_table "versions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -342,6 +364,7 @@ ActiveRecord::Schema.define(version: 2021_03_02_201915) do
     t.index ["order_id"], name: "index_vtex_transactions_on_order_id"
   end
 
+  add_foreign_key "ibge_cities", "ibge_states", column: "state_id"
   add_foreign_key "vtex_addresses", "vtex_cities", column: "city_id"
   add_foreign_key "vtex_campaign_tags", "vtex_campaigns", column: "campaign_id"
   add_foreign_key "vtex_campaign_tags", "vtex_marketing_tags", column: "marketing_tag_id"
