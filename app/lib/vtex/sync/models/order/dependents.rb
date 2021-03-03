@@ -11,6 +11,7 @@ module Vtex
             sync_campaigns
             sync_order_items
             sync_order_benefits
+            sync_order_logistics
             sync_transactions
           end
 
@@ -51,6 +52,18 @@ module Vtex
                                                    vtex_order: vtex_order)
 
             destroy_not_synced(order_benefits, scope: vtex_order.order_benefits)
+          end
+
+          # As informações de shippingData > logisticsInfo são dependentes dos itens do pedido. Porém a forma como essa
+          # informação está estruturada no JSON de pedidos da VTEX nos impede de fazer a sincronização no momento da
+          # sincronização dos itens.
+          def sync_order_logistics
+            logistics_attributes = order_attributes['shippingData']['logisticsInfo']
+
+            logistics = Logistic.sync_all(logistics_attributes,
+                                          vtex_order: vtex_order)
+
+            destroy_not_synced(logistics, scope: vtex_order.logistics)
           end
 
           def sync_transactions

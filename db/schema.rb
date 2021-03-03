@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_04_185511) do
+ActiveRecord::Schema.define(version: 2021_03_02_201915) do
 
   create_table "delayed_jobs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.integer "priority", default: 0, null: false
@@ -168,6 +168,21 @@ ActiveRecord::Schema.define(version: 2021_02_04_185511) do
     t.index ["acronym"], name: "index_vtex_countries_on_acronym", unique: true
   end
 
+  create_table "vtex_logistics", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.bigint "order_item_id", null: false
+    t.bigint "sla_id", null: false
+    t.string "delivery_company"
+    t.string "shipping_estimate"
+    t.datetime "shipping_estimate_date"
+    t.decimal "price", precision: 8, scale: 2
+    t.decimal "list_price", precision: 8, scale: 2
+    t.decimal "selling_price", precision: 8, scale: 2
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["order_item_id"], name: "index_vtex_logistics_on_order_item_id", unique: true
+    t.index ["sla_id"], name: "index_vtex_logistics_on_sla_id"
+  end
+
   create_table "vtex_marketing_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -289,6 +304,14 @@ ActiveRecord::Schema.define(version: 2021_02_04_185511) do
     t.index ["identifier"], name: "index_vtex_sellers_on_identifier", unique: true
   end
 
+  create_table "vtex_slas", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "identifier"
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["identifier"], name: "index_vtex_slas_on_identifier", unique: true
+  end
+
   create_table "vtex_states", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "country_id", null: false
     t.string "acronym"
@@ -325,6 +348,8 @@ ActiveRecord::Schema.define(version: 2021_02_04_185511) do
   add_foreign_key "vtex_components", "vtex_order_items", column: "order_item_id"
   add_foreign_key "vtex_components", "vtex_products", column: "product_id"
   add_foreign_key "vtex_connector_responses", "vtex_payments", column: "payment_id"
+  add_foreign_key "vtex_logistics", "vtex_order_items", column: "order_item_id"
+  add_foreign_key "vtex_logistics", "vtex_slas", column: "sla_id"
   add_foreign_key "vtex_order_benefits", "vtex_benefits", column: "benefit_id"
   add_foreign_key "vtex_order_benefits", "vtex_orders", column: "order_id"
   add_foreign_key "vtex_order_items", "vtex_orders", column: "order_id"

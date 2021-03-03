@@ -15,6 +15,8 @@ module Vtex
     has_many :order_benefits, dependent: :destroy
     has_many :benefits, through: :order_benefits
 
+    has_many :logistics, through: :items
+
     sync_attributes :orderId, :sellerOrderId, :sequence, :origin, :status, :statusDescription,
                     :value, :totalValue, :creationDate, :authorizedDate, :invoicedDate, :lastChange
 
