@@ -272,6 +272,7 @@ ActiveRecord::Schema.define(version: 2021_03_03_155657) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["address_id"], name: "index_vtex_orders_on_address_id"
     t.index ["client_id"], name: "index_vtex_orders_on_client_id"
+    t.index ["creation_date"], name: "index_vtex_orders_on_creation_date"
     t.index ["order_code"], name: "index_vtex_orders_on_order_code", unique: true
   end
 

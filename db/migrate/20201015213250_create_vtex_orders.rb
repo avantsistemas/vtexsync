@@ -16,6 +16,7 @@ class CreateVtexOrders < ActiveRecord::Migration[6.0]
       t.timestamps
 
       t.index :order_code, unique: true
+      t.index :creation_date
     end
   end
 end

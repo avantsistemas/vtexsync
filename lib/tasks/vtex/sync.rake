@@ -30,4 +30,11 @@ namespace :vtex do
     ENV['from'] = 1.month.ago.as_json
     Rake::Task['vtex:sync'].invoke
   end
+
+  task full_sync: :environment do
+    last_order = Vtex::Order.order(:creation_date).last
+    from = last_order ? last_order.creation_date + 1.second : 10.years.ago
+    ENV['from'] = from.as_json
+    Rake::Task['vtex:sync'].invoke
+  end
 end
