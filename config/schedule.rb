@@ -21,16 +21,12 @@
 
 set :bundle_command, "#{ENV['HOME']}/.rbenv/shims/bundle exec"
 set :path, "#{ENV['HOME']}/vtexsync"
-# set :output, 'log/cron.log'
+set :output, 'log/cron.log'
 
-every 1.hour do
-  rake 'vtex:sync_1_day_ago'
+every 1.day, at: '2:00' do
+  rake 'vtex:sync_1_week_ago'
 end
 
-every 1.week, at: '2:05 am' do
-  rake 'vtex:sync_2_weeks_ago'
-end
-
-every 1.month, at: '4:05 am' do
+every 1.week, at: '4:00 am' do
   rake 'vtex:sync_1_month_ago'
 end
