@@ -24,5 +24,17 @@ module Vtex
     def selling_price_in_cents=(selling_price_in_cents)
       self.selling_price = selling_price_in_cents ? selling_price_in_cents.to_d / 100 : nil
     end
+
+    def kit?
+      false
+    end
+
+    def gift?
+      selling_price.zero?
+    end
+
+    def discount
+      price - selling_price
+    end
   end
 end

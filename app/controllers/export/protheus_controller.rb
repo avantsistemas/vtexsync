@@ -4,6 +4,7 @@ module Export
 
     def clients
       payment_approved_orders = find_payment_approved_orders
+                                .includes(:client, address: [city: :state])
       if payment_approved_orders.length.positive?
         send_data Vtex::Export::Protheus::Clients.new(payment_approved_orders).to_txt,
                   filename: filename('clientes')
@@ -13,13 +14,20 @@ module Export
     end
 
     def orders
-      render plain: "VTEX Sync is up and running!\n#{Time.current}"
+      payment_approved_orders = find_payment_approved_orders
+                                .includes(:client, :address, items: [:product, components: :product])
+      if payment_approved_orders.length.positive?
+        send_data Vtex::Export::Protheus::Orders.new(payment_approved_orders).to_txt,
+                  filename: filename('pedidos')
+      else
+        render_no_approved_orders_right_now
+      end
     end
 
     private
 
     def find_payment_approved_orders
-      @seller.orders.payment_approved.includes(:client, [address: [city: :state]])
+      @seller.orders.payment_approved
     end
 
     def authenticate
