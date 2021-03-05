@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_03_155657) do
+ActiveRecord::Schema.define(version: 2021_03_04_124434) do
 
   create_table "delayed_jobs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.integer "priority", default: 0, null: false
@@ -324,11 +324,13 @@ ActiveRecord::Schema.define(version: 2021_03_03_155657) do
 
   create_table "vtex_sellers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "identifier"
+    t.string "token"
     t.string "name"
     t.string "logo"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["identifier"], name: "index_vtex_sellers_on_identifier", unique: true
+    t.index ["token"], name: "index_vtex_sellers_on_token", unique: true
   end
 
   create_table "vtex_slas", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|

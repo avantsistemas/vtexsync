@@ -17,6 +17,8 @@ module Vtex
 
     has_many :logistics, through: :items
 
+    scope :payment_approved, -> { where(status: 'payment-approved') }
+
     sync_attributes :orderId, :sellerOrderId, :sequence, :origin, :status, :statusDescription,
                     :value, :totalValue, :creationDate, :authorizedDate, :invoicedDate, :lastChange
 
