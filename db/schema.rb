@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_04_124434) do
+ActiveRecord::Schema.define(version: 2021_03_16_200754) do
 
   create_table "delayed_jobs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.integer "priority", default: 0, null: false
@@ -36,6 +36,17 @@ ActiveRecord::Schema.define(version: 2021_03_04_124434) do
     t.index ["code"], name: "index_ibge_cities_on_code", unique: true
     t.index ["name", "state_id"], name: "index_ibge_cities_on_name_and_state_id", unique: true
     t.index ["state_id"], name: "index_ibge_cities_on_state_id"
+  end
+
+  create_table "ibge_districts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.bigint "city_id", null: false
+    t.string "code"
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["city_id"], name: "index_ibge_districts_on_city_id"
+    t.index ["code"], name: "index_ibge_districts_on_code", unique: true
+    t.index ["name", "city_id"], name: "index_ibge_districts_on_name_and_city_id", unique: true
   end
 
   create_table "ibge_states", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -370,6 +381,7 @@ ActiveRecord::Schema.define(version: 2021_03_04_124434) do
   end
 
   add_foreign_key "ibge_cities", "ibge_states", column: "state_id"
+  add_foreign_key "ibge_districts", "ibge_cities", column: "city_id"
   add_foreign_key "vtex_addresses", "vtex_cities", column: "city_id"
   add_foreign_key "vtex_campaign_tags", "vtex_campaigns", column: "campaign_id"
   add_foreign_key "vtex_campaign_tags", "vtex_marketing_tags", column: "marketing_tag_id"

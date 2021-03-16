@@ -1,5 +1,5 @@
 namespace :ibge do
-  task sync: :environment do
+  task sync_cities: :environment do
     require 'csv'
     csv_text = File.read(File.join(__dir__, 'RELATORIO_DTB_BRASIL_MUNICIPIO_2020_v2.csv'))
     csv = CSV.parse(csv_text, headers: true, col_sep: ';')
@@ -54,6 +54,27 @@ namespace :ibge do
 
       Vtex::Sync::Logger.log_what_will_be_synced(city)
       city.save! if city.changed?
+    end
+  end
+
+  task sync_districts: :environment do
+    require 'csv'
+    csv_text = File.read(File.join(__dir__, 'RELATORIO_DTB_BRASIL_DISTRITO_2020_v2.csv'))
+    csv = CSV.parse(csv_text, headers: true, col_sep: ';')
+
+    csv.each do |row|
+      city_code = row['Código_Município_Completo']
+      district_code = row['Código_de_Distrito_Completo']
+      district_name = row['Nome_Distrito']
+
+      city = Ibge::City.find_by! code: city_code
+
+      district = Ibge::District.create_with(city: city)
+                               .find_or_initialize_by(code: district_code)
+      district.name = district_name
+
+      Vtex::Sync::Logger.log_what_will_be_synced(district)
+      district.save! if district.changed?
     end
   end
 end
