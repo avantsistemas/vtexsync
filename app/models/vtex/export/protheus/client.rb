@@ -1,17 +1,10 @@
 module Vtex
   module Export
     module Protheus
-      class Client
-        COL_SEP = ';'.freeze
-        SEP_REP = ','.freeze
-
+      class Client < Exportable
         def initialize(client, address)
           @client = client
           @address = address
-        end
-
-        def to_txt
-          prepared_client_data.join(COL_SEP)
         end
 
         def full_name
@@ -55,18 +48,12 @@ module Vtex
         end
 
         def city_ibge_code
-          @address.city.ibge_code.to_s
+          @address.city.ibge_code
         end
 
         private
 
-        def prepared_client_data
-          client_data.map do |info|
-            info.try(:upcase).try(:tr, COL_SEP, SEP_REP)
-          end
-        end
-
-        def client_data
+        def data_array
           [
             full_name,
             address,

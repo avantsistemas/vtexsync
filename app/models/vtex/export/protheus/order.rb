@@ -1,17 +1,14 @@
 module Vtex
   module Export
     module Protheus
-      class Order
-        COL_SEP = ';'.freeze
-        SEP_REP = ','.freeze
-
+      class Order < Exportable
         def initialize(order)
           @order = order
           @item_sequence = 0
         end
 
         def to_txt
-          prepared_order_data.join(COL_SEP) + "\n" + OrderItems.new(@order.items, protheus_order: self).to_txt
+          super + "\n" + OrderItems.new(@order.items, protheus_order: self).to_txt
         end
 
         def limited_order_code
@@ -32,13 +29,7 @@ module Vtex
 
         private
 
-        def prepared_order_data
-          order_data.map do |info|
-            info.to_s.upcase.tr(COL_SEP, SEP_REP)
-          end
-        end
-
-        def order_data
+        def data_array
           [
             'A',
             limited_order_code,
