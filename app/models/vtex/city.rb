@@ -14,7 +14,7 @@ module Vtex
       self.ibge_code = get_ibge_code_from_city(ibge_state) ||
                        get_ibge_code_from_district(ibge_state)
 
-      raise("Cidade/Distrito #{name} / #{state.acronym} sem código IBGE") unless ibge_code?
+      logger.warn "Cidade #{name} / #{state.acronym} sem código IBGE" unless ibge_code?
     end
 
     def get_ibge_code_from_city(ibge_state)
