@@ -37,7 +37,7 @@ module Vtex
     end
 
     def discount
-      price - selling_price
+      gift? ? 0 : price - selling_price
     end
   end
 end
