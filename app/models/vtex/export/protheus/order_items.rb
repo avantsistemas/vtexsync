@@ -14,10 +14,10 @@ module Vtex
               # usar a mesma classe de exportção de itens Vtex::Export::Protheus::OrderItems. Se a interface
               # do model mudar, precisaríamos criar uma classe de exportação específica para os componentes.
               OrderItems.new(order_item.components, protheus_order: @protheus_order).to_txt
-            else
+            elsif order_item.product.ean? # Itens sem EAN (exceto os kits) não devem ser incluídos no TXT
               OrderItem.new(order_item, protheus_order: @protheus_order).to_txt
             end
-          end.join("\n")
+          end.compact.join("\n")
         end
       end
     end
