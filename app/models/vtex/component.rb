@@ -32,9 +32,5 @@ module Vtex
     def gift?
       selling_price.zero?
     end
-
-    def discount
-      price - selling_price
-    end
   end
 end

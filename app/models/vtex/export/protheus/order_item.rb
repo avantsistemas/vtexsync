@@ -28,7 +28,9 @@ module Vtex
         end
 
         def discount
-          @order_item.discount
+          # Para fins de exportação do TXT de pedidos, se o item for brinde, o desconto deve
+          # ser zero. Caso contrário, o desconto deve ser o (price - selling_price) * quantity)
+          @order_item.gift? ? 0 : ((@order_item.price - @order_item.selling_price) * @order_item.quantity)
         end
 
         private
