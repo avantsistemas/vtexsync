@@ -45,26 +45,27 @@ module Vtex
         end
 
         def calculate_payment_information
-          payment_system_groups = group_transactions_by_payment_system_groups
-          if payment_system_groups.include? 'bankInvoice'
-            "B#{payment_system_groups['bankInvoice']}"
-          elsif payment_system_groups.include? 'creditCard'
-            "C#{payment_system_groups['creditCard']}"
+          installments_count = count_installments_by_payment_system_groups
+
+          if installments_count.include? 'bankInvoice'
+            "B#{installments_count['bankInvoice']}"
+          elsif installments_count.include? 'creditCard'
+            "C#{installments_count['creditCard']}"
           end
         end
 
-        def group_transactions_by_payment_system_groups
-          payment_system_groups = Hash.new(0)
+        def count_installments_by_payment_system_groups
+          installments_count = Hash.new(0)
 
           @order.transactions.each do |transaction|
             transaction.payments.each do |payment|
               payment_system = payment.payment_system
               payment_system_group = payment_system.group
-              payment_system_groups[payment_system_group] += 1
+              installments_count[payment_system_group] += payment.installments
             end
           end
 
-          payment_system_groups
+          installments_count
         end
       end
     end
