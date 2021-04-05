@@ -3,10 +3,10 @@ module Export
     before_action :authenticate
 
     def clients
-      payment_approved_orders = find_payment_approved_orders
-                                .includes(:client, address: [city: :state])
-      if payment_approved_orders.length.positive?
-        send_data Vtex::Export::Protheus::Clients.new(payment_approved_orders).to_txt,
+      definitively_approved_orders = find_definitively_approved_orders
+                                     .includes(:client, address: [city: :state])
+      if definitively_approved_orders.length.positive?
+        send_data Vtex::Export::Protheus::Clients.new(definitively_approved_orders).to_txt,
                   filename: filename('clientes')
       else
         render_no_approved_orders_right_now
@@ -14,11 +14,11 @@ module Export
     end
 
     def orders
-      payment_approved_orders = find_payment_approved_orders
-                                .includes(:client, :address, items: [:product, components: :product],
-                                                             transactions: [payments: :payment_system])
-      if payment_approved_orders.length.positive?
-        send_data Vtex::Export::Protheus::Orders.new(payment_approved_orders).to_txt,
+      definitively_approved_orders = find_definitively_approved_orders
+                                     .includes(:client, :address, items: [:product, components: :product],
+                                                                  transactions: [payments: :payment_system])
+      if definitively_approved_orders.length.positive?
+        send_data Vtex::Export::Protheus::Orders.new(definitively_approved_orders).to_txt,
                   filename: filename('pedidos')
       else
         render_no_approved_orders_right_now
@@ -27,8 +27,8 @@ module Export
 
     private
 
-    def find_payment_approved_orders
-      @seller.orders.payment_approved
+    def find_definitively_approved_orders
+      @seller.orders.payment_approved.where(vtex_orders: { allow_cancellation: false })
     end
 
     def authenticate

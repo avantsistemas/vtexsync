@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_16_200754) do
+ActiveRecord::Schema.define(version: 2021_04_05_193017) do
 
   create_table "delayed_jobs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.integer "priority", default: 0, null: false
@@ -274,6 +274,7 @@ ActiveRecord::Schema.define(version: 2021_03_16_200754) do
     t.string "origin"
     t.string "status"
     t.string "status_description"
+    t.boolean "allow_cancellation"
     t.decimal "value", precision: 8, scale: 2
     t.datetime "creation_date"
     t.datetime "authorized_date"

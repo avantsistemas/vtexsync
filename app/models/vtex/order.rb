@@ -19,7 +19,7 @@ module Vtex
 
     scope :payment_approved, -> { where(status: 'payment-approved') }
 
-    sync_attributes :orderId, :sellerOrderId, :sequence, :origin, :status, :statusDescription,
+    sync_attributes :orderId, :sellerOrderId, :sequence, :origin, :status, :statusDescription, :allowCancellation,
                     :value, :totalValue, :creationDate, :authorizedDate, :invoicedDate, :lastChange
 
     remap_attributes orderId: :order_code,
