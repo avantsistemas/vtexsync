@@ -28,7 +28,7 @@ module Export
     private
 
     def find_definitively_approved_orders
-      @seller.orders.payment_approved.where(vtex_orders: { allow_cancellation: false })
+      @seller.orders.payment_approved
     end
 
     def authenticate
