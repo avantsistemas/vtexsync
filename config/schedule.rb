@@ -26,6 +26,6 @@ set :bundle_command, "#{ENV['HOME']}/.rbenv/shims/bundle exec"
 set :path, "#{ENV['HOME']}/vtexsync"
 set :output, 'log/cron.log'
 
-every 1.day, at: '2:00' do
+every 1.day, at: '2am' do
   rake 'vtex:sync_2_days_ago', honeybadger_check_in_id: 'KlI3yM'
 end
