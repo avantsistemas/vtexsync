@@ -27,6 +27,10 @@ module Vtex
           calculate_payment_information
         end
 
+        def brand_identification
+          @order.items.first.product.brand.name.first
+        end
+
         def next_item_sequence
           @item_sequence += 1
         end
@@ -40,7 +44,8 @@ module Vtex
             client_document,
             'EC1',
             client_postal_code,
-            payment_information
+            payment_information,
+            brand_identification
           ]
         end
 
