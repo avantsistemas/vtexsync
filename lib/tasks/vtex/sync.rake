@@ -17,7 +17,12 @@ namespace :vtex do
   end
 
   task sync_1_day_ago: :environment do
-    ENV['from'] = 1.hour.ago.as_json
+    ENV['from'] = 1.day.ago.as_json
+    Rake::Task['vtex:sync'].invoke
+  end
+
+  task sync_2_days_ago: :environment do
+    ENV['from'] = 2.days.ago.as_json
     Rake::Task['vtex:sync'].invoke
   end
 
