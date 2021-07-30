@@ -50,7 +50,7 @@ module Vtex
 
       def post_affiliate_pro_order_code_for(order)
         order_code = order.order_code
-        order_code[0, order_code.index('-') - 1]
+        order_code[0, order_code.index('-')]
       end
 
       def inspect_response(response)
