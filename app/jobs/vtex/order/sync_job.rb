@@ -2,6 +2,7 @@ module Vtex
   class Order
     class SyncJob < ApplicationJob
       queue_as :vtex_order_sync
+      queue_with_priority JobPriority::HIGHEST
 
       def perform(order_id)
         logger.tagged(order_id) { sync_order(order_id) }
