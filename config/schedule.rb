@@ -22,10 +22,8 @@
 job_type :monitored_rake, 'cd :path && :environment_variable=:environment bundle exec rake :task --silent :output '\
                           '&& curl https://api.honeybadger.io/v1/check_in/:honeybadger_check_in_id &> /dev/null'
 
-set :bundle_command, "#{ENV['HOME']}/.rbenv/shims/bundle exec"
 set :path, "#{ENV['HOME']}/vtexsync"
-set :output, 'log/cron.log'
 
 every 1.day, at: '2am' do
-  rake 'vtex:sync_2_days_ago', honeybadger_check_in_id: 'KlI3yM'
+  monitored_rake 'vtex:sync_2_days_ago', honeybadger_check_in_id: 'KlI3yM'
 end
