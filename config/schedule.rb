@@ -19,9 +19,10 @@
 
 # Learn more: http://github.com/javan/whenever
 
-job_type :monitored_rake, 'cd :path && :environment_variable=:environment bundle exec rake :task --silent :output '\
+job_type :monitored_rake, 'cd :path && :environment_variable=:environment :bundle_command rake :task --silent :output '\
                           '&& curl https://api.honeybadger.io/v1/check_in/:honeybadger_check_in_id &> /dev/null'
 
+set :bundle_command, "#{ENV['HOME']}/.rbenv/shims/bundle exec"
 set :path, "#{ENV['HOME']}/vtexsync"
 
 every 1.day, at: '2am' do
