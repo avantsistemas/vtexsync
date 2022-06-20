@@ -1,10 +1,10 @@
 namespace :vtex do
   task sync: :environment do
-    account_name = Rails.configuration.application.vtex[:bioextratus][:account_name]
-    environment = Rails.configuration.application.vtex[:bioextratus][:environment]
+    account_name = Rails.configuration.application.vtex[:account_name]
+    environment = Rails.configuration.application.vtex[:environment]
 
-    app_token = Rails.application.credentials.vtex[:bioextratus][:app_token]
-    app_key = Rails.application.credentials.vtex[:bioextratus][:app_key]
+    app_token = Rails.application.credentials.vtex[:app_token]
+    app_key = Rails.application.credentials.vtex[:app_key]
 
     api_client = Vtex::Api::Client.new(account_name: account_name, environment: environment,
                                        app_token: app_token, app_key: app_key)

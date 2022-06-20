@@ -23,19 +23,19 @@ module Vtex
       end
 
       def account_name
-        Rails.configuration.application.vtex[:bioextratus][:account_name]
+        Rails.configuration.application.vtex[:account_name]
       end
 
       def environment
-        Rails.configuration.application.vtex[:bioextratus][:environment]
+        Rails.configuration.application.vtex[:environment]
       end
 
       def app_token
-        Rails.application.credentials.vtex[:bioextratus][:app_token]
+        Rails.application.credentials.vtex[:app_token]
       end
 
       def app_key
-        Rails.application.credentials.vtex[:bioextratus][:app_key]
+        Rails.application.credentials.vtex[:app_key]
       end
     end
   end
