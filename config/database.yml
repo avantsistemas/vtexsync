@@ -49,7 +49,7 @@ test:
 #
 production:
   <<: *default
-  host: <%= Rails.application.credentials.database[:host] %>
-  database: <%= Rails.application.credentials.database[:name] %>
-  username: <%= Rails.application.credentials.database[:user] %>
-  password: <%= Rails.application.credentials.database[:password] %>
+  host: <%= Rails.application.credentials.dig(:database, :host) %>
+  database: <%= Rails.application.credentials.dig(:database, :name) %>
+  username: <%= Rails.application.credentials.dig(:database, :user) %>
+  password: <%= Rails.application.credentials.dig(:database, :password) %>
