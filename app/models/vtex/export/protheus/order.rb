@@ -58,6 +58,8 @@ module Vtex
             "C#{installments_count['creditCard']}"
           elsif installments_count.include? 'instantPayment'
             "P#{installments_count['instantPayment']}"
+          elsif installments_count.include? 'Nubank'
+            "N#{installments_count['Nubank']}"
           end
         end
 
