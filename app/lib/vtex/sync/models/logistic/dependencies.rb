@@ -10,6 +10,8 @@ module Vtex
           end
 
           def sync_sla
+            return unless logistic_attributes['slas']
+
             sla_attributes = find_sla_attributes
             vtex_sla = Sla.new(sla_attributes).sync
             vtex_logistic.sla = vtex_sla

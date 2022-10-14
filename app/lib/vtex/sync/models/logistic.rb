@@ -15,6 +15,10 @@ module Vtex
           sync_dependencies
           sync_attributes
 
+          # Encontramos pedidos sem informações de SLA. Ex: MLP-41514789983.
+          # Nessa situação, não salvaremos o registro em `vtex_logistics`.
+          return unless vtex_logistic.sla
+
           Logger.log_what_will_be_synced(vtex_logistic)
 
           vtex_logistic.save! if vtex_order.persisted? && vtex_logistic.changed?
