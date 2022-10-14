@@ -6,5 +6,9 @@ module Vtex
     sync_attributes :id, :name
 
     remap_attributes id: :identifier
+
+    def self.shipping
+      @shipping ||= find_by identifier: 'Shipping'
+    end
   end
 end

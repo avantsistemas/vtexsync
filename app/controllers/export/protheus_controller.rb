@@ -15,8 +15,9 @@ module Export
 
     def orders
       orders_with_payment_approved = find_orders_with_payment_approved
-                                     .includes(:client, :address, items: [product: :brand, components: :product],
-                                                                  transactions: [payments: :payment_system])
+                                     .includes(:client, :address, :totals, items: [product: :brand,
+                                                                                   components: :product],
+                                                                           transactions: [payments: :payment_system])
       if orders_with_payment_approved.length.positive?
         send_data Vtex::Export::Protheus::Orders.new(orders_with_payment_approved)
                                                 .to_txt, filename: filename('pedidos')

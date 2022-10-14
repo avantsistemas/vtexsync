@@ -31,6 +31,10 @@ module Vtex
           @order.items.first.product.brand.name.first
         end
 
+        def order_shipping_value
+          @order.shipping_value
+        end
+
         def next_item_sequence
           @item_sequence += 1
         end
@@ -45,7 +49,8 @@ module Vtex
             'EC1',
             client_postal_code,
             payment_information,
-            brand_identification
+            brand_identification,
+            order_shipping_value
           ]
         end
 
