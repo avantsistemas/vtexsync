@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -55,7 +57,7 @@ group :development do
   # https://github.com/capistrano/capistrano
   gem 'capistrano', '~> 3.10', require: false
   gem 'capistrano-rails', '~> 1.6', require: false
-  gem 'capistrano-rbenv', '~> 2.2'
+  gem 'capistrano-rbenv', '~> 2.2', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
