@@ -16,26 +16,26 @@ module Vtex
 
         def log_model_will_be_created(model)
           attributes = model.attributes.except('id', 'created_at', 'updated_at')
-          message = colorful_message("#{model.model_name.singular} será cadastrado(a)", :green, true)
+          message = colorful_message("#{model.model_name.singular} será cadastrado(a)", :green, bold: true)
           logger.info "#{message} #{attributes.as_json}"
         end
 
         def log_model_will_be_updated(model)
-          message = colorful_message("#{model.inspectid} será atualizado(a)", :yellow, true)
+          message = colorful_message("#{model.inspectid} será atualizado(a)", :yellow, bold: true)
           logger.info "#{message} #{model.changes.as_json}"
         end
 
         def log_model_will_be_destroyed(model)
           attributes = model.attributes.except('id', 'created_at', 'updated_at')
-          message = colorful_message("#{model.inspectid} será excluído(a)", :red, true)
+          message = colorful_message("#{model.inspectid} será excluído(a)", :red, bold: true)
           logger.info "#{message} #{attributes.as_json}"
         end
 
         def log_model_already_synced(model)
-          logger.debug { colorful_message("#{model.inspectid} já está atualizado(a)", :black, true) }
+          logger.debug { colorful_message("#{model.inspectid} já está atualizado(a)", :black, bold: true) }
         end
 
-        def colorful_message(message, color, bold = false)
+        def colorful_message(message, color, bold: false)
           ActiveSupport::LogSubscriber.new.send(:color, message, color, bold)
         end
       end
