@@ -24,8 +24,7 @@ Metrics/ClassLength:
   Enabled: false
 
 Style/FrozenStringLiteralComment:
-  Exclude:
-    - db/migrate/*.rb
+  Enabled: false
 
 Metrics/BlockLength:
   AllowedMethods:
