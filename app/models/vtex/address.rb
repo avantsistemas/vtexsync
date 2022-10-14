@@ -15,7 +15,7 @@ module Vtex
 
     attr_accessor :country_acronym, :state_acronym, :city_name
 
-    after_sync_attributes :define_city
+    after_sync_attributes :define_city, :truncate_complement
 
     def geo_coordinates=(geo_coordinates)
       self.latitude, self.longitude = geo_coordinates
@@ -27,6 +27,10 @@ module Vtex
       country = Country.find_or_create_by! acronym: country_acronym
       state = country.states.find_or_create_by! acronym: state_acronym
       self.city = state.cities.find_or_create_by! name: city_name
+    end
+
+    def truncate_complement
+      self.complement = complement.truncate(255, omission: '') if complement?
     end
   end
 end
