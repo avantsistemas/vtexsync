@@ -8,11 +8,11 @@ module Vtex
         end
 
         def to_txt
-          super + "\n" + OrderItems.new(@order.items, protheus_order: self).to_txt
+          "#{super}\n#{OrderItems.new(@order.items, protheus_order: self).to_txt}"
         end
 
         def limited_order_code
-          @order.order_code[0..9]
+          @order.order_code[0..12]
         end
 
         def client_document
