@@ -10,46 +10,38 @@ require:
 AllCops:
   NewCops: enable
 
-  Exclude:
-    - bin/*
-    - db/schema.rb
-
-Style/AsciiComments:
-  Enabled: false
-
 Style/Documentation:
   Enabled: false
 
-Style/FrozenStringLiteralComment:
+# Discussão aqui: https://github.com/rubocop/rubocop/issues/8506
+Lint/MissingSuper:
   Enabled: false
 
-Layout/LineLength:
-  Max: 120 # default: 80
-
-Metrics/AbcSize:
-  Exclude:
-    - /**/*_spec.rb
-    - config/**/*.rb
-    - db/migrate/*.rb
-
 Metrics/MethodLength:
-  Max: 15 # default 10
+  Enabled: false
+
+Metrics/ClassLength:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
   Exclude:
-    - /**/*.rake
-    - /**/*_spec.rb
-    - config/**/*.rb
     - db/migrate/*.rb
 
 Metrics/BlockLength:
+  AllowedMethods:
+    - namespace
+    - context
+    - describe
+    - task
   Exclude:
     - /**/*.rake
-    - /**/*_spec.rb
     - config/**/*.rb
-    - db/migrate/*.rb
-    - spec/factories/*.rb
 
 RSpec/ImplicitExpect:
   EnforcedStyle: should
 
 RSpec/ExampleLength:
+  Enabled: false
+
+Bundler/OrderedGems:
   Enabled: false

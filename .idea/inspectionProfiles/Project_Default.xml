@@ -5,6 +5,9 @@
     <inspection_tool class="RubyInstanceMethodNamingConvention" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="m_maxLength" value="60" />
     </inspection_tool>
+    <inspection_tool class="RubyResolve" enabled="false" level="WARNING" enabled_by_default="false">
+      <option name="warnImplicitResults" value="false" />
+    </inspection_tool>
     <inspection_tool class="SpellCheckingInspection" enabled="false" level="TYPO" enabled_by_default="false">
       <option name="processCode" value="true" />
       <option name="processLiterals" value="true" />
