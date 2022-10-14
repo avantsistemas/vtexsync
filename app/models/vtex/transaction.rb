@@ -5,7 +5,7 @@ module Vtex
 
     belongs_to :order
 
-    has_many :payments, dependent: :restrict_with_exception
+    has_many :payments, dependent: :destroy
 
     sync_attributes :transactionId, :merchantName, :isActive
 
