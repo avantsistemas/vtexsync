@@ -12,7 +12,7 @@ module Vtex
         end
 
         def limited_order_code
-          @order.order_code[0..12]
+          @order.order_code[3..12]
         end
 
         def client_document
