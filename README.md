@@ -60,13 +60,13 @@ Mais informações sobre o mecanismo de credenciais do Rails podem ser encontrad
 Depois que as configurações para conexão com a API da VTEX tiverem sido definidas, para iniciar a sincronização das vendas, basta executar:
 
 ```sh
-bundle exec rake info vtex:sync
+bundle exec rake info vtex:sync_orders
 ```
 
 Por padrão, a rotina irá sincronizar com a base de dados MySQL todos os pedidos das últimas 24 horas. É possível personalizar esse período através dos parâmetros `from` e `to`, conforme exemplo abaixo:
 
 ```sh
-bundle exec rake info vtex:sync from="2022-06-15" to="2022-06-20 23:59:59"
+bundle exec rake info vtex:sync_orders from="2022-06-15" to="2022-06-20 23:59:59"
 ```
 
 Há também outras `rakes` disponíveis para sincronização de alguns períodos pré-definidos:
@@ -76,6 +76,12 @@ bundle exec rake info vtex:sync_1_day_ago
 bundle exec rake info vtex:sync_2_days_ago
 bundle exec rake info vtex:sync_1_week_ago
 bundle exec rake info vtex:sync_1_month_ago
+```
+
+Também é possível sincronizar um único pedido. Basta executar:
+
+```sh
+bundle exec rake info vtex:sync_order order_id="1379680932086-01"
 ```
 
 ## Estrutura de dados

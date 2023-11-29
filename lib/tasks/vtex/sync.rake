@@ -1,5 +1,5 @@
 namespace :vtex do
-  task sync: :environment do
+  task sync_orders: :environment do
     account_name = Rails.configuration.application.vtex[:account_name]
     environment = Rails.configuration.application.vtex[:environment]
 
@@ -41,5 +41,19 @@ namespace :vtex do
     from = last_order ? last_order.creation_date + 1.second : 10.years.ago
     ENV['from'] = from.as_json
     Rake::Task['vtex:sync'].invoke
+  end
+
+  task sync_order: :environment do
+    account_name = Rails.configuration.application.vtex[:account_name]
+    environment = Rails.configuration.application.vtex[:environment]
+
+    app_token = Rails.application.credentials.vtex[:app_token]
+    app_key = Rails.application.credentials.vtex[:app_key]
+
+    api_client = Vtex::Api::Client.new(account_name: account_name, environment: environment,
+                                       app_token: app_token, app_key: app_key)
+
+    order_id = ENV.fetch('order_id')
+    Vtex::Sync::Order.new(api_client).sync(order_id)
   end
 end
