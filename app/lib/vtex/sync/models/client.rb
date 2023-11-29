@@ -21,8 +21,13 @@ module Vtex
         attr_reader :client_attributes
 
         def find_or_initialize_vtex_client
-          attribute_user_profile_id = client_attributes['userProfileId']
-          Vtex::Client.find_or_initialize_by identifier: attribute_user_profile_id
+          Vtex::Client.find_or_initialize_by identifier: client_identifier
+        end
+
+        def client_identifier
+          # Usávamos sempre `userProfileId` como identificador único do cliente. Porém, recentemente, em pedidos do
+          # Mercado Livre, `userProfileId` estava vindo nulo. Para casos assim, usaremos `document` como identificador.
+          client_attributes['userProfileId'].presence || client_attributes['document']
         end
       end
     end
