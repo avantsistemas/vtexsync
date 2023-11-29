@@ -84,3 +84,6 @@ gem 'lograge'
 # Monitoramento de erros do sistema
 # https://github.com/honeybadger-io/honeybadger-ruby
 gem 'honeybadger', '~> 4.0'
+
+# Barra de progresso em texto [https://github.com/jfelchner/ruby-progressbar]
+gem 'ruby-progressbar', require: false
