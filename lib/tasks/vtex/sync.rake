@@ -18,29 +18,29 @@ namespace :vtex do
 
   task sync_1_day_ago: :environment do
     ENV['from'] = 1.day.ago.as_json
-    Rake::Task['vtex:sync'].invoke
+    Rake::Task['vtex:sync_orders'].invoke
   end
 
   task sync_2_days_ago: :environment do
     ENV['from'] = 2.days.ago.as_json
-    Rake::Task['vtex:sync'].invoke
+    Rake::Task['vtex:sync_orders'].invoke
   end
 
   task sync_1_week_ago: :environment do
     ENV['from'] = 1.week.ago.as_json
-    Rake::Task['vtex:sync'].invoke
+    Rake::Task['vtex:sync_orders'].invoke
   end
 
   task sync_1_month_ago: :environment do
     ENV['from'] = 1.month.ago.as_json
-    Rake::Task['vtex:sync'].invoke
+    Rake::Task['vtex:sync_orders'].invoke
   end
 
   task full_sync: :environment do
     last_order = Vtex::Order.order(:creation_date).last
     from = last_order ? last_order.creation_date + 1.second : 10.years.ago
     ENV['from'] = from.as_json
-    Rake::Task['vtex:sync'].invoke
+    Rake::Task['vtex:sync_orders'].invoke
   end
 
   task sync_order: :environment do
