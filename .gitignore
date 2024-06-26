@@ -28,3 +28,6 @@
 
 # RSpec persistence file.
 /spec/examples.txt
+
+# irb history
+.irb_history
