@@ -40,4 +40,4 @@ append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/pack
 
 # rbenv
 set :rbenv_type, :user
-set :rbenv_ruby, '2.6.6'
+set :rbenv_ruby, File.read('.ruby-version').strip
