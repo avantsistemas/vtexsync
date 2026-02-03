@@ -53,3 +53,4 @@ production:
   database: <%= Rails.application.credentials.dig(:database, :name) %>
   username: <%= Rails.application.credentials.dig(:database, :user) %>
   password: <%= Rails.application.credentials.dig(:database, :password) %>
+  port: <%= Rails.application.credentials.dig(:database, :port) %>
