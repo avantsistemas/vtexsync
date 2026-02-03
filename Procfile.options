@@ -1,8 +1,0 @@
-app_name: VTEX Sync
-pid_root: tmp/pids/procodile
-log_path: log/procodile.log
-
-console_command: bundle exec rails console
-
-env:
-  RAILS_ENV: production
