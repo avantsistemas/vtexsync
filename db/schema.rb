@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2021_04_05_193017) do
 
-  create_table "delayed_jobs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "delayed_jobs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "priority", default: 0, null: false
     t.integer "attempts", default: 0, null: false
     t.text "handler", null: false
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2021_04_05_193017) do
     t.index ["priority", "run_at"], name: "delayed_jobs_priority"
   end
 
-  create_table "ibge_cities", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "ibge_cities", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "state_id", null: false
     t.integer "code"
     t.string "name"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2021_04_05_193017) do
     t.index ["state_id"], name: "index_ibge_cities_on_state_id"
   end
 
-  create_table "ibge_districts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "ibge_districts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "city_id", null: false
     t.string "code"
     t.string "name"
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 2021_04_05_193017) do
     t.index ["name", "city_id"], name: "index_ibge_districts_on_name_and_city_id", unique: true
   end
 
-  create_table "ibge_states", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "ibge_states", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "code"
     t.string "name"
     t.string "acronym"
@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 2021_04_05_193017) do
     t.index ["name"], name: "index_ibge_states_on_name", unique: true
   end
 
-  create_table "versions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "versions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "item_type", null: false
     t.bigint "item_id", null: false
     t.string "event", null: false
@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 2021_04_05_193017) do
     t.index ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
   end
 
-  create_table "vtex_addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "vtex_addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "city_id", null: false
     t.string "identifier"
     t.string "address_type"
@@ -90,7 +90,7 @@ ActiveRecord::Schema.define(version: 2021_04_05_193017) do
     t.index ["identifier"], name: "index_vtex_addresses_on_identifier", unique: true
   end
 
-  create_table "vtex_benefits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "vtex_benefits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "identifier"
     t.string "name"
     t.string "description"
@@ -100,7 +100,7 @@ ActiveRecord::Schema.define(version: 2021_04_05_193017) do
     t.index ["identifier"], name: "index_vtex_benefits_on_identifier", unique: true
   end
 
-  create_table "vtex_brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "vtex_brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.string "identifier"
     t.datetime "created_at", precision: 6, null: false
@@ -108,7 +108,7 @@ ActiveRecord::Schema.define(version: 2021_04_05_193017) do
     t.index ["identifier"], name: "index_vtex_brands_on_identifier", unique: true
   end
 
-  create_table "vtex_campaign_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "vtex_campaign_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "campaign_id", null: false
     t.bigint "marketing_tag_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -118,7 +118,7 @@ ActiveRecord::Schema.define(version: 2021_04_05_193017) do
     t.index ["marketing_tag_id"], name: "index_vtex_campaign_tags_on_marketing_tag_id"
   end
 
-  create_table "vtex_campaigns", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "vtex_campaigns", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "order_id", null: false
     t.string "utm_source"
     t.string "utm_partner"
@@ -133,7 +133,7 @@ ActiveRecord::Schema.define(version: 2021_04_05_193017) do
     t.index ["order_id"], name: "index_vtex_campaigns_on_order_id", unique: true
   end
 
-  create_table "vtex_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "vtex_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "identifier"
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -141,7 +141,7 @@ ActiveRecord::Schema.define(version: 2021_04_05_193017) do
     t.index ["identifier"], name: "index_vtex_categories_on_identifier", unique: true
   end
 
-  create_table "vtex_cities", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "vtex_cities", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "state_id", null: false
     t.string "name"
     t.integer "ibge_code"
@@ -152,7 +152,7 @@ ActiveRecord::Schema.define(version: 2021_04_05_193017) do
     t.index ["state_id"], name: "index_vtex_cities_on_state_id"
   end
 
-  create_table "vtex_clients", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "vtex_clients", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "identifier"
     t.string "first_name"
     t.string "last_name"
@@ -165,7 +165,7 @@ ActiveRecord::Schema.define(version: 2021_04_05_193017) do
     t.index ["identifier"], name: "index_vtex_clients_on_identifier", unique: true
   end
 
-  create_table "vtex_components", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "vtex_components", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "order_item_id", null: false
     t.bigint "product_id", null: false
     t.string "identifier"
@@ -180,7 +180,7 @@ ActiveRecord::Schema.define(version: 2021_04_05_193017) do
     t.index ["product_id"], name: "index_vtex_components_on_product_id"
   end
 
-  create_table "vtex_connector_responses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "vtex_connector_responses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "payment_id", null: false
     t.string "tid"
     t.string "auth_id"
@@ -196,14 +196,14 @@ ActiveRecord::Schema.define(version: 2021_04_05_193017) do
     t.index ["payment_id"], name: "index_vtex_connector_responses_on_payment_id", unique: true
   end
 
-  create_table "vtex_countries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "vtex_countries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "acronym"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["acronym"], name: "index_vtex_countries_on_acronym", unique: true
   end
 
-  create_table "vtex_logistics", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "vtex_logistics", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "order_item_id", null: false
     t.bigint "sla_id", null: false
     t.string "delivery_company"
@@ -219,14 +219,14 @@ ActiveRecord::Schema.define(version: 2021_04_05_193017) do
     t.index ["sla_id"], name: "index_vtex_logistics_on_sla_id"
   end
 
-  create_table "vtex_marketing_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "vtex_marketing_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["name"], name: "index_vtex_marketing_tags_on_name", unique: true
   end
 
-  create_table "vtex_order_benefits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "vtex_order_benefits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "order_id", null: false
     t.bigint "benefit_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -236,7 +236,7 @@ ActiveRecord::Schema.define(version: 2021_04_05_193017) do
     t.index ["order_id"], name: "index_vtex_order_benefits_on_order_id"
   end
 
-  create_table "vtex_order_items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "vtex_order_items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "order_id", null: false
     t.bigint "product_id", null: false
     t.bigint "seller_id", null: false
@@ -254,7 +254,7 @@ ActiveRecord::Schema.define(version: 2021_04_05_193017) do
     t.index ["seller_id"], name: "index_vtex_order_items_on_seller_id"
   end
 
-  create_table "vtex_order_totals", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "vtex_order_totals", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "order_id", null: false
     t.bigint "total_id", null: false
     t.decimal "value", precision: 8, scale: 2
@@ -265,7 +265,7 @@ ActiveRecord::Schema.define(version: 2021_04_05_193017) do
     t.index ["total_id"], name: "index_vtex_order_totals_on_total_id"
   end
 
-  create_table "vtex_orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "vtex_orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "client_id", null: false
     t.bigint "address_id", null: false
     t.string "order_code"
@@ -288,7 +288,7 @@ ActiveRecord::Schema.define(version: 2021_04_05_193017) do
     t.index ["order_code"], name: "index_vtex_orders_on_order_code", unique: true
   end
 
-  create_table "vtex_payment_systems", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "vtex_payment_systems", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "identifier"
     t.string "name"
     t.string "group"
@@ -297,7 +297,7 @@ ActiveRecord::Schema.define(version: 2021_04_05_193017) do
     t.index ["identifier"], name: "index_vtex_payment_systems_on_identifier", unique: true
   end
 
-  create_table "vtex_payments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "vtex_payments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "transaction_id", null: false
     t.bigint "payment_system_id", null: false
     t.string "identifier"
@@ -310,7 +310,7 @@ ActiveRecord::Schema.define(version: 2021_04_05_193017) do
     t.index ["transaction_id"], name: "index_vtex_payments_on_transaction_id"
   end
 
-  create_table "vtex_product_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "vtex_product_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "product_id", null: false
     t.bigint "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -320,7 +320,7 @@ ActiveRecord::Schema.define(version: 2021_04_05_193017) do
     t.index ["product_id"], name: "index_vtex_product_categories_on_product_id"
   end
 
-  create_table "vtex_products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "vtex_products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "brand_id"
     t.string "name"
     t.string "sku_code"
@@ -334,7 +334,7 @@ ActiveRecord::Schema.define(version: 2021_04_05_193017) do
     t.index ["identifier"], name: "index_vtex_products_on_identifier", unique: true
   end
 
-  create_table "vtex_sellers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "vtex_sellers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "identifier"
     t.string "token"
     t.string "name"
@@ -345,7 +345,7 @@ ActiveRecord::Schema.define(version: 2021_04_05_193017) do
     t.index ["token"], name: "index_vtex_sellers_on_token", unique: true
   end
 
-  create_table "vtex_slas", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "vtex_slas", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "identifier"
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -353,7 +353,7 @@ ActiveRecord::Schema.define(version: 2021_04_05_193017) do
     t.index ["identifier"], name: "index_vtex_slas_on_identifier", unique: true
   end
 
-  create_table "vtex_states", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "vtex_states", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "country_id", null: false
     t.string "acronym"
     t.datetime "created_at", precision: 6, null: false
@@ -362,7 +362,7 @@ ActiveRecord::Schema.define(version: 2021_04_05_193017) do
     t.index ["country_id"], name: "index_vtex_states_on_country_id"
   end
 
-  create_table "vtex_totals", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "vtex_totals", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "identifier"
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -370,7 +370,7 @@ ActiveRecord::Schema.define(version: 2021_04_05_193017) do
     t.index ["identifier"], name: "index_vtex_totals_on_identifier", unique: true
   end
 
-  create_table "vtex_transactions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "vtex_transactions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "order_id", null: false
     t.string "identifier"
     t.string "merchant_name"
