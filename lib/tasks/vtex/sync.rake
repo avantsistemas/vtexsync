@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 namespace :vtex do
   task sync_orders: :environment do
     account_name = Rails.configuration.application.vtex[:account_name]
@@ -55,5 +57,30 @@ namespace :vtex do
 
     order_id = ENV.fetch('order_id')
     Vtex::Sync::Order.new(api_client).sync(order_id)
+  end
+
+  task sync_sales_channel: :environment do
+    require 'ruby-progressbar'
+
+    account_name = Rails.configuration.application.vtex[:account_name]
+    environment = Rails.configuration.application.vtex[:environment]
+
+    app_token = Rails.application.credentials.vtex[:app_token]
+    app_key = Rails.application.credentials.vtex[:app_key]
+
+    api_client = Vtex::Api::Client.new(account_name: account_name, environment: environment,
+                                       app_token: app_token, app_key: app_key)
+
+    orders_without_sales_channel = Vtex::Order.where(sales_channel: nil, hostname: nil)
+
+    progressbar = ProgressBar.create(total: orders_without_sales_channel.count,
+                                     format: '%a %e %P% Processed: %c from %C')
+
+    orders_without_sales_channel.find_each do |order_without_sales_channel|
+      response = api_client.get_order(order_without_sales_channel.order_code)
+      order_without_sales_channel.update_columns(sales_channel: response['salesChannel'],
+                                                 hostname: response['hostname'])
+      progressbar.increment
+    end
   end
 end
