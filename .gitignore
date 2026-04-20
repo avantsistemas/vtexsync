@@ -31,3 +31,14 @@
 
 # irb history
 .irb_history
+
+# JetBrains / RubyMine (commit only shared project settings)
+.idea/*
+!.idea/.gitignore
+!.idea/codeStyles/
+!.idea/inspectionProfiles/
+!.idea/jsLinters/
+!.idea/runConfigurations/
+!.idea/misc.xml
+!.idea/modules.xml
+!.idea/vcs.xml
