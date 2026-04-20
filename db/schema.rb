@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2026_02_04_160923) do
+ActiveRecord::Schema.define(version: 2026_04_20_193043) do
 
   create_table "delayed_jobs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "priority", default: 0, null: false
@@ -379,7 +379,7 @@ ActiveRecord::Schema.define(version: 2026_02_04_160923) do
     t.boolean "active"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["identifier"], name: "index_vtex_transactions_on_identifier", unique: true
+    t.index ["identifier"], name: "index_vtex_transactions_on_identifier"
     t.index ["order_id"], name: "index_vtex_transactions_on_order_id"
   end
 
