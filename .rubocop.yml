@@ -14,8 +14,7 @@ Style/Documentation:
   Enabled: false
 
 Style/FrozenStringLiteralComment:
-  Exclude:
-    - db/migrate/*.rb
+  Enabled: false
 
 Metrics/MethodLength:
   Enabled: false

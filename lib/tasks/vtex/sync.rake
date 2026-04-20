@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 namespace :vtex do
   task sync_orders: :environment do
     account_name = Rails.configuration.application.vtex[:account_name]

@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 namespace :services do
   desc 'Verifica o status dos serviços'
   task :status do
