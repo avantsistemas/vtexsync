@@ -13,9 +13,9 @@ AllCops:
 Style/Documentation:
   Enabled: false
 
-# Discussão aqui: https://github.com/rubocop/rubocop/issues/8506
-Lint/MissingSuper:
-  Enabled: false
+Style/FrozenStringLiteralComment:
+  Exclude:
+    - db/migrate/*.rb
 
 Metrics/MethodLength:
   Enabled: false
@@ -23,18 +23,34 @@ Metrics/MethodLength:
 Metrics/ClassLength:
   Enabled: false
 
-Style/FrozenStringLiteralComment:
+Metrics/ModuleLength:
   Enabled: false
 
 Metrics/BlockLength:
-  AllowedMethods:
-    - namespace
-    - context
-    - describe
-    - task
-  Exclude:
-    - /**/*.rake
-    - config/**/*.rb
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/BlockNesting:
+  Enabled: false
+
+Metrics/PerceivedComplexity:
+  Enabled: false
+
+# Discussão aqui: https://github.com/rubocop/rubocop/issues/8506
+Lint/MissingSuper:
+  Enabled: false
+
+# Essa inspeção sugere mudar uma iteração com o .each para .find_each indevidamente
+# em casos onde a consulta possui uma ordenação de resultados (o .find_each sempre
+# ordena pelo id. Além disso, uma consulta que sabidamente trará poucos resultados,
+# usar o .each para iteração é muito mais prático e eficiente do que o .find_each.
+Rails/FindEach:
+  Enabled: false
+
+Rails/SkipsModelValidations:
+  Enabled: false
 
 RSpec/ImplicitExpect:
   EnforcedStyle: should
