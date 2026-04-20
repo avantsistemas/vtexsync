@@ -62,6 +62,9 @@ namespace :vtex do
   task sync_sales_channel: :environment do
     require 'ruby-progressbar'
 
+    wait_time_on_rate_limit = 120 # segundos
+    request_delay = 2 # segundos
+
     account_name = Rails.configuration.application.vtex[:account_name]
     environment = Rails.configuration.application.vtex[:environment]
 
@@ -77,10 +80,24 @@ namespace :vtex do
                                      format: '%a %e %P% Processed: %c from %C')
 
     orders_without_sales_channel.find_each do |order_without_sales_channel|
-      response = api_client.get_order(order_without_sales_channel.order_code)
-      order_without_sales_channel.update_columns(sales_channel: response['salesChannel'],
-                                                 hostname: response['hostname'])
-      progressbar.increment
+      loop do
+        response = api_client.get_order(order_without_sales_channel.order_code)
+        order_without_sales_channel.update_columns(sales_channel: response['salesChannel'],
+                                                   hostname: response['hostname'])
+        progressbar.increment
+        sleep(request_delay)
+        break
+      rescue StandardError => e
+        if e.message.include?('500') && e.message.include?('MaxRequestsByInstance')
+          progressbar.log "[RATE LIMIT] Pedido #{order_without_sales_channel.order_code} — aguardando " \
+                          "#{wait_time_on_rate_limit}s e tentando novamente..."
+          sleep(wait_time_on_rate_limit)
+        else
+          progressbar.log "[ERRO] Pedido #{order_without_sales_channel.order_code}: #{e.message} — pulando."
+          progressbar.increment
+          break
+        end
+      end
     end
   end
 end
