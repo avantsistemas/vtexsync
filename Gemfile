@@ -31,10 +31,6 @@ group :development, :test do
 
   # Hooks para o git [https://github.com/sds/overcommit]
   gem 'overcommit', require: false
-
-  # Fábrica de objetos
-  # https://github.com/thoughtbot/factory_bot_rails
-  gem 'factory_bot_rails'
 end
 
 group :development do
