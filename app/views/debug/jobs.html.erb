@@ -1,0 +1,96 @@
+<title>Delayed Jobs</title>
+
+<style>
+  #debug { font-family: monospace; max-width: 1200px; margin: 2rem auto; padding: 1rem; }
+  #debug table { border-collapse: collapse; width: 100%; }
+  #debug td, #debug th { border: 2px solid; padding: 6px; text-align: left; vertical-align: top; }
+  #debug .filters a { margin-right: 12px; }
+  #debug .filters a.active { font-weight: bold; text-decoration: none; }
+  #debug .error-details { max-width: 500px; max-height: 150px; overflow: auto; white-space: pre-wrap; font-size: 0.85rem; }
+  #debug tr:nth-child(even) { background-color: #e8e8e8; }
+  #debug tr.running { background-color: #d4edda; }
+  #debug tr.running:nth-child(even) { background-color: #c3e6cb; }
+  #debug tr.retrying { background-color: #fff3cd; }
+  #debug tr.retrying:nth-child(even) { background-color: #f5e6b0; }
+  #debug tr.failed { background-color: #f8d7da; }
+  #debug tr.failed:nth-child(even) { background-color: #f1c0c4; }
+  #debug .muted { color: gray; }
+</style>
+
+<div id="debug">
+  <h1>Delayed Jobs</h1>
+  <p><a href="/debug">&larr; Debug</a></p>
+
+  <%
+    total     = Delayed::Job.count
+    pending   = Delayed::Job.where(failed_at: nil, locked_at: nil).where("run_at <= ?", Time.current).count
+    scheduled = Delayed::Job.where(failed_at: nil, locked_at: nil).where("run_at > ?", Time.current).count
+    running   = Delayed::Job.where(failed_at: nil).where.not(locked_at: nil).count
+    failed    = Delayed::Job.where.not(failed_at: nil).count
+  %>
+
+  <p class="filters">
+    <a href="/debug/jobs" class="<%= 'active' if params[:status].blank? %>">All (<%= total %>)</a>
+    <a href="/debug/jobs?status=pending" class="<%= 'active' if params[:status] == 'pending' %>">Pending (<%= pending %>)</a>
+    <a href="/debug/jobs?status=scheduled" class="<%= 'active' if params[:status] == 'scheduled' %>">Scheduled (<%= scheduled %>)</a>
+    <a href="/debug/jobs?status=running" class="<%= 'active' if params[:status] == 'running' %>">Running (<%= running %>)</a>
+    <a href="/debug/jobs?status=failed" class="<%= 'active' if params[:status] == 'failed' %>">Failed (<%= failed %>)</a>
+  </p>
+
+  <% if @jobs.empty? %>
+    <p><em>No jobs found.</em></p>
+  <% else %>
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Job</th>
+        <th>Priority</th>
+        <th>Attempts</th>
+        <th>Run At</th>
+        <th>Status</th>
+        <th>Error</th>
+      </tr>
+      <% @jobs.each do |job| %>
+        <%
+          job_class = if job.handler.match?(/job_class:\s*(.+)/)
+                        job.handler.match(/job_class:\s*(.+)/)[1].strip
+                      else
+                        job.handler.lines.first.strip
+                      end
+
+          status = if job.failed_at.present?
+                     "Failed"
+                   elsif job.locked_at.present?
+                     "Running"
+                   elsif job.run_at > Time.current
+                     "Scheduled"
+                   else
+                     "Pending"
+                   end
+        %>
+        <%
+          row_class = if job.failed_at.present? then 'failed'
+                      elsif job.locked_at.present? then 'running'
+                      elsif job.attempts > 0 then 'retrying'
+                      end
+        %>
+        <%= tag.tr class: row_class do %>
+          <td><%= job.id %></td>
+          <td>
+            <%= job_class %> <br>
+            <span class="muted"><%= job.queue || "default" %></span>
+          </td>
+          <td><%= job.priority %></td>
+          <td><%= job.attempts %></td>
+          <td><%= job.run_at&.strftime("%d/%m/%y %H:%M:%S") %></td>
+          <td><%= status %></td>
+          <td>
+            <% if job.last_error.present? %>
+              <div class="error-details"><%= job.last_error.truncate(500) %></div>
+            <% end %>
+          </td>
+        <% end %>
+      <% end %>
+    </table>
+  <% end %>
+</div>

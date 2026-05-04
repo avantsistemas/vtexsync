@@ -1,0 +1,87 @@
+<title>Debug</title>
+
+<style>
+  #debug { font-family: monospace; max-width: 900px; margin: 2rem auto; padding: 1rem; }
+  #debug table { border-collapse: collapse; }
+  #debug td, #debug th { border: 2px solid; padding: 6px; text-align: left; }
+</style>
+
+<div id="debug">
+  <h1>Debug</h1>
+
+  <h2>Ruby / Rails</h2>
+  <table>
+    <tr><td>Ruby</td><td><%= RUBY_VERSION %> (<%= RUBY_PLATFORM %>)</td></tr>
+    <tr><td>Rails</td><td><%= Rails.version %></td></tr>
+    <tr><td>Environment</td><td><%= Rails.env %></td></tr>
+    <tr><td>Time Zone</td><td><%= Time.zone.name %></td></tr>
+    <tr><td>Server Time</td><td><%= Time.current %></td></tr>
+  </table>
+
+  <h2>Database</h2>
+  <table>
+    <% db_config = ActiveRecord::Base.connection_config %>
+    <tr><td>Adapter</td><td><%= db_config[:adapter]  %></td></tr>
+    <tr><td>Database</td><td><%= db_config[:database] %></td></tr>
+    <tr><td>Host</td><td><%= db_config[:host] %></td></tr>
+    <tr><td>Database Version</td><td><%= ActiveRecord::Base.connection.select_value("SELECT version() as ver") %></td></tr>
+  </table>
+
+  <h2>Application</h2>
+  <table>
+    <tr><td>PID</td><td><%= Process.pid %></td></tr>
+    <tr><td>Memory (RSS)</td><td><%= ((`ps -o rss= -p #{Process.pid}`.strip.to_f) / 1024).round(1) %> MB</td></tr>
+    <tr><td>Delayed Job queue</td><td><a href="/debug/jobs"><%= Delayed::Job.count %> jobs &rarr;</a></td></tr>
+    <tr><td>Delayed Job failed</td><td><a href="/debug/jobs?status=failed"><%= Delayed::Job.where.not(failed_at: nil).count %> jobs &rarr;</a></td></tr>
+    <tr><td>Cache Store</td><td><%= Rails.cache.class.name %></td></tr>
+    <tr><td>Active Storage Service</td><td><%= ActiveStorage::Blob.service.class.name %></td></tr>
+  </table>
+
+  <h2>Git</h2>
+  <% git_dir = File.directory?('.git') ? '' : "--git-dir #{Dir.home}/emive_franquia/repo" %>
+  <table>
+    <tr>
+      <td>Branch</td>
+      <td><%= `git #{git_dir} rev-parse --abbrev-ref HEAD`.strip %></td>
+    </tr>
+    <tr>
+      <td>Commit</td>
+      <td><%= `git #{git_dir} rev-parse HEAD`.strip %></td>
+    </tr>
+    <tr>
+      <td>Commit Date</td>
+      <td><%= `git #{git_dir} log -1 --format=%ci`.strip %></td>
+    </tr>
+  </table>
+
+  <h2>Request</h2>
+  <table>
+    <tr><td>Remote IP</td><td><%= request.remote_ip %></td></tr>
+    <tr><td>User Agent</td><td><%= request.user_agent %></td></tr>
+    <tr><td>Server Software</td><td><%= request.headers["SERVER_SOFTWARE"] %></td></tr>
+  </table>
+
+  <h2>Session</h2>
+  <% if session.to_hash.except("session_id").empty? %>
+    <p><em>No data stored in the session.</em></p>
+  <% else %>
+    <table>
+      <tr>
+        <th>Key</th>
+        <th>Value</th>
+      </tr>
+      <% session.to_hash.except("session_id").sort_by { |k, _| k.to_s }.each do |key, value| %>
+        <tr>
+          <td><%= key %></td>
+          <td>
+            <% if value.is_a?(Hash) || value.is_a?(Array) %>
+              <pre style="margin: 0;"><%= JSON.pretty_generate(value) %></pre>
+            <% else %>
+              <%= value %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  <% end %>
+</div>

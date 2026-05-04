@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   #   end
   # end
 
+  get 'debug', to: 'debug#show'
+  get 'debug/jobs', to: 'debug#jobs'
+
   namespace :webhooks do
     post 'orders'
   end
