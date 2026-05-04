@@ -26,9 +26,6 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
-# RSpec persistence file.
-/spec/examples.txt
-
 # irb history
 .irb_history
 

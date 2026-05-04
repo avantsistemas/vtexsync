@@ -32,10 +32,6 @@ group :development, :test do
   # Hooks para o git [https://github.com/sds/overcommit]
   gem 'overcommit', require: false
 
-  # Behaviour Driven Development for Ruby
-  # https://github.com/rspec/rspec-rails
-  gem 'rspec-rails', '~> 4.0.1'
-
   # Fábrica de objetos
   # https://github.com/thoughtbot/factory_bot_rails
   gem 'factory_bot_rails'
@@ -52,7 +48,7 @@ group :development do
   gem 'rubocop', require: false
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
-  gem 'rubocop-rspec', require: false
+  gem 'rubocop-minitest', require: false
 
   # Facilita o processo de deploy
   # https://github.com/capistrano/capistrano

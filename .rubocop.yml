@@ -1,11 +1,10 @@
 require:
   - rubocop-rails
-  - rubocop-rspec
   - rubocop-performance
+  - rubocop-minitest
 
 # Ruby (https://github.com/rubocop-hq/ruby-style-guide)
 # Rails (https://github.com/rubocop-hq/rails-style-guide)
-# RSpec (https://github.com/rubocop-hq/rspec-style-guide)
 
 AllCops:
   NewCops: enable
@@ -51,10 +50,7 @@ Rails/FindEach:
 Rails/SkipsModelValidations:
   Enabled: false
 
-RSpec/ImplicitExpect:
-  EnforcedStyle: should
-
-RSpec/ExampleLength:
+Minitest/MultipleAssertions:
   Enabled: false
 
 Bundler/OrderedGems:
