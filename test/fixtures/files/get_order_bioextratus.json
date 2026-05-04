@@ -1,0 +1,839 @@
+{
+  "orderId": "1069613093223-01",
+  "sequence": "639363",
+  "marketplaceOrderId": "",
+  "marketplaceServicesEndpoint": "http://oms.vtexinternal.com.br/api/oms?an=bioextratusvirtual",
+  "sellerOrderId": "00-1069613093223-01",
+  "origin": "Marketplace",
+  "affiliateId": "",
+  "salesChannel": "1",
+  "merchantName": null,
+  "status": "invoiced",
+  "statusDescription": "Faturado",
+  "value": 10128,
+  "creationDate": "2020-10-17T00:51:30.8770504+00:00",
+  "lastChange": "2020-10-19T11:32:59.1823806+00:00",
+  "orderGroup": "1069613093223",
+  "totals": [
+      {
+          "id": "Items",
+          "name": "Total dos Itens",
+          "value": 10450
+      },
+      {
+          "id": "Discounts",
+          "name": "Total dos Descontos",
+          "value": -3135
+      },
+      {
+          "id": "Shipping",
+          "name": "Total do Frete",
+          "value": 2813
+      },
+      {
+          "id": "Tax",
+          "name": "Total da Taxa",
+          "value": 0
+      }
+  ],
+  "items": [
+      {
+          "uniqueId": "C984AAE0C46E4BA6BA9B09494BE33D96",
+          "id": "567",
+          "productId": "560",
+          "ean": "7898132982270",
+          "lockId": "00-1069613093223-01",
+          "itemAttachment": {
+              "content": {},
+              "name": null
+          },
+          "attachments": [],
+          "quantity": 2,
+          "seller": "1",
+          "name": "Shampoo Kids Cabelo Cacheado 240mL",
+          "refId": "7BBRSH240KIDSCC",
+          "price": 2090,
+          "listPrice": 2090,
+          "manualPrice": null,
+          "priceTags": [
+              {
+                  "name": "DISCOUNT@MARKETPLACE",
+                  "value": -1254,
+                  "isPercentual": false,
+                  "identifier": "9ac2ea92-fa71-4832-be41-ce94e7377d95",
+                  "rawValue": -12.54,
+                  "rate": null,
+                  "jurisCode": null,
+                  "jurisType": null,
+                  "jurisName": null
+              }
+          ],
+          "imageUrl": "https://bioextratusvirtual.vteximg.com.br/arquivos/ids/158999-544-544/Shampoo-Cacheado-240ml.jpg?v=637279241098870000",
+          "detailUrl": "/shampoo-kids-cabelo-cacheado-240ml/p",
+          "components": [],
+          "bundleItems": [],
+          "params": [],
+          "offerings": [],
+          "sellerSku": "567",
+          "priceValidUntil": null,
+          "commission": 0,
+          "tax": 0,
+          "preSaleDate": null,
+          "additionalInfo": {
+              "brandName": "Bio Extratus",
+              "brandId": "2000003",
+              "categoriesIds": "/8/18/34/",
+              "categories": [
+                  {
+                      "id": 34,
+                      "name": "Kids Menino Maluquinho"
+                  },
+                  {
+                      "id": 18,
+                      "name": "Kids"
+                  },
+                  {
+                      "id": 8,
+                      "name": "Cabelo"
+                  }
+              ],
+              "productClusterId": "135,139,143,161,163",
+              "commercialConditionId": "1",
+              "dimension": {
+                  "cubicweight": 1.0000,
+                  "height": 20.5000,
+                  "length": 4.8000,
+                  "weight": 0.2900,
+                  "width": 4.8000
+              },
+              "offeringInfo": null,
+              "offeringType": null,
+              "offeringTypeId": null
+          },
+          "measurementUnit": "un",
+          "unitMultiplier": 1.0000,
+          "sellingPrice": 1463,
+          "isGift": false,
+          "shippingPrice": null,
+          "rewardValue": 0,
+          "freightCommission": 0,
+          "priceDefinitions": null,
+          "taxCode": "33051000",
+          "parentItemIndex": null,
+          "parentAssemblyBinding": null,
+          "callCenterOperator": null,
+          "serialNumbers": null,
+          "assemblies": [],
+          "costPrice": 2090
+      },
+      {
+          "uniqueId": "3DC31C6F307D401599C50F913DCB4EDE",
+          "id": "563",
+          "productId": "556",
+          "ean": "7898132982300",
+          "lockId": "00-1069613093223-01",
+          "itemAttachment": {
+              "content": {},
+              "name": null
+          },
+          "attachments": [],
+          "quantity": 1,
+          "seller": "1",
+          "name": "Condicionador Kids Cabelo Cacheado 240mL",
+          "refId": "7BBRCD240KIDSCC",
+          "price": 2090,
+          "listPrice": 2090,
+          "manualPrice": null,
+          "priceTags": [
+              {
+                  "name": "DISCOUNT@MARKETPLACE",
+                  "value": -627,
+                  "isPercentual": false,
+                  "identifier": "9ac2ea92-fa71-4832-be41-ce94e7377d95",
+                  "rawValue": -6.27,
+                  "rate": null,
+                  "jurisCode": null,
+                  "jurisType": null,
+                  "jurisName": null
+              }
+          ],
+          "imageUrl": "https://bioextratusvirtual.vteximg.com.br/arquivos/ids/158994-544-544/Condicionador-cachos-240mL.jpg?v=637279225778370000",
+          "detailUrl": "/condicionador-kids-cabelo-cacheado-240ml/p",
+          "components": [],
+          "bundleItems": [],
+          "params": [],
+          "offerings": [],
+          "sellerSku": "563",
+          "priceValidUntil": null,
+          "commission": 0,
+          "tax": 0,
+          "preSaleDate": null,
+          "additionalInfo": {
+              "brandName": "Bio Extratus",
+              "brandId": "2000003",
+              "categoriesIds": "/8/18/34/",
+              "categories": [
+                  {
+                      "id": 34,
+                      "name": "Kids Menino Maluquinho"
+                  },
+                  {
+                      "id": 18,
+                      "name": "Kids"
+                  },
+                  {
+                      "id": 8,
+                      "name": "Cabelo"
+                  }
+              ],
+              "productClusterId": "135,139,143,161,163",
+              "commercialConditionId": "1",
+              "dimension": {
+                  "cubicweight": 1.0000,
+                  "height": 20.5000,
+                  "length": 4.8000,
+                  "weight": 0.2800,
+                  "width": 4.8000
+              },
+              "offeringInfo": null,
+              "offeringType": null,
+              "offeringTypeId": null
+          },
+          "measurementUnit": "un",
+          "unitMultiplier": 1.0000,
+          "sellingPrice": 1463,
+          "isGift": false,
+          "shippingPrice": null,
+          "rewardValue": 0,
+          "freightCommission": 0,
+          "priceDefinitions": null,
+          "taxCode": "33059000",
+          "parentItemIndex": null,
+          "parentAssemblyBinding": null,
+          "callCenterOperator": null,
+          "serialNumbers": null,
+          "assemblies": [],
+          "costPrice": 2090
+      },
+      {
+          "uniqueId": "E3E81F68FA73456DABB09D25D9EFEC4F",
+          "id": "12",
+          "productId": "12",
+          "ean": "7898126403675",
+          "lockId": "00-1069613093223-01",
+          "itemAttachment": {
+              "content": {},
+              "name": null
+          },
+          "attachments": [],
+          "quantity": 2,
+          "seller": "1",
+          "name": "Máscara Hidratante Kids 250g",
+          "refId": "7BBC250KIDS",
+          "price": 2090,
+          "listPrice": 2090,
+          "manualPrice": null,
+          "priceTags": [
+              {
+                  "name": "DISCOUNT@MARKETPLACE",
+                  "value": -1254,
+                  "isPercentual": false,
+                  "identifier": "9ac2ea92-fa71-4832-be41-ce94e7377d95",
+                  "rawValue": -12.54,
+                  "rate": null,
+                  "jurisCode": null,
+                  "jurisType": null,
+                  "jurisName": null
+              }
+          ],
+          "imageUrl": "https://bioextratusvirtual.vteximg.com.br/arquivos/ids/159109-544-544/Mascara-250g.jpg?v=637287840772030000",
+          "detailUrl": "/mascara-hidratante-kids-250g/p",
+          "components": [],
+          "bundleItems": [],
+          "params": [],
+          "offerings": [],
+          "sellerSku": "12",
+          "priceValidUntil": null,
+          "commission": 0,
+          "tax": 0,
+          "preSaleDate": null,
+          "additionalInfo": {
+              "brandName": "Bio Extratus",
+              "brandId": "2000003",
+              "categoriesIds": "/8/18/34/",
+              "categories": [
+                  {
+                      "id": 34,
+                      "name": "Kids Menino Maluquinho"
+                  },
+                  {
+                      "id": 18,
+                      "name": "Kids"
+                  },
+                  {
+                      "id": 8,
+                      "name": "Cabelo"
+                  }
+              ],
+              "productClusterId": "135,139,143,161,163",
+              "commercialConditionId": "1",
+              "dimension": {
+                  "cubicweight": 1.0000,
+                  "height": 7.3000,
+                  "length": 8.9000,
+                  "weight": 300.0000,
+                  "width": 7.3000
+              },
+              "offeringInfo": null,
+              "offeringType": null,
+              "offeringTypeId": null
+          },
+          "measurementUnit": "un",
+          "unitMultiplier": 1.0000,
+          "sellingPrice": 1463,
+          "isGift": false,
+          "shippingPrice": null,
+          "rewardValue": 0,
+          "freightCommission": 0,
+          "priceDefinitions": null,
+          "taxCode": "33059000",
+          "parentItemIndex": null,
+          "parentAssemblyBinding": null,
+          "callCenterOperator": null,
+          "serialNumbers": null,
+          "assemblies": [],
+          "costPrice": 2090
+      }
+  ],
+  "marketplaceItems": [],
+  "clientProfileData": {
+      "id": "clientProfileData",
+      "email": "2b06c3652ee048c198c2a47f76cff9c7@ct.vtex.com.br",
+      "firstName": "Marcia",
+      "lastName": "Carraro",
+      "documentType": "cpf",
+      "document": "21929608837",
+      "phone": "+5541992216494",
+      "corporateName": null,
+      "tradeName": null,
+      "corporateDocument": null,
+      "stateInscription": "",
+      "corporatePhone": null,
+      "isCorporate": false,
+      "userProfileId": "bab943d4-339a-47a4-a6b0-deb77eccf3ed",
+      "customerClass": null
+  },
+  "giftRegistryData": null,
+  "marketingData": {
+      "id": "marketingData",
+      "utmSource": null,
+      "utmPartner": null,
+      "utmMedium": null,
+      "utmCampaign": null,
+      "coupon": null,
+      "utmiCampaign": null,
+      "utmipage": null,
+      "utmiPart": null,
+      "marketingTags": [
+          "Frete Grátis R$ 79,90"
+      ]
+  },
+  "ratesAndBenefitsData": {
+      "id": "ratesAndBenefitsData",
+      "rateAndBenefitsIdentifiers": [
+          {
+              "description": null,
+              "featured": false,
+              "id": "9ac2ea92-fa71-4832-be41-ce94e7377d95",
+              "name": "Bio Extratus | Desconto 30% | Linha Kids",
+              "matchedParameters": {
+                  "category@CatalogSystem": "34|inclusive"
+              },
+              "additionalInfo": null
+          }
+      ]
+  },
+  "shippingData": {
+      "id": "shippingData",
+      "address": {
+          "addressType": "residential",
+          "receiverName": "Marcia Carraro",
+          "addressId": "7cdd04e308b24cf692c100216fe58efe",
+          "postalCode": "81560-615",
+          "city": "Curitiba",
+          "state": "PR",
+          "country": "BRA",
+          "street": "Rua Velcy Bolívar Grandó",
+          "number": "425",
+          "neighborhood": "Uberaba",
+          "complement": "sobrado 20",
+          "reference": null,
+          "geoCoordinates": [
+              -49.209255218505859,
+              -25.49751091003418
+          ]
+      },
+      "logisticsInfo": [
+          {
+              "itemIndex": 0,
+              "selectedSla": "Fábrica / Correios (PAC)",
+              "lockTTL": "11d",
+              "price": 3,
+              "listPrice": 3,
+              "sellingPrice": 3,
+              "deliveryWindow": null,
+              "deliveryCompany": "PAC",
+              "shippingEstimate": "17bd",
+              "shippingEstimateDate": "2020-11-12T01:11:56.4465635+00:00",
+              "slas": [
+                  {
+                      "id": "Fábrica / Correios (PAC)",
+                      "name": "Fábrica / Correios (PAC)",
+                      "shippingEstimate": "17bd",
+                      "deliveryWindow": null,
+                      "price": 3,
+                      "deliveryChannel": "delivery",
+                      "pickupStoreInfo": {
+                          "additionalInfo": null,
+                          "address": null,
+                          "dockId": null,
+                          "friendlyName": null,
+                          "isPickupStore": false
+                      },
+                      "polygonName": null,
+                      "lockTTL": "11d",
+                      "pickupPointId": null,
+                      "transitTime": "10bd"
+                  },
+                  {
+                      "id": "Fábrica / Correios (SEDEX)",
+                      "name": "Fábrica / Correios (SEDEX)",
+                      "shippingEstimate": "11bd",
+                      "deliveryWindow": null,
+                      "price": 5,
+                      "deliveryChannel": "delivery",
+                      "pickupStoreInfo": {
+                          "additionalInfo": null,
+                          "address": null,
+                          "dockId": null,
+                          "friendlyName": null,
+                          "isPickupStore": false
+                      },
+                      "polygonName": null,
+                      "lockTTL": "11d",
+                      "pickupPointId": null,
+                      "transitTime": "4bd"
+                  }
+              ],
+              "shipsTo": [
+                  "BRA"
+              ],
+              "deliveryIds": [
+                  {
+                      "courierId": "41068",
+                      "courierName": "PAC",
+                      "dockId": "1",
+                      "quantity": 2,
+                      "warehouseId": "1_1",
+                      "accountCarrierName": "bioextratusvirtual"
+                  }
+              ],
+              "deliveryChannel": "delivery",
+              "pickupStoreInfo": {
+                  "additionalInfo": null,
+                  "address": null,
+                  "dockId": null,
+                  "friendlyName": null,
+                  "isPickupStore": false
+              },
+              "addressId": "7cdd04e308b24cf692c100216fe58efe",
+              "polygonName": null,
+              "pickupPointId": null,
+              "transitTime": "10bd"
+          },
+          {
+              "itemIndex": 1,
+              "selectedSla": "Fábrica / Correios (PAC)",
+              "lockTTL": "11d",
+              "price": 1,
+              "listPrice": 1,
+              "sellingPrice": 1,
+              "deliveryWindow": null,
+              "deliveryCompany": "PAC",
+              "shippingEstimate": "17bd",
+              "shippingEstimateDate": "2020-11-12T01:11:56.4622031+00:00",
+              "slas": [
+                  {
+                      "id": "Fábrica / Correios (PAC)",
+                      "name": "Fábrica / Correios (PAC)",
+                      "shippingEstimate": "17bd",
+                      "deliveryWindow": null,
+                      "price": 1,
+                      "deliveryChannel": "delivery",
+                      "pickupStoreInfo": {
+                          "additionalInfo": null,
+                          "address": null,
+                          "dockId": null,
+                          "friendlyName": null,
+                          "isPickupStore": false
+                      },
+                      "polygonName": null,
+                      "lockTTL": "11d",
+                      "pickupPointId": null,
+                      "transitTime": "10bd"
+                  },
+                  {
+                      "id": "Fábrica / Correios (SEDEX)",
+                      "name": "Fábrica / Correios (SEDEX)",
+                      "shippingEstimate": "11bd",
+                      "deliveryWindow": null,
+                      "price": 2,
+                      "deliveryChannel": "delivery",
+                      "pickupStoreInfo": {
+                          "additionalInfo": null,
+                          "address": null,
+                          "dockId": null,
+                          "friendlyName": null,
+                          "isPickupStore": false
+                      },
+                      "polygonName": null,
+                      "lockTTL": "11d",
+                      "pickupPointId": null,
+                      "transitTime": "4bd"
+                  }
+              ],
+              "shipsTo": [
+                  "BRA"
+              ],
+              "deliveryIds": [
+                  {
+                      "courierId": "41068",
+                      "courierName": "PAC",
+                      "dockId": "1",
+                      "quantity": 1,
+                      "warehouseId": "1_1",
+                      "accountCarrierName": "bioextratusvirtual"
+                  }
+              ],
+              "deliveryChannel": "delivery",
+              "pickupStoreInfo": {
+                  "additionalInfo": null,
+                  "address": null,
+                  "dockId": null,
+                  "friendlyName": null,
+                  "isPickupStore": false
+              },
+              "addressId": "7cdd04e308b24cf692c100216fe58efe",
+              "polygonName": null,
+              "pickupPointId": null,
+              "transitTime": "10bd"
+          },
+          {
+              "itemIndex": 2,
+              "selectedSla": "Fábrica / Correios (PAC)",
+              "lockTTL": "11d",
+              "price": 2809,
+              "listPrice": 2809,
+              "sellingPrice": 2809,
+              "deliveryWindow": null,
+              "deliveryCompany": "PAC",
+              "shippingEstimate": "17bd",
+              "shippingEstimateDate": "2020-11-12T01:11:56.4622031+00:00",
+              "slas": [
+                  {
+                      "id": "Fábrica / Correios (PAC)",
+                      "name": "Fábrica / Correios (PAC)",
+                      "shippingEstimate": "17bd",
+                      "deliveryWindow": null,
+                      "price": 2809,
+                      "deliveryChannel": "delivery",
+                      "pickupStoreInfo": {
+                          "additionalInfo": null,
+                          "address": null,
+                          "dockId": null,
+                          "friendlyName": null,
+                          "isPickupStore": false
+                      },
+                      "polygonName": null,
+                      "lockTTL": "11d",
+                      "pickupPointId": null,
+                      "transitTime": "10bd"
+                  },
+                  {
+                      "id": "Fábrica / Correios (SEDEX)",
+                      "name": "Fábrica / Correios (SEDEX)",
+                      "shippingEstimate": "11bd",
+                      "deliveryWindow": null,
+                      "price": 4743,
+                      "deliveryChannel": "delivery",
+                      "pickupStoreInfo": {
+                          "additionalInfo": null,
+                          "address": null,
+                          "dockId": null,
+                          "friendlyName": null,
+                          "isPickupStore": false
+                      },
+                      "polygonName": null,
+                      "lockTTL": "11d",
+                      "pickupPointId": null,
+                      "transitTime": "4bd"
+                  }
+              ],
+              "shipsTo": [
+                  "BRA"
+              ],
+              "deliveryIds": [
+                  {
+                      "courierId": "41068",
+                      "courierName": "PAC",
+                      "dockId": "1",
+                      "quantity": 2,
+                      "warehouseId": "1_1",
+                      "accountCarrierName": "bioextratusvirtual"
+                  }
+              ],
+              "deliveryChannel": "delivery",
+              "pickupStoreInfo": {
+                  "additionalInfo": null,
+                  "address": null,
+                  "dockId": null,
+                  "friendlyName": null,
+                  "isPickupStore": false
+              },
+              "addressId": "7cdd04e308b24cf692c100216fe58efe",
+              "polygonName": null,
+              "pickupPointId": null,
+              "transitTime": "10bd"
+          }
+      ],
+      "trackingHints": null,
+      "selectedAddresses": [
+          {
+              "addressId": "7cdd04e308b24cf692c100216fe58efe",
+              "addressType": "residential",
+              "receiverName": "Marcia Carraro",
+              "street": "Rua Velcy Bolívar Grandó",
+              "number": "425",
+              "complement": "sobrado 20",
+              "neighborhood": "Uberaba",
+              "postalCode": "81560-615",
+              "city": "Curitiba",
+              "state": "PR",
+              "country": "BRA",
+              "reference": null,
+              "geoCoordinates": [
+                  -49.209255218505859,
+                  -25.49751091003418
+              ]
+          }
+      ]
+  },
+  "paymentData": {
+      "giftCards": [],
+      "transactions": [
+          {
+              "isActive": true,
+              "transactionId": "AB351D968DD340E89126AD5C08460E3A",
+              "merchantName": "BIOEXTRATUSVIRTUAL",
+              "payments": [
+                  {
+                      "id": "D006AFC1D668407BA2F1675D50BA5E77",
+                      "paymentSystem": "2",
+                      "paymentSystemName": "Visa",
+                      "value": 10128,
+                      "installments": 3,
+                      "referenceValue": 10128,
+                      "cardHolder": null,
+                      "cardNumber": null,
+                      "firstDigits": "410425",
+                      "lastDigits": "9947",
+                      "cvv2": null,
+                      "expireMonth": null,
+                      "expireYear": null,
+                      "url": null,
+                      "giftCardId": null,
+                      "giftCardName": null,
+                      "giftCardCaption": null,
+                      "redemptionCode": null,
+                      "group": "creditCard",
+                      "tid": "10042010162134048883",
+                      "dueDate": null,
+                      "connectorResponses": {
+                          "message": "Success.",
+                          "returnCode": "00",
+                          "tid": "10042010162134048883",
+                          "authId": "613826",
+                          "nsu": "130172971",
+                          "network": "Visa",
+                          "firstDigits": "410425",
+                          "lastDigits": "9947"
+                      },
+                      "giftCardProvider": null,
+                      "giftCardAsDiscount": null,
+                      "koinUrl": null,
+                      "accountId": "05411A410242464CA74E97968DC07D73",
+                      "parentAccountId": null,
+                      "bankIssuedInvoiceIdentificationNumber": null,
+                      "bankIssuedInvoiceIdentificationNumberFormatted": null,
+                      "bankIssuedInvoiceBarCodeNumber": null,
+                      "bankIssuedInvoiceBarCodeType": null,
+                      "billingAddress": {
+                          "postalCode": "81560-615",
+                          "city": "Curitiba",
+                          "state": "PR",
+                          "country": "BRA",
+                          "street": "Rua Velcy Bolívar Grandó",
+                          "number": "425",
+                          "neighborhood": "Uberaba",
+                          "complement": "sobrado 20",
+                          "reference": null,
+                          "geoCoordinates": [
+                              -49.209255218505859,
+                              -25.49751091003418
+                          ]
+                      }
+                  }
+              ]
+          }
+      ]
+  },
+  "packageAttachment": {
+      "packages": [
+          {
+              "items": [
+                  {
+                      "itemIndex": 0,
+                      "quantity": 2,
+                      "price": 1463,
+                      "description": null,
+                      "unitMultiplier": 0.0
+                  },
+                  {
+                      "itemIndex": 1,
+                      "quantity": 1,
+                      "price": 1463,
+                      "description": null,
+                      "unitMultiplier": 0.0
+                  },
+                  {
+                      "itemIndex": 2,
+                      "quantity": 2,
+                      "price": 1463,
+                      "description": null,
+                      "unitMultiplier": 0.0
+                  }
+              ],
+              "courier": "PAC",
+              "invoiceNumber": "000035683",
+              "invoiceValue": 10128,
+              "invoiceUrl": null,
+              "issuanceDate": "2020-10-19T08:19:00.0000000+00:00",
+              "trackingNumber": "PZ997638402BR",
+              "invoiceKey": "31201002176615000441550010000356831100095961",
+              "trackingUrl": "http://www.mdlivre.com.br/tracking/view/PZ997638402BR",
+              "embeddedInvoice": "",
+              "type": "Output",
+              "courierStatus": {
+                  "status": "unknown",
+                  "finished": false,
+                  "deliveredDate": null,
+                  "data": []
+              },
+              "cfop": null,
+              "restitutions": {},
+              "volumes": 0
+          }
+      ]
+  },
+  "sellers": [
+      {
+          "id": "1",
+          "name": "Bio Extratus",
+          "logo": "",
+          "fulfillmentEndpoint": "http://fulfillment.vtexcommerce.com.br/api/fulfillment?sc=1&an=bioextratusvirtual"
+      }
+  ],
+  "callCenterOperatorData": null,
+  "followUpEmail": "5ea7e0c976da4231be96b4b7cc250abe@ct.vtex.com.br",
+  "lastMessage": null,
+  "hostname": "bioextratusvirtual",
+  "invoiceData": {
+      "address": null
+  },
+  "changesAttachment": null,
+  "openTextField": null,
+  "roundingError": 0,
+  "orderFormId": "559c5cec06784dfe8646c272a54078ec",
+  "commercialConditionData": null,
+  "isCompleted": true,
+  "customData": null,
+  "storePreferencesData": {
+      "countryCode": "BRA",
+      "currencyCode": "BRL",
+      "currencyFormatInfo": {
+          "CurrencyDecimalDigits": 2,
+          "CurrencyDecimalSeparator": ",",
+          "CurrencyGroupSeparator": ".",
+          "CurrencyGroupSize": 3,
+          "StartsWithCurrencySymbol": true
+      },
+      "currencyLocale": 1046,
+      "currencySymbol": "R$",
+      "timeZone": "E. South America Standard Time"
+  },
+  "allowCancellation": false,
+  "allowEdition": false,
+  "isCheckedIn": false,
+  "marketplace": {
+      "baseURL": "http://oms.vtexinternal.com.br/api/oms?an=bioextratusvirtual",
+      "isCertified": null,
+      "name": "bioextratusvirtual"
+  },
+  "authorizedDate": "2020-10-17T00:51:39.1225662+00:00",
+  "invoicedDate": "2020-10-19T11:31:14.3361834+00:00",
+  "cancelReason": null,
+  "itemMetadata": {
+      "Items": [
+          {
+              "Id": "567",
+              "Seller": "1",
+              "Name": "Shampoo Kids Cabelo Cacheado 240mL",
+              "SkuName": "Shampoo Kids Cabelo Cacheado 240mL",
+              "ProductId": "560",
+              "RefId": "7BBRSH240KIDSCC",
+              "Ean": "7898132982270",
+              "ImageUrl": "http://bioextratusvirtual.vteximg.com.br/arquivos/ids/158999-544-544/Shampoo-Cacheado-240ml.jpg?v=637279241098870000",
+              "DetailUrl": "/shampoo-kids-cabelo-cacheado-240ml/p",
+              "AssemblyOptions": []
+          },
+          {
+              "Id": "563",
+              "Seller": "1",
+              "Name": "Condicionador Kids Cabelo Cacheado 240mL",
+              "SkuName": "Condicionador Kids Cabelo Cacheado 240mL",
+              "ProductId": "556",
+              "RefId": "7BBRCD240KIDSCC",
+              "Ean": "7898132982300",
+              "ImageUrl": "http://bioextratusvirtual.vteximg.com.br/arquivos/ids/158994-544-544/Condicionador-cachos-240mL.jpg?v=637279225778370000",
+              "DetailUrl": "/condicionador-kids-cabelo-cacheado-240ml/p",
+              "AssemblyOptions": []
+          },
+          {
+              "Id": "12",
+              "Seller": "1",
+              "Name": "Máscara Hidratante Kids 250g",
+              "SkuName": "Máscara Hidratante Kids 250g",
+              "ProductId": "12",
+              "RefId": "7BBC250KIDS",
+              "Ean": "7898126403675",
+              "ImageUrl": "http://bioextratusvirtual.vteximg.com.br/arquivos/ids/159109-544-544/Mascara-250g.jpg?v=637287840772030000",
+              "DetailUrl": "/mascara-hidratante-kids-250g/p",
+              "AssemblyOptions": []
+          }
+      ]
+  },
+  "subscriptionData": null,
+  "taxData": null,
+  "checkedInPickupPointId": null,
+  "cancellationData": null
+}
