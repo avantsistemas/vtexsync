@@ -40,8 +40,8 @@ PreCommit:
 #  IndexTags:
 #    enabled: true # Generate a tags file with `ctags` each time HEAD changes
 
-#PrePush:
-#  Tests:
-#    enabled: true
-#    description: 'Run all tests'
-#    command: ['bin/rails', 'test']
+PrePush:
+  Tests:
+    enabled: true
+    description: 'Run all tests'
+    command: ['bin/rails', 'test']
