@@ -5,3 +5,5 @@ exceptions:
   # https://docs.honeybadger.io/lib/ruby/getting-started/ignoring-errors.html
   ignore_only:
     - 'ActionController::RoutingError'
+insights:
+  enabled: false
