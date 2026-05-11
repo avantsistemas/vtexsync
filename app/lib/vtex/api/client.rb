@@ -8,12 +8,12 @@ module Vtex
         @app_key = app_key
       end
 
-      # https://developers.vtex.com/vtex-developer-docs/reference/orders#getorder
+      # https://developers.vtex.com/docs/api-reference/orders-api#get-/api/oms/pvt/orders/-orderId-
       def get_order(order_id)
         parse_response http.get("/api/oms/pvt/orders/#{order_id}")
       end
 
-      # https://developers.vtex.com/vtex-developer-docs/reference/orders#listorders
+      # https://developers.vtex.com/docs/api-reference/orders-api#get-/api/oms/pvt/orders
       def list_orders(creation_date_range:, params: {})
         creation_date_begin = creation_date_range.begin.utc.as_json
         creation_date_end = creation_date_range.end.utc.as_json
