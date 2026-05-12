@@ -9,23 +9,25 @@
 # And be sure to use new-style password hashing:
 #   https://dev.mysql.com/doc/refman/5.7/en/password-hashing.html
 #
-default: &default
+development:
   adapter: mysql2
   encoding: utf8mb4
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
   password:
   socket: /tmp/mysql.sock
-
-development:
-  <<: *default
   database: vtexsync_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
-  <<: *default
+  adapter: mysql2
+  encoding: utf8mb4
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: root
+  password:
+  socket: /tmp/mysql.sock
   database: vtexsync_test
 
 # As with config/credentials.yml, you never want to store sensitive information,
@@ -48,7 +50,10 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
+  adapter: mysql2
+  encoding: utf8mb4
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  socket: /tmp/mysql.sock
   host: <%= Rails.application.credentials.dig(:database, :host) %>
   database: <%= Rails.application.credentials.dig(:database, :name) %>
   username: <%= Rails.application.credentials.dig(:database, :user) %>
