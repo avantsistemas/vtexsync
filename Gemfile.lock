@@ -290,7 +290,6 @@ DEPENDENCIES
   rubocop-minitest
   rubocop-performance
   rubocop-rails
-  ruby-progressbar
   tzinfo-data
   whenever
 
