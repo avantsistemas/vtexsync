@@ -2,5 +2,5 @@
 # https://stackoverflow.com/a/59052879/2640073
 # https://github.com/paper-trail-gem/paper_trail#2a-choosing-lifecycle-events-to-monitor
 PaperTrail.config.has_paper_trail_defaults = {
-  on: %i[create update destroy], skip: :updated_at
+  on: %i[update destroy], skip: :updated_at
 }
