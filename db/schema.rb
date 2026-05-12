@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2026_04_20_193043) do
+ActiveRecord::Schema.define(version: 2026_05_12_095704) do
 
   create_table "delayed_jobs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "priority", default: 0, null: false
@@ -284,10 +284,13 @@ ActiveRecord::Schema.define(version: 2026_04_20_193043) do
     t.datetime "last_change"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.datetime "resync_requested_at"
+    t.string "resync_reason"
     t.index ["address_id"], name: "index_vtex_orders_on_address_id"
     t.index ["client_id"], name: "index_vtex_orders_on_client_id"
     t.index ["creation_date"], name: "index_vtex_orders_on_creation_date"
     t.index ["order_code"], name: "index_vtex_orders_on_order_code", unique: true
+    t.index ["resync_requested_at"], name: "index_vtex_orders_on_resync_requested_at"
   end
 
   create_table "vtex_payment_systems", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|

@@ -12,30 +12,21 @@ module Vtex
 
       def sync_order(order_id)
         order_attributes = api_client.get_order(order_id)
-        Vtex::Sync::Models::Order.new(order_attributes).sync
+        synced_order = Vtex::Sync::Models::Order.new(order_attributes).sync
+        clear_resync_flag(synced_order)
+      end
+
+      def clear_resync_flag(synced_order)
+        return if synced_order.resync_requested_at.nil?
+
+        synced_order.update_columns(resync_requested_at: nil, resync_reason: nil)
       end
 
       def api_client
-        Vtex::Api::Client.new(account_name: account_name,
-                              environment: environment,
-                              app_token: app_token,
-                              app_key: app_key)
-      end
-
-      def account_name
-        Rails.configuration.application.vtex[:account_name]
-      end
-
-      def environment
-        Rails.configuration.application.vtex[:environment]
-      end
-
-      def app_token
-        Rails.application.credentials.vtex[:app_token]
-      end
-
-      def app_key
-        Rails.application.credentials.vtex[:app_key]
+        Vtex::Api::Client.new(account_name: Rails.configuration.application.vtex[:account_name],
+                              environment: Rails.configuration.application.vtex[:environment],
+                              app_token: Rails.application.credentials.vtex[:app_token],
+                              app_key: Rails.application.credentials.vtex[:app_key])
       end
     end
   end

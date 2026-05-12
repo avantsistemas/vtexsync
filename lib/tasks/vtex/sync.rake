@@ -57,6 +57,42 @@ namespace :vtex do
     Vtex::Sync::Order.new(api_client).sync(order_id)
   end
 
+  task mark_for_resync: :environment do
+    order_ids = ENV['order_ids']&.split(',')&.map(&:strip)&.reject(&:empty?)
+    scope = ENV.fetch('scope', nil)
+    from = ENV['from']&.in_time_zone
+    to = ENV['to']&.in_time_zone
+    reason = ENV.fetch('reason', nil)
+
+    relation = Vtex::Order.all
+    relation = relation.where(order_code: order_ids) if order_ids&.any?
+    relation = relation.where(scope) if scope.present?
+    relation = relation.where(creation_date: from..to) if from || to
+
+    raise ArgumentError, 'informe ao menos um filtro: order_ids, scope ou from/to' if relation == Vtex::Order.all
+
+    affected = relation.update_all(resync_requested_at: Time.current, resync_reason: reason)
+    Rails.logger.info "Pedidos marcados para re-sincronização: #{affected}"
+  end
+
+  task process_resync_queue: :environment do
+    limit = ENV['limit']&.to_i
+    pending = Vtex::Order.pending_resync
+    pending = pending.limit(limit) if limit&.positive?
+
+    total = pending.count
+    Rails.logger.info "Enfileirando re-sincronização para #{total} pedido(s)"
+
+    enqueued = 0
+    # TODO: trocar por ActiveJob.perform_all_later após upgrade para Rails 7.1+
+    pending.find_each do |order|
+      Vtex::Order::SyncJob.perform_later(order.order_code)
+      enqueued += 1
+    end
+
+    Rails.logger.info "Total de pedidos enfileirados: #{enqueued}"
+  end
+
   task sync_sales_channel: :environment do
     require 'ruby-progressbar'
 

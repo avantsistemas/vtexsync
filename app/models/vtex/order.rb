@@ -19,6 +19,7 @@ module Vtex
     has_many :logistics, through: :items
 
     scope :payment_approved, -> { where(status: 'payment-approved') }
+    scope :pending_resync, -> { where.not(resync_requested_at: nil) }
 
     sync_attributes :orderId, :sellerOrderId, :sequence, :origin, :salesChannel, :hostname,
                     :status, :statusDescription, :allowCancellation, :value, :totalValue,
