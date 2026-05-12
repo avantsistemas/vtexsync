@@ -37,7 +37,3 @@ append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/pack
 
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
-
-# rbenv
-set :rbenv_type, :user
-set :rbenv_ruby, File.read('.ruby-version').strip
