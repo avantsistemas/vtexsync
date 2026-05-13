@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby File.read('.ruby-version').strip
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 7.0.8'
+gem 'rails', '~> 7.1.5'
 # Use mysql as the database for Active Record
 gem 'mysql2', '>= 0.4.4'
 # Use Puma as the app server
@@ -62,7 +62,7 @@ gem 'http'
 
 # Versionamento dos models
 # https://github.com/paper-trail-gem/paper_trail
-gem 'paper_trail', '~> 12.3'
+gem 'paper_trail', '~> 15.2'
 
 # Facilita o agendamento de rotinas no cron
 # https://github.com/javan/whenever
