@@ -315,7 +315,7 @@ DEPENDENCIES
   capistrano
   capistrano-rails
   debug
-  delayed_job_active_record (~> 4.1, >= 4.1.11)
+  delayed_job_active_record
   honeybadger
   http
   listen
