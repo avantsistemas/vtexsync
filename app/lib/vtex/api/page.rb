@@ -44,7 +44,7 @@ module Vtex
       end
 
       def call_client_method
-        @api_client.public_send(@client_method, @method_args).tap { @client_method_called = true }
+        @api_client.public_send(@client_method, **@method_args).tap { @client_method_called = true }
       end
 
       def client_method_called?
