@@ -268,7 +268,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  base64
   benchmark
   bootsnap (>= 1.4.2)
   byebug
@@ -283,9 +282,6 @@ DEPENDENCIES
   minitest (~> 5.1)
   mutex_m
   mysql2 (>= 0.4.4)
-  net-imap
-  net-pop
-  net-smtp
   ostruct
   overcommit
   paper_trail (~> 12.3)

@@ -5,13 +5,9 @@ ruby File.read('.ruby-version').strip
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.1.7'
-gem 'base64'
 gem 'benchmark'
 gem 'drb'
 gem 'mutex_m'
-gem 'net-imap'
-gem 'net-pop'
-gem 'net-smtp'
 gem 'ostruct'
 # Use mysql as the database for Active Record
 gem 'mysql2', '>= 0.4.4'
