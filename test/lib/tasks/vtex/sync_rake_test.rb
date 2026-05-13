@@ -9,7 +9,10 @@ module Vtex
     RESYNC_ENV_VARS = %w[order_id order_ids scope from to reason limit].freeze
 
     setup do
-      Rails.application.load_tasks if Rake::Task.tasks.none? { |task| task.name == 'vtex:sync_order' }
+      if Rake::Task.tasks.none? { |task| task.name == 'vtex:sync_order' }
+        Rake::Task.define_task(:environment) unless Rake::Task.task_defined?(:environment)
+        load Rails.root.join('lib/tasks/vtex/sync.rake').to_s
+      end
       %w[vtex:sync_order vtex:mark_for_resync vtex:process_resync_queue].each do |name|
         Rake::Task[name].reenable
       end
