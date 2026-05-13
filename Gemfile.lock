@@ -184,8 +184,8 @@ GEM
       childprocess (>= 0.6.3, < 6)
       iniparse (~> 1.4)
       rexml (>= 3.3.9)
-    paper_trail (16.0.0)
-      activerecord (>= 6.1)
+    paper_trail (17.0.0)
+      activerecord (>= 7.1)
       request_store (~> 1.4)
     parallel (2.1.0)
     parser (3.3.11.1)
@@ -317,13 +317,13 @@ DEPENDENCIES
   debug
   delayed_job_active_record (~> 4.1, >= 4.1.11)
   honeybadger
-  http (~> 6.0)
+  http
   listen
   lograge
   minitest (~> 5.1)
   mysql2 (~> 0.5.6)
   overcommit
-  paper_trail (~> 16.0)
+  paper_trail
   puma (~> 6.4)
   rails (~> 8.0.2)
   rubocop

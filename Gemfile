@@ -59,11 +59,11 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 # Biblioteca HTTP
 # https://github.com/httprb/http
-gem 'http', '~> 6.0'
+gem 'http'
 
 # Versionamento dos models
 # https://github.com/paper-trail-gem/paper_trail
-gem 'paper_trail', '~> 16.0'
+gem 'paper_trail'
 
 # Facilita o agendamento de rotinas no cron
 # https://github.com/javan/whenever
