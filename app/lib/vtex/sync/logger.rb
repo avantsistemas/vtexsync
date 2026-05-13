@@ -36,7 +36,7 @@ module Vtex
         end
 
         def colorful_message(message, color, bold: false)
-          ActiveSupport::LogSubscriber.new.send(:color, message, color, bold)
+          ActiveSupport::LogSubscriber.new.send(:color, message, color, bold: bold)
         end
       end
     end
