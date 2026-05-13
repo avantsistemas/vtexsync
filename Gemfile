@@ -20,7 +20,7 @@ gem 'puma', '~> 6.4'
 # gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.18', require: false
+gem 'bootsnap', require: false
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
@@ -35,11 +35,11 @@ group :development, :test do
   gem 'minitest', '~> 5.1'
 
   # Hooks para o git [https://github.com/sds/overcommit]
-  gem 'overcommit', '~> 0.68', require: false
+  gem 'overcommit', require: false
 end
 
 group :development do
-  gem 'listen', '~> 3.2'
+  gem 'listen'
 
   # Analisador sintático de código
   # https://github.com/bbatsov/rubocop
@@ -50,8 +50,8 @@ group :development do
 
   # Facilita o processo de deploy
   # https://github.com/capistrano/capistrano
-  gem 'capistrano', '~> 3.19', require: false
-  gem 'capistrano-rails', '~> 1.6', require: false
+  gem 'capistrano', require: false
+  gem 'capistrano-rails', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -75,8 +75,8 @@ gem 'delayed_job_active_record', '~> 4.1', '>= 4.1.11'
 
 # Log menos verboso e mais funcional
 # https://github.com/roidrage/lograge
-gem 'lograge', '~> 0.14'
+gem 'lograge'
 
 # Monitoramento de erros do sistema
 # https://github.com/honeybadger-io/honeybadger-ruby
-gem 'honeybadger', '~> 5.0'
+gem 'honeybadger'

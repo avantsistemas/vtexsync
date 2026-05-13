@@ -310,18 +310,18 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  bootsnap (>= 1.18)
-  capistrano (~> 3.19)
-  capistrano-rails (~> 1.6)
+  bootsnap
+  capistrano
+  capistrano-rails
   debug
   delayed_job_active_record (~> 4.1, >= 4.1.11)
-  honeybadger (~> 5.0)
+  honeybadger
   http (~> 6.0)
-  listen (~> 3.2)
-  lograge (~> 0.14)
+  listen
+  lograge
   minitest (~> 5.1)
   mysql2 (~> 0.5.6)
-  overcommit (~> 0.68)
+  overcommit
   paper_trail (~> 16.0)
   puma (~> 6.4)
   rails (~> 8.0.2)
