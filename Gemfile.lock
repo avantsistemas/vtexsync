@@ -167,7 +167,6 @@ GEM
     nokogiri (1.19.3)
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
-    ostruct (0.6.3)
     overcommit (0.64.0)
       childprocess (>= 0.6.3, < 6)
       iniparse (~> 1.4)
@@ -275,21 +274,17 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  benchmark
   bootsnap (>= 1.4.2)
   byebug
   capistrano (~> 3.10)
   capistrano-rails (~> 1.6)
   delayed_job_active_record
-  drb
   honeybadger (~> 4.0)
   http
   listen (~> 3.2)
   lograge
   minitest (~> 5.1)
-  mutex_m
   mysql2 (>= 0.4.4)
-  ostruct
   overcommit
   paper_trail (~> 12.3)
   puma (~> 4.1)

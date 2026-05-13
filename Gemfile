@@ -5,10 +5,6 @@ ruby File.read('.ruby-version').strip
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 7.0.8'
-gem 'benchmark'
-gem 'drb'
-gem 'mutex_m'
-gem 'ostruct'
 # Use mysql as the database for Active Record
 gem 'mysql2', '>= 0.4.4'
 # Use Puma as the app server
