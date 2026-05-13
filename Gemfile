@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby File.read('.ruby-version').strip
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.0.3', '>= 6.0.3.4'
+gem 'rails', '~> 6.1.7'
 gem 'base64'
 gem 'benchmark'
 gem 'drb'
@@ -37,6 +37,10 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
 
+  # Pin minitest na linha 5.x: minitest 6.x não expõe `minitest/mock` no
+  # mesmo path e os testes ainda dependem do `require 'minitest/mock'`.
+  gem 'minitest', '~> 5.1'
+
   # Hooks para o git [https://github.com/sds/overcommit]
   gem 'overcommit', require: false
 end
@@ -66,7 +70,7 @@ gem 'http'
 
 # Versionamento dos models
 # https://github.com/paper-trail-gem/paper_trail
-gem 'paper_trail'
+gem 'paper_trail', '~> 12.3'
 
 # Facilita o agendamento de rotinas no cron
 # https://github.com/javan/whenever
