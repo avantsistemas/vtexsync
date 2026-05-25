@@ -324,7 +324,7 @@ DEPENDENCIES
   mysql2 (~> 0.5.6)
   overcommit
   paper_trail
-  puma (~> 6.4)
+  puma
   rails (~> 8.0.2)
   rubocop
   rubocop-minitest
