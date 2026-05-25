@@ -24,6 +24,12 @@ job_type :monitored_rake, 'cd :path && :environment_variable=:environment ' \
                           '&& curl https://api.honeybadger.io/v1/check_in/:honeybadger_check_in_id &> /dev/null'
 
 set :path, ENV['PWD'] || Dir.pwd
+
+# O cron roda em shell de login não-interativo (bash -l -c), que não ativa o
+# mise. Colocamos os shims do mise no PATH para resolver ruby/bundle, igual ao
+# que o systemd faz no serviço do Puma.
+set :bundle_command,
+    'PATH="/home/vtexsync/.local/share/mise/shims:$PATH" bundle exec'
 # set :output, 'log/cron.log'
 
 every 1.day, at: '2am' do
