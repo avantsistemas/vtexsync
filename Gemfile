@@ -6,7 +6,7 @@ ruby File.read('.ruby-version').strip
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 8.0.2'
 # Use mysql as the database for Active Record
-gem 'mysql2', '~> 0.5.6'
+gem 'trilogy'
 # Use Puma as the app server
 gem 'puma'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder

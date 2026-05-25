@@ -160,8 +160,6 @@ GEM
     mini_mime (1.1.5)
     minitest (5.27.0)
     msgpack (1.8.0)
-    mysql2 (0.5.7)
-      bigdecimal
     net-imap (0.6.4)
       date
       net-protocol
@@ -290,6 +288,8 @@ GEM
     stringio (3.2.0)
     thor (1.5.0)
     timeout (0.6.1)
+    trilogy (2.12.5)
+      bigdecimal
     tsort (0.2.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
@@ -321,7 +321,6 @@ DEPENDENCIES
   listen
   lograge
   minitest (~> 5.1)
-  mysql2 (~> 0.5.6)
   overcommit
   paper_trail
   puma
@@ -330,6 +329,7 @@ DEPENDENCIES
   rubocop-minitest
   rubocop-performance
   rubocop-rails
+  trilogy
   tzinfo-data
   whenever
 
