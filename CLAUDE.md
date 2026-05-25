@@ -4,15 +4,15 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Rails 6.0 API-only application that synchronizes orders from VTEX e-commerce platform to a local MySQL database. The data is then exported to Protheus ERP. Uses Ruby 2.6.6.
+Rails API-only application (see `Gemfile`) that synchronizes orders from VTEX e-commerce platform to a local MySQL database. The data is then exported to Protheus ERP. Ruby version is pinned in `.ruby-version`.
 
 ## Common Commands
 
 ```bash
 # Setup
-mise install                              # Install Ruby 2.6.6
-gem install bundler:2.1.4                 # Install Bundler
-bundle install                            # Install dependencies
+mise install                              # Install Ruby (version from .ruby-version)
+gem install bundler                       # Install Bundler
+bundle install                            # Install dependencies (uses BUNDLED WITH from Gemfile.lock)
 
 # Database
 bin/rails db:create db:migrate            # Create database and run migrations
