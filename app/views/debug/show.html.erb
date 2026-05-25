@@ -20,7 +20,7 @@
 
   <h2>Database</h2>
   <table>
-    <% db_config = ActiveRecord::Base.connection_config %>
+    <% db_config = ActiveRecord::Base.connection_db_config.configuration_hash %>
     <tr><td>Adapter</td><td><%= db_config[:adapter]  %></td></tr>
     <tr><td>Database</td><td><%= db_config[:database] %></td></tr>
     <tr><td>Host</td><td><%= db_config[:host] %></td></tr>
