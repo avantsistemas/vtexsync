@@ -69,7 +69,7 @@ namespace :vtex do
     puts "Pedidos marcados para re-sincronização: #{affected}"
   end
 
-  task process_resync_queue: :environment do
+  task enqueue_resync: :environment do
     result = Vtex::Orders::ResyncEnqueuer.call(limit: ENV['limit']&.to_i)
     puts "Enfileirando re-sincronização para #{result[:total]} pedido(s)"
     puts "Total de pedidos enfileirados: #{result[:enqueued]}"
