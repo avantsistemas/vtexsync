@@ -66,12 +66,12 @@ namespace :vtex do
       to: ENV['to']&.in_time_zone,
       reason: ENV.fetch('reason', nil)
     )
-    Rails.logger.info "Pedidos marcados para re-sincronização: #{affected}"
+    puts "Pedidos marcados para re-sincronização: #{affected}"
   end
 
   task process_resync_queue: :environment do
     result = Vtex::Orders::ResyncEnqueuer.call(limit: ENV['limit']&.to_i)
-    Rails.logger.info "Enfileirando re-sincronização para #{result[:total]} pedido(s)"
-    Rails.logger.info "Total de pedidos enfileirados: #{result[:enqueued]}"
+    puts "Enfileirando re-sincronização para #{result[:total]} pedido(s)"
+    puts "Total de pedidos enfileirados: #{result[:enqueued]}"
   end
 end
