@@ -5,6 +5,14 @@ module Vtex
       # A própria documentação recomenda ~1 minuto de backoff.
       DEFAULT_RETRY_AFTER = 60
 
+      # Monta um cliente a partir da conta/credenciais configuradas.
+      def self.build
+        new(account_name: Rails.configuration.application.vtex[:account_name],
+            environment: Rails.configuration.application.vtex[:environment],
+            app_token: Rails.application.credentials.vtex[:app_token],
+            app_key: Rails.application.credentials.vtex[:app_key])
+      end
+
       def initialize(account_name:, environment:, app_token:, app_key:)
         @account_name = account_name
         @environment = environment
@@ -46,14 +54,14 @@ module Vtex
         response.parse
       end
 
+      def log_response(response)
+        Rails.logger.debug { "#{response.uri} => #{response.status} #{response.body}" }
+      end
+
       def raise_rate_limit_error(response)
         retry_after = response.headers['Retry-After'].to_i
         retry_after = DEFAULT_RETRY_AFTER unless retry_after.positive?
         raise RateLimitError.new(retry_after: retry_after)
-      end
-
-      def log_response(response)
-        Rails.logger.debug { "#{response.uri} => #{response.status} #{response.body}" }
       end
 
       def raise_http_request_error(response)

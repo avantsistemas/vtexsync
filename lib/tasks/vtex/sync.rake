@@ -1,19 +1,11 @@
 namespace :vtex do
   task sync_orders: :environment do
-    account_name = Rails.configuration.application.vtex[:account_name]
-    environment = Rails.configuration.application.vtex[:environment]
-
-    app_token = Rails.application.credentials.vtex[:app_token]
-    app_key = Rails.application.credentials.vtex[:app_key]
-
-    api_client = Vtex::Api::Client.new(account_name: account_name, environment: environment,
-                                       app_token: app_token, app_key: app_key)
-
     from = ENV['from'] ? ENV['from'].in_time_zone : 1.day.ago
     to = ENV['to'] ? ENV['to'].in_time_zone : Time.current
 
+    api_client = Vtex::Api::Client.build
     sync_orders = Vtex::Sync::Orders.new(api_client).sync(from: from, to: to)
-    Rails.logger.info "Total de pedidos processados: #{sync_orders.processed_orders}"
+    puts "Total de pedidos processados: #{sync_orders.processed_orders}"
   end
 
   task sync_1_day_ago: :environment do
@@ -44,16 +36,8 @@ namespace :vtex do
   end
 
   task sync_order: :environment do
-    account_name = Rails.configuration.application.vtex[:account_name]
-    environment = Rails.configuration.application.vtex[:environment]
-
-    app_token = Rails.application.credentials.vtex[:app_token]
-    app_key = Rails.application.credentials.vtex[:app_key]
-
-    api_client = Vtex::Api::Client.new(account_name: account_name, environment: environment,
-                                       app_token: app_token, app_key: app_key)
-
     order_id = ENV.fetch('order_id')
+    api_client = Vtex::Api::Client.build
     Vtex::Sync::Order.new(api_client).sync(order_id)
   end
 
