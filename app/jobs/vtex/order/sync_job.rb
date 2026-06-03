@@ -4,6 +4,15 @@ module Vtex
       queue_as :vtex_order_sync
       queue_with_priority JobPriority::HIGHEST
 
+      # Quando a VTEX nos limita (429), reagenda com backoff exponencial em
+      # vez de bater de novo na API imediatamente. O bloco no esgotamento
+      # encerra de forma limpa, evitando que a exceção escape para o retry
+      # nativo do Delayed Job (max_attempts).
+      retry_on Vtex::Api::RateLimitError, wait: :polynomially_longer, attempts: 8 do |job, error|
+        job.logger.error("Desistindo da sincronização após esgotar retries de rate limit: #{error.message}")
+        Honeybadger.notify(error, context: { order_id: job.arguments.first })
+      end
+
       def perform(order_id)
         logger.tagged(order_id) { sync_order(order_id) }
       end

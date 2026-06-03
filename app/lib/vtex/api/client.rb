@@ -1,6 +1,10 @@
 module Vtex
   module Api
     class Client
+      # Espera padrão quando a VTEX responde 429 sem um Retry-After válido.
+      # A própria documentação recomenda ~1 minuto de backoff.
+      DEFAULT_RETRY_AFTER = 60
+
       def initialize(account_name:, environment:, app_token:, app_key:)
         @account_name = account_name
         @environment = environment
@@ -36,9 +40,16 @@ module Vtex
       end
 
       def parse_response(response)
+        raise_rate_limit_error(response) if response.status.too_many_requests?
         raise_http_request_error(response) unless response.status.ok?
         log_response(response)
         response.parse
+      end
+
+      def raise_rate_limit_error(response)
+        retry_after = response.headers['Retry-After'].to_i
+        retry_after = DEFAULT_RETRY_AFTER unless retry_after.positive?
+        raise RateLimitError.new(retry_after: retry_after)
       end
 
       def log_response(response)

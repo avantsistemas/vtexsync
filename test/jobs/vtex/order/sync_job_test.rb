@@ -103,6 +103,21 @@ module Vtex
         assert_equal original_updated_at, @order.updated_at
       end
 
+      test 'reschedules itself when the VTEX API rate limits the request' do
+        rate_limited_client = Object.new
+        def rate_limited_client.get_order(_order_id)
+          raise Vtex::Api::RateLimitError.new(retry_after: 30)
+        end
+
+        assert_enqueued_with(job: Vtex::Order::SyncJob, args: [@order.order_code]) do
+          Rails.application.credentials.stub(:vtex, @credentials_stub) do
+            Vtex::Api::Client.stub(:new, ->(**_args) { rate_limited_client }) do
+              Vtex::Order::SyncJob.perform_now(@order.order_code)
+            end
+          end
+        end
+      end
+
       private
 
       def run_job
