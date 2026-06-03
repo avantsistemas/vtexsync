@@ -14,3 +14,10 @@ desc 'switch rails logger log level to info'
 task info: %i[environment verbose] do
   Rails.logger.level = Logger::INFO
 end
+
+desc 'do not log sql queries'
+task nosql: :environment do
+  ActiveSupport::LogSubscriber.log_subscribers.each do |subscriber|
+    def subscriber.silenced?(_) = true if subscriber.is_a?(ActiveRecord::LogSubscriber)
+  end
+end
