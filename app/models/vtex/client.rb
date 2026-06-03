@@ -14,7 +14,7 @@ module Vtex
     private
 
     def use_document_as_identifier
-      self.identifier = document
+      self.identifier = document.presence || corporate_document.presence
     end
   end
 end

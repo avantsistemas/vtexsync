@@ -25,9 +25,11 @@ module Vtex
         end
 
         def client_identifier
-          # Usávamos sempre `userProfileId` como identificador único do cliente. Porém, recentemente, em pedidos do
-          # Mercado Livre, `userProfileId` estava vindo nulo. Para casos assim, usaremos `document` como identificador.
-          client_attributes['userProfileId'].presence || client_attributes['document']
+          # Usávamos +userProfileId+ como identificador único do cliente. Porém, em pedidos do Mercado Livre,
+          # +userProfileId+ vem nulo. Para casos assim, usaremos +document+ ou +corporateDocument+ como identificador.
+          client_attributes['userProfileId'].presence ||
+            client_attributes['document'].presence ||
+            client_attributes['corporateDocument'].presence
         end
       end
     end
