@@ -25,6 +25,15 @@ module Vtex
         assert_not_includes enqueued_order_codes, @order_with_channel.order_code
       end
 
+      test 'enqueues resync jobs with the lowest priority' do
+        @order_no_channel.update_columns(resync_requested_at: 1.hour.ago)
+
+        Vtex::Orders::ResyncEnqueuer.call
+
+        assert_predicate enqueued_jobs, :any?, 'esperava ao menos um job enfileirado'
+        assert(enqueued_jobs.all? { |job| job[:priority] == JobPriority::LOWEST })
+      end
+
       test 'respects the limit parameter' do
         @order_no_channel.update_columns(resync_requested_at: 1.hour.ago)
         @order_recent.update_columns(resync_requested_at: 30.minutes.ago)

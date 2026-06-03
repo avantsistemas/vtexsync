@@ -8,7 +8,7 @@ module Vtex
         total = pending.count
         enqueued = 0
         pending.find_each do |order|
-          Vtex::Order::SyncJob.perform_later(order.order_code)
+          Vtex::Order::SyncJob.set(priority: JobPriority::LOWEST).perform_later(order.order_code)
           enqueued += 1
         end
 
