@@ -5,6 +5,9 @@ module Vtex
       # A própria documentação recomenda ~1 minuto de backoff.
       DEFAULT_RETRY_AFTER = 60
 
+      # Identifica este serviço no portão de cooldown compartilhado (ApiCooldown).
+      COOLDOWN_KEY = 'vtex'.freeze
+
       # Monta um cliente a partir da conta/credenciais configuradas.
       def self.build
         new(account_name: Rails.configuration.application.vtex[:account_name],
@@ -22,11 +25,13 @@ module Vtex
 
       # https://developers.vtex.com/docs/api-reference/orders-api#get-/api/oms/pvt/orders/-orderId-
       def get_order(order_id)
+        ensure_not_rate_limited!
         parse_response http.get("/api/oms/pvt/orders/#{order_id}")
       end
 
       # https://developers.vtex.com/docs/api-reference/orders-api#get-/api/oms/pvt/orders
       def list_orders(creation_date_range:, params: {})
+        ensure_not_rate_limited!
         creation_date_begin = creation_date_range.begin.utc.as_json
         creation_date_end = creation_date_range.end.utc.as_json
         params[:f_creationDate] = "creationDate:[#{creation_date_begin} TO #{creation_date_end}]"
@@ -58,9 +63,20 @@ module Vtex
         Rails.logger.debug { "#{response.uri} => #{response.status} #{response.body}" }
       end
 
+      # Se a VTEX já nos limitou recentemente, nem chegamos a tocar na API:
+      # levantamos o mesmo erro de rate limit para que o job reagende. Assim,
+      # uma rajada de jobs enfileirados ricocheteia barato no portão em vez de
+      # cada um arrancar um novo 429 da VTEX.
+      def ensure_not_rate_limited!
+        return unless ApiCooldown.cooling_down?(COOLDOWN_KEY)
+
+        raise RateLimitError.new(retry_after: ApiCooldown.retry_after_seconds(COOLDOWN_KEY))
+      end
+
       def raise_rate_limit_error(response)
         retry_after = response.headers['Retry-After'].to_i
         retry_after = DEFAULT_RETRY_AFTER unless retry_after.positive?
+        ApiCooldown.cool_down!(COOLDOWN_KEY, retry_after)
         raise RateLimitError.new(retry_after: retry_after)
       end
 

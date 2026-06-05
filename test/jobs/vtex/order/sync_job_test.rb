@@ -104,21 +104,41 @@ module Vtex
       end
 
       test 'reschedules itself when the VTEX API rate limits the request' do
+        assert_enqueued_with(job: Vtex::Order::SyncJob, args: [@order.order_code]) do
+          perform_with_rate_limited_client(Vtex::Order::SyncJob.new(@order.order_code))
+        end
+      end
+
+      test 'gives up and notifies Honeybadger once rate limit retries are exhausted' do
+        job = Vtex::Order::SyncJob.new(@order.order_code)
+        job.executions = Vtex::Order::SyncJob::MAX_RATE_LIMIT_ATTEMPTS - 1
+
+        notified = nil
+        notify = ->(error, **_opts) { notified = error }
+
+        assert_no_enqueued_jobs do
+          Honeybadger.stub(:notify, notify) do
+            perform_with_rate_limited_client(job)
+          end
+        end
+
+        assert_instance_of Vtex::Api::RateLimitError, notified
+      end
+
+      private
+
+      def perform_with_rate_limited_client(job)
         rate_limited_client = Object.new
         def rate_limited_client.get_order(_order_id)
           raise Vtex::Api::RateLimitError.new(retry_after: 30)
         end
 
-        assert_enqueued_with(job: Vtex::Order::SyncJob, args: [@order.order_code]) do
-          Rails.application.credentials.stub(:vtex, @credentials_stub) do
-            Vtex::Api::Client.stub(:new, ->(**_args) { rate_limited_client }) do
-              Vtex::Order::SyncJob.perform_now(@order.order_code)
-            end
+        Rails.application.credentials.stub(:vtex, @credentials_stub) do
+          Vtex::Api::Client.stub(:new, ->(**_args) { rate_limited_client }) do
+            job.perform_now
           end
         end
       end
-
-      private
 
       def run_job
         Rails.application.credentials.stub(:vtex, @credentials_stub) do
