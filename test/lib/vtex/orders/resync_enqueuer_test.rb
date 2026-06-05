@@ -34,6 +34,63 @@ module Vtex
         assert(enqueued_jobs.all? { |job| job[:priority] == JobPriority::LOWEST })
       end
 
+      test 'staggers jobs into waves spaced by the batch interval' do
+        @order_no_channel.update_columns(resync_requested_at: 1.hour.ago)
+        @order_recent.update_columns(resync_requested_at: 30.minutes.ago)
+
+        freeze_time do
+          Vtex::Orders::ResyncEnqueuer.call(batch_size: 1, batch_interval: 30.seconds)
+
+          relative_waits = enqueued_jobs.map { |job| (job[:at] - Time.current.to_f).round }
+
+          assert_equal [0, 30], relative_waits.sort
+        end
+      end
+
+      test 'enqueues the whole first wave immediately when it fits the batch size' do
+        @order_no_channel.update_columns(resync_requested_at: 1.hour.ago)
+        @order_recent.update_columns(resync_requested_at: 30.minutes.ago)
+
+        freeze_time do
+          Vtex::Orders::ResyncEnqueuer.call(batch_size: 100, batch_interval: 1.minute)
+
+          relative_waits = enqueued_jobs.map { |job| (job[:at] - Time.current.to_f).round }
+
+          assert_equal [0, 0], relative_waits
+        end
+      end
+
+      test 'offsets every wave by the active cooldown known at enqueue time' do
+        @order_no_channel.update_columns(resync_requested_at: 1.hour.ago)
+        @order_recent.update_columns(resync_requested_at: 30.minutes.ago)
+
+        freeze_time do
+          ApiCooldown.cool_down!(Vtex::Api::Client::COOLDOWN_KEY, 40)
+          Vtex::Orders::ResyncEnqueuer.call(batch_size: 1, batch_interval: 30.seconds)
+
+          relative_waits = enqueued_jobs.map { |job| (job[:at] - Time.current.to_f).round }
+
+          # 1ª onda adiada para o fim do cooldown (40s); 2ª onda 30s depois.
+          assert_equal [40, 70], relative_waits.sort
+        end
+      end
+
+      test 'rejects a non-positive batch size before enqueuing anything' do
+        @order_no_channel.update_columns(resync_requested_at: 1.hour.ago)
+
+        assert_no_enqueued_jobs do
+          assert_raises(ArgumentError) { Vtex::Orders::ResyncEnqueuer.call(batch_size: 0) }
+        end
+      end
+
+      test 'rejects a non-positive batch interval before enqueuing anything' do
+        @order_no_channel.update_columns(resync_requested_at: 1.hour.ago)
+
+        assert_no_enqueued_jobs do
+          assert_raises(ArgumentError) { Vtex::Orders::ResyncEnqueuer.call(batch_interval: 0.seconds) }
+        end
+      end
+
       test 'respects the limit parameter' do
         @order_no_channel.update_columns(resync_requested_at: 1.hour.ago)
         @order_recent.update_columns(resync_requested_at: 30.minutes.ago)

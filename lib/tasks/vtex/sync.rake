@@ -54,7 +54,11 @@ namespace :vtex do
   end
 
   task enqueue_resync: :environment do
-    result = Vtex::Orders::ResyncEnqueuer.call(limit: ENV['limit']&.to_i)
+    options = { limit: ENV['limit']&.to_i }
+    options[:batch_size] = ENV['batch_size'].to_i if ENV['batch_size'].present?
+    options[:batch_interval] = ENV['batch_interval'].to_i.seconds if ENV['batch_interval'].present?
+
+    result = Vtex::Orders::ResyncEnqueuer.call(**options)
     puts "Enfileirando re-sincronização para #{result[:total]} pedido(s)"
     puts "Total de pedidos enfileirados: #{result[:enqueued]}"
   end
