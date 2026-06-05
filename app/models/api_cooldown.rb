@@ -7,6 +7,11 @@
 # serviço garantida pelo índice único.
 class ApiCooldown < ApplicationRecord
   # Abre um cooldown de `seconds` segundos a partir de agora para o serviço.
+  #
+  # Tradeoff conhecido: esta chamada sobrescreve o cooldown atual. Em respostas
+  # 429 concorrentes com Retry-After diferentes, uma resposta posterior com
+  # espera menor pode encurtar uma janela maior já registrada. Aceitamos esse
+  # risco por enquanto para manter a implementação simples.
   def self.cool_down!(name, seconds)
     singleton(name).update!(cooled_down_until: Time.current + seconds)
   end
