@@ -1,11 +1,11 @@
 module Vtex
   class Brand < ApplicationRecord
     include Synchronizable
+
     has_paper_trail
 
-    sync_attributes :brandId, :brandName
+    sync_attributes :brandName
 
-    remap_attributes brandId: :identifier,
-                     brandName: :name
+    remap_attributes brandName: :name
   end
 end

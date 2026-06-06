@@ -2,27 +2,22 @@ module Vtex
   module Sync
     module Models
       class PaymentSystem
-        def initialize(payment_attributes)
-          @payment_attributes = payment_attributes
-        end
+        include Fingerprintable
 
-        def sync
-          payment_system = find_or_initialize_vtex_payment_system
-          payment_system.sync_attributes(payment_attributes)
-
-          Logger.log_what_will_be_synced(payment_system)
-
-          payment_system.save! if payment_system.changed?
-          payment_system
+        def initialize(attributes)
+          @attributes = attributes
         end
 
         private
 
-        attr_reader :payment_attributes
+        attr_reader :attributes
 
-        def find_or_initialize_vtex_payment_system
-          attribute_payment_system = payment_attributes['paymentSystem']
-          Vtex::PaymentSystem.find_or_initialize_by identifier: attribute_payment_system
+        def model_class
+          Vtex::PaymentSystem
+        end
+
+        def fingerprint
+          attributes['paymentSystem']
         end
       end
     end

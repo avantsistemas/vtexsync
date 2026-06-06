@@ -1,11 +1,11 @@
 module Vtex
   class PaymentSystem < ApplicationRecord
     include Synchronizable
+
     has_paper_trail
 
-    sync_attributes :paymentSystem, :paymentSystemName, :group
+    sync_attributes :paymentSystemName, :group
 
-    remap_attributes paymentSystem: :identifier,
-                     paymentSystemName: :name
+    remap_attributes paymentSystemName: :name
   end
 end

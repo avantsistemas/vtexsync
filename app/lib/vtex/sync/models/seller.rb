@@ -2,18 +2,10 @@ module Vtex
   module Sync
     module Models
       class Seller
-        def initialize(seller_attributes)
-          @seller_attributes = seller_attributes
-        end
+        include Fingerprintable
 
-        def sync
-          seller = find_or_initialize_vtex_seller
-          seller.sync_attributes(seller_attributes)
-
-          Logger.log_what_will_be_synced(seller)
-
-          seller.save! if seller.changed?
-          seller
+        def initialize(attributes)
+          @attributes = attributes
         end
 
         def self.sync_all(sellers_attributes)
@@ -24,11 +16,14 @@ module Vtex
 
         private
 
-        attr_reader :seller_attributes
+        attr_reader :attributes
 
-        def find_or_initialize_vtex_seller
-          attribute_id = seller_attributes['id']
-          Vtex::Seller.find_or_initialize_by identifier: attribute_id
+        def model_class
+          Vtex::Seller
+        end
+
+        def fingerprint
+          attributes['id']
         end
       end
     end
