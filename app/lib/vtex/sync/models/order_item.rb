@@ -2,6 +2,7 @@ module Vtex
   module Sync
     module Models
       class OrderItem
+        include Identifiable
         include Dependencies
         include Dependents
 
@@ -36,13 +37,23 @@ module Vtex
         attr_reader :order_item_attributes, :vtex_order_item, :vtex_order
 
         def load_vtex_order_item
-          attribute_unique_id = order_item_attributes['uniqueId']
+          @vtex_order_item = find_or_initialize_record
+        end
 
-          # Como "uniqueId" se repete entre itens de um mesmo pedido (ex: 1064230768540-01, 1065732673793-01,
-          # 1066163355534-01) e também entre pedidos diferentes (ex: 1068192373206-01, 1068192373206-01), para
-          # identificar unicamente o item, usamos, além do "uniqueId", o código do pedido e o índice do item
-          # dentro do pedido.
-          @vtex_order_item = vtex_order.items.find_or_initialize_by identifier: attribute_unique_id, index: @index
+        def fingerprint
+          order_item_attributes['uniqueId']
+        end
+
+        # Como "uniqueId" se repete entre itens de um mesmo pedido (ex: 1064230768540-01, 1065732673793-01,
+        # 1066163355534-01) e também entre pedidos diferentes (ex: 1068192373206-01, 1068192373206-01), para
+        # identificar unicamente o item usamos, além do "uniqueId" (identifier), o escopo do pedido e o índice
+        # do item dentro do pedido.
+        def identity_scope
+          vtex_order.items
+        end
+
+        def identity_keys
+          { index: @index }
         end
 
         def sync_attributes

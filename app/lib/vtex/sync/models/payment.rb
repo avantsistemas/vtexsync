@@ -2,6 +2,7 @@ module Vtex
   module Sync
     module Models
       class Payment
+        include Identifiable
         include Dependencies
         include Dependents
 
@@ -35,7 +36,15 @@ module Vtex
         attr_reader :payment_attributes, :vtex_payment, :vtex_transaction
 
         def load_vtex_payment
-          @vtex_payment = vtex_transaction.payments.find_or_initialize_by identifier: payment_attributes['id']
+          @vtex_payment = find_or_initialize_record
+        end
+
+        def fingerprint
+          payment_attributes['id']
+        end
+
+        def identity_scope
+          vtex_transaction.payments
         end
 
         def sync_attributes

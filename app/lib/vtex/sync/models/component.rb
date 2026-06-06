@@ -2,6 +2,7 @@ module Vtex
   module Sync
     module Models
       class Component
+        include Identifiable
         include Dependencies
 
         def initialize(component_attributes, vtex_order_item:, index:)
@@ -33,13 +34,22 @@ module Vtex
         attr_reader :component_attributes, :vtex_component, :vtex_order_item
 
         def load_vtex_component
-          attribute_unique_id = component_attributes['uniqueId']
+          @vtex_component = find_or_initialize_record
+        end
 
-          # Como "uniqueId" se repete entre componentes de um mesmo item (ex: 1075461974756-01), para
-          # identificar unicamente o componente, usamos, além do "uniqueId", o código do item e o índice
-          # do componente dentro do item.
-          @vtex_component = vtex_order_item.components.find_or_initialize_by identifier: attribute_unique_id,
-                                                                             index: @index
+        def fingerprint
+          component_attributes['uniqueId']
+        end
+
+        # Como "uniqueId" se repete entre componentes de um mesmo item (ex: 1075461974756-01), para
+        # identificar unicamente o componente usamos, além do "uniqueId" (identifier), o escopo do item
+        # e o índice do componente dentro do item.
+        def identity_scope
+          vtex_order_item.components
+        end
+
+        def identity_keys
+          { index: @index }
         end
 
         def sync_attributes

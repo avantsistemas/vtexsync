@@ -2,6 +2,7 @@ module Vtex
   module Sync
     module Models
       class Transaction
+        include Identifiable
         include Dependents
 
         def initialize(transaction_attributes, vtex_order:)
@@ -35,8 +36,15 @@ module Vtex
         attr_reader :transaction_attributes, :vtex_transaction, :vtex_order
 
         def load_vtex_transaction
-          attribute_transaction_id = transaction_attributes['transactionId']
-          @vtex_transaction = vtex_order.transactions.find_or_initialize_by identifier: attribute_transaction_id
+          @vtex_transaction = find_or_initialize_record
+        end
+
+        def fingerprint
+          transaction_attributes['transactionId']
+        end
+
+        def identity_scope
+          vtex_order.transactions
         end
 
         def sync_attributes

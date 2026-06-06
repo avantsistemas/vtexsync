@@ -147,6 +147,20 @@ module Vtex
         end
       end
 
+      test 'distinguishes items sharing the same uniqueId by their index' do
+        payload = captured_order_payload
+        # A VTEX repete o mesmo uniqueId entre itens de um mesmo pedido. A identidade composta
+        # (identifier + index) deve mantê-los como registros distintos, sem um sobrescrever o outro.
+        shared_unique_id = payload.fetch('items').first.fetch('uniqueId')
+        payload['items'][1]['uniqueId'] = shared_unique_id
+
+        order = sync_order(payload)
+        colliding_items = order.items.where(identifier: shared_unique_id).order(:index)
+
+        assert_equal payload.fetch('items').size, order.items.count
+        assert_equal [0, 1], colliding_items.pluck(:index)
+      end
+
       private
 
       def captured_order_payload
