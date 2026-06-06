@@ -2,8 +2,3 @@ shared:
   vtex:
     account_name: "bioextratusvirtual"
     environment: "vtexcommercestable"
-
-  notify_post_affiliate_pro: false
-
-production:
-  notify_post_affiliate_pro: false
