@@ -18,8 +18,6 @@ module Vtex
           end
 
           def destroy_not_synced(synced_models, scope:)
-            return if vtex_campaign.new_record?
-
             not_synced_models = scope.where.not(id: synced_models)
 
             not_synced_models.each do |not_synced_model|
