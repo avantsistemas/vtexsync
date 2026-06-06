@@ -18,7 +18,7 @@ module Vtex
 
           def sync_address
             address_attributes = order_attributes['shippingData']['address']
-            vtex_address = Address.new(address_attributes).sync
+            vtex_address = Address.new(address_attributes, order_code: order_attributes['orderId']).sync
             vtex_order.address = vtex_address
           end
         end
