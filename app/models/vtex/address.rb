@@ -1,15 +1,15 @@
 module Vtex
   class Address < ApplicationRecord
     include Synchronizable
+
     has_paper_trail
 
     belongs_to :city
 
-    sync_attributes :addressId, :addressType, :receiverName, :postalCode, :city, :state, :country,
+    sync_attributes :addressType, :receiverName, :postalCode, :city, :state, :country,
                     :street, :number, :neighborhood, :complement, :reference, :geoCoordinates
 
-    remap_attributes addressId: :identifier,
-                     city: :city_name,
+    remap_attributes city: :city_name,
                      state: :state_acronym,
                      country: :country_acronym
 
