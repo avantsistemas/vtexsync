@@ -12,12 +12,13 @@ module Vtex
         def sync
           load_vtex_campaign
 
-          sync_dependents
           sync_attributes
 
           Logger.log_what_will_be_synced(vtex_campaign)
 
-          vtex_campaign.save! if vtex_order.persisted? && vtex_campaign.changed?
+          vtex_campaign.save! if vtex_campaign.changed?
+
+          sync_dependents
           vtex_campaign
         end
 

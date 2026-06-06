@@ -18,7 +18,7 @@ module Vtex
 
           Logger.log_what_will_be_synced(vtex_component)
 
-          vtex_component.save! if vtex_order_item.persisted? && vtex_component.changed?
+          vtex_component.save! if vtex_component.changed?
           vtex_component
         end
 

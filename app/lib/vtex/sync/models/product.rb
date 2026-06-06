@@ -13,12 +13,13 @@ module Vtex
           load_vtex_product
 
           sync_dependencies
-          sync_dependents
           sync_attributes
 
           Logger.log_what_will_be_synced(vtex_product)
 
           vtex_product.save! if vtex_product.changed?
+
+          sync_dependents
           vtex_product
         end
 

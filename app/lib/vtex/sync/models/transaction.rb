@@ -14,12 +14,13 @@ module Vtex
 
           load_vtex_transaction
 
-          sync_dependents
           sync_attributes
 
           Logger.log_what_will_be_synced(vtex_transaction)
 
-          vtex_transaction.save! if vtex_order.persisted? && vtex_transaction.changed?
+          vtex_transaction.save! if vtex_transaction.changed?
+
+          sync_dependents
           vtex_transaction
         end
 
@@ -47,7 +48,7 @@ module Vtex
           # uma transação com transactionId == NO-PAYMENT em vez de retornar uma lista vazia em `transactions`.
           # Para não precisar alterar a chave única da nossa tabela `vtex_transactions`, não iremos salvar
           # nenhum registro de transação para esses casos de pedidos sem pagamento.
-          return if transaction_attributes['transactionId'] != 'NO-PAYMENT'
+          return false if transaction_attributes['transactionId'] != 'NO-PAYMENT'
 
           Rails.logger.warn 'pedido sem transação/pagamento'
           true

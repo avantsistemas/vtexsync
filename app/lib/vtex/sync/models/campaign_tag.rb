@@ -12,7 +12,7 @@ module Vtex
 
           Logger.log_what_will_be_synced(campaign_tag)
 
-          campaign_tag.save! if vtex_campaign.persisted? && campaign_tag.changed?
+          campaign_tag.save! if campaign_tag.changed?
           campaign_tag
         end
 

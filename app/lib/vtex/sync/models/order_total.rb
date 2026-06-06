@@ -13,7 +13,7 @@ module Vtex
 
           Logger.log_what_will_be_synced(order_total)
 
-          order_total.save! if vtex_order.persisted? && order_total.changed?
+          order_total.save! if order_total.changed?
           order_total
         end
 

@@ -14,12 +14,13 @@ module Vtex
           load_vtex_payment
 
           sync_dependencies
-          sync_dependents
           sync_attributes
 
           Logger.log_what_will_be_synced(vtex_payment)
 
-          vtex_payment.save! if vtex_transaction.persisted? && vtex_payment.changed?
+          vtex_payment.save! if vtex_payment.changed?
+
+          sync_dependents
           vtex_payment
         end
 

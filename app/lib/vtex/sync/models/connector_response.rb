@@ -13,7 +13,7 @@ module Vtex
 
           Logger.log_what_will_be_synced(connector_response)
 
-          connector_response.save! if vtex_payment.persisted? && connector_response.changed?
+          connector_response.save! if connector_response.changed?
           connector_response
         end
 

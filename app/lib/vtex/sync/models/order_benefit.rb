@@ -12,7 +12,7 @@ module Vtex
 
           Logger.log_what_will_be_synced(order_benefit)
 
-          order_benefit.save! if vtex_order.persisted? && order_benefit.changed?
+          order_benefit.save! if order_benefit.changed?
           order_benefit
         end
 

@@ -13,12 +13,16 @@ module Vtex
           load_vtex_order
 
           sync_dependencies
-          sync_dependents
           sync_attributes
 
           Logger.log_what_will_be_synced(vtex_order)
 
+          # Persistimos o pedido antes dos dependentes para que cada filho
+          # (itens, totais, transações...) sempre encontre o pai já gravado.
+          # A atomicidade fica por conta da transação em Vtex::Sync::Order.
           vtex_order.save! if vtex_order.changed?
+
+          sync_dependents
           vtex_order
         end
 

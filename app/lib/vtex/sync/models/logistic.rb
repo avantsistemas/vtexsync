@@ -21,7 +21,7 @@ module Vtex
 
           Logger.log_what_will_be_synced(vtex_logistic)
 
-          vtex_logistic.save! if vtex_order.persisted? && vtex_logistic.changed?
+          vtex_logistic.save! if vtex_logistic.changed?
           vtex_logistic
         end
 

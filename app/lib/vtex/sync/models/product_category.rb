@@ -12,7 +12,7 @@ module Vtex
 
           Logger.log_what_will_be_synced(product_category)
 
-          product_category.save! if vtex_product.persisted? && product_category.changed?
+          product_category.save! if product_category.changed?
           product_category
         end
 

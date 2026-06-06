@@ -15,12 +15,13 @@ module Vtex
           load_vtex_order_item
 
           sync_dependencies
-          sync_dependents
           sync_attributes
 
           Logger.log_what_will_be_synced(vtex_order_item)
 
-          vtex_order_item.save! if vtex_order.persisted? && vtex_order_item.changed?
+          vtex_order_item.save! if vtex_order_item.changed?
+
+          sync_dependents
           vtex_order_item
         end
 
