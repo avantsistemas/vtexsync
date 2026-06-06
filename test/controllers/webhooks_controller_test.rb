@@ -4,7 +4,7 @@ class WebhooksControllerTest < ActionDispatch::IntegrationTest
   include ActiveJob::TestHelper
 
   test 'POST orders enqueues a sync job with the given OrderId' do
-    assert_enqueued_with(job: Vtex::Order::SyncJob, args: ['1379680932086-01']) do
+    assert_enqueued_with(job: Vtex::Sync::OrderJob, args: ['1379680932086-01']) do
       post webhooks_orders_url, params: { 'OrderId' => '1379680932086-01' }
     end
   end

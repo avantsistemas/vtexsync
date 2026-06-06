@@ -12,7 +12,7 @@ module Vtex
         @order_recent.update_columns(resync_requested_at: 30.minutes.ago)
 
         result = nil
-        assert_enqueued_jobs 2, only: Vtex::Order::SyncJob do
+        assert_enqueued_jobs 2, only: Vtex::Sync::OrderJob do
           result = Vtex::Orders::ResyncEnqueuer.call
         end
 
@@ -96,7 +96,7 @@ module Vtex
         @order_recent.update_columns(resync_requested_at: 30.minutes.ago)
 
         result = nil
-        assert_enqueued_jobs 1, only: Vtex::Order::SyncJob do
+        assert_enqueued_jobs 1, only: Vtex::Sync::OrderJob do
           result = Vtex::Orders::ResyncEnqueuer.call(limit: 1)
         end
 
