@@ -2,34 +2,26 @@ module Vtex
   module Sync
     module Models
       class Client
-        def initialize(client_attributes)
-          @client_attributes = client_attributes
-        end
+        include Fingerprintable
 
-        def sync
-          client = find_or_initialize_vtex_client
-          client.sync_attributes(client_attributes)
-
-          Logger.log_what_will_be_synced(client)
-
-          client.save! if client.changed?
-          client
+        def initialize(attributes)
+          @attributes = attributes
         end
 
         private
 
-        attr_reader :client_attributes
+        attr_reader :attributes
 
-        def find_or_initialize_vtex_client
-          Vtex::Client.find_or_initialize_by identifier: client_identifier
+        def model_class
+          Vtex::Client
         end
 
-        def client_identifier
+        def fingerprint
           # Usávamos +userProfileId+ como identificador único do cliente. Porém, em pedidos do Mercado Livre,
           # +userProfileId+ vem nulo. Para casos assim, usaremos +document+ ou +corporateDocument+ como identificador.
-          client_attributes['userProfileId'].presence ||
-            client_attributes['document'].presence ||
-            client_attributes['corporateDocument'].presence
+          attributes['userProfileId'].presence ||
+            attributes['document'].presence ||
+            attributes['corporateDocument'].presence
         end
       end
     end
