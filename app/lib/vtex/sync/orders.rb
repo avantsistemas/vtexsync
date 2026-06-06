@@ -67,8 +67,7 @@ module Vtex
       end
 
       def full_order_sync(attribute_order_id)
-        complete_order_attributes = api_client.get_order(attribute_order_id)
-        Vtex::Sync::Models::Order.new(complete_order_attributes).sync
+        Vtex::Sync::Order.new(api_client).call(attribute_order_id)
       end
 
       def start_a_new_sync

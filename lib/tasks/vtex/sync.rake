@@ -36,9 +36,7 @@ namespace :vtex do
   end
 
   task sync_order: :environment do
-    order_id = ENV.fetch('order_id')
-    api_client = Vtex::Api::Client.build
-    Vtex::Sync::Order.new(api_client).sync(order_id)
+    Vtex::Sync::Order.call(ENV.fetch('order_id'))
   end
 
   task mark_for_resync: :environment do

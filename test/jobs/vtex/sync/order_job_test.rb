@@ -20,7 +20,7 @@ module Vtex
 
       setup do
         @payload = JSON.parse(Rails.root.join('test/fixtures/files/get_order_bioextratus.json').read)
-        Vtex::Sync::Order.new(FakeApiClient.new(@payload)).sync(@payload.fetch('orderId'))
+        Vtex::Sync::Order.new(FakeApiClient.new(@payload)).call(@payload.fetch('orderId'))
         @order = Vtex::Order.find_by!(order_code: @payload.fetch('orderId'))
         @credentials_stub = { app_token: 'test-token', app_key: 'test-key' }
       end

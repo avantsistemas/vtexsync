@@ -117,7 +117,7 @@ module Vtex
 
       def seed_orders
         payload = JSON.parse(Rails.root.join('test/fixtures/files/get_order_bioextratus.json').read)
-        Vtex::Sync::Order.new(FakeApiClient.new(payload)).sync(payload.fetch('orderId'))
+        Vtex::Sync::Order.new(FakeApiClient.new(payload)).call(payload.fetch('orderId'))
         base = Vtex::Order.find_by!(order_code: payload.fetch('orderId'))
 
         @order_no_channel = build_sibling_order(base, order_code: 'RESYNC-A')

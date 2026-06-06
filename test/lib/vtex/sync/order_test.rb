@@ -43,7 +43,7 @@ module Vtex
           assert_difference -> { Vtex::Product.count }, expected_product_identifiers.uniq.size do
             assert_difference -> { Vtex::Seller.count }, expected_seller_identifiers.uniq.size do
               assert_difference -> { Vtex::City.count }, 1 do
-                order = Vtex::Sync::Order.new(api_client).sync(order_payload.fetch('orderId'))
+                order = Vtex::Sync::Order.new(api_client).call(order_payload.fetch('orderId'))
               end
             end
           end
@@ -66,7 +66,9 @@ module Vtex
         assert_equal order_payload.fetch('ratesAndBenefitsData').fetch('rateAndBenefitsIdentifiers').size,
                      order.order_benefits.count
         assert_equal order_payload.fetch('paymentData').fetch('transactions').size, order.transactions.count
-        assert_equal expected_payments.size, (order.transactions.sum { |transaction| transaction.payments.count })
+        synced_payments_count = order.transactions.sum { |transaction| transaction.payments.count }
+
+        assert_equal expected_payments.size, synced_payments_count
 
         assert_equal ['2000003'], Vtex::Brand.pluck(:identifier)
         assert_equal expected_product_identifiers.sort, Vtex::Product.pluck(:identifier).sort
@@ -118,6 +120,33 @@ module Vtex
         assert_equal ['Pedido Atualizado'], updated_order.campaign.marketing_tags.pluck(:name)
       end
 
+      test 'clears the resync flag after a successful sync' do
+        payload = captured_order_payload
+        order = sync_order(payload)
+        order.update_columns(resync_requested_at: 1.hour.ago, resync_reason: 'estrutura X adicionada')
+
+        sync_order(payload)
+
+        order.reload
+
+        assert_nil order.resync_requested_at
+        assert_nil order.resync_reason
+      end
+
+      test 'rolls back the whole order graph when a dependent sync fails' do
+        broken_payload = captured_order_payload
+        # Sem 'paymentData', a sincronização das transações (último dependente)
+        # estoura — depois de cliente, endereço, sellers e itens já terem sido
+        # gravados. A transação deve desfazer tudo.
+        broken_payload.delete('paymentData')
+
+        assert_no_difference ['Vtex::Order.count', 'Vtex::Client.count', 'Vtex::Seller.count'] do
+          assert_raises(StandardError) do
+            Vtex::Sync::Order.new(FakeApiClient.new(broken_payload)).call(broken_payload.fetch('orderId'))
+          end
+        end
+      end
+
       private
 
       def captured_order_payload
@@ -125,7 +154,7 @@ module Vtex
       end
 
       def sync_order(order_payload)
-        Vtex::Sync::Order.new(FakeApiClient.new(order_payload)).sync(order_payload.fetch('orderId'))
+        Vtex::Sync::Order.new(FakeApiClient.new(order_payload)).call(order_payload.fetch('orderId'))
       end
 
       def updated_order_payload(order_payload)
