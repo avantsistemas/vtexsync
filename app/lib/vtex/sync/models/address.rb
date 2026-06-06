@@ -11,6 +11,8 @@ module Vtex
         UUID = /\A[a-f0-9]{32}\z/i
         UUID_DASHED = /\A[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}\z/i
 
+        # Diferente dos demais sync models, recebe +order_code+ além de +attributes+: o fingerprint transacional
+        # depende do +orderId+, que vive no topo do pedido e não dentro do objeto +shippingData.address+.
         def initialize(attributes, order_code:)
           @attributes = attributes
           @order_code = order_code
