@@ -25,7 +25,7 @@ module Vtex
         enqueued = 0
         pending.find_each.with_index do |order, index|
           wait = initial_wait + ((index / batch_size) * batch_interval)
-          Vtex::Order::SyncJob.set(priority: JobPriority::LOWEST, wait: wait).perform_later(order.order_code)
+          Vtex::Sync::OrderJob.set(priority: JobPriority::LOWEST, wait: wait).perform_later(order.order_code)
           enqueued += 1
         end
 

@@ -1,7 +1,7 @@
 module Vtex
-  class Order
-    class SyncJob < ApplicationJob
-      queue_as :vtex_order_sync
+  module Sync
+    class OrderJob < ApplicationJob
+      queue_as :vtex_sync_order
       queue_with_priority JobPriority::HIGHEST
 
       # Tentativas máximas diante de rate limit (429) antes de desistir.
