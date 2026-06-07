@@ -5,7 +5,7 @@ module Vtex
     class ResyncMarkerTest < ActiveSupport::TestCase
       setup { seed_orders }
 
-      test 'flags only the orders listed in order_codes' do
+      test 'opens a pending request only for the orders listed in order_codes' do
         now = Time.zone.local(2026, 5, 12, 10, 0, 0)
         affected = travel_to(now) do
           Vtex::Orders::ResyncMarker.call(
@@ -14,39 +14,64 @@ module Vtex
           )
         end
 
-        [@order_no_channel, @order_with_channel, @order_recent].each(&:reload)
-
         assert_equal 2, affected
-        assert_equal now, @order_no_channel.resync_requested_at
-        assert_equal now, @order_recent.resync_requested_at
-        assert_nil @order_with_channel.resync_requested_at
-        assert_equal 'estrutura X adicionada', @order_no_channel.resync_reason
+        assert pending_request_for?(@order_no_channel)
+        assert pending_request_for?(@order_recent)
+        assert_not pending_request_for?(@order_with_channel)
+
+        request = @order_no_channel.resync_requests.sole
+
+        assert_equal now, request.requested_at
+        assert_equal 'estrutura X adicionada', request.reason
+        assert_nil request.completed_at
       end
 
-      test 'flags orders matching the given scope clause' do
+      test 'opens requests for orders matching the given scope clause' do
         Vtex::Orders::ResyncMarker.call(scope: 'sales_channel IS NULL')
 
-        assert_predicate @order_no_channel.reload.resync_requested_at, :present?
-        assert_nil @order_with_channel.reload.resync_requested_at
+        assert pending_request_for?(@order_no_channel)
+        assert_not pending_request_for?(@order_with_channel)
       end
 
-      test 'flags orders inside the given date range' do
+      test 'opens requests for orders inside the given date range' do
         Vtex::Orders::ResyncMarker.call(
           from: Time.zone.parse('2025-01-01'),
           to: Time.zone.parse('2025-12-31')
         )
 
-        assert_predicate @order_no_channel.reload.resync_requested_at, :present?
-        assert_predicate @order_with_channel.reload.resync_requested_at, :present?
-        assert_nil @order_recent.reload.resync_requested_at
+        assert pending_request_for?(@order_no_channel)
+        assert pending_request_for?(@order_with_channel)
+        assert_not pending_request_for?(@order_recent)
+      end
+
+      test 'refreshes the open request instead of stacking another for the same order' do
+        travel_to(Time.zone.local(2026, 5, 12, 9, 0, 0)) do
+          Vtex::Orders::ResyncMarker.call(order_codes: [@order_no_channel.order_code], reason: 'primeira')
+        end
+
+        refreshed_at = Time.zone.local(2026, 5, 12, 10, 0, 0)
+        assert_no_difference -> { Vtex::OrderResyncRequest.count } do
+          travel_to(refreshed_at) do
+            Vtex::Orders::ResyncMarker.call(order_codes: [@order_no_channel.order_code], reason: 'segunda')
+          end
+        end
+
+        request = @order_no_channel.resync_requests.sole
+
+        assert_equal 'segunda', request.reason
+        assert_equal refreshed_at, request.requested_at
       end
 
       test 'raises when no filter is provided' do
         assert_raises(ArgumentError) { Vtex::Orders::ResyncMarker.call }
-        assert_equal 0, Vtex::Order.where.not(resync_requested_at: nil).count
+        assert_equal 0, Vtex::OrderResyncRequest.count
       end
 
       private
+
+      def pending_request_for?(order)
+        order.resync_requests.pending.exists?
+      end
 
       class FakeApiClient
         def initialize(payload)

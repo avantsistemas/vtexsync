@@ -8,8 +8,8 @@ module Vtex
       setup { seed_orders }
 
       test 'enqueues a sync job for each pending order' do
-        @order_no_channel.update_columns(resync_requested_at: 1.hour.ago)
-        @order_recent.update_columns(resync_requested_at: 30.minutes.ago)
+        request_resync(@order_no_channel)
+        request_resync(@order_recent)
 
         result = nil
         assert_enqueued_jobs 2, only: Vtex::Sync::OrderJob do
@@ -26,7 +26,7 @@ module Vtex
       end
 
       test 'enqueues resync jobs with the lowest priority' do
-        @order_no_channel.update_columns(resync_requested_at: 1.hour.ago)
+        request_resync(@order_no_channel)
 
         Vtex::Orders::ResyncEnqueuer.call
 
@@ -35,8 +35,8 @@ module Vtex
       end
 
       test 'staggers jobs into waves spaced by the batch interval' do
-        @order_no_channel.update_columns(resync_requested_at: 1.hour.ago)
-        @order_recent.update_columns(resync_requested_at: 30.minutes.ago)
+        request_resync(@order_no_channel)
+        request_resync(@order_recent)
 
         freeze_time do
           Vtex::Orders::ResyncEnqueuer.call(batch_size: 1, batch_interval: 30.seconds)
@@ -48,8 +48,8 @@ module Vtex
       end
 
       test 'enqueues the whole first wave immediately when it fits the batch size' do
-        @order_no_channel.update_columns(resync_requested_at: 1.hour.ago)
-        @order_recent.update_columns(resync_requested_at: 30.minutes.ago)
+        request_resync(@order_no_channel)
+        request_resync(@order_recent)
 
         freeze_time do
           Vtex::Orders::ResyncEnqueuer.call(batch_size: 100, batch_interval: 1.minute)
@@ -61,8 +61,8 @@ module Vtex
       end
 
       test 'offsets every wave by the active cooldown known at enqueue time' do
-        @order_no_channel.update_columns(resync_requested_at: 1.hour.ago)
-        @order_recent.update_columns(resync_requested_at: 30.minutes.ago)
+        request_resync(@order_no_channel)
+        request_resync(@order_recent)
 
         freeze_time do
           ApiCooldown.cool_down!(Vtex::Api::Client::COOLDOWN_KEY, 40)
@@ -76,7 +76,7 @@ module Vtex
       end
 
       test 'rejects a non-positive batch size before enqueuing anything' do
-        @order_no_channel.update_columns(resync_requested_at: 1.hour.ago)
+        request_resync(@order_no_channel)
 
         assert_no_enqueued_jobs do
           assert_raises(ArgumentError) { Vtex::Orders::ResyncEnqueuer.call(batch_size: 0) }
@@ -84,7 +84,7 @@ module Vtex
       end
 
       test 'rejects a non-positive batch interval before enqueuing anything' do
-        @order_no_channel.update_columns(resync_requested_at: 1.hour.ago)
+        request_resync(@order_no_channel)
 
         assert_no_enqueued_jobs do
           assert_raises(ArgumentError) { Vtex::Orders::ResyncEnqueuer.call(batch_interval: 0.seconds) }
@@ -92,8 +92,8 @@ module Vtex
       end
 
       test 'respects the limit parameter' do
-        @order_no_channel.update_columns(resync_requested_at: 1.hour.ago)
-        @order_recent.update_columns(resync_requested_at: 30.minutes.ago)
+        request_resync(@order_no_channel)
+        request_resync(@order_recent)
 
         result = nil
         assert_enqueued_jobs 1, only: Vtex::Sync::OrderJob do
@@ -104,6 +104,10 @@ module Vtex
       end
 
       private
+
+      def request_resync(order)
+        order.resync_requests.create!(requested_at: Time.current)
+      end
 
       class FakeApiClient
         def initialize(payload)

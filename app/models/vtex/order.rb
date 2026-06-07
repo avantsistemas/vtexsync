@@ -18,8 +18,10 @@ module Vtex
 
     has_many :logistics, through: :items
 
+    has_many :resync_requests, class_name: 'Vtex::OrderResyncRequest', dependent: :destroy
+
     scope :payment_approved, -> { where(status: 'payment-approved') }
-    scope :pending_resync, -> { where.not(resync_requested_at: nil) }
+    scope :pending_resync, -> { where(id: OrderResyncRequest.pending.select(:order_id)) }
 
     sync_attributes :orderId, :sellerOrderId, :sequence, :origin, :salesChannel, :hostname,
                     :status, :statusDescription, :allowCancellation, :value, :totalValue,

@@ -21,21 +21,23 @@ module Vtex
         # durante a chamada de rede, que pode demorar ou estourar rate limit.
         order_attributes = @api_client.get_order(order_id)
 
-        # Unidade atômica: o pedido sincronizado por inteiro mais a baixa do
-        # flag de resync. Se qualquer dependente falhar, nada é gravado.
+        # Unidade atômica: o pedido sincronizado por inteiro mais a baixa dos
+        # requests de resync. Se qualquer dependente falhar, nada é gravado e os
+        # requests seguem em aberto para um novo enfileiramento.
         ActiveRecord::Base.transaction do
           order = Vtex::Sync::Models::Order.new(order_attributes).sync
-          clear_resync_flag(order)
+          complete_resync_requests(order)
           order
         end
       end
 
       private
 
-      def clear_resync_flag(order)
-        return if order.resync_requested_at.nil?
-
-        order.update_columns(resync_requested_at: nil, resync_reason: nil)
+      # Fecha os requests em aberto preenchendo completed_at (sem apagar o
+      # motivo), preservando o histórico das re-sincronizações.
+      def complete_resync_requests(order)
+        now = Time.current
+        order.resync_requests.pending.update_all(completed_at: now, updated_at: now)
       end
     end
   end

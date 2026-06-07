@@ -120,17 +120,17 @@ module Vtex
         assert_equal ['Pedido Atualizado'], updated_order.campaign.marketing_tags.pluck(:name)
       end
 
-      test 'clears the resync flag after a successful sync' do
+      test 'completes open resync requests after a successful sync, preserving the reason' do
         payload = captured_order_payload
         order = sync_order(payload)
-        order.update_columns(resync_requested_at: 1.hour.ago, resync_reason: 'estrutura X adicionada')
+        request = order.resync_requests.create!(requested_at: 1.hour.ago, reason: 'estrutura X adicionada')
 
         sync_order(payload)
 
-        order.reload
+        request.reload
 
-        assert_nil order.resync_requested_at
-        assert_nil order.resync_reason
+        assert_not_nil request.completed_at
+        assert_equal 'estrutura X adicionada', request.reason
       end
 
       test 'rolls back the whole order graph when a dependent sync fails' do

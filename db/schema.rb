@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_06_05_120000) do
+ActiveRecord::Schema[8.0].define(version: 2026_06_06_120000) do
   create_table "api_cooldowns", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "cooled_down_until", precision: nil
@@ -267,6 +267,17 @@ ActiveRecord::Schema[8.0].define(version: 2026_06_05_120000) do
     t.index ["seller_id"], name: "index_vtex_order_items_on_seller_id"
   end
 
+  create_table "vtex_order_resync_requests", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "order_id", null: false
+    t.datetime "requested_at", null: false
+    t.string "reason"
+    t.datetime "completed_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["completed_at"], name: "index_vtex_order_resync_requests_on_completed_at"
+    t.index ["order_id"], name: "index_vtex_order_resync_requests_on_order_id"
+  end
+
   create_table "vtex_order_totals", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "order_id", null: false
     t.bigint "total_id", null: false
@@ -297,13 +308,10 @@ ActiveRecord::Schema[8.0].define(version: 2026_06_05_120000) do
     t.datetime "last_change", precision: nil
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.datetime "resync_requested_at", precision: nil
-    t.string "resync_reason"
     t.index ["address_id"], name: "index_vtex_orders_on_address_id"
     t.index ["client_id"], name: "index_vtex_orders_on_client_id"
     t.index ["creation_date"], name: "index_vtex_orders_on_creation_date"
     t.index ["order_code"], name: "index_vtex_orders_on_order_code", unique: true
-    t.index ["resync_requested_at"], name: "index_vtex_orders_on_resync_requested_at"
   end
 
   create_table "vtex_payment_systems", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -416,6 +424,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_06_05_120000) do
   add_foreign_key "vtex_order_items", "vtex_orders", column: "order_id"
   add_foreign_key "vtex_order_items", "vtex_products", column: "product_id"
   add_foreign_key "vtex_order_items", "vtex_sellers", column: "seller_id"
+  add_foreign_key "vtex_order_resync_requests", "vtex_orders", column: "order_id"
   add_foreign_key "vtex_order_totals", "vtex_orders", column: "order_id"
   add_foreign_key "vtex_order_totals", "vtex_totals", column: "total_id"
   add_foreign_key "vtex_orders", "vtex_addresses", column: "address_id"

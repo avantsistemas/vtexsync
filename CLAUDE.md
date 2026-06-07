@@ -24,9 +24,9 @@ bin/rails vtex:sync_1_day_ago                         # Sync last 24 hours
 bin/rails vtex:sync_2_days_ago                        # Sync last 48 hours
 bin/rails vtex:full_sync                              # Sync all orders since last synced
 
-# Re-sync orders (mark/enqueue is a producer/consumer protocol via the
-# resync_requested_at flag; the sync job clears the flag only on success)
-bin/rails vtex:mark_for_resync order_ids="123-01,456-01" reason="ajuste"  # Mark orders (sets flag)
+# Re-sync orders (mark/enqueue is a producer/consumer protocol via
+# vtex_order_resync_requests; the sync job completes the request only on success)
+bin/rails vtex:mark_for_resync order_ids="123-01,456-01" reason="ajuste"  # Open a pending resync request per order
 bin/rails vtex:enqueue_resync limit=500                                   # Drain pending_resync into the queue in waves
 
 # Linting

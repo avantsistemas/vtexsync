@@ -80,26 +80,25 @@ module Vtex
         assert_equal 'Pagamento aprovado', @order.status_description
       end
 
-      test 'clears resync flag after a successful sync' do
-        @order.update_columns(resync_requested_at: 1.hour.ago, resync_reason: 'estrutura X adicionada')
+      test 'completes open resync requests after a successful sync' do
+        request = @order.resync_requests.create!(requested_at: 1.hour.ago, reason: 'estrutura X adicionada')
 
         run_job
 
-        @order.reload
+        request.reload
 
-        assert_nil @order.resync_requested_at
-        assert_nil @order.resync_reason
+        assert_not_nil request.completed_at
+        assert_equal 'estrutura X adicionada', request.reason
       end
 
-      test 'leaves the order untouched when no resync flag was set' do
+      test 'leaves the order untouched when there is no open resync request' do
         original_updated_at = @order.updated_at
 
         run_job
 
         @order.reload
 
-        assert_nil @order.resync_requested_at
-        assert_nil @order.resync_reason
+        assert_empty @order.resync_requests
         assert_equal original_updated_at, @order.updated_at
       end
 
