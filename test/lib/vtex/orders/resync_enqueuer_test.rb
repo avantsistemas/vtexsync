@@ -127,6 +127,11 @@ module Vtex
         @order_no_channel = build_sibling_order(base, order_code: 'RESYNC-A')
         @order_with_channel = build_sibling_order(base, order_code: 'RESYNC-B')
         @order_recent = build_sibling_order(base, order_code: 'RESYNC-C')
+
+        # O sync acima cria produtos, que enfileiram seu enriquecimento de
+        # catálogo via after_create_commit. Descartamos esses jobs para que os
+        # testes meçam apenas o que o ResyncEnqueuer enfileira.
+        clear_enqueued_jobs
       end
 
       def build_sibling_order(base, **attributes)

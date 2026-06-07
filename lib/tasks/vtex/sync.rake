@@ -51,6 +51,16 @@ namespace :vtex do
     puts "Pedidos marcados para re-sincronização: #{affected}"
   end
 
+  task enrich_products: :environment do
+    options = { limit: ENV['limit']&.to_i, all: ENV['all'] == 'true' }
+    options[:batch_size] = ENV['batch_size'].to_i if ENV['batch_size'].present?
+    options[:batch_interval] = ENV['batch_interval'].to_i.seconds if ENV['batch_interval'].present?
+
+    result = Vtex::Products::EnrichmentEnqueuer.call(**options)
+    puts "Enfileirando enriquecimento para #{result[:total]} produto(s)"
+    puts "Total de produtos enfileirados: #{result[:enqueued]}"
+  end
+
   task enqueue_resync: :environment do
     options = { limit: ENV['limit']&.to_i }
     options[:batch_size] = ENV['batch_size'].to_i if ENV['batch_size'].present?

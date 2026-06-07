@@ -29,6 +29,12 @@ module Vtex
         parse_response http.get("/api/oms/pvt/orders/#{order_id}")
       end
 
+      # https://developers.vtex.com/docs/api-reference/catalog-api#get-/api/catalog/pvt/stockkeepingunit/-skuId-
+      def get_sku(sku_id)
+        ensure_not_rate_limited!
+        parse_response http.get("/api/catalog/pvt/stockkeepingunit/#{sku_id}")
+      end
+
       # https://developers.vtex.com/docs/api-reference/orders-api#get-/api/oms/pvt/orders
       def list_orders(creation_date_range:, params: {})
         ensure_not_rate_limited!

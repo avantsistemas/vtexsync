@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_06_06_120000) do
+ActiveRecord::Schema[8.0].define(version: 2026_06_06_130000) do
   create_table "api_cooldowns", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "cooled_down_until", precision: nil
@@ -354,9 +354,13 @@ ActiveRecord::Schema[8.0].define(version: 2026_06_06_120000) do
     t.string "ean"
     t.string "image_url"
     t.string "detail_url"
+    t.boolean "kit"
+    t.boolean "active"
+    t.datetime "creation_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["brand_id"], name: "index_vtex_products_on_brand_id"
+    t.index ["creation_date"], name: "index_vtex_products_on_creation_date"
     t.index ["identifier"], name: "index_vtex_products_on_identifier", unique: true
   end
 

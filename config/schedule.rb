@@ -35,3 +35,19 @@ set :bundle_command,
 every 1.day, at: '2am' do
   monitored_rake 'vtex:sync_2_days_ago', honeybadger_check_in_id: 'KlI3yM'
 end
+
+# Rede de segurança do enriquecimento de catálogo: produtos novos já são
+# enriquecidos de forma assíncrona ao serem criados pelo sync de pedido; este
+# backfill diário recupera os que porventura ficaram pendentes (creation_date
+# nulo).
+# Para monitorar no Honeybadger, troque por monitored_rake com um check_in_id.
+every 1.day, at: '3am' do
+  rake 'vtex:enrich_products'
+end
+
+# Refresh completo semanal: reprocessa todo o catálogo (all=true) para capturar
+# mudanças que possam ter ocorrido na VTEX (ex: IsActive/IsKit) após o produto
+# já ter sido enriquecido.
+every :sunday, at: '4am' do
+  rake 'vtex:enrich_products all=true'
+end
