@@ -40,6 +40,9 @@
   <% if @jobs.empty? %>
     <p><em>No jobs found.</em></p>
   <% else %>
+    <% if @total_matching > @limit %>
+      <p class="muted">Showing the first <%= @limit %> of <%= @total_matching %> jobs.</p>
+    <% end %>
     <table>
       <tr>
         <th>ID</th>
