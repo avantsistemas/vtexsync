@@ -36,10 +36,9 @@ every 1.day, at: '2am' do
   monitored_rake 'vtex:sync_2_days_ago', honeybadger_check_in_id: 'KlI3yM'
 end
 
-# Rede de segurança do enriquecimento de catálogo: produtos novos já são
-# enriquecidos de forma assíncrona ao serem criados pelo sync de pedido; este
-# backfill diário recupera os que porventura ficaram pendentes (creation_date
-# nulo).
+# Enriquecimento de catálogo: drena diariamente os produtos pendentes
+# (creation_date nulo) — tipicamente os recém-criados pelo sync de pedido, que
+# nascem sem os atributos de catálogo (kit, ativo, data de criação).
 # Para monitorar no Honeybadger, troque por monitored_rake com um check_in_id.
 every 1.day, at: '3am' do
   rake 'vtex:enrich_products'
