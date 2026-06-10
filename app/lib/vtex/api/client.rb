@@ -35,6 +35,16 @@ module Vtex
         parse_response http.get("/api/catalog/pvt/stockkeepingunit/#{sku_id}")
       end
 
+      # A marca é atributo do produto e não vem no endpoint de SKU. Este endpoint
+      # ("Get SKU and context") expõe BrandId/BrandName (e demais dados de contexto
+      # do produto) num único request, com o BrandId no mesmo formato (string) que
+      # o pedido usa.
+      # https://developers.vtex.com/docs/api-reference/catalog-api#get-/api/catalog_system/pvt/sku/stockkeepingunitbyid/-skuId-
+      def get_sku_context(sku_id)
+        ensure_not_rate_limited!
+        parse_response http.get("/api/catalog_system/pvt/sku/stockkeepingunitbyid/#{sku_id}")
+      end
+
       # https://developers.vtex.com/docs/api-reference/orders-api#get-/api/oms/pvt/orders
       def list_orders(creation_date_range:, params: {})
         ensure_not_rate_limited!
