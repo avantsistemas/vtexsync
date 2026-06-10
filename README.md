@@ -4,22 +4,16 @@ Sincroniza base de dados MySQL com informações da API de vendas da VTEX.
 
 ## Instalação
 
-O projeto utiliza a versão 2.6.6 do Ruby. Utilizamos o [mise](https://mise.jdx.dev) para instalação dessa versão, mudar para o diretório do projeto e executar o comando:
+A versão do Ruby utilizada pelo projeto está fixada no arquivo `.ruby-version`. Utilizamos o [mise](https://mise.jdx.dev) para instalação dessa versão. Basta mudar para o diretório do projeto e executar o comando:
 
 ```sh
 mise install
 ```
 
-Para compilação dessa versão do Ruby no Mac com arquitetura M1, foi necessário utilizar o parâmetro `optflags="-Wno-error=implicit-function-declaration"`:
+Após a instalação do Ruby, instalamos a *gem* Bundler:
 
 ```sh
-optflags="-Wno-error=implicit-function-declaration" mise install
-```
-
-Após a instalação do Ruby, instalamos a versão 2.1.4 da *gem* Bundler:
-
-```sh
-gem install bundler:2.1.4
+gem install bundler
 ```
 
 E, finalmente, instalamos as demais *gems* necessárias ao projeto:
@@ -61,6 +55,8 @@ Depois que as configurações para conexão com a API da VTEX tiverem sido defin
 bin/rails info vtex:sync_orders
 ```
 
+> A task `info` (definida em `lib/tasks/debug.rake`) redireciona o log do Rails para o `stdout` no nível `info`. Ela é opcional e pode ser combinada com qualquer uma das rotinas abaixo para acompanhar o progresso da sincronização no terminal.
+
 Por padrão, a rotina irá sincronizar com a base de dados MySQL todos os pedidos das últimas 24 horas. É possível personalizar esse período através dos parâmetros `from` e `to`, conforme exemplo abaixo:
 
 ```sh
@@ -76,10 +72,40 @@ bin/rails info vtex:sync_1_week_ago
 bin/rails info vtex:sync_1_month_ago
 ```
 
+Para sincronizar todos os pedidos desde o último pedido já sincronizado (ou desde o início, caso a base esteja vazia):
+
+```sh
+bin/rails info vtex:full_sync
+```
+
 Também é possível sincronizar um único pedido. Basta executar:
 
 ```sh
 bin/rails info vtex:sync_order order_id="1379680932086-01"
+```
+
+## Re-sincronização
+
+A re-sincronização de pedidos segue um protocolo produtor/consumidor através da tabela `vtex_order_resync_requests`: primeiro os pedidos são marcados (abrindo uma requisição pendente por pedido) e, em seguida, enfileirados em lotes para processamento. A requisição só é concluída quando a sincronização do pedido tem sucesso.
+
+Para marcar pedidos para re-sincronização:
+
+```sh
+bin/rails vtex:mark_for_resync order_ids="1379680932086-01,456-01" reason="ajuste"
+```
+
+Para drenar as requisições pendentes para a fila de processamento, em lotes:
+
+```sh
+bin/rails vtex:enqueue_resync limit=500
+```
+
+## Enriquecimento de produtos
+
+Os produtos podem ser enriquecidos com atributos do catálogo da VTEX por SKU. Para enfileirar o enriquecimento:
+
+```sh
+bin/rails vtex:enrich_products limit=500   # ou all=true para todos os produtos
 ```
 
 ## Estrutura de dados
