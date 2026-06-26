@@ -8,6 +8,14 @@ module Vtex
       # Identifica este serviço no portão de cooldown compartilhado (ApiCooldown).
       COOLDOWN_KEY = 'vtex'.freeze
 
+      # Sob carga, a VTEX nem sempre responde 429: quando há requisições
+      # concorrentes demais numa instância, ela devolve 503 com um corpo de
+      # throttling (ex.: "MaxConcurrentRequestsByInstance"), identificado por
+      # este Content-Type. Tratamos isso como rate limit para reaproveitar o
+      # cooldown e o reagendamento. Como esse 503 não traz Retry-After, a espera
+      # cai no DEFAULT_RETRY_AFTER.
+      THROTTLING_CONTENT_TYPE = 'vtex.throttling'.freeze
+
       # Monta um cliente a partir da conta/credenciais configuradas.
       def self.build
         new(account_name: Rails.configuration.application.vtex[:account_name],
@@ -69,10 +77,20 @@ module Vtex
       end
 
       def parse_response(response)
-        raise_rate_limit_error(response) if response.status.too_many_requests?
+        raise_rate_limit_error(response) if rate_limited?(response)
         raise_http_request_error(response) unless response.status.ok?
         log_response(response)
         response.parse
+      end
+
+      # A VTEX nos limita de duas formas: o 429 clássico (rate por tempo) e o 503
+      # de throttling por concorrência. Ambos pedem o mesmo tratamento de recuo.
+      def rate_limited?(response)
+        response.status.too_many_requests? || throttled?(response)
+      end
+
+      def throttled?(response)
+        response.headers['Content-Type'].to_s.include?(THROTTLING_CONTENT_TYPE)
       end
 
       def log_response(response)

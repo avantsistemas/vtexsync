@@ -68,6 +68,26 @@ module Vtex
         assert_raises(HTTP::RequestError) { @client.get_order('123') }
       end
 
+      test 'treats a 503 throttling response as a rate limit and records a cooldown' do
+        respond_with(FakeResponse.new(
+                       code: 503,
+                       headers: { 'Content-Type' => 'application/vnd.vtex.throttling.v1+json; charset=utf-8' },
+                       body: '{"throttlingResult":"MaxConcurrentRequestsByInstance"}'
+                     ))
+
+        error = assert_raises(Vtex::Api::RateLimitError) { @client.get_order('123') }
+
+        assert_equal Vtex::Api::Client::DEFAULT_RETRY_AFTER, error.retry_after
+        assert ApiCooldown.cooling_down?(Vtex::Api::Client::COOLDOWN_KEY)
+      end
+
+      test 'does not treat a plain 503 without the throttling content-type as a rate limit' do
+        respond_with(FakeResponse.new(code: 503, headers: { 'Content-Type' => 'text/html' }))
+
+        assert_raises(HTTP::RequestError) { @client.get_order('123') }
+        assert_not ApiCooldown.cooling_down?(Vtex::Api::Client::COOLDOWN_KEY)
+      end
+
       test 'parses the body on a successful response' do
         respond_with(FakeResponse.new(code: 200, body: '{"orderId":"123"}'))
 
